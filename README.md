@@ -32,6 +32,9 @@ TBA
 
 There are five modules in the course and one project at the end. Each module is 1-2 lessons and homework. One lesson is 60-90 minutes long.
 
+This is a draft and will change. 
+
+
 ### Module 1: Processes
 
 * CRISP-DM, CRISP-ML
