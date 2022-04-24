@@ -35,6 +35,15 @@ There are five modules in the course and one project at the end. Each module is 
 This is a draft and will change. 
 
 
+### Module 0: Introduction
+
+* What is MLOps
+* Running example: NY Taxi trips dataset
+* Why do we need MLOps
+* Course overview
+* Environment preparation
+
+
 ### Module 1: Processes
 
 * CRISP-DM, CRISP-ML
