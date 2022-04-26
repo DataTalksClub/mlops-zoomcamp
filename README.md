@@ -157,4 +157,4 @@ Possible candidates:
 ## Other courses from DataTalks.Club:
 
 - [Machine Learning Zoomcamp - free 4-month course about ML Engineering](https://github.com/alexeygrigorev/mlbookcamp-code/tree/master/course-zoomcamp)
-- [Data Engineering Zoomcamp - free 10-week course about Data Engineering](https://github.com/DataTalksClub/data-engineering-zoomcamp/)
+- [Data Engineering Zoomcamp - free 9-week course about Data Engineering](https://github.com/DataTalksClub/data-engineering-zoomcamp/)
