@@ -2,7 +2,11 @@
 
 Our MLOps Zoomcamp course
 
-Register here: https://airtable.com/shrCb8y6eTbPKwSTL
+- Subscribe to updates here: https://airtable.com/shrCb8y6eTbPKwSTL
+- Register in [DataTalks.Club's Slack](https://datatalks.club/slack.html)
+- Join the [`#course-mlops-zoomcamp`](https://app.slack.com/client/T01ATQK62F8/C02R98X7DS9) channel
+- [Tweet about the course!](https://ctt.ac/fH67W)
+
 
 ## Overview
 
