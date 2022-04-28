@@ -28,7 +28,7 @@ Data scientists and ML engineers. Also software engineers and data engineers int
 
 ### Timeline
 
-TBA
+Course start: 16 of May
 
 
 
