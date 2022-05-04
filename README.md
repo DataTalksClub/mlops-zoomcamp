@@ -39,16 +39,17 @@ There are five modules in the course and one project at the end. Each module is 
 This is a draft and will change. 
 
 
-### Module 0: Introduction
+### Module 1: Introduction
 
 * What is MLOps
+* MLOps maturity model
 * Running example: NY Taxi trips dataset
 * Why do we need MLOps
 * Course overview
 * Environment preparation
 
 
-### Module 1: Processes
+### Module 2: Processes
 
 * CRISP-DM, CRISP-ML
 * ML Canvas
@@ -61,7 +62,7 @@ Instructors: Larysa Visengeriyeva
 2 hours 
 
 
-### Module 2: Training
+### Module 3: Training
 
 * Tracking experiments
 * MLFlow
@@ -77,7 +78,7 @@ Homework:
 * ? something with MLFlow perhaps as it’s easier to run locally
 
 
-### Module 3: Serving
+### Module 4: Serving
 
 * Batch vs online
 * For online: web services vs streaming
@@ -92,7 +93,7 @@ Homework:
 * Deploy a model with Spark (local mode) 
 
 
-### Module 4: Monitoring
+### Module 5: Monitoring
 
 * ML monitoring VS software monitoring 
 * Data quality monitoring
@@ -113,7 +114,7 @@ Other things:
 * Alerts
 
 
-### Module 5: Best practices
+### Module 6: Best practices
 
 * Devops
 * Virtual environments and Docker
