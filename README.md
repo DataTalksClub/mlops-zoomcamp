@@ -31,7 +31,6 @@ Data scientists and ML engineers. Also software engineers and data engineers int
 Course start: 16 of May
 
 
-
 ## Syllabus
 
 There are five modules in the course and one project at the end. Each module is 1-2 lessons and homework. One lesson is 60-90 minutes long.
@@ -47,6 +46,9 @@ This is a draft and will change.
 * Why do we need MLOps
 * Course overview
 * Environment preparation
+* Homework
+
+Instructors: Alexey Grigorev
 
 
 ### Module 2: Processes
@@ -59,38 +61,40 @@ This is a draft and will change.
 
 Instructors: Larysa Visengeriyeva
 
-2 hours 
-
 
 ### Module 3: Training
 
-* Tracking experiments
-* MLFlow
+#### Experiment tracking
+
+* Experiment tracking intro
+* Getting started with MLflow
+* Experiment tracking with MLflow
+* Saving and loading models with MLflow
 * Model registry
-* ML pipelines, TFX, Kubeflow Pipelines 
-* Scheduling pipelines (Airflow?)
-* Model testing
+* MLflow in practice
+* Homework
 
-Instructors: Cristian Martinez, Theofilos Papapanagiotou 
+Instructors: Cristian Martinez
 
-Homework:
+#### ML Pipelines
 
-* ? something with MLFlow perhaps as it’s easier to run locally
+* ML Pipelines: introduction
+* Kubeflow Pipelines
+* Turning a notebook into a pipeline
+
+Instructors: Theofilos Papapanagiotou 
 
 
 ### Module 4: Serving
 
 * Batch vs online
 * For online: web services vs streaming
-* Serving models with Kubeflow+Kubernetes (refer to ML Zoomcamp)
-* Serving models in Batch mode (AWS Batch, Spark)
+* Serving models in Batch mode
+* Web services
 * Streaming (Kinesis/SQS + AWS Lambda)
+* Homework
 
 Instructors: Alexey Grigorev
-
-Homework:
-
-* Deploy a model with Spark (local mode) 
 
 
 ### Module 5: Monitoring
@@ -99,19 +103,10 @@ Homework:
 * Data quality monitoring
 * Data drift / concept drift 
 * Batch VS real-time monitoring 
-* Tools: Evidently
-* Tools: Prometheus/Grafana
+* Tools: Evidently, Prometheus and Grafana
+* Homework 
 
 Instructors: Emeli Dral
-
-Homework:
-
-* ?
-
-Other things:
-
-* Data quality issues 
-* Alerts
 
 
 ### Module 6: Best practices
@@ -124,12 +119,10 @@ Other things:
 * Infrastructure as code (terraform, cloudformation)
 * Cookiecutter
 * Makefiles
+* Homework
 
-Instructors: Sejal Vaidya
+Instructors: Alexey Grigorev, Sejal Vaidya
 
-Homework:
-
-* ? 
 
 
 ### Project
