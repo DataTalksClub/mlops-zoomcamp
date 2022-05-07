@@ -189,7 +189,7 @@ No and yes. There will be two parts:
 
 ## Partners
 
-Thanks to other communities for spreading the word about the course
+Thanks to our friends for spreading the word about the course
 
 <p align="center">
   <a href="https://dphi.tech/">
