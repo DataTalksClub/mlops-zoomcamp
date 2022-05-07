@@ -177,4 +177,11 @@ Yes, we haven't automated it. You'll get a mail from us eventually, don't worry.
 If you want to make sure you don't miss anythign:
 
 * Register in [our Slack](https://datatalks.club/slack.html) and join the `#course-mlops-zoomcamp` channel
-* Subscribe to [our YouTube channel](https://youtube.com/c/datatalksclub)  
+* Subscribe to [our YouTube channel](https://youtube.com/c/datatalksclub)
+
+**Is it going to be live?**
+
+No and yes. There will be two parts:
+
+* Lectures: Pre-recorded, you can watch them when it's convenient for you. 
+* Office hours: Live on Mondays, but recorded, so you can watch later.
