@@ -168,3 +168,13 @@ If you have no previous experience with ML
 
 * Check [Module 1](https://github.com/alexeygrigorev/mlbookcamp-code/tree/master/course-zoomcamp/01-intro) from ML Zoomcamp for an overview
 * [Module 3](https://github.com/alexeygrigorev/mlbookcamp-code/tree/master/course-zoomcamp/03-classification) will also be helpful if you want to learn Scikit-Learn (we'll use it in this course)
+
+
+**I registered but haven't received an invite link. Is it normal?**
+
+Yes, we haven't automated it. You'll get a mail from us eventually, don't worry.
+
+If you want to make sure you don't miss anythign:
+
+* Register in [our Slack](https://datatalks.club/slack.html) and join the `#course-mlops-zoomcamp` channel
+* Subscribe to [our YouTube channel](https://youtube.com/c/datatalksclub)  
