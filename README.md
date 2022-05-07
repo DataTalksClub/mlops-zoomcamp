@@ -1,5 +1,12 @@
 # MLOps Zoomcamp
 
+<p align="center">
+  <a href="https://datatalks.club" target="_blank">
+    <img height="300" src="images/banner.png">
+  </a>
+</p>
+
+
 Our MLOps Zoomcamp course
 
 - Sign up here: https://airtable.com/shrCb8y6eTbPKwSTL (it's not automated, you will not receive an email immediately after filling in the form)
