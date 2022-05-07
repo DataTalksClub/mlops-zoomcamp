@@ -185,3 +185,14 @@ No and yes. There will be two parts:
 
 * Lectures: Pre-recorded, you can watch them when it's convenient for you. 
 * Office hours: Live on Mondays, but recorded, so you can watch later.
+
+
+## Partners
+
+Thanks to other communities for spreading the word about the course
+
+<p align="center">
+  <a href="https://dphi.tech/">
+    <img height="75" src="https://datatalks.club/images/partners/dphi.png">
+  </a>
+</p>
