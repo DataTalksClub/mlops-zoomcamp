@@ -2,7 +2,7 @@
 
 <p align="center">
   <a href="https://datatalks.club" target="_blank">
-    <img height="300" src="images/banner.png">
+    <img height="400" src="images/banner.png">
   </a>
 </p>
 
