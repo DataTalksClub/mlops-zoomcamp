@@ -32,7 +32,7 @@ Data scientists and ML engineers. Also software engineers and data engineers int
 * Docker
 * Being comfortable with command line 
 * Prior exposure to machine learning (at work or from other courses, e.g. from [ML Zoomcamp](https://github.com/alexeygrigorev/mlbookcamp-code/tree/master/course-zoomcamp))
-* Prior programming experience (1+ years of professional experience)
+* Prior programming experience (at least 1+ year)
 
 ### Timeline
 
