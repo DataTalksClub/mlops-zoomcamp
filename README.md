@@ -2,7 +2,7 @@
 
 <p align="center">
   <a href="https://datatalks.club" target="_blank">
-    <img height="300" src="images/banner.png">
+    <img height="400" src="images/banner.png">
   </a>
 </p>
 
@@ -58,21 +58,7 @@ This is a draft and will change.
 
 Instructors: Alexey Grigorev
 
-
-### Module 2: Processes
-
-* CRISP-DM, CRISP-ML
-* ML Canvas
-* Data Landscape canvas
-* (optional) [MLOps Stack Canvas](https://miro.com/miroverse/mlops-stack-canvas/)
-* Documentation practices in ML projects (Model Cards Toolkit)
-
-Instructors: Larysa Visengeriyeva
-
-
-### Module 3: Training
-
-#### Experiment tracking
+### Module 2: Experiment tracking
 
 * Experiment tracking intro
 * Getting started with MLflow
@@ -84,11 +70,14 @@ Instructors: Larysa Visengeriyeva
 
 Instructors: Cristian Martinez
 
-#### ML Pipelines
+
+### Module 3: Orchestration and ML Pipelines
 
 * ML Pipelines: introduction
-* Kubeflow Pipelines
+* Prefect
 * Turning a notebook into a pipeline
+* Kubeflow Pipelines
+* Homework 
 
 Instructors: Theofilos Papapanagiotou 
 
@@ -131,6 +120,16 @@ Instructors: Emeli Dral
 
 Instructors: Alexey Grigorev, Sejal Vaidya
 
+
+### Module 7: Processes
+
+* CRISP-DM, CRISP-ML
+* ML Canvas
+* Data Landscape canvas
+* [MLOps Stack Canvas](https://miro.com/miroverse/mlops-stack-canvas/)
+* Documentation practices in ML projects (Model Cards Toolkit)
+
+Instructors: Larysa Visengeriyeva
 
 
 ### Project
