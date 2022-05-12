@@ -13,7 +13,7 @@ Our MLOps Zoomcamp course
 - Register in [DataTalks.Club's Slack](https://datatalks.club/slack.html)
 - Join the [`#course-mlops-zoomcamp`](https://app.slack.com/client/T01ATQK62F8/C02R98X7DS9) channel
 - [Tweet about the course!](https://ctt.ac/fH67W)
-- Subscribe to the [public Google calendar](https://calendar.google.com/calendar/?cid=M3Jzbmg0ZDA2aHVsY2M1ZjcyNDJtODNyMTRAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ) (subscription works form desktop only)
+- Subscribe to the [public Google calendar](https://calendar.google.com/calendar/?cid=M3Jzbmg0ZDA2aHVsY2M1ZjcyNDJtODNyMTRAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ) (subscription works from desktop only)
 
 
 ## Overview
@@ -24,7 +24,7 @@ Teach practical aspects of productionizing ML services — from collecting requi
 
 ### Target audience
 
-Data scientists and ML engineers. Also software engineers and data engineers interested in learning about putting ML in production
+Data scientists and ML engineers. Also software engineers and data engineers interested in learning about putting ML in production.
 
 ### Pre-requisites
 
@@ -96,10 +96,10 @@ Instructors: Alexey Grigorev
 
 ### Module 5: Monitoring
 
-* ML monitoring VS software monitoring 
+* ML monitoring vs software monitoring 
 * Data quality monitoring
 * Data drift / concept drift 
-* Batch VS real-time monitoring 
+* Batch vs real-time monitoring 
 * Tools: Evidently, Prometheus and Grafana
 * Homework 
 
@@ -181,7 +181,7 @@ If you have no previous experience with ML
 
 Yes, we haven't automated it. You'll get a mail from us eventually, don't worry.
 
-If you want to make sure you don't miss anythign:
+If you want to make sure you don't miss anything:
 
 * Register in [our Slack](https://datatalks.club/slack.html) and join the `#course-mlops-zoomcamp` channel
 * Subscribe to [our YouTube channel](https://youtube.com/c/datatalksclub)
