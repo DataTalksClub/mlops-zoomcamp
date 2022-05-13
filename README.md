@@ -202,4 +202,7 @@ Thanks to our friends for spreading the word about the course
   <a href="https://dphi.tech/">
     <img height="75" src="https://datatalks.club/images/partners/dphi.png">
   </a>
+  <a href="https://www.confetti.ai/">
+    <img height="75" src="https://datatalks.club/images/partners/confetti.png">
+  </a>
 </p>
