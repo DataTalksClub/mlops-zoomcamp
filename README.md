@@ -192,7 +192,7 @@ If you want to make sure you don't miss anything:
 No and yes. There will be two parts:
 
 * Lectures: Pre-recorded, you can watch them when it's convenient for you. 
-* Office hours: Live on Mondays, but recorded, so you can watch later.
+* Office hours: Live on Mondays (17:00 CET), but recorded, so you can watch later.
 
 
 ## Partners
