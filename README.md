@@ -42,8 +42,6 @@ Course start: 16 of May
 
 ## Syllabus
 
-There are five modules in the course and one project at the end. Each module is 1-2 lessons and homework. One lesson is 60-90 minutes long.
-
 This is a draft and will change. 
 
 
