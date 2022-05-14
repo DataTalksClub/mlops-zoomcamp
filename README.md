@@ -83,7 +83,7 @@ Instructors: Cristian Martinez
 Instructors: Theofilos Papapanagiotou 
 
 
-### Module 4: Serving
+### Module 4: Model Deployment 
 
 * Batch vs online
 * For online: web services vs streaming
@@ -95,7 +95,7 @@ Instructors: Theofilos Papapanagiotou
 Instructors: Alexey Grigorev
 
 
-### Module 5: Monitoring
+### Module 5: Model Monitoring
 
 * ML monitoring vs software monitoring 
 * Data quality monitoring
@@ -107,7 +107,7 @@ Instructors: Alexey Grigorev
 Instructors: Emeli Dral
 
 
-### Module 6: Best practices
+### Module 6: Best Practices
 
 * Devops
 * Virtual environments and Docker
