@@ -137,10 +137,12 @@ Possible candidates:
 
 - Larysa Visengeriyeva
 - Cristian Martinez
+- Kevin Kho
 - Theofilos Papapanagiotou 
 - Alexey Grigorev
 - Emeli Dral
 - Sejal Vaidya
+
 
 ## Other courses from DataTalks.Club:
 
