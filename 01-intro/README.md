@@ -26,6 +26,10 @@ Add code (PRs are welcome)
 
 ## 1.3 (Optional) Training a ride duration prediction model
 
+**Note**: The NYC taxi data is now in parquet format, not CSV.
+Here's a [video](https://www.youtube.com/watch?v=r94QjpX9vSE&list=PL3MmuxUbc_hIUISrluw_A7wDSmfOhErJK) that explains how to 
+read parquet data.
+
 <a href="https://www.youtube.com/watch?v=iRunifGSHFc&list=PL3MmuxUbc_hIUISrluw_A7wDSmfOhErJK">
   <img src="images/thumbnail-1-03.jpg">
 </a>
