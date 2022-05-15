@@ -1,5 +1,7 @@
 # 1. Introduction
 
+Instructor: Alexey Grigorev
+
 ## 1.1 Introduction
 
 <a href="https://www.youtube.com/watch?v=s0uaFZSzwfI&list=PL3MmuxUbc_hIUISrluw_A7wDSmfOhErJK">

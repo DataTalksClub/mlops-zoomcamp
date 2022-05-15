@@ -45,7 +45,7 @@ Course start: 16 of May
 This is a draft and will change. 
 
 
-### Module 1: Introduction
+### [Module 1: Introduction](01-intro)
 
 * What is MLOps
 * MLOps maturity model
@@ -55,7 +55,7 @@ This is a draft and will change.
 * Environment preparation
 * Homework
 
-Instructors: Alexey Grigorev
+[More details](01-intro)
 
 ### Module 2: Experiment tracking
 
@@ -67,8 +67,6 @@ Instructors: Alexey Grigorev
 * MLflow in practice
 * Homework
 
-Instructors: Cristian Martinez
-
 
 ### Module 3: Orchestration and ML Pipelines
 
@@ -77,8 +75,6 @@ Instructors: Cristian Martinez
 * Turning a notebook into a pipeline
 * Kubeflow Pipelines
 * Homework 
-
-Instructors: Theofilos Papapanagiotou 
 
 
 ### Module 4: Model Deployment 
@@ -90,8 +86,6 @@ Instructors: Theofilos Papapanagiotou
 * Streaming (Kinesis/SQS + AWS Lambda)
 * Homework
 
-Instructors: Alexey Grigorev
-
 
 ### Module 5: Model Monitoring
 
@@ -101,8 +95,6 @@ Instructors: Alexey Grigorev
 * Batch vs real-time monitoring 
 * Tools: Evidently, Prometheus and Grafana
 * Homework 
-
-Instructors: Emeli Dral
 
 
 ### Module 6: Best Practices
@@ -117,8 +109,6 @@ Instructors: Emeli Dral
 * Makefiles
 * Homework
 
-Instructors: Alexey Grigorev, Sejal Vaidya
-
 
 ### Module 7: Processes
 
@@ -127,8 +117,6 @@ Instructors: Alexey Grigorev, Sejal Vaidya
 * Data Landscape canvas
 * [MLOps Stack Canvas](https://miro.com/miroverse/mlops-stack-canvas/)
 * Documentation practices in ML projects (Model Cards Toolkit)
-
-Instructors: Larysa Visengeriyeva
 
 
 ### Project
