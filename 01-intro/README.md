@@ -12,7 +12,9 @@ Instructor: Alexey Grigorev
 
 ## 1.2 Environment preparation
 
-Video: https://www.dropbox.com/s/72vm3lkgyunxqp8/Course%201.mp4?dl=0
+<a href="https://www.youtube.com/watch?v=IXSiYkP23zo&list=PL3MmuxUbc_hIUISrluw_A7wDSmfOhErJK">
+  <img src="images/thumbnail-1-02.jpg">
+</a>
 
 
 Code:
