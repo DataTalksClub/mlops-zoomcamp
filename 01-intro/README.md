@@ -22,10 +22,58 @@ for setting up your local environment.
 
 Code:
 
-```bash
-Add code (PRs are welcome)
+Recommended development environment: Linux
+
+### Step 1: Download and install the Anaconda distribution of Python
+```sh
+$ wget https://repo.anaconda.com/archive/Anaconda3-2022.05-Linux-x86_64.sh
+
 ```
 
+### Step 2: Update existing packages
+```sh
+$ sudo apt update
+```
+### Step 3: Install Docker
+```sh
+$ sudo apt install docker.io
+```
+
+### Step 4: Install Docker Compose
+
+4.1 Install docker-compose in a separate directory
+```sh
+$ mkdir soft
+$ cd soft
+```
+
+4.2 Get the latest release of Docker Compose, go to https://github.com/docker/compose and download the release for your OS.
+
+```sh
+$ wget https://github.com/docker/compose/releases/download/v2.5.0/docker-compose-linux-x86_64 -O docker-compose
+```
+4.3 Make it executable
+```sh
+$ chmod +x docker-compose
+```
+4.4 Add to path
+```sh
+$ nano .bashrc
+# In .bashrc, add:
+export PATH="${HOME}/soft:${PATH}"
+# Run
+$ source .bashrc
+```
+
+### [Optional] Run Docker without `sudo`
+```sh
+$ sudo groupadd docker
+$ sudo usermod -aG docker $USER
+```
+### Step 5: Run Docker
+```sh
+$ docker run hello-world
+```
 
 ## 1.3 (Optional) Training a ride duration prediction model
 
