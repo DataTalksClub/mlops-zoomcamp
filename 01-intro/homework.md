@@ -41,7 +41,7 @@ How many records did you drop?
 
 ## Q3. Missing values
 
-The features we'll user for our model are the pickup and dropoff location IDs. 
+The features we'll use for our model are the pickup and dropoff location IDs. 
 
 But they have a lot of missing values there. Let's replace them with "-1"
 
