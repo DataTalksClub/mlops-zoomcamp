@@ -12,6 +12,9 @@ Instructor: Alexey Grigorev
 
 ## 1.2 Environment preparation
 
+**Note**: You don't have to rent an instance in the cloud. You can follow the same instructions 
+for setting up your local environment. 
+
 <a href="https://www.youtube.com/watch?v=IXSiYkP23zo&list=PL3MmuxUbc_hIUISrluw_A7wDSmfOhErJK">
   <img src="images/thumbnail-1-02.jpg">
 </a>
