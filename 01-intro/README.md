@@ -70,5 +70,6 @@ More information here: [homework.md](homework.md)
 ## Notes
 
 Did you take notes? Add them here:
+- [MLOps Zoomcamp Notes: Intro & Environment Setup](https://github.com/balapriyac/DTC-MLOps-Zoomcamp/blob/main/week1/README.md)
 
 * Send a PR, add your notes above this line
