@@ -47,7 +47,7 @@ $ mkdir soft
 $ cd soft
 ```
 
-4.2 Get the latest release of Docker Compose, go to https://github.com/docker/compose and download the release for your OS.
+4.2 To get the latest release of Docker Compose, go to https://github.com/docker/compose and download the release for your OS.
 
 ```sh
 $ wget https://github.com/docker/compose/releases/download/v2.5.0/docker-compose-linux-x86_64 -O docker-compose
@@ -118,6 +118,6 @@ More information here: [homework.md](homework.md)
 ## Notes
 
 Did you take notes? Add them here:
-- [MLOps Zoomcamp Notes: Intro & Environment Setup](https://github.com/balapriyac/DTC-MLOps-Zoomcamp/blob/main/week1/README.md)
+- [Week 1 Notes: Intro & Environment Setup](https://github.com/balapriyac/DTC-MLOps-Zoomcamp/blob/main/week1/README.md)
 
 * Send a PR, add your notes above this line
