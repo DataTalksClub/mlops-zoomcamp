@@ -39,7 +39,7 @@ read parquet data.
 
 Links:
 
-* [Notebook](ride-duration.ipynb)
+* [Notebook](duration-duration.ipynb)
 
 
 ## 1.4 Course overview
