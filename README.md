@@ -15,6 +15,7 @@ Our MLOps Zoomcamp course
 - [Tweet about the course!](https://ctt.ac/fH67W)
 - Subscribe to the [public Google calendar](https://calendar.google.com/calendar/?cid=M3Jzbmg0ZDA2aHVsY2M1ZjcyNDJtODNyMTRAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ) (subscription works from desktop only)
 - [Youtube Playlist with all the videos](https://www.youtube.com/playlist?list=PL3MmuxUbc_hIUISrluw_A7wDSmfOhErJK)
+- [Technical FAQ](https://docs.google.com/document/d/12TlBfhIiKtyBv8RnsoJR6F72bkPDGEvPOItJIxaEzE0/edit) 
 
 
 ## Overview
@@ -42,12 +43,10 @@ Course start: 16 of May
 
 ## Syllabus
 
-There are five modules in the course and one project at the end. Each module is 1-2 lessons and homework. One lesson is 60-90 minutes long.
-
 This is a draft and will change. 
 
 
-### Module 1: Introduction
+### [Module 1: Introduction](01-intro)
 
 * What is MLOps
 * MLOps maturity model
@@ -57,7 +56,7 @@ This is a draft and will change.
 * Environment preparation
 * Homework
 
-Instructors: Alexey Grigorev
+[More details](01-intro)
 
 ### Module 2: Experiment tracking
 
@@ -69,8 +68,6 @@ Instructors: Alexey Grigorev
 * MLflow in practice
 * Homework
 
-Instructors: Cristian Martinez
-
 
 ### Module 3: Orchestration and ML Pipelines
 
@@ -80,10 +77,8 @@ Instructors: Cristian Martinez
 * Kubeflow Pipelines
 * Homework 
 
-Instructors: Theofilos Papapanagiotou 
 
-
-### Module 4: Serving
+### Module 4: Model Deployment 
 
 * Batch vs online
 * For online: web services vs streaming
@@ -92,10 +87,8 @@ Instructors: Theofilos Papapanagiotou
 * Streaming (Kinesis/SQS + AWS Lambda)
 * Homework
 
-Instructors: Alexey Grigorev
 
-
-### Module 5: Monitoring
+### Module 5: Model Monitoring
 
 * ML monitoring vs software monitoring 
 * Data quality monitoring
@@ -104,10 +97,8 @@ Instructors: Alexey Grigorev
 * Tools: Evidently, Prometheus and Grafana
 * Homework 
 
-Instructors: Emeli Dral
 
-
-### Module 6: Best practices
+### Module 6: Best Practices
 
 * Devops
 * Virtual environments and Docker
@@ -119,8 +110,6 @@ Instructors: Emeli Dral
 * Makefiles
 * Homework
 
-Instructors: Alexey Grigorev, Sejal Vaidya
-
 
 ### Module 7: Processes
 
@@ -129,8 +118,6 @@ Instructors: Alexey Grigorev, Sejal Vaidya
 * Data Landscape canvas
 * [MLOps Stack Canvas](https://miro.com/miroverse/mlops-stack-canvas/)
 * Documentation practices in ML projects (Model Cards Toolkit)
-
-Instructors: Larysa Visengeriyeva
 
 
 ### Project
@@ -151,10 +138,12 @@ Possible candidates:
 
 - Larysa Visengeriyeva
 - Cristian Martinez
+- Kevin Kho
 - Theofilos Papapanagiotou 
 - Alexey Grigorev
 - Emeli Dral
 - Sejal Vaidya
+
 
 ## Other courses from DataTalks.Club:
 
@@ -192,7 +181,7 @@ If you want to make sure you don't miss anything:
 No and yes. There will be two parts:
 
 * Lectures: Pre-recorded, you can watch them when it's convenient for you. 
-* Office hours: Live on Mondays, but recorded, so you can watch later.
+* Office hours: Live on Mondays (17:00 CET), but recorded, so you can watch later.
 
 
 ## Partners
