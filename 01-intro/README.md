@@ -70,5 +70,6 @@ More information here: [homework.md](homework.md)
 ## Notes
 
 Did you take notes? Add them here:
+* [Environment Setup,](https://github.com/ayoub-berdeddouch/mlops-journey/blob/main/intro-01.md) [Ayoub](https://github.com/ayoub-berdeddouch)
 
 * Send a PR, add your notes above this line
