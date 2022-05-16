@@ -1,0 +1,38 @@
+{
+  "module": {
+    "number": 1,
+    "title": "Introduction"
+  },
+  "units": [
+    {
+      "number": 1,
+      "title": "Introduction",
+      "youtube": "https://www.youtube.com/watch?v=s0uaFZSzwfI"
+    },
+    {
+      "number": 2,
+      "title": "Environment preparation",
+      "youtube": "https://www.youtube.com/watch?v=IXSiYkP23zo"
+    },
+    {
+      "number": 3,
+      "title": "(Optional) Training a ride duration prediction model",
+      "youtube": "https://www.youtube.com/watch?v=iRunifGSHFc"
+    },
+    {
+      "number": 4,
+      "title": "Course overview",
+      "youtube": "https://www.youtube.com/watch?v=teP9KWkP6SM"
+    },
+    {
+      "number": 5,
+      "title": "MLOps maturity model",
+      "youtube": "https://www.youtube.com/watch?v=XwTH8BDGzYk"
+    },
+    {
+      "number": 6,
+      "title": "Homework",
+      "youtube": ""
+    }
+  ]
+}
