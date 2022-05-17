@@ -93,6 +93,8 @@ sudo usermod -aG docker $USER
 docker run hello-world
 ```
 
+If you get `docker: Got permission denied while trying to connect to the Docker daemon socket at unix:///var/run/docker.sock: Post "http://%2Fvar%2Frun%2Fdocker.sock/v1.24/containers/create": dial unix /var/run/docker.sock: connect: permission denied.` error, restart your VM instance. 
+
 ## 1.3 (Optional) Training a ride duration prediction model
 
 **Note**: The NYC taxi data is now in parquet format, not CSV.
