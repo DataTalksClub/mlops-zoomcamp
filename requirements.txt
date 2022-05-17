@@ -1,0 +1,6 @@
+Flask==2.1.2
+matplotlib==3.5.2
+pandas==1.4.2
+requests==2.27.1
+scikit_learn==1.1.0
+seaborn==0.11.2
