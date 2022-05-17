@@ -56,6 +56,7 @@ What's the factions of missing values for the pickup location ID? (Or the fracti
 
 Let's apply one-hot encoding to the pickup and dropoff location IDs. We'll use only these two features for our model. 
 
+* Turn pickup and dropoff location IDs into string
 * Turn the dataframe into a list of dictionaries
 * Fit a dictionary vectorizer 
 * Get a feature matrix from it
