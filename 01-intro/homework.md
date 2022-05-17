@@ -89,10 +89,10 @@ Now let's apply this model to the validation dataset (Feb 2021).
 
 What's the RMSE on validation?
 
-* 7.85
-* 12.85
-* 17.85
-* 22.85
+* 6.01
+* 11.01
+* 16.01
+* 21.01
 
 ## Submit the results
 
