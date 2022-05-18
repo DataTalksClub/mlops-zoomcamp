@@ -45,7 +45,7 @@ The features we'll use for our model are the pickup and dropoff location IDs.
 
 But they have a lot of missing values there. Let's replace them with "-1".
 
-What's the factions of missing values for the pickup location ID? I.e. fraction of "-1"s after you filled the NAs.
+What's the fractions of missing values for the pickup location ID? I.e. fraction of "-1"s after you filled the NAs.
 
 * 53%
 * 63%
