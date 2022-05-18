@@ -6,9 +6,9 @@ The goal of this homework is to train a simple model for predicting the duration
 ## Q1. Downloading the data
 
 We'll use [the same NYC taxi dataset](https://www1.nyc.gov/site/tlc/about/tlc-trip-record-data.page),
-but instead of "Green Taxi Trip Records", we'll use "For-Hire Vehicle Trip Records" 
+but instead of "Green Taxi Trip Records", we'll use "For-Hire Vehicle Trip Records".
 
-Download the data for January and February 2021
+Download the data for January and February 2021.
 
 Note that you need "For-Hire Vehicle Trip Records", not "High Volume For-Hire Vehicle Trip Records".
 
@@ -33,7 +33,7 @@ What's the average trip duration in January?
 
 ## Data preparation
 
-Check the distribution of the duration variable. There are some outliners. 
+Check the distribution of the duration variable. There are some outliers. 
 
 Let's remove them and keep only the records where the duration was between 1 and 60 minutes (inclusive).
 
@@ -43,9 +43,9 @@ How many records did you drop?
 
 The features we'll use for our model are the pickup and dropoff location IDs. 
 
-But they have a lot of missing values there. Let's replace them with "-1"
+But they have a lot of missing values there. Let's replace them with "-1".
 
-What's the factions of missing values for the pickup location ID? (Or the fraction of "-1"s after you filled the NAs)
+What's the fractions of missing values for the pickup location ID? I.e. fraction of "-1"s after you filled the NAs.
 
 * 53%
 * 63%
@@ -60,7 +60,7 @@ Let's apply one-hot encoding to the pickup and dropoff location IDs. We'll use o
 * Fit a dictionary vectorizer 
 * Get a feature matrix from it
 
-What's the dimensionality of this matrix? (The number of columns)
+What's the dimensionality of this matrix? (The number of columns).
 
 * 2
 * 152
