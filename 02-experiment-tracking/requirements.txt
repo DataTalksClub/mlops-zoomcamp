@@ -5,3 +5,4 @@ pandas
 seaborn
 hyperopt
 xgboost
+fastparquet
