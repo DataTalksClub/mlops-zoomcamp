@@ -8,7 +8,8 @@ Instructor: Alexey Grigorev
   <img src="images/thumbnail-1-01.jpg">
 </a>
 
-**Note**: You should change permits on the downloaded file to protect your private key:
+**Note**: If you get `It is required that your private key files are NOT accessible by others. This private key will be ignored.` error, you should change permits on the downloaded file to protect your private key:
+
  ```sh
 chmod 400 name-of-your-private-key-file.pem
 ```
