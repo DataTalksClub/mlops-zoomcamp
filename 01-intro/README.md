@@ -140,5 +140,6 @@ More information here: [homework.md](homework.md)
 Did you take notes? Add them here:
 
 * [Environment Setup,](https://github.com/ayoub-berdeddouch/mlops-journey/blob/main/intro-01.md) [Ayoub](https://github.com/ayoub-berdeddouch)
-* [Week 1 Notes: Intro & Environment Setup](https://github.com/balapriyac/DTC-MLOps-Zoomcamp/blob/main/week1/README.md)
+* [Notes: Intro & Environment Setup, by Bala](https://github.com/balapriyac/DTC-MLOps-Zoomcamp/blob/main/week1/README.md)
+* [Notes: MLOps Maturity Models, by Bala](https://github.com/balapriyac/DTC-MLOps-Zoomcamp/blob/main/week1/MLOps-maturity-levels.md)
 * Send a PR, add your notes above this line
