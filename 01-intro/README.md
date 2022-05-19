@@ -47,51 +47,52 @@ sudo apt update
 sudo apt install docker.io
 ```
 
+To run docker without `sudo`:
+
+```sh
+sudo groupadd docker
+sudo usermod -aG docker $USER
+```
+
 ### Step 4: Install Docker Compose
 
-4.1 Install docker-compose in a separate directory
+Install docker-compose in a separate directory
 
 ```sh
 mkdir soft
 cd soft
 ```
 
-4.2 To get the latest release of Docker Compose, go to https://github.com/docker/compose and download the release for your OS.
+To get the latest release of Docker Compose, go to https://github.com/docker/compose and download the release for your OS.
 
 ```sh
 wget https://github.com/docker/compose/releases/download/v2.5.0/docker-compose-linux-x86_64 -O docker-compose
 ```
 
-4.3 Make it executable
+Make it executable
 
 ```sh
 chmod +x docker-compose
 ```
 
-4.4 Add to path
+Add to the `soft` directory to `PATH`. Open the `.bashrc` file with `nano`:
 
 ```sh
 nano .bashrc
 ```
 
-In .bashrc, add:
+In `.bashrc`, add the following line:
 
 ```bash
 export PATH="${HOME}/soft:${PATH}"
 ```
 
-Run
+Save it and run the following to make sure the changes are applied:
 
 ```bash
 source .bashrc
 ```
 
-### Run Docker without `sudo`
-
-```sh
-sudo groupadd docker
-sudo usermod -aG docker $USER
-```
 
 ### Step 5: Run Docker
 
@@ -100,6 +101,7 @@ docker run hello-world
 ```
 
 If you get `docker: Got permission denied while trying to connect to the Docker daemon socket at unix:///var/run/docker.sock: Post "http://%2Fvar%2Frun%2Fdocker.sock/v1.24/containers/create": dial unix /var/run/docker.sock: connect: permission denied.` error, restart your VM instance. 
+
 
 ## 1.3 (Optional) Training a ride duration prediction model
 
@@ -145,6 +147,6 @@ More information here: [homework.md](homework.md)
 
 Did you take notes? Add them here:
 
-* [Environment Setup,](https://github.com/ayoub-berdeddouch/mlops-journey/blob/main/intro-01.md) [Ayoub](https://github.com/ayoub-berdeddouch)
-* [Intro, Environment Setup, and MLOps Maturity Models, by Bala](https://github.com/balapriyac/DTC-MLOps-Zoomcamp/tree/main/week1)
+* [Environment Setup by Ayoub](https://github.com/ayoub-berdeddouch/mlops-journey/blob/main/intro-01.md)
+* [Intro, Environment Setup, and MLOps Maturity Models by Bala](https://github.com/balapriyac/DTC-MLOps-Zoomcamp/tree/main/week1)
 * Send a PR, add your notes above this line
