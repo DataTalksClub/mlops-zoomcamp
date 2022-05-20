@@ -1,7 +1,7 @@
 # MLOps Zoomcamp
 
 <p align="center">
-  <a href="https://datatalks.club" target="_blank">
+  <a href="https://www.youtube.com/watch?v=3T5kUA3eWWc&list=PL3MmuxUbc_hIUISrluw_A7wDSmfOhErJK" target="_blank">
     <img src="images/banner.png">
   </a>
 </p>
