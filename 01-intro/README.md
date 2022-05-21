@@ -78,7 +78,7 @@ chmod +x docker-compose
 Add to the `soft` directory to `PATH`. Open the `.bashrc` file with `nano`:
 
 ```sh
-nano .bashrc
+nano ~/.bashrc
 ```
 
 In `.bashrc`, add the following line:
