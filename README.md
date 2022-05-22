@@ -58,7 +58,7 @@ This is a draft and will change.
 
 [More details](01-intro)
 
-### Module 2: Experiment tracking
+### [Module 2: Experiment tracking and model management](02-experiment-tracking)
 
 * Experiment tracking intro
 * Getting started with MLflow
@@ -67,6 +67,8 @@ This is a draft and will change.
 * Model registry
 * MLflow in practice
 * Homework
+
+[More details](02-experiment-tracking)
 
 
 ### Module 3: Orchestration and ML Pipelines
