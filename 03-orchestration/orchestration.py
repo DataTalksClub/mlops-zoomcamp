@@ -176,4 +176,17 @@ def main_flow():
     train_model_search(train, valid, y_val)
     train_best_model(X_train, X_val, y_train, y_val, dv)
 
-main_flow()
+# main_flow()
+
+from prefect.deployments import DeploymentSpec
+from prefect.orion.schemas.schedules import IntervalSchedule
+from prefect.flow_runners import SubprocessFlowRunner
+from datetime import timedelta
+
+DeploymentSpec(
+    flow=main_flow,
+    name="model_training",
+    # schedule=IntervalSchedule(interval=timedelta(weeks=1)),
+    flow_runner=SubprocessFlowRunner(),
+    tags=["ml"],
+)
