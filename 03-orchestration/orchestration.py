@@ -160,12 +160,13 @@ def train_best_model(X_train, X_val, y_train, y_val, dv):
         mlflow.xgboost.log_model(booster, artifact_path="models_mlflow")
 
 @flow
-def main_flow():
+def main_flow(train_path: str = './data/green_tripdata_2021-01.parquet', 
+                val_path: str = './data/green_tripdata_2021-02.parquet'):
     mlflow.set_tracking_uri("sqlite:///mlflow.db")
     mlflow.set_experiment("nyc-taxi-experiment")
     # Load
-    df_train = read_dataframe('./data/green_tripdata_2021-01.parquet')
-    df_val = read_dataframe('./data/green_tripdata_2021-02.parquet')
+    df_train = read_dataframe(train_path)
+    df_val = read_dataframe(val_path)
 
     # Transform
     X_train, X_val, y_train, y_val, dv = add_features(df_train, df_val).result()
@@ -173,8 +174,8 @@ def main_flow():
     # Training
     train = xgb.DMatrix(X_train, label=y_train)
     valid = xgb.DMatrix(X_val, label=y_val)
-    train_model_search(train, valid, y_val)
-    train_best_model(X_train, X_val, y_train, y_val, dv)
+    best = train_model_search(train, valid, y_val)
+    train_best_model(X_train, X_val, y_train, y_val, dv, wait_for=best)
 
 # main_flow()
 
