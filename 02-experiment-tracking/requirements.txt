@@ -6,3 +6,4 @@ seaborn
 hyperopt
 xgboost
 fastparquet
+boto3
