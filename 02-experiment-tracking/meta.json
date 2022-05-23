@@ -1,0 +1,43 @@
+{
+  "module": {
+    "number": 2,
+    "title": "Experiment tracking and model management"
+  },
+  "units": [
+    {
+      "number": 1,
+      "title": "Experiment tracking intro",
+      "youtube": "https://www.youtube.com/watch?v=MiA7LQin9c8"
+    },
+    {
+      "number": 2,
+      "title": "Getting started with MLflow",
+      "youtube": "https://www.youtube.com/watch?v=cESCQE9J3ZE"
+    },
+    {
+      "number": 3,
+      "title": "Experiment tracking with MLflow",
+      "youtube": "https://www.youtube.com/watch?v=iaJz-T7VWec"
+    },
+    {
+      "number": 4,
+      "title": "Model management",
+      "youtube": "https://www.youtube.com/watch?v=OVUPIX88q88"
+    },
+    {
+      "number": 5,
+      "title": "Model registry",
+      "youtube": "https://www.youtube.com/watch?v=TKHU7HAvGH8"
+    },
+    {
+      "number": 6,
+      "title": "MLflow in practice",
+      "youtube": ""
+    },
+    {
+      "number": 7,
+      "title": "Homework",
+      "youtube": ""
+    }
+  ]
+}
