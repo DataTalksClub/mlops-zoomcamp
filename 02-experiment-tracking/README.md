@@ -1,5 +1,12 @@
 # 2. Experiment tracking and model management
 
+Note: in the videos, Cristian uses Jupyter in VS code and runs everything locally
+
+But if you set up a VM in the previous module, you can keep using it
+and use the usual Jupyter from your browser. There's no significant
+difference between using Jupyter with VS code and without
+
+
 ## 2.1 Experiment tracking intro
 
 <a href="https://www.youtube.com/watch?v=MiA7LQin9c8&list=PL3MmuxUbc_hIUISrluw_A7wDSmfOhErJK">
