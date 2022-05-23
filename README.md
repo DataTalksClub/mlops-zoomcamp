@@ -1,7 +1,7 @@
 # MLOps Zoomcamp
 
 <p align="center">
-  <a href="https://datatalks.club" target="_blank">
+  <a href="https://www.youtube.com/watch?v=3T5kUA3eWWc&list=PL3MmuxUbc_hIUISrluw_A7wDSmfOhErJK" target="_blank">
     <img src="images/banner.png">
   </a>
 </p>
@@ -14,7 +14,7 @@ Our MLOps Zoomcamp course
 - Join the [`#course-mlops-zoomcamp`](https://app.slack.com/client/T01ATQK62F8/C02R98X7DS9) channel
 - [Tweet about the course!](https://ctt.ac/fH67W)
 - Subscribe to the [public Google calendar](https://calendar.google.com/calendar/?cid=M3Jzbmg0ZDA2aHVsY2M1ZjcyNDJtODNyMTRAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ) (subscription works from desktop only)
-- [Youtube Playlist with all the videos](https://www.youtube.com/playlist?list=PL3MmuxUbc_hIUISrluw_A7wDSmfOhErJK)
+- Start watching course videos! [Course playlist](https://www.youtube.com/playlist?list=PL3MmuxUbc_hIUISrluw_A7wDSmfOhErJK)
 - [Technical FAQ](https://docs.google.com/document/d/12TlBfhIiKtyBv8RnsoJR6F72bkPDGEvPOItJIxaEzE0/edit) 
 
 
@@ -58,7 +58,7 @@ This is a draft and will change.
 
 [More details](01-intro)
 
-### Module 2: Experiment tracking
+### [Module 2: Experiment tracking and model management](02-experiment-tracking)
 
 * Experiment tracking intro
 * Getting started with MLflow
@@ -67,6 +67,8 @@ This is a draft and will change.
 * Model registry
 * MLflow in practice
 * Homework
+
+[More details](02-experiment-tracking)
 
 
 ### Module 3: Orchestration and ML Pipelines
@@ -184,7 +186,17 @@ No and yes. There will be two parts:
 * Office hours: Live on Mondays (17:00 CET), but recorded, so you can watch later.
 
 
-## Partners
+## Supporters and partners
+
+Thanks to the course sponsors for making it possible to create this course
+
+<p align="center">
+  <a href="https://www.prefect.io/">
+    <img height="100" src="images/prefect.png">
+  </a>
+</p>
+
+
 
 Thanks to our friends for spreading the word about the course
 
@@ -194,5 +206,11 @@ Thanks to our friends for spreading the word about the course
   </a>
   <a href="https://www.confetti.ai/">
     <img height="75" src="https://datatalks.club/images/partners/confetti.png">
+  </a>
+</p>
+
+<p align="center">
+  <a href="https://mlopsworld.com/">
+    <img height="75" src="images/mlops-world.png">
   </a>
 </p>
