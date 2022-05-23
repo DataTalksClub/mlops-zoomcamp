@@ -8,6 +8,11 @@ Instructor: Alexey Grigorev
   <img src="images/thumbnail-1-01.jpg">
 </a>
 
+**Note**: If you get `It is required that your private key files are NOT accessible by others. This private key will be ignored.` error, you should change permits on the downloaded file to protect your private key:
+
+ ```sh
+chmod 400 name-of-your-private-key-file.pem
+```
 
 
 ## 1.2 Environment preparation
@@ -27,6 +32,7 @@ Recommended development environment: Linux
 ### Step 1: Download and install the Anaconda distribution of Python
 ```sh
 wget https://repo.anaconda.com/archive/Anaconda3-2022.05-Linux-x86_64.sh
+bash Anaconda3-2022.05-Linux-x86_64.sh
 ```
 
 ### Step 2: Update existing packages
@@ -41,51 +47,52 @@ sudo apt update
 sudo apt install docker.io
 ```
 
+To run docker without `sudo`:
+
+```sh
+sudo groupadd docker
+sudo usermod -aG docker $USER
+```
+
 ### Step 4: Install Docker Compose
 
-4.1 Install docker-compose in a separate directory
+Install docker-compose in a separate directory
 
 ```sh
 mkdir soft
 cd soft
 ```
 
-4.2 To get the latest release of Docker Compose, go to https://github.com/docker/compose and download the release for your OS.
+To get the latest release of Docker Compose, go to https://github.com/docker/compose and download the release for your OS.
 
 ```sh
 wget https://github.com/docker/compose/releases/download/v2.5.0/docker-compose-linux-x86_64 -O docker-compose
 ```
 
-4.3 Make it executable
+Make it executable
 
 ```sh
 chmod +x docker-compose
 ```
 
-4.4 Add to path
+Add to the `soft` directory to `PATH`. Open the `.bashrc` file with `nano`:
 
 ```sh
-nano .bashrc
+nano ~/.bashrc
 ```
 
-In .bashrc, add:
+In `.bashrc`, add the following line:
 
 ```bash
 export PATH="${HOME}/soft:${PATH}"
 ```
 
-Run
+Save it and run the following to make sure the changes are applied:
 
 ```bash
 source .bashrc
 ```
 
-### Run Docker without `sudo`
-
-```sh
-sudo groupadd docker
-sudo usermod -aG docker $USER
-```
 
 ### Step 5: Run Docker
 
@@ -94,6 +101,7 @@ docker run hello-world
 ```
 
 If you get `docker: Got permission denied while trying to connect to the Docker daemon socket at unix:///var/run/docker.sock: Post "http://%2Fvar%2Frun%2Fdocker.sock/v1.24/containers/create": dial unix /var/run/docker.sock: connect: permission denied.` error, restart your VM instance. 
+
 
 ## 1.3 (Optional) Training a ride duration prediction model
 
@@ -139,6 +147,18 @@ More information here: [homework.md](homework.md)
 
 Did you take notes? Add them here:
 
-* [Environment Setup,](https://github.com/ayoub-berdeddouch/mlops-journey/blob/main/intro-01.md) [Ayoub](https://github.com/ayoub-berdeddouch)
-* [Week 1 Notes: Intro & Environment Setup](https://github.com/balapriyac/DTC-MLOps-Zoomcamp/blob/main/week1/README.md)
+* [Environment Setup by Ayoub](https://github.com/ayoub-berdeddouch/mlops-journey/blob/main/intro-01.md)
+* [Intro, Environment Setup, and MLOps Maturity Models by Bala](https://github.com/balapriyac/DTC-MLOps-Zoomcamp/tree/main/week1)
+* [GCP Environment Setup by Piyush](https://github.com/piyush-an/MLOps-ZoomCamp/blob/main/01-Introduction/infrastructure.md)
+* [Microsoft Azure Environment Setup by Olaide](https://github.com/josepholaide/MLOps-Practice/blob/main/Week%201/README.md)
+* [Environment Preparation using GCP and pyenv by Dani](https://github.com/syahrulhamdani/dtc-mlops/blob/main/week-1-introduction/README.md)
+* [Useful links by Zioalex](https://github.com/zioalex/mlops-zoomcamp/blob/main/My_notes_week1.md)
+* [Notes by Alvaro Navas](https://github.com/ziritrion/mlopszoomcamp/blob/main/notes/1_intro.md)
+  * [Environment setup on GCP (recycled from Data Engineering Zoomcamp)](https://gist.github.com/ziritrion/3214aa570e15ae09bf72c4587cb9d686)
+  * [Docker cheatsheet](https://gist.github.com/ziritrion/1842c8a4c4851602a8733bba19ab6050)
+  * [Conda cheatsheet](https://gist.github.com/ziritrion/8024025672ea92b8bdeb320d6015aa0d)
+  * [Git cheatsheet](https://gist.github.com/ziritrion/d73ca65bf4d19c79ca842a55853cb962)
+  * [Python and data libraries cheatseet](https://gist.github.com/ziritrion/9b80e47956adc0f20ecce209d494cd0a)
+* [Cloud server setup using Deploifai (on AWS, Azure, or GCP) by 98sean98](https://github.com/98sean98/mlops-zoomcamp/blob/main/01-intro/deploifai-server/readme.md)
+* [Notes from first lesson by Neimv](https://gitlab.com/neimv/mlops/-/blob/main/lessons_weeks/notes_1.md)
 * Send a PR, add your notes above this line
