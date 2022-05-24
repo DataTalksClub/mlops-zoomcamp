@@ -108,4 +108,6 @@ The deadline for submitting is 24 May 2022 (Tuesday) 23:00 CET. After that, the 
 
 ## Solution
 
+* [Video](https://www.youtube.com/watch?v=feH1PMLyu-Q&list=PL3MmuxUbc_hIUISrluw_A7wDSmfOhErJK&index=9)
+* [Notebook](homework.ipynb)
 The solution will be put here after the deadline.
