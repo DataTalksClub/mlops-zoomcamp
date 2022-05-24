@@ -124,3 +124,19 @@ What is the test RMSE of the best model?
 * 6.97
 * 7.71
 
+
+## Submit the results
+
+Submit your results here: TBA
+
+It's possible that your answers won't match exactly. If it's the case, select the closest one.
+
+
+## Deadline
+
+The deadline for submitting is 31 May 2022 (Tuesday) 17:00 CET. After that, the form will be closed.
+
+
+## Solution
+
+The solution will be put here after the deadline.
