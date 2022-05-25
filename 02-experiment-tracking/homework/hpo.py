@@ -20,8 +20,8 @@ def load_pickle(filename):
 
 def run(data_path, num_trials):
 
-    X_train, y_train = load_pickle(os.path.join(data_path, "X_train.pkl"))
-    X_valid, y_valid = load_pickle(os.path.join(data_path, "X_valid.pkl"))
+    X_train, y_train = load_pickle(os.path.join(data_path, "train.pkl"))
+    X_valid, y_valid = load_pickle(os.path.join(data_path, "valid.pkl"))
 
     def objective(params):
 
