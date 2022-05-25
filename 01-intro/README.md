@@ -164,4 +164,5 @@ Did you take notes? Add them here:
 * [Notes from first lesson by Neimv](https://gitlab.com/neimv/mlops/-/blob/main/lessons_weeks/notes_1.md)
 * [Notes for Week 1 by Ron Medina](https://particle1331.github.io/inefficient-networks/notebooks/mlops/1-intro.html)
 * [Notes by Francisco Delca (environment: local ubuntu + virtualvenv)](https://github.com/FDelca/mlops_datatalks_notes/blob/main/Week1/Week1-LearningNotes.ipynb)
+* [What is MLOps? - Non-technical intro by Lorenz](https://github.com/LoHertel/Road-to-MLOps/blob/main/01-primer/README.md)
 * Send a PR, add your notes above this line
