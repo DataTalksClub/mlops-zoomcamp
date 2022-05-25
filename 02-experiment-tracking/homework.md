@@ -56,12 +56,12 @@ Tip 1: don't forget to wrap the training code with a `with mlflow.start_run():` 
 
 Tip 2: don't modify the hyperparameters of the model to make sure that the training will finish quickly.
 
-How many parameters, metrics and tags are automatically logged by MLflow?
+How many parameters are automatically logged by MLflow?
 
-* 19, 11, 0
-* 17, 6, 2
-* 10, 3, 1
-* 20, 15, 2
+* 19
+* 17
+* 10
+* 20
 
 
 ## Q4. Launch the tracking server locally
@@ -100,12 +100,12 @@ The idea is to just log the information that you need to answer the question bel
 * the list of hyperparameters that are passed to the `objective` function during the optimization.
 * the RMSE obtained on the validation set (February 2021 data).
 
-What is the set of hyperparameters that resulted in the lowest validation RMSE?
+What's the best validation RMSE that you got?
 
-* `max_depth=1, min_samples_leaf=1, min_samples_split=2, n_estimators=10`
-* `max_depth=20, min_samples_leaf=4, min_samples_split=10, n_estimators=50`
-* `max_depth=11, min_samples_leaf=2, min_samples_split=3, n_estimators=23`
-* `max_depth=19, min_samples_leaf=3, min_samples_split=5, n_estimators=28`
+* 6.128
+* 6.628
+* 7.128
+* 7.628
 
 
 ## Q6. Promote the best model to the model registry
@@ -121,8 +121,8 @@ What is the test RMSE of the best model?
 
 * 6.1
 * 6.55
-* 6.97
-* 7.71
+* 7.93
+* 15.1
 
 
 ## Submit the results
