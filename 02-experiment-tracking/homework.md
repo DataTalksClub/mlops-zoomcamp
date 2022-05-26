@@ -20,7 +20,7 @@ We'll use the same dataset used in the videos of the 1st and 2nd module: "Green 
 
 Download the data for January, February and March 2021 in parquet format from [here](https://www1.nyc.gov/site/tlc/about/tlc-trip-record-data.page).
 
-Use the script `preprocess_data.py` located in the folder `homework` to preprocess the data.
+Use the script `preprocess_data.py` located in the folder [`homework`](https://github.com/DataTalksClub/mlops-zoomcamp/tree/main/02-experiment-tracking/homework) to preprocess the data.
 
 The script will
 
