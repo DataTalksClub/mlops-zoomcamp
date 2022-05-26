@@ -127,7 +127,7 @@ What is the test RMSE of the best model?
 
 ## Submit the results
 
-Submit your results here: TBA
+Submit your results here: https://forms.gle/9wXF5ntBA3FNe65L9
 
 It's possible that your answers won't match exactly. If it's the case, select the closest one.
 
