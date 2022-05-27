@@ -16,7 +16,7 @@ What's the version that you have?
 
 ## Q2. Download and preprocess the data
 
-We'll use the same dataset used in the videos of the 1st and 2nd module: "Green Taxi Trip Records".
+We'll use the Green Taxi Trip Records dataset. 
 
 Download the data for January, February and March 2021 in parquet format from [here](https://www1.nyc.gov/site/tlc/about/tlc-trip-record-data.page).
 
