@@ -46,7 +46,7 @@ How many files were saved to `OUTPUT_FOLDER`?
 
 ## Q3. Train a model with autolog
 
-We will train a random forest regressor on the taxi dataset.
+We will train a random forest regressor (from Scikit-Learn) on the taxi dataset.
 
 We have prepared the training script `train.py` for this exercise, which can be also found in the folder `homework`. The script will load the datasets produced by the previous step, train the model on the training set and finally calculate the RMSE on the validation set.
 
