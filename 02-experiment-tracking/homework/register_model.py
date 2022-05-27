@@ -82,6 +82,7 @@ if __name__ == '__main__':
     parser.add_argument(
         "--top_n",
         default=5,
+        type=int,
         help="the top 'top_n' models will be evaluated to decide which model to promote."
     )
     args = parser.parse_args()
