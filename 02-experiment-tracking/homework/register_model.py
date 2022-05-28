@@ -32,9 +32,9 @@ def load_pickle(filename):
 
 
 def train_and_log_model(data_path, params):
-    X_train, y_train = load_pickle(os.path.join(data_path, "X_train.pkl"))
-    X_valid, y_valid = load_pickle(os.path.join(data_path, "X_valid.pkl"))
-    X_test, y_test = load_pickle(os.path.join(data_path, "X_test.pkl"))
+    X_train, y_train = load_pickle(os.path.join(data_path, "train.pkl"))
+    X_valid, y_valid = load_pickle(os.path.join(data_path, "valid.pkl"))
+    X_test, y_test = load_pickle(os.path.join(data_path, "test.pkl"))
 
     with mlflow.start_run():
         params = space_eval(SPACE, params)
@@ -82,6 +82,7 @@ if __name__ == '__main__':
     parser.add_argument(
         "--top_n",
         default=5,
+        type=int,
         help="the top 'top_n' models will be evaluated to decide which model to promote."
     )
     args = parser.parse_args()
