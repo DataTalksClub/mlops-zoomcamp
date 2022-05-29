@@ -61,5 +61,6 @@ More information here: [homework.md](homework.md)
 
 Did you take notes? Add them here:
 * [Notes/General Docs on MLflow by Ayoub](https://gist.github.com/Qfl3x/ccff6b0708358c040e437d52af0c2e43)
+* [Minimalist MLflow code reference by Anna V](https://github.com/annnvv/mlops_zoomcamp/blob/main/notes/module2_notes_MLflow.md)
 
 * Send a PR, add your notes above this line
