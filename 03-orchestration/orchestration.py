@@ -53,36 +53,6 @@ def add_features(df_train, df_val):
     y_val = df_val[target].values
     return X_train, X_val, y_train, y_val, dv
 
-# def create_lr(X_train, X_val, y_train, y_val, dv):
-#     lr = LinearRegression()
-#     lr.fit(X_train, y_train)
-
-#     y_pred = lr.predict(X_val)
-
-#     mean_squared_error(y_val, y_pred, squared=False)
-
-#     with open('models/lin_reg.bin', 'wb') as f_out:
-#         pickle.dump((dv, lr), f_out)
-
-# def create_lasso(X_train, X_val, y_train, y_val):
-
-#     with mlflow.start_run():
-
-#         mlflow.set_tag("developer", "cristian")
-
-#         mlflow.log_param("train-data-path", "./data/green_tripdata_2021-01.parquet")
-#         mlflow.log_param("valid-data-path", "./data/green_tripdata_2021-02.parquet")
-
-#         alpha = 0.1
-#         mlflow.log_param("alpha", alpha)
-#         lr = Lasso(alpha)
-#         lr.fit(X_train, y_train)
-
-#         y_pred = lr.predict(X_val)
-#         rmse = mean_squared_error(y_val, y_pred, squared=False)
-#         mlflow.log_metric("rmse", rmse)
-
-#         mlflow.log_artifact(local_path="models/lin_reg.bin", artifact_path="models_pickle")
 
 @task
 def train_model_search(train, valid, y_val):
