@@ -1,7 +1,6 @@
 import argparse
 import os
 import pickle
-
 import pandas as pd
 from sklearn.feature_extraction import DictVectorizer
 
