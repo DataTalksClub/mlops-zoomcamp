@@ -65,10 +65,17 @@ def run(data_path, log_top):
 
     # select the model with the lowest test RMSE
     experiment = client.get_experiment_by_name(EXPERIMENT_NAME)
-    # best_run = client.search_runs( ...  )[0]
+    best_run = client.search_runs(
+        experiment_ids=experiment.experiment_id,
+        run_view_type=ViewType.ACTIVE_ONLY,
+        max_results=log_top,
+        order_by=["metrics.rmse ASC"]
+    )[0]
 
     # register the best model
-    # mlflow.register_model( ... )
+    run_id = best_run.info.run_id
+    model_uri = f"runs:/{run_id}/models"
+    mlflow.register_model(model_uri=model_uri, name=EXPERIMENT_NAME)
 
 
 if __name__ == '__main__':
