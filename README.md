@@ -16,6 +16,8 @@ Our MLOps Zoomcamp course
 - Subscribe to the [public Google calendar](https://calendar.google.com/calendar/?cid=M3Jzbmg0ZDA2aHVsY2M1ZjcyNDJtODNyMTRAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ) (subscription works from desktop only)
 - Start watching course videos! [Course playlist](https://www.youtube.com/playlist?list=PL3MmuxUbc_hIUISrluw_A7wDSmfOhErJK)
 - [Technical FAQ](https://docs.google.com/document/d/12TlBfhIiKtyBv8RnsoJR6F72bkPDGEvPOItJIxaEzE0/edit) 
+- For announcements, join our [Telegram channel](https://t.me/dtc_courses)
+- [Leaderboard](https://docs.google.com/spreadsheets/d/e/2PACX-1vRhinTR4Gpxcud-xX0cPBVqboO8RE5gFY7W2dfgfhzECuPFOaCoo9TVWUTxxrSmzvbZY0D-N1vai8RN/pubhtml)
 
 
 ## Overview
@@ -41,6 +43,15 @@ Data scientists and ML engineers. Also software engineers and data engineers int
 Course start: 16 of May
 
 
+### Asking for help in Slack
+
+The best way to get support is to use [DataTalks.Club's Slack](https://datatalks.club/slack.html). Join the [`#course-mlops-zoomcamp`](https://app.slack.com/client/T01ATQK62F8/C02R98X7DS9) channel.
+
+To make discussions in Slack more organized:
+
+* Follow [these recommendations](asking-questions.md) when asking for help
+* Read the [DataTalks.Club community guidelines](https://datatalks.club/slack/guidelines.html)
+
 ## Syllabus
 
 This is a draft and will change. 
@@ -58,7 +69,7 @@ This is a draft and will change.
 
 [More details](01-intro)
 
-### Module 2: Experiment tracking
+### [Module 2: Experiment tracking and model management](02-experiment-tracking)
 
 * Experiment tracking intro
 * Getting started with MLflow
@@ -67,6 +78,8 @@ This is a draft and will change.
 * Model registry
 * MLflow in practice
 * Homework
+
+[More details](02-experiment-tracking)
 
 
 ### Module 3: Orchestration and ML Pipelines
