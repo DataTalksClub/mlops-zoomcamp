@@ -82,13 +82,15 @@ This is a draft and will change.
 [More details](02-experiment-tracking)
 
 
-### Module 3: Orchestration and ML Pipelines
+### [Module 3: Orchestration and ML Pipelines](03-orchestration)
 
-* ML Pipelines: introduction
-* Prefect
+* Workflow orchestration
+* Prefect 2.0
 * Turning a notebook into a pipeline
-* Kubeflow Pipelines
-* Homework 
+* Deployment of Prefect flow
+* Homework
+
+[More details](03-orchestration)
 
 
 ### Module 4: Model Deployment 
