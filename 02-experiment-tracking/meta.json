@@ -32,10 +32,15 @@
     {
       "number": 6,
       "title": "MLflow in practice",
-      "youtube": ""
+      "youtube": "https://www.youtube.com/watch?v=1ykg4YmbFVA"
     },
     {
       "number": 7,
+      "title": "MLflow: benefits, limitations and alternatives",
+      "youtube": "https://www.youtube.com/watch?v=Lugy1JPsBRY"
+    },
+    {
+      "number": 8,
       "title": "Homework",
       "youtube": ""
     }
