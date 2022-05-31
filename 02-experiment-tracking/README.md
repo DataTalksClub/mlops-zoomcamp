@@ -1,6 +1,9 @@
 # 2. Experiment tracking and model management
 
 
+* [Slides](https://drive.google.com/file/d/1YtkAtOQS3wvY7yts_nosVlXrLQBq5q37/view?usp=sharing)
+
+
 ## 2.1 Experiment tracking intro
 
 <a href="https://www.youtube.com/watch?v=MiA7LQin9c8&list=PL3MmuxUbc_hIUISrluw_A7wDSmfOhErJK">
