@@ -137,7 +137,7 @@ def train_best_model(train, valid, y_val, dv):
         mlflow.xgboost.log_model(booster, artifact_path="models_mlflow")
 
 
-@flow(task_runner=SequentialTaskRunner())
+@flow#(task_runner=SequentialTaskRunner())
 def main(train_path: str="../data/green01.parquet",
         val_path: str="../data/green02.parquet"):
     mlflow.set_tracking_uri("sqlite:///mlflow.db")
