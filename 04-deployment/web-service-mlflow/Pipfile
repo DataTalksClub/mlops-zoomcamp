@@ -4,11 +4,14 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
+scikit-learn = "==1.0.2"
 flask = "*"
 gunicorn = "*"
-scikit-learn = "==1.0.2"
+mlflow = "*"
+boto3 = "*"
 
 [dev-packages]
+requests = "*"
 
 [requires]
 python_version = "3.9"
