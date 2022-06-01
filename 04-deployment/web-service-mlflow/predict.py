@@ -2,13 +2,7 @@ import os
 import pickle
 
 import mlflow
-from mlflow.tracking import MlflowClient
-
 from flask import Flask, request, jsonify
-
-
-# MLFLOW_TRACKING_URI = 'http://127.0.0.1:5000'
-# mlflow.set_tracking_uri(MLFLOW_TRACKING_URI)
 
 
 RUN_ID = os.getenv('RUN_ID')
