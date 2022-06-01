@@ -1,0 +1,38 @@
+{
+  "module": {
+    "number": 3,
+    "title": "Orchestration and ML Pipelines"
+  },
+  "units": [
+    {
+      "number": 1,
+      "title": "Negative engineering and workflow orchestration",
+      "youtube": "https://www.youtube.com/watch?v=eKzCjNXoCTc"
+    },
+    {
+      "number": 2,
+      "title": "Introduction to Prefect 2.0",
+      "youtube": "https://www.youtube.com/watch?v=Yb6NJwI7bXw"
+    },
+    {
+      "number": 3,
+      "title": "First Prefect flow and basics",
+      "youtube": "https://www.youtube.com/watch?v=MCFpURG506w"
+    },
+    {
+      "number": 4,
+      "title": "Remote Prefect Orion deployment",
+      "youtube": "https://www.youtube.com/watch?v=ComkSIAB0k4"
+    },
+    {
+      "number": 5,
+      "title": "Deployment of Prefect flow",
+      "youtube": "https://www.youtube.com/watch?v=xw9JfaWPPps"
+    },
+    {
+      "number": 6,
+      "title": "Homework",
+      "youtube": ""
+    }
+  ]
+}

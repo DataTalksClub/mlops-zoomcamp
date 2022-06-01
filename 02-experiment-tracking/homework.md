@@ -134,7 +134,7 @@ It's possible that your answers won't match exactly. If it's the case, select th
 
 ## Deadline
 
-The deadline for submitting is 31 May 2022 (Tuesday) at 17:00 CET. After that, the form will be closed.
+The deadline for submitting is 2 June 2022 (Thursday) at 23:00 CEST. After that, the form will be closed.
 
 
 ## Solution

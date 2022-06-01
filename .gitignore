@@ -5,3 +5,4 @@ output/
 mlflow.db
 mlruns/
 artifacts/
+*.db
