@@ -75,4 +75,5 @@ Did you take notes? Add them here:
 * [Minimalist MLflow code reference by Anna V](https://github.com/annnvv/mlops_zoomcamp/blob/main/notes/module2_notes_MLflow.md)
 * [Notes from second lesson by Neimv](https://gitlab.com/neimv/mlops/-/blob/main/lessons_weeks/notes_2.md)
 * [2nd Week Experiment & Tracking notes by Ayoub.B](https://github.com/ayoub-berdeddouch/mlops-journey/blob/main/experiment_tracking_02.md)
+* [Notes on Experiment Tracking with MLflow (Jupyter Book) by particle1331](https://particle1331.github.io/inefficient-networks/notebooks/mlops/2-mlflow/2-mlflow.html)
 * Send a PR, add your notes above this line
