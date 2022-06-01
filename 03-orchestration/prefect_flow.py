@@ -3,7 +3,7 @@ import pandas as pd
 import pickle
 
 from sklearn.feature_extraction import DictVectorizer
-from sklearn.linear_model import LinearRegression, Lasso, Ridge
+# from sklearn.linear_model import LinearRegression, Lasso, Ridge
 from sklearn.metrics import mean_squared_error
 
 import xgboost as xgb
@@ -15,6 +15,7 @@ import mlflow
 
 from prefect import flow, task
 from prefect.task_runners import SequentialTaskRunner
+
 
 @task
 def read_dataframe(filename):
@@ -32,6 +33,7 @@ def read_dataframe(filename):
     df[categorical] = df[categorical].astype(str)
     
     return df
+
 
 @task
 def add_features(df_train, df_val):
@@ -61,6 +63,7 @@ def add_features(df_train, df_val):
 
     return X_train, X_val, y_train, y_val, dv
 
+
 @task
 def train_model_search(train, valid, y_val):
     def objective(params):
@@ -70,7 +73,7 @@ def train_model_search(train, valid, y_val):
             booster = xgb.train(
                 params=params,
                 dtrain=train,
-                num_boost_round=100,
+                num_boost_round = 100,
                 evals=[(valid, 'validation')],
                 early_stopping_rounds=50
             )
@@ -118,7 +121,7 @@ def train_best_model(train, valid, y_val, dv):
         booster = xgb.train(
             params=best_params,
             dtrain=train,
-            num_boost_round=100,
+            num_boost_round = 100,
             evals=[(valid, 'validation')],
             early_stopping_rounds=50
         )
@@ -127,15 +130,16 @@ def train_best_model(train, valid, y_val, dv):
         rmse = mean_squared_error(y_val, y_pred, squared=False)
         mlflow.log_metric("rmse", rmse)
 
-        with open("models/preprocessor.b", "wb") as f_out:
+        with open("../models/preprocessor.b", "wb") as f_out:
             pickle.dump(dv, f_out)
-        mlflow.log_artifact("models/preprocessor.b", artifact_path="preprocessor")
+        mlflow.log_artifact("../models/preprocessor.b", artifact_path="preprocessor")
 
         mlflow.xgboost.log_model(booster, artifact_path="models_mlflow")
 
+
 @flow(task_runner=SequentialTaskRunner())
-def main(train_path: str="./data/green_tripdata_2021-01.parquet",
-        val_path: str="./data/green_tripdata_2021-02.parquet"):
+def main(train_path: str="../data/green01.parquet",
+        val_path: str="../data/green02.parquet"):
     mlflow.set_tracking_uri("sqlite:///mlflow.db")
     mlflow.set_experiment("nyc-taxi-experiment")
     X_train = read_dataframe(train_path)
@@ -145,3 +149,6 @@ def main(train_path: str="./data/green_tripdata_2021-01.parquet",
     valid = xgb.DMatrix(X_val, label=y_val)
     train_model_search(train, valid, y_val)
     train_best_model(train, valid, y_val, dv)
+
+
+main()
