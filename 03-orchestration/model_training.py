@@ -3,7 +3,7 @@ import pandas as pd
 import pickle
 
 from sklearn.feature_extraction import DictVectorizer
-from sklearn.linear_model import LinearRegression, Lasso, Ridge
+# from sklearn.linear_model import LinearRegression, Lasso, Ridge
 from sklearn.metrics import mean_squared_error
 
 import xgboost as xgb
@@ -32,8 +32,8 @@ def read_dataframe(filename):
     
     return df
 
-def add_features(train_path="./data/green_tripdata_2021-01.parquet",
-                 val_path="./data/green_tripdata_2021-02.parquet"):
+def add_features(train_path="../data/green01.parquet",
+                 val_path="../data/green02.parquet"):
     df_train = read_dataframe(train_path)
     df_val = read_dataframe(val_path)
 
@@ -98,7 +98,7 @@ def train_model_search(train, valid, y_val):
             booster = xgb.train(
                 params=params,
                 dtrain=train,
-                num_boost_round=1000,
+                num_boost_round = 500,
                 evals=[(valid, 'validation')],
                 early_stopping_rounds=50
             )
@@ -122,7 +122,7 @@ def train_model_search(train, valid, y_val):
         fn=objective,
         space=search_space,
         algo=tpe.suggest,
-        max_evals=1,
+        max_evals = 1,
         trials=Trials()
     )
     return
@@ -148,7 +148,7 @@ def train_best_model(train, valid, y_val, dv):
         booster = xgb.train(
             params=best_params,
             dtrain=train,
-            num_boost_round=1000,
+            num_boost_round = 500,
             evals=[(valid, 'validation')],
             early_stopping_rounds=50
         )
@@ -157,9 +157,9 @@ def train_best_model(train, valid, y_val, dv):
         rmse = mean_squared_error(y_val, y_pred, squared=False)
         mlflow.log_metric("rmse", rmse)
 
-        with open("models/preprocessor.b", "wb") as f_out:
+        with open("../models/preprocessor.b", "wb") as f_out:
             pickle.dump(dv, f_out)
-        mlflow.log_artifact("models/preprocessor.b", artifact_path="preprocessor")
+        mlflow.log_artifact("../models/preprocessor.b", artifact_path="preprocessor")
 
         mlflow.xgboost.log_model(booster, artifact_path="models_mlflow")
 
