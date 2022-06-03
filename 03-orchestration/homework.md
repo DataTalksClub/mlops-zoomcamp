@@ -74,19 +74,25 @@ When the code is already working, we'll create a deployment and register it with
 
 How many different storage options are there? (Note the count starts from 0)
 
-## Q4. What is the default timezone for a deployment?
+## Q4. What is the default anchor_date for a deployment?
 
 Create a deployment with `prefect deployment create`. This should generate a deployment similar to “flow_name/deployment_name”. Set the schedule to run at some interval and use the `SubprocessFlowRunner`. These are also seen in the video tutorials.
 
 Run `prefect deployment inspect ‘flow_name/deployment_name’` to see the metadata of the Flow.
 
-What is the timezone listed under the schedule?
+What is the anchor_date listed under the schedule?
+
+- 1970-01-01T00:00:00+00:00
+- 2019-01-01T00:00:00+00:00
+- 2020-01-01T00:00:00+00:00
+- 2022-01-01T00:00:00+00:00
+
 
 ## Q5. How many flow runs does Prefect schedule in advanced?
 
 View the deployment in the UI. When first loading, we may not see that many flows because the default filter is 1 day back and 1 day forward. Remove the filter for 1 day forward to see the scheduled runs.
 
-How many flow runs are scheduled by Prefect in advanced?
+How many flow runs are scheduled by Prefect in advanced? You should not be counting manually. There is a number of upcoming runs on the top right of the dashboard.
 
 - 10
 - 20
@@ -94,8 +100,15 @@ How many flow runs are scheduled by Prefect in advanced?
 - 75
 - 100
 
-## Q6. What is the work-queue id of the work-queue you created?
+## Q6.Find the right command to view all work-queues
 
-Create a work queue and agent to pick up the flows.
+For all CLI commands with Prefect, you can use `--help` to get more information.
 
-What is the work-queue id of the new work-queue you created?
+For example,
+* prefect --help
+* prefect work-queue --help
+
+* prefect work-queue inspect
+* prefect work-queue ls
+* prefect work-queue preview
+* prefect work-queue list
