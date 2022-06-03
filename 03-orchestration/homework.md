@@ -46,7 +46,7 @@ What is the name of the current profile?
 
 Prefect lets you have multiple profiles to easily switch between Cloud, local, or even multiple Orion instances. For more information, you can check the following [link](https://orion-docs.prefect.io/concepts/settings/#configuration-profiles)
 
-## Q2. What is the default IP Address for the Orion UI?
+## Q2. Share a screen shot of the radar plot you made
 
 Create a python file with 5 tasks and add them to a flow called main:
 
@@ -56,15 +56,17 @@ Create a python file with 5 tasks and add them to a flow called main:
 * train_final_model
 * test_final_model
 
-You can use the local Orion instance for testing (no need to SSH in the VM). After creating this code, you can run:
+Take time as well to parameterize main to specify the path of the training and test data.
+
+You can use the local Orion instance for testing. You can also SSH to a VM if you prefer After creating this code, you can run:
 
 ```
 prefect orion start
 ```
 
-as seen in the tutorials. What is the default local address?
-
 You should be able to see previous Flow runs and the most recent successful runs. Navigate to any of them. Take time to explore the UI.
+
+Share a screen shot of the radar plot. There should be 5 tasks there. You can upload this to Github and submit a URL of an image. We will view the links.
 
 ## Q3. How many different storage options are there?
 
