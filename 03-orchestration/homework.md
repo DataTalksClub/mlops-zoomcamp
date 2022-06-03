@@ -74,6 +74,11 @@ When the code is already working, we'll create a deployment and register it with
 
 How many different storage options are there? (Note the count starts from 0)
 
+* 3
+* 6
+* 9
+* 12
+
 ## Q4. What is the default anchor_date for a deployment?
 
 Create a deployment with `prefect deployment create`. This should generate a deployment similar to “flow_name/deployment_name”. Set the schedule to run at some interval and use the `SubprocessFlowRunner`. These are also seen in the video tutorials.
@@ -82,10 +87,10 @@ Run `prefect deployment inspect ‘flow_name/deployment_name’` to see the meta
 
 What is the anchor_date listed under the schedule?
 
-- 1970-01-01T00:00:00+00:00
-- 2019-01-01T00:00:00+00:00
-- 2020-01-01T00:00:00+00:00
-- 2022-01-01T00:00:00+00:00
+* 1970-01-01T00:00:00+00:00
+* 2019-01-01T00:00:00+00:00
+* 2020-01-01T00:00:00+00:00
+* 2022-01-01T00:00:00+00:00
 
 
 ## Q5. How many flow runs does Prefect schedule in advanced?
@@ -94,11 +99,11 @@ View the deployment in the UI. When first loading, we may not see that many flow
 
 How many flow runs are scheduled by Prefect in advanced? You should not be counting manually. There is a number of upcoming runs on the top right of the dashboard.
 
-- 10
-- 20
-- 50
-- 75
-- 100
+* 10
+* 20
+* 50
+* 75
+* 100
 
 ## Q6.Find the right command to view all work-queues
 
