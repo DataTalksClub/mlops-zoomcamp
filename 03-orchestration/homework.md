@@ -56,7 +56,7 @@ Create a python file with 5 tasks and add them to a flow called main:
 * train_final_model
 * test_final_model
 
-Take time as well to parameterize main to specify the path of the training and test data.
+Take time as well to parameterize `main` to specify the path of the training and test data.
 
 You can use the local Orion instance for testing. You can also SSH to a VM if you prefer After creating this code, you can run:
 
@@ -80,7 +80,7 @@ Create a deployment with `prefect deployment create`. This should generate a dep
 
 Run `prefect deployment inspect ‘flow_name/deployment_name’` to see the metadata of the Flow.
 
-What is the timezone listed?
+What is the timezone listed under the schedule?
 
 ## Q5. How many flow runs does Prefect schedule in advanced?
 
