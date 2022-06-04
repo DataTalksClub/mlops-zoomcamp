@@ -125,12 +125,12 @@ The valition MSE is:
 
 ## Q3. Saving the model and artifacts
 
-At the moment, we are not saving the model and vectorizer for future use. Create a task called `save_model` to save these. The requirements for filenames to save it as were mentioned in the Motivation section. They are pasted again here:
+At the moment, we are not saving the model and vectorizer for future use. You don't need a new task for this, you can just add it inside the `flow`. The requirements for filenames to save it as were mentioned in the Motivation section. They are pasted again here:
 
 * Save the model as "model-{date}.pkl" where date is in `YYYY-MM-DD`. Note that `date` here is the value of the flow `parameter`. In practice, this setup makes it very easy to get the latest model to run predictions because you just need to get the most recent one.
 * In this example we use a DictVectorizer. That is needed to run future data through our model. Save that as "dv-{date}.pkl". Similar to above, if the date is `2021-03-15`, the files output should be `model-2021-03-15.bin` and `dv-2021-03-15.b`.
 
-During inference, we can just pull the latest model from our model directory and apply it. Assuming we already had a list of filenames:
+By using this file name, during inference, we can just pull the latest model from our model directory and apply it. Assuming we already had a list of filenames:
 
 ```
 ['model-2021-03-15.bin', 'model-2021-04-15.bin', 'model-2021-05-15.bin']
@@ -138,44 +138,44 @@ During inference, we can just pull the latest model from our model directory and
 
 We could do something like `sorted(model_list, reverse=False)[0]` to get the filename of the latest file. This is the simplest way to consistently use the latest trained model for inference. Tools like MLFlow give us more control logic to use flows.
 
-You can bring up the Orion UI and see the work you've been doing. If you are using local Orion, you can do:
+What is the file size of the `DictVectorizer` that we trained when the `date` is 2021-08-15?
+
+* 15,600 bytes 
+* 16,600 bytes 
+* 17,600 bytes 
+* 18,600 bytes 
+
+You can bring up the Orion UI and see the work you've been doing. If you are using local Orion, you can start the server with:
 
 ```
 prefect orion start
 ```
 
-You should be able to see previous Flow runs and the most recent successful runs. Navigate to any of them. Take time to explore the UI.
+You should be able to see previous Flow runs and the most recent successful runs. Navigate to some of them. Take time to explore the UI. The radar plot would be a good thing to share on social media if you participate in those posts.
 
-The radar plot would be a good thing to share on social media if you participate in those posts.
+## Q4. Creating a deployment with a CronSchedule
 
-## Q3. How many different storage options are there?
+We previously showed the `IntervalSchedule` in the video tutorials. In some cases, the interval is too rigid. For example, what if we wanted to run this `flow` on the 15th of every month? An interval of 30 days would not be in sync. In cases like these, the `CronSchedule` is more appropriate. The documentation for that is [here](https://orion-docs.prefect.io/concepts/schedules/#cronschedule)
 
-When the code is already working, we'll create a deployment and register it with Orion. In order to do this, we need to create storage. This was covered in the videos.
+Cron is an important part of workflow orchestration. It is used to schedule tasks, and was a predecessor for more mature orchestration frameworks. A lot of teams still use Cron in production. Even if you don't use Cron, the Cron expression is very common as a way to write a schedule, and the basics are worth learning for orchestration, even outside Prefect.
 
-How many different storage options are there? (Note the count starts from 0)
+For this exercise, use a `CronSchedule` when creating a Prefect deployment.
 
-* 3
-* 6
-* 9
-* 12
+What is the Cron expression to run a flow at 9 AM every 15th of the month?
 
-## Q4. What is the default anchor_date for a deployment?
+* * * 15 9 0
+* 9 15 * * *
+* 0 9 15 * *
+* 0 15 9 1 *
 
-Create a deployment with `prefect deployment create`. This should generate a deployment similar to “flow_name/deployment_name”. Set the schedule to run at some interval and use the `SubprocessFlowRunner`. These are also seen in the video tutorials.
+Hint: there are many Cron to English tools. Try looking for one to help you.
 
-Run `prefect deployment inspect ‘flow_name/deployment_name’` to see the metadata of the Flow.
-
-What is the anchor_date listed under the schedule?
-
-* 1970-01-01T00:00:00+00:00
-* 2019-01-01T00:00:00+00:00
-* 2020-01-01T00:00:00+00:00
-* 2022-01-01T00:00:00+00:00
+Create a deployment with `prefect deployment create` after you write your `DeploymentSpec`
 
 
-## Q5. How many flow runs does Prefect schedule in advanced?
+## Q5. Viewing the Deployment 
 
-View the deployment in the UI. When first loading, we may not see that many flows because the default filter is 1 day back and 1 day forward. Remove the filter for 1 day forward to see the scheduled runs.
+View the deployment in the UI. When first loading, we may not see that many flows because the default filter is 1 day back and 1 day forward. Remove the filter for 1 day forward to see the scheduled runs. 
 
 How many flow runs are scheduled by Prefect in advanced? You should not be counting manually. There is a number of upcoming runs on the top right of the dashboard.
 
@@ -185,13 +185,17 @@ How many flow runs are scheduled by Prefect in advanced? You should not be count
 * 75
 * 100
 
-## Q6.Find the right command to view all work-queues
+## Q6. Creating a work-queue
 
-For all CLI commands with Prefect, you can use `--help` to get more information.
+In order to run this flow, you will need an agent and a work queue. Because we scheduled our flow or every month, it won't really get picked up by an agent. For this exercise, create a work-queue from the UI and view it using the CLI. 
+
+For all CLI commands with Prefect, you can use `--help` to get more information. 
 
 For example,
 * prefect --help
 * prefect work-queue --help
+
+What is the command to view the available work-queues?
 
 * prefect work-queue inspect
 * prefect work-queue ls

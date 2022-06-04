@@ -4,9 +4,6 @@ from sklearn.feature_extraction import DictVectorizer
 from sklearn.linear_model import LinearRegression
 from sklearn.metrics import mean_squared_error
 
-from prefect import flow, task, get_run_logger
-
-
 def read_data(path):
     df = pd.read_parquet(path)
     return df
@@ -52,8 +49,8 @@ def run_model(df, categorical, dv, lr):
     print(f"The MSE of validation is: {mse}")
     return
 
-def main(train_path: str = './data/fhv_tripdata_2021-01.parquet', 
-           val_path: str = './data/fhv_tripdata_2021-02.parquet'):
+def main(train_path: str = './data/fhv_tripdata_2021-06.parquet', 
+           val_path: str = './data/fhv_tripdata_2021-07.parquet'):
 
     categorical = ['PUlocationID', 'DOlocationID']
 
