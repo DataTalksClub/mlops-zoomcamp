@@ -56,5 +56,4 @@ More information here: [homework.md](homework.md)
 Did you take notes? Add them here:
 
 * [Week 3, Prefect Introduction and S3 Bucket configuration with Prefect by M. Ayoub C.](https://gist.github.com/Qfl3x/8dd69b8173f027b9468016c118f3b6a5)
-
 * Send a PR, add your notes above this line
