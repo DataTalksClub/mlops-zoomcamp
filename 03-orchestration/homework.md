@@ -29,7 +29,7 @@ We already have a model training script. Maybe a data scientist in your team han
 
 This convention is not strict in industry, and in practice, you will come up with your own system to manage these training jobs. For example, if we wanted to train on the whole history instead of just one month, we'd need to allow for added parameterization and logic in our flow. If the data came in weekly instead of monthly, we might need a different naming convention. But these requirements are already a simple approximation of something you could use in production.
 
-On the deployment side, it's very easy to just pull in the latest data and predict it using the latest model and vectorizer files. Tools the MLFlow in the last chapter can simplify that process as well. This homework will focus more on the batch training though.
+On the deployment side, it's very easy to just pull in the latest data and predict it using the latest model and vectorizer files. Tools the MLFlow in the last chapter can simplify that process as well. This homework will focus more on the batch training.
 
 In order, this homework assignment will be about:
 
