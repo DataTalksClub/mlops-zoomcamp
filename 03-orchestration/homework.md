@@ -163,10 +163,10 @@ For this exercise, use a `CronSchedule` when creating a Prefect deployment.
 
 What is the Cron expression to run a flow at 9 AM every 15th of the month?
 
-* * * 15 9 0
-* 9 15 * * *
-* 0 9 15 * *
-* 0 15 9 1 *
+* `* * 15 9 0`
+* `9 15 * * *`
+* `0 9 15 * *`
+* `0 15 9 1 *`
 
 Hint: there are many Cron to English tools. Try looking for one to help you.
 
