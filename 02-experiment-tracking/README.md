@@ -77,4 +77,5 @@ Did you take notes? Add them here:
 * [2nd Week Experiment & Tracking notes by Ayoub.B](https://github.com/ayoub-berdeddouch/mlops-journey/blob/main/experiment_tracking_02.md)
 * [Notes on Experiment Tracking with MLflow (Jupyter Book) by particle1331](https://particle1331.github.io/inefficient-networks/notebooks/mlops/2-mlflow/2-mlflow.html)
 * [Week 2: Experiment & Tracking Notes by Bengsoon Chuah](https://github.com/bengsoon/mlops-zoomcamp/blob/main/02-experiment-tracking/notes/Experiment_Tracking_notes.md)
+* [2.4 Model Management Notes by Alvaro Pena](https://github.com/alvarofps/mlops-zoomcamp/blob/main/02-experiment-tracking/my-notes/2.4%20Model%20management.md)
 * Send a PR, add your notes above this line
