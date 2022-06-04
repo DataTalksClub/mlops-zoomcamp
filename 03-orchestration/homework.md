@@ -8,13 +8,42 @@ Previous homeworks:
 **Week 2:**
 * https://github.com/DataTalksClub/mlops-zoomcamp/blob/main/02-experiment-tracking/homework.md
 
-## Q1. Installing Prefect. What is the default profile name?
-
-The goal of this homework is to familiarize users with Prefect and workflow orchestration. We start from the solution of homework 1. The notebook can be found below:
+The goal of this homework is to familiarize users with workflow orchestration. We start from the solution of homework 1. The notebook can be found below:
 
 https://github.com/DataTalksClub/mlops-zoomcamp/blob/main/01-intro/homework.ipynb
 
-We will take this notebook and bring this in a flow. 
+This has already been converted to a script called `homework.py` in the `03-orchestration` folder of this repo. 
+
+## Motivation
+
+We already have a model training script. Maybe a data scientist in your team handed it to you and your job is schedule the running of training script using a workflow orchestration - Prefect in this case. Below are the requirements. Do not implement them yet, we will do so in this exercise. Just understand the goal.
+
+1. The training flow will be run every month.
+2. The flow will take in a parameter called `date` which will be a datetime.
+    a. `date` should default to None
+    b. If `date` is None, set `date` as the current day. Use the data from 2 months back as the training data and the data from the previous month as validation data.
+    c. If `date` is passed, get 2 months before the `date` as the training data, and the previous month as validation data.
+    d. As a concrete example, if the date passed is "2021-03-15", the training data should be "fhv_tripdata_2021-01.parquet" and the validation file will be "fhv_trip_data_2021-02.parquet"
+3. Save the model as "model-{date}.pkl" where date is in `YYYY-MM-DD`. Note that `date` here is the value of the flow `parameter`. In practice, this setup makes it very easy to get the latest model to run predictions because you just need to get the most recent one.
+4. In this example we use a DictVectorizer. That is needed to run future data through our model. Save that as "dv-{date}.pkl". Similar to above, if the date is `2021-03-15`, the files output should be `model-2021-03-15.bin` and `dv-2021-03-15.b`.
+
+This convention is not strict in industry, and in practice, you will come up with your own system to manage these training jobs. For example, if we wanted to train on the whole history instead of just one month, we'd need to allow for added parameterization and logic in our flow. If the data came in weekly instead of monthly, we might need a different naming convention. But these requirements are already a simple approximation of something you could use in production.
+
+On the deployment side, it's very easy to just pull in the latest data and predict it using the latest model and vectorizer files. Tools the MLFlow in the last chapter can simplify that process as well. This homework will focus more on the batch training though.
+
+In order, this homework assignment will be about:
+
+1. Converting the script to a Flow
+2. Changing the parameters to take in a `date`. Making this parameter dynamic.
+3. Scheduling a batch training job that outputs the latest model somewhere
+
+## Setup
+
+You can use either local Prefect Orion or a VM hosted Prefect Orion instance for this. It shouldn't matter. Just note that if you use a VM hosted one, you will need to configure your local API to hit the VM.
+
+Video 3.4 of the course will give more detailed instructions if you been run it on a VM.
+
+## Q1. Converting the script to a Prefect flow
 
 If you want to follow the videos exactly, do:
 
@@ -22,43 +51,94 @@ If you want to follow the videos exactly, do:
 pip install prefect==2.0b5
 ```
 
-If you need Windows support, you will need to install 2.0b6 (to be released Monday June 7). 2.0b6 will officially support Windows.
+If you need Windows support, check `homework-windows.md` for installation instructions.
+
+The current script `homework.py` is a fully functional script as long as you already have `fhv_trip_data_2021-01.parquet` and `fhv_trip_data_2021-02.parquet` inside a `data` folder. You should be able to already run it using:
 
 ```
-pip install prefect==2.0b6
+python homework.py
 ```
 
-Note that 2.0b5 and 2.0b6 are not compatible because 2.0b6 contains breaking changes. If you run into issues, you can reset the Prefect database by doing:
+We want to bring this to workflow orchestration to add observability around it. The `main` function will be converted to a `flow` and the other functions will be `tasks`. After adding all of the decorators, there is actually one task that you will need to call `.result()` for inside the `flow` to get it to work. Which task is this?
 
-```
-prefect orion database reset
-```
-
-This command will clear the data held by Orion.
-
-After installation, you should be able to run the following command:
-
-```
-prefect config view
-```
-
-What is the name of the current profile?
-
-Prefect lets you have multiple profiles to easily switch between Cloud, local, or even multiple Orion instances. For more information, you can check the following [link](https://orion-docs.prefect.io/concepts/settings/#configuration-profiles)
-
-## Q2. Share a screen shot of the radar plot you made
-
-Create a python file with 5 tasks and add them to a flow called main:
-
-* read_dataframe
+* read_data
 * prepare_features
-* search_best_model
-* train_final_model
-* test_final_model
+* train_model
+* run_model
 
-Take time as well to parameterize `main` to specify the path of the training and test data.
+Important: change all `print` statements to use the Prefect logger. Using the `print` statement will not appear in the Prefect UI. You have to call `get_run_logger` at the start of the task to use it.
 
-You can use the local Orion instance for testing. You can also SSH to a VM if you prefer After creating this code, you can run:
+## Q2. Parameterizing the flow
+
+Right now there are two parameters for `main()` called `train_path` and `val_path`. We want to change the flow function to accept `date` instead. `date` should then be passed to a task that gives both the `train_path` and `val_path` to use.
+
+It should look like this:
+
+```python
+@flow
+def main(date=None):
+    train_path, val_path = get_paths(date).result()
+    # rest of flow below
+```
+
+Where `get_paths` is a task that you have to implement. The specs for this are outlined in the motivation section. Listing them out again here:
+
+The flow will take in a parameter called `date` which will be a datetime.
+    a. `date` should default to None
+    b. If `date` is None, use the current day. Use the data from 2 months back as the training data and the data from the previous month as validation data.
+    c. If a `date` value is supplied, get 2 months before the `date` as the training data, and the previous month as validation data.
+    d. As a concrete example, if the date passed is "2021-03-15", the training data should be "fhv_tripdata_2021-01.parquet" and the validation file will be "fhv_trip_data_2021-02.parquet"
+
+Because we have two files:
+* fhv_tripdata_2021-01.parquet
+* fhv_tripdata_2021-02.parquet
+
+Change the `main()` flow call to the following:
+
+```
+main(date="2021-03-15")
+```
+
+and it should use those files. This is a simplification for testing our homework.
+
+Recall the page from where we downloaded the For-Hire trip data.
+
+https://www1.nyc.gov/site/tlc/about/tlc-trip-record-data.page
+
+Download the relevant files needed to run the `main` flow if `date` is 2021-08-15.
+
+For example:
+```
+main(date="2021-08-15")
+```
+
+By setting up the logger from the previous step, we should see some logs about our training job. What is the validation MSE when running the flow with this date?
+
+Note you need to download the relevant files to run. Part of this question is understanding which files the flow should be looking for.
+
+The valition MSE is:
+
+* 11.637
+* 11.837
+* 12.037
+* 12.237
+
+## Q3. Saving the model and artifacts
+
+At the moment, we are not saving the model and vectorizer for future use. Create a task called `save_model` to save these. The requirements for filenames to save it as were mentioned in the Motivation section. They are pasted again here:
+
+* Save the model as "model-{date}.pkl" where date is in `YYYY-MM-DD`. Note that `date` here is the value of the flow `parameter`. In practice, this setup makes it very easy to get the latest model to run predictions because you just need to get the most recent one.
+* In this example we use a DictVectorizer. That is needed to run future data through our model. Save that as "dv-{date}.pkl". Similar to above, if the date is `2021-03-15`, the files output should be `model-2021-03-15.bin` and `dv-2021-03-15.b`.
+
+During inference, we can just pull the latest model from our model directory and apply it. Assuming we already had a list of filenames:
+
+```
+['model-2021-03-15.bin', 'model-2021-04-15.bin', 'model-2021-05-15.bin']
+```
+
+We could do something like `sorted(model_list, reverse=False)[0]` to get the filename of the latest file. This is the simplest way to consistently use the latest trained model for inference. Tools like MLFlow give us more control logic to use flows.
+
+You can bring up the Orion UI and see the work you've been doing. If you are using local Orion, you can do:
 
 ```
 prefect orion start
@@ -66,7 +146,7 @@ prefect orion start
 
 You should be able to see previous Flow runs and the most recent successful runs. Navigate to any of them. Take time to explore the UI.
 
-Share a screen shot of the radar plot. There should be 5 tasks there. You can upload this to Github and submit a URL of an image. We will view the links.
+The radar plot would be a good thing to share on social media if you participate in those posts.
 
 ## Q3. How many different storage options are there?
 
