@@ -15,3 +15,16 @@ prefect orion database reset
 ```
 
 This command will clear the data held by Orion.
+
+### Docker
+
+You can also try running Prefect in Docker. For example:
+
+```
+docker run -it --rm \
+    -p 4200:4200 \
+    prefecthq/prefect:2.0b5-python3.8 \
+        prefect orion start --host=0.0.0.0
+```
+
+and then view it from `localhost:4200`.
