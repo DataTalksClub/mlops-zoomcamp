@@ -1,18 +1,13 @@
 ## 3.6 Homework
 
-Previous homeworks:
-
-**Week 1:**
-* https://github.com/DataTalksClub/mlops-zoomcamp/blob/main/01-intro/homework.md
-
-**Week 2:**
-* https://github.com/DataTalksClub/mlops-zoomcamp/blob/main/02-experiment-tracking/homework.md
-
 The goal of this homework is to familiarize users with workflow orchestration. We start from the solution of homework 1. The notebook can be found below:
 
 https://github.com/DataTalksClub/mlops-zoomcamp/blob/main/01-intro/homework.ipynb
 
 This has already been converted to a script called `homework.py` in the `03-orchestration` folder of this repo. 
+
+You will use the FHV dataset like in homework 1.
+
 
 ## Motivation
 
