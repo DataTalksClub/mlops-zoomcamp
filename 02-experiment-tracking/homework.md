@@ -139,4 +139,4 @@ The deadline for submitting is 2 June 2022 (Thursday) at 23:00 CEST. After that,
 
 ## Solution
 
-The solution will be put here after the deadline.
+* [Video](https://www.youtube.com/watch?v=s2LcTqLEIxw&list=PL3MmuxUbc_hIUISrluw_A7wDSmfOhErJK&index=21)
