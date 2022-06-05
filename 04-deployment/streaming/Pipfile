@@ -4,8 +4,8 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
-flask = "*"
-gunicorn = "*"
+boto3 = "*"
+mlflow = "*"
 scikit-learn = "==1.0.2"
 
 [dev-packages]
