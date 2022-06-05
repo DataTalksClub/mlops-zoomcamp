@@ -1,22 +1,17 @@
-from audioop import add
-import pandas as pd
 import pickle
 
-from sklearn.feature_extraction import DictVectorizer
-from sklearn.linear_model import LinearRegression, Lasso, Ridge
-from sklearn.metrics import mean_squared_error
-
-import xgboost as xgb
-
-from hyperopt import fmin, tpe, hp, STATUS_OK, Trials
-from hyperopt.pyll import scope
-
 import mlflow
-
+import pandas as pd
+import xgboost as xgb
+from hyperopt import STATUS_OK, Trials, fmin, hp, tpe
+from hyperopt.pyll import scope
 from prefect import flow, task
 from prefect.task_runners import SequentialTaskRunner
+from sklearn.feature_extraction import DictVectorizer
+from sklearn.metrics import mean_squared_error
 
-@task
+
+@task(retries=2)
 def read_dataframe(filename):
     df = pd.read_parquet(filename)
 
@@ -33,7 +28,12 @@ def read_dataframe(filename):
     
     return df
 
-@task
+def xgboost_matrix(X, y):
+    combined = xgb.DMatrix(X, label=y)
+    return combined
+
+
+@task(retries=2)
 def add_features(df_train, df_val):
     # df_train = read_dataframe(train_path)
     # df_val = read_dataframe(val_path)
@@ -61,8 +61,11 @@ def add_features(df_train, df_val):
 
     return X_train, X_val, y_train, y_val, dv
 
-@task
-def train_model_search(train, valid, y_val):
+@task(retries=2)
+def train_model_search(X_train, X_val, y_train, y_val):
+
+    train = xgboost_matrix(X_train, y_train)
+    valid = xgboost_matrix(X_val, y_val) 
     def objective(params):
         with mlflow.start_run():
             mlflow.set_tag("model", "xgboost")
@@ -86,7 +89,7 @@ def train_model_search(train, valid, y_val):
         'reg_alpha': hp.loguniform('reg_alpha', -5, -1),
         'reg_lambda': hp.loguniform('reg_lambda', -6, -1),
         'min_child_weight': hp.loguniform('min_child_weight', -1, 3),
-        'objective': 'reg:linear',
+        'objective': 'reg:squarederror',
         'seed': 42
     }
 
@@ -97,21 +100,20 @@ def train_model_search(train, valid, y_val):
         max_evals=1,
         trials=Trials()
     )
-    return
+    return best_result
 
-@task
-def train_best_model(train, valid, y_val, dv):
+@task(retries=2)
+def train_best_model(X_train, X_val, y_train, y_val, dv, params):
+
+    train = xgboost_matrix(X_train, y_train)
+    valid = xgboost_matrix(X_val, y_val) 
+
     with mlflow.start_run():
-
-        best_params = {
-            'learning_rate': 0.09585355369315604,
-            'max_depth': 30,
-            'min_child_weight': 1.060597050922164,
-            'objective': 'reg:linear',
-            'reg_alpha': 0.018060244040060163,
-            'reg_lambda': 0.011658731377413597,
-            'seed': 42
-        }
+        
+        best_params = params
+        best_params['max_depth'] = int(best_params['max_depth'])
+        best_params['objective'] = 'reg:squarederror'
+        best_params['seed'] = 42
 
         mlflow.log_params(best_params)
 
@@ -134,14 +136,16 @@ def train_best_model(train, valid, y_val, dv):
         mlflow.xgboost.log_model(booster, artifact_path="models_mlflow")
 
 @flow(task_runner=SequentialTaskRunner())
-def main(train_path: str="./data/green_tripdata_2021-01.parquet",
-        val_path: str="./data/green_tripdata_2021-02.parquet"):
+def main(train_path: str="/home/ubuntu/data/green_tripdata_2021-01.parquet",
+        val_path: str="/home/ubuntu/data/green_tripdata_2021-02.parquet"):
+    
     mlflow.set_tracking_uri("sqlite:///mlflow.db")
     mlflow.set_experiment("nyc-taxi-experiment")
     X_train = read_dataframe(train_path)
     X_val = read_dataframe(val_path)
     X_train, X_val, y_train, y_val, dv = add_features(X_train, X_val).result()
-    train = xgb.DMatrix(X_train, label=y_train)
-    valid = xgb.DMatrix(X_val, label=y_val)
-    train_model_search(train, valid, y_val)
-    train_best_model(train, valid, y_val, dv)
+    best_params = train_model_search(X_train, X_val, y_train, y_val).result()
+    train_best_model(X_train, X_val, y_train, y_val, dv, best_params)
+
+
+main()  
