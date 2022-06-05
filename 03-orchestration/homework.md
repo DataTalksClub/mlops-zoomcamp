@@ -176,11 +176,10 @@ View the deployment in the UI. When first loading, we may not see that many flow
 
 How many flow runs are scheduled by Prefect in advanced? You should not be counting manually. There is a number of upcoming runs on the top right of the dashboard.
 
+* 0
+* 3
 * 10
-* 20
-* 50
-* 75
-* 100
+* 25
 
 ## Q6. Creating a work-queue
 
