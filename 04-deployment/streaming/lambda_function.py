@@ -17,7 +17,7 @@ logged_model = f's3://mlflow-models-alexey/1/{RUN_ID}/artifacts/model'
 model = mlflow.pyfunc.load_model(logged_model)
 
 
-TEST_RUN = os.getenv('DRY_RUN', 'False') == 'True'
+TEST_RUN = os.getenv('TEST_RUN', 'False') == 'True'
 
 def prepare_features(ride):
     features = {}
