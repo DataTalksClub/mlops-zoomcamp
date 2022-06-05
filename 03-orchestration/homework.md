@@ -46,7 +46,7 @@ If you want to follow the videos exactly, do:
 pip install prefect==2.0b5
 ```
 
-If you need Windows support, check `homework-windows.md` for installation instructions.
+If you need Windows support, check [`windows.md`](windows.md) for installation instructions.
 
 The current script `homework.py` is a fully functional script as long as you already have `fhv_trip_data_2021-01.parquet` and `fhv_trip_data_2021-02.parquet` inside a `data` folder. You should be able to already run it using:
 
