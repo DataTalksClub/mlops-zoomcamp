@@ -28,3 +28,9 @@ docker run -it --rm \
 ```
 
 and then view it from `localhost:4200`.
+
+### Prefect Cloud
+
+You can also just use Cloud so you don't have to host Prefect Orion yourself. Instructions can be found here:
+
+https://orion-docs.prefect.io/ui/cloud-getting-started/
