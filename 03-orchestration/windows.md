@@ -1,6 +1,8 @@
 ## Prefect on Windows
 
-There is just a slight tweak to installation instructions if you are on Windows.
+If you use WSL, you should have no problems running Prefect Orion.
+
+But if you aren't, there is just a slight tweak to installation instructions if you are on Windows.
 
 You will need to install 2.0b6 (to be released Monday June 7). 2.0b6 will officially support Windows. Use this instead of 2.0b5 shows in the lectures.
 
