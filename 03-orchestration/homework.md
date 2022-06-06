@@ -62,7 +62,7 @@ python homework.py
 We want to bring this to workflow orchestration to add observability around it. The `main` function will be converted to a `flow` and the other functions will be `tasks`. After adding all of the decorators, there is actually one task that you will need to call `.result()` for inside the `flow` to get it to work. Which task is this?
 
 * read_data
-* prepare_features
+* prepare_features -- we are calling a feature
 * train_model
 * run_model
 
@@ -118,8 +118,8 @@ Note you need to download the relevant files to run. Part of this question is un
 
 The valition MSE is:
 
-* 11.637
-* 11.837
+* 11.637 
+* 11.837 -- selected for 08
 * 12.037
 * 12.237
 
