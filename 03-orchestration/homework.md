@@ -1,18 +1,13 @@
 ## 3.6 Homework
 
-Previous homeworks:
-
-**Week 1:**
-* https://github.com/DataTalksClub/mlops-zoomcamp/blob/main/01-intro/homework.md
-
-**Week 2:**
-* https://github.com/DataTalksClub/mlops-zoomcamp/blob/main/02-experiment-tracking/homework.md
-
 The goal of this homework is to familiarize users with workflow orchestration. We start from the solution of homework 1. The notebook can be found below:
 
 https://github.com/DataTalksClub/mlops-zoomcamp/blob/main/01-intro/homework.ipynb
 
 This has already been converted to a script called `homework.py` in the `03-orchestration` folder of this repo. 
+
+You will use the FHV dataset like in homework 1.
+
 
 ## Motivation
 
@@ -47,24 +42,24 @@ Video 3.4 of the course will give more detailed instructions if you been run it 
 
 If you want to follow the videos exactly, do:
 
-```
+```bash
 pip install prefect==2.0b5
 ```
 
-If you need Windows support, check `homework-windows.md` for installation instructions.
+If you need Windows support, check [`windows.md`](windows.md) for installation instructions.
 
 The current script `homework.py` is a fully functional script as long as you already have `fhv_trip_data_2021-01.parquet` and `fhv_trip_data_2021-02.parquet` inside a `data` folder. You should be able to already run it using:
 
-```
+```bash
 python homework.py
 ```
 
 We want to bring this to workflow orchestration to add observability around it. The `main` function will be converted to a `flow` and the other functions will be `tasks`. After adding all of the decorators, there is actually one task that you will need to call `.result()` for inside the `flow` to get it to work. Which task is this?
 
-* read_data
-* prepare_features
-* train_model
-* run_model
+* `read_data`
+* `prepare_features`
+* `train_model`
+* `run_model`
 
 Important: change all `print` statements to use the Prefect logger. Using the `print` statement will not appear in the Prefect UI. You have to call `get_run_logger` at the start of the task to use it.
 
@@ -90,12 +85,13 @@ The flow will take in a parameter called `date` which will be a datetime.
     d. As a concrete example, if the date passed is "2021-03-15", the training data should be "fhv_tripdata_2021-01.parquet" and the validation file will be "fhv_trip_data_2021-02.parquet"
 
 Because we have two files:
+
 * fhv_tripdata_2021-01.parquet
 * fhv_tripdata_2021-02.parquet
 
 Change the `main()` flow call to the following:
 
-```
+```python
 main(date="2021-03-15")
 ```
 
@@ -108,7 +104,8 @@ https://www1.nyc.gov/site/tlc/about/tlc-trip-record-data.page
 Download the relevant files needed to run the `main` flow if `date` is 2021-08-15.
 
 For example:
-```
+
+```python
 main(date="2021-08-15")
 ```
 
@@ -132,7 +129,7 @@ At the moment, we are not saving the model and vectorizer for future use. You do
 
 By using this file name, during inference, we can just pull the latest model from our model directory and apply it. Assuming we already had a list of filenames:
 
-```
+```python
 ['model-2021-03-15.bin', 'model-2021-04-15.bin', 'model-2021-05-15.bin']
 ```
 
@@ -147,7 +144,7 @@ What is the file size of the `DictVectorizer` that we trained when the `date` is
 
 You can bring up the Orion UI and see the work you've been doing. If you are using local Orion, you can start the server with:
 
-```
+```bash
 prefect orion start
 ```
 
@@ -179,11 +176,10 @@ View the deployment in the UI. When first loading, we may not see that many flow
 
 How many flow runs are scheduled by Prefect in advanced? You should not be counting manually. There is a number of upcoming runs on the top right of the dashboard.
 
+* 0
+* 3
 * 10
-* 20
-* 50
-* 75
-* 100
+* 25
 
 ## Q6. Creating a work-queue
 
@@ -192,12 +188,30 @@ In order to run this flow, you will need an agent and a work queue. Because we s
 For all CLI commands with Prefect, you can use `--help` to get more information. 
 
 For example,
-* prefect --help
-* prefect work-queue --help
+* `prefect --help`
+* `prefect work-queue --help`
 
 What is the command to view the available work-queues?
 
-* prefect work-queue inspect
-* prefect work-queue ls
-* prefect work-queue preview
-* prefect work-queue list
+* `prefect work-queue inspect`
+* `prefect work-queue ls`
+* `prefect work-queue preview`
+* `prefect work-queue list`
+
+
+
+## Submit the results
+
+Submit your results here: TBA
+
+It's possible that your answers won't match exactly. If it's the case, select the closest one.
+
+
+## Deadline
+
+The deadline for submitting is 11 June 2022 (Saturday) at 23:00 CEST. After that, the form will be closed.
+
+
+## Solution
+
+After the deadline, we'll post the solution here
