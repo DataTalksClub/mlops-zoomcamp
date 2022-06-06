@@ -70,7 +70,7 @@ def main(date):
     df_train_processed = prepare_features(df_train, categorical)
 
     df_val = read_data(val_path)
-    df_val_processed = prepare_features(df_val, categorical)
+    df_val_processed = prepare_features(df_val, categorical, False)
 
     # train the model
     lr, dv = train_model(df_train_processed, categorical)
