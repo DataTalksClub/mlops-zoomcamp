@@ -113,7 +113,7 @@ By setting up the logger from the previous step, we should see some logs about o
 
 Note you need to download the relevant files to run. Part of this question is understanding which files the flow should be looking for.
 
-The valition MSE is:
+The validation MSE is:
 
 * 11.637
 * 11.837
