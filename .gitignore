@@ -16,3 +16,4 @@ venv
 .idea
 mlflow.db
 mlruns/
+artifacts/
