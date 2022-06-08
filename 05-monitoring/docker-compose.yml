@@ -1,0 +1,81 @@
+version: '3.7'
+
+volumes:
+    prometheus_data: {}
+    grafana_data: {}
+    mongo_data: {}
+
+networks:
+  front-tier:
+  back-tier:
+
+services:
+  prediction_service:
+    build:
+      context: prediction_service
+      dockerfile: Dockerfile
+    depends_on:
+      - evidently_service
+      - mongo
+    environment:
+      EVIDENTLY_SERVICE: "http://evidently_service.:8085"
+      MONGODB_ADDRESS: "mongodb://mongo.:27017/"
+    ports:
+      - "9696:9696"
+    networks:
+      - back-tier
+      - front-tier
+  evidently_service:
+    build:
+      context: evidently_service
+      dockerfile: Dockerfile
+    depends_on:
+      - grafana
+    volumes:
+      - ./evidently_service/datasets:/app/datasets
+      - ./evidently_service/config.yaml:/app/config.yaml
+    ports:
+      - "8085:8085"
+    networks:
+      - back-tier
+      - front-tier
+
+  prometheus:
+    image: prom/prometheus
+    volumes:
+      - ./evidently_service/config/prometheus.yml:/etc/prometheus/prometheus.yml
+      - prometheus_data:/prometheus
+    command:
+      - '--config.file=/etc/prometheus/prometheus.yml'
+      - '--storage.tsdb.path=/prometheus'
+    ports:
+      - "9091:9090"
+    networks:
+      - back-tier
+    restart: always
+
+  grafana:
+    image: grafana/grafana
+    user: "472"
+    depends_on:
+      - prometheus
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./evidently_service/config/grafana_datasources.yaml:/etc/grafana/provisioning/datasources/datasource.yaml:ro
+      - ./evidently_service/config/grafana_dashboards.yaml:/etc/grafana/provisioning/dashboards/dashboards.yaml:ro
+      - ./evidently_service/dashboards:/opt/grafana/dashboards
+      - grafana_data:/var/lib/grafana
+    networks:
+      - back-tier
+      - front-tier
+    restart: always
+  mongo:
+    image: mongo
+    ports:
+      - "27018:27017"
+    volumes:
+      - mongo_data:/data/db
+    networks:
+      - back-tier
+      - front-tier

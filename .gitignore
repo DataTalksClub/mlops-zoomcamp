@@ -2,5 +2,14 @@ data/
 .ipynb_checkpoints
 .bin
 *.db
+
 images/
 prefect/
+
+*.parquet
+*.html
+*.csv
+
+.venv
+venv
+.idea
