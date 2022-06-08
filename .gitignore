@@ -1,7 +1,12 @@
 data/
-output/
 .ipynb_checkpoints
 .bin
-mlflow.db
-mlruns/
-artifacts/
+*.db
+
+*.parquet
+*.html
+*.csv
+
+.venv
+venv
+.idea
