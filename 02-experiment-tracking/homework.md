@@ -16,7 +16,7 @@ What's the version that you have?
 
 ## Q2. Download and preprocess the data
 
-We'll use the same dataset used in the videos of the 1st and 2nd module: "Green Taxi Trip Records".
+We'll use the Green Taxi Trip Records dataset. 
 
 Download the data for January, February and March 2021 in parquet format from [here](https://www1.nyc.gov/site/tlc/about/tlc-trip-record-data.page).
 
@@ -26,7 +26,7 @@ The script will
 
 - load the data from the folder `<TAXI_DATA_FOLDER>` (the folder where you have downloaded the data),
 - fit a `DictVectorizer` on the training set (January 2021 data),
-- save the preprocessed datasets and the model to disk
+- save the preprocessed datasets and the `DictVectorizer` to disk
 
 Your task is to download the datasets and then execute this command:
 
@@ -46,7 +46,7 @@ How many files were saved to `OUTPUT_FOLDER`?
 
 ## Q3. Train a model with autolog
 
-We will train a random forest regressor on the taxi dataset.
+We will train a random forest regressor (from Scikit-Learn) on the taxi dataset.
 
 We have prepared the training script `train.py` for this exercise, which can be also found in the folder `homework`. The script will load the datasets produced by the previous step, train the model on the training set and finally calculate the RMSE on the validation set.
 
@@ -127,16 +127,16 @@ What is the test RMSE of the best model?
 
 ## Submit the results
 
-Submit your results here: TBA
+Submit your results here: https://forms.gle/9wXF5ntBA3FNe65L9
 
 It's possible that your answers won't match exactly. If it's the case, select the closest one.
 
 
 ## Deadline
 
-The deadline for submitting is 31 May 2022 (Tuesday) at 17:00 CET. After that, the form will be closed.
+The deadline for submitting is 2 June 2022 (Thursday) at 23:00 CEST. After that, the form will be closed.
 
 
 ## Solution
 
-The solution will be put here after the deadline.
+* [Video](https://www.youtube.com/watch?v=s2LcTqLEIxw&list=PL3MmuxUbc_hIUISrluw_A7wDSmfOhErJK&index=21)
