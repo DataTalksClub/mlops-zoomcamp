@@ -1,5 +1,7 @@
 data/
+output/
 .ipynb_checkpoints
 .bin
 mlflow.db
 mlruns/
+artifacts/
