@@ -113,7 +113,7 @@ By setting up the logger from the previous step, we should see some logs about o
 
 Note you need to download the relevant files to run. Part of this question is understanding which files the flow should be looking for.
 
-The valition MSE is:
+The validation MSE is:
 
 * 11.637
 * 11.837
@@ -174,7 +174,7 @@ Create a deployment with `prefect deployment create` after you write your `Deplo
 
 View the deployment in the UI. When first loading, we may not see that many flows because the default filter is 1 day back and 1 day forward. Remove the filter for 1 day forward to see the scheduled runs. 
 
-How many flow runs are scheduled by Prefect in advanced? You should not be counting manually. There is a number of upcoming runs on the top right of the dashboard.
+How many flow runs are scheduled by Prefect in advance? You should not be counting manually. There is a number of upcoming runs on the top right of the dashboard.
 
 * 0
 * 3
@@ -183,11 +183,12 @@ How many flow runs are scheduled by Prefect in advanced? You should not be count
 
 ## Q6. Creating a work-queue
 
-In order to run this flow, you will need an agent and a work queue. Because we scheduled our flow or every month, it won't really get picked up by an agent. For this exercise, create a work-queue from the UI and view it using the CLI. 
+In order to run this flow, you will need an agent and a work queue. Because we scheduled our flow on every month, it won't really get picked up by an agent. For this exercise, create a work-queue from the UI and view it using the CLI. 
 
 For all CLI commands with Prefect, you can use `--help` to get more information. 
 
 For example,
+
 * `prefect --help`
 * `prefect work-queue --help`
 
@@ -202,10 +203,9 @@ What is the command to view the available work-queues?
 
 ## Submit the results
 
-Submit your results here: TBA
-
-It's possible that your answers won't match exactly. If it's the case, select the closest one.
-
+* Submit your results here: https://forms.gle/tYEZdrYdXHBizmtJ7
+* It's possible that your answers won't match exactly. If it's the case, select the closest one.
+* You can submit your answers multiple times. In this case, the last submission will be used for scoring.
 
 ## Deadline
 
