@@ -6,3 +6,11 @@ mlflow.db
 mlruns/
 artifacts/
 *.db
+
+*.parquet
+*.html
+*.csv
+
+.venv
+venv
+.idea
