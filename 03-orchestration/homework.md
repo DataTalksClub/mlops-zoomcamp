@@ -63,7 +63,7 @@ We want to bring this to workflow orchestration to add observability around it. 
 * run_model
 =======
 * `read_data`
-* `prepare_features`
+* `prepare_features` -- SELECTED
 * `train_model`
 * `run_model`
 >>>>>>> af412e5a224bc431e8c5d6155601ac9991875fea
@@ -144,7 +144,7 @@ We could do something like `sorted(model_list, reverse=False)[0]` to get the fil
 
 What is the file size of the `DictVectorizer` that we trained when the `date` is 2021-08-15?
 
-* 13,000 bytes 
+* 13,000 bytes -- for DIC
 * 23,000 bytes 
 * 33,000 bytes 
 * 43,000 bytes 
@@ -169,7 +169,7 @@ What is the Cron expression to run a flow at 9 AM every 15th of the month?
 
 * `* * 15 9 0`
 * `9 15 * * *`
-* `0 9 15 * *`
+* `0 9 15 * *`-- SELECTED
 * `0 15 9 1 *`
 
 Hint: there are many Cron to English tools. Try looking for one to help you.
@@ -184,7 +184,7 @@ View the deployment in the UI. When first loading, we may not see that many flow
 How many flow runs are scheduled by Prefect in advance? You should not be counting manually. There is a number of upcoming runs on the top right of the dashboard.
 
 * 0
-* 3
+* 3 --JUST
 * 10
 * 25
 
@@ -203,7 +203,7 @@ What is the command to view the available work-queues?
 
 * `prefect work-queue inspect`
 * `prefect work-queue ls`
-* `prefect work-queue preview`
+* `prefect work-queue preview` -- folllowed by ID
 * `prefect work-queue list`
 
 
