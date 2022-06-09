@@ -26,7 +26,7 @@ The script will
 
 - load the data from the folder `<TAXI_DATA_FOLDER>` (the folder where you have downloaded the data),
 - fit a `DictVectorizer` on the training set (January 2021 data),
-- save the preprocessed datasets and the model to disk
+- save the preprocessed datasets and the `DictVectorizer` to disk
 
 Your task is to download the datasets and then execute this command:
 
@@ -139,4 +139,4 @@ The deadline for submitting is 2 June 2022 (Thursday) at 23:00 CEST. After that,
 
 ## Solution
 
-The solution will be put here after the deadline.
+* [Video](https://www.youtube.com/watch?v=s2LcTqLEIxw&list=PL3MmuxUbc_hIUISrluw_A7wDSmfOhErJK&index=21)
