@@ -15,10 +15,10 @@ We already have a model training script. Maybe a data scientist in your team han
 
 1. The training flow will be run every month.
 2. The flow will take in a parameter called `date` which will be a datetime.
-    a. `date` should default to None
-    b. If `date` is None, set `date` as the current day. Use the data from 2 months back as the training data and the data from the previous month as validation data.
-    c. If `date` is passed, get 2 months before the `date` as the training data, and the previous month as validation data.
-    d. As a concrete example, if the date passed is "2021-03-15", the training data should be "fhv_tripdata_2021-01.parquet" and the validation file will be "fhv_trip_data_2021-02.parquet"
+    * a. `date` should default to None
+    * b. If `date` is None, set `date` as the current day. Use the data from 2 months back as the training data and the data from the previous month as validation data.
+    * c. If `date` is passed, get 2 months before the `date` as the training data, and the previous month as validation data.
+    * d. As a concrete example, if the date passed is "2021-03-15", the training data should be "fhv_tripdata_2021-01.parquet" and the validation file will be "fhv_trip_data_2021-02.parquet"
 3. Save the model as "model-{date}.pkl" where date is in `YYYY-MM-DD`. Note that `date` here is the value of the flow `parameter`. In practice, this setup makes it very easy to get the latest model to run predictions because you just need to get the most recent one.
 4. In this example we use a DictVectorizer. That is needed to run future data through our model. Save that as "dv-{date}.pkl". Similar to above, if the date is `2021-03-15`, the files output should be `model-2021-03-15.bin` and `dv-2021-03-15.b`.
 
