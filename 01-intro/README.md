@@ -165,4 +165,5 @@ Did you take notes? Add them here:
 * [Notes for Week 1 by Ron Medina](https://particle1331.github.io/inefficient-networks/notebooks/mlops/1-intro.html)
 * [Notes by Francisco Delca (environment: local ubuntu + virtualvenv)](https://github.com/FDelca/mlops_datatalks_notes/blob/main/Week1/Week1-LearningNotes.ipynb)
 * [What is MLOps? - Non-technical intro by Lorenz](https://github.com/LoHertel/Road-to-MLOps/blob/main/01-primer/README.md)
+* [Notes for Week1 by Bhagabat](https://github.com/BPrasad123/MLOps_Zoomcamp/tree/main/Week1)
 * Send a PR, add your notes above this line
