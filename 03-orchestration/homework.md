@@ -209,7 +209,7 @@ What is the command to view the available work-queues?
 
 ## Deadline
 
-The deadline for submitting is 11 June 2022 (Saturday) at 23:00 CEST. After that, the form will be closed.
+The deadline for submitting is 13 June 2022 (Monday) CEST. After that, the form will be closed.
 
 
 ## Solution
