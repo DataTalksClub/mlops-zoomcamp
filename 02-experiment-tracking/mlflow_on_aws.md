@@ -72,7 +72,7 @@ Run the following commands to install the dependencies, configure the environmen
 * `sudo yum update`
 * `pip3 install mlflow boto3 psycopg2-binary`
 * `aws configure`   # you'll need to input your AWS credentials here
-* `mlflow server -h 0.0.0.0 -p 5000 --backend-store-uri postgres://DB_USER:DB_PASSWORD@DB_ENDPOINT:5432/DB_NAME --default-artifact-root s3://S3_BUCKET_NAME`
+* `mlflow server -h 0.0.0.0 -p 5000 --backend-store-uri postgresql://DB_USER:DB_PASSWORD@DB_ENDPOINT:5432/DB_NAME --default-artifact-root s3://S3_BUCKET_NAME`
 
 Note: before launching the server, check that the instance can access the s3 bucket created in the step number 3. To do that, just run this command from the EC2 instance: `aws s3 ls`. You should see the bucket listed in the result.
 

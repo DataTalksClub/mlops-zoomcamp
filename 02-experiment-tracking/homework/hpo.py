@@ -61,6 +61,7 @@ if __name__ == '__main__':
     )
     parser.add_argument(
         "--max_evals",
+        type=int,
         default=50,
         help="the number of parameter evaluations for the optimizer to explore."
     )

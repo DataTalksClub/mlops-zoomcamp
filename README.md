@@ -43,6 +43,15 @@ Data scientists and ML engineers. Also software engineers and data engineers int
 Course start: 16 of May
 
 
+### Asking for help in Slack
+
+The best way to get support is to use [DataTalks.Club's Slack](https://datatalks.club/slack.html). Join the [`#course-mlops-zoomcamp`](https://app.slack.com/client/T01ATQK62F8/C02R98X7DS9) channel.
+
+To make discussions in Slack more organized:
+
+* Follow [these recommendations](asking-questions.md) when asking for help
+* Read the [DataTalks.Club community guidelines](https://datatalks.club/slack/guidelines.html)
+
 ## Syllabus
 
 This is a draft and will change. 
@@ -73,13 +82,15 @@ This is a draft and will change.
 [More details](02-experiment-tracking)
 
 
-### Module 3: Orchestration and ML Pipelines
+### [Module 3: Orchestration and ML Pipelines](03-orchestration)
 
-* ML Pipelines: introduction
-* Prefect
+* Workflow orchestration
+* Prefect 2.0
 * Turning a notebook into a pipeline
-* Kubeflow Pipelines
-* Homework 
+* Deployment of Prefect flow
+* Homework
+
+[More details](03-orchestration)
 
 
 ### Module 4: Model Deployment 
@@ -161,7 +172,7 @@ Possible candidates:
 
 If you haven't used Flask or Docker
 
-* Check [Module 5](https://github.com/alexeygrigorev/mlbookcamp-code/tree/master/course-zoomcamp/05-deployment) form ML Zoomcamp
+* Check [Module 5](https://github.com/alexeygrigorev/mlbookcamp-code/tree/master/course-zoomcamp/05-deployment) from ML Zoomcamp
 * The [section about Docker](https://github.com/DataTalksClub/data-engineering-zoomcamp/tree/main/week_1_basics_n_setup/2_docker_sql) from Data Engineering Zoomcamp could also be useful
 
 If you have no previous experience with ML
