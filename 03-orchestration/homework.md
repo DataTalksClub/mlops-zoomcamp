@@ -180,6 +180,8 @@ How many flow runs are scheduled by Prefect in advance? You should not be counti
 * 10
 * 25
 
+**Note:** Your answer may be off by 1. It's okay. Select the option closest to your answer.
+
 ## Q6. Creating a work-queue
 
 In order to run this flow, you will need an agent and a work queue. Because we scheduled our flow on every month, it won't really get picked up by an agent. For this exercise, create a work-queue from the UI and view it using the CLI. 
