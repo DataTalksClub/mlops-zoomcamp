@@ -1,13 +1,20 @@
 import pandas as pd
+from prefect import task, flow
+import os
+import re
+from datetime import datetime, date
+import pickle
 
 from sklearn.feature_extraction import DictVectorizer
 from sklearn.linear_model import LinearRegression
 from sklearn.metrics import mean_squared_error
 
+@task
 def read_data(path):
     df = pd.read_parquet(path)
     return df
 
+@task
 def prepare_features(df, categorical, train=True):
     df['duration'] = df.dropOff_datetime - df.pickup_datetime
     df['duration'] = df.duration.dt.total_seconds() / 60
@@ -22,6 +29,7 @@ def prepare_features(df, categorical, train=True):
     df[categorical] = df[categorical].fillna(-1).astype('int').astype('str')
     return df
 
+@task
 def train_model(df, categorical):
 
     train_dicts = df[categorical].to_dict(orient='records')
@@ -39,6 +47,7 @@ def train_model(df, categorical):
     print(f"The MSE of training is: {mse}")
     return lr, dv
 
+@task
 def run_model(df, categorical, dv, lr):
     val_dicts = df[categorical].to_dict(orient='records')
     X_val = dv.transform(val_dicts) 
@@ -49,9 +58,27 @@ def run_model(df, categorical, dv, lr):
     print(f"The MSE of validation is: {mse}")
     return
 
-def main(train_path: str = './data/fhv_tripdata_2021-01.parquet', 
-           val_path: str = './data/fhv_tripdata_2021-02.parquet'):
+@task
+def get_paths(date):
+    prev_date = datetime.strptime(date, "%Y-%m-%d") - pd.DateOffset(months=1)
+    twomonthback_date = datetime.strptime(date, "%Y-%m-%d") - pd.DateOffset(months=2)
+    prev_yyyy_mm = datetime.strftime(prev_date, '%Y-%m')
+    twomonthback_yyyy_mm = datetime.strftime(twomonthback_date, '%Y-%m')
 
+    train_path = f'./data/fhv_tripdata_{twomonthback_yyyy_mm}.parquet'
+    val_path = f'./data/fhv_tripdata_{prev_yyyy_mm}.parquet'
+    return train_path, val_path
+
+@flow
+def main(date = None):
+
+    if date == None:
+        date = date.today()
+        date = datetime.strftime(date, '%Y-%m-%d')
+    else:
+        pass
+    
+    train_path, val_path = get_paths(date).result()
     categorical = ['PUlocationID', 'DOlocationID']
 
     df_train = read_data(train_path)
@@ -61,7 +88,16 @@ def main(train_path: str = './data/fhv_tripdata_2021-01.parquet',
     df_val_processed = prepare_features(df_val, categorical)
 
     # train the model
-    lr, dv = train_model(df_train_processed, categorical)
-    run_model(df_val_processed, categorical, dv, lr)
+    lr, dv = train_model(df_train_processed, categorical).result()
+    model_name = f"model-{date}.pkl"
+    dv_name = f"dv-{date}.pkl"
+    
+    with open(model_name, "wb") as f_out:
+        pickle.dump(lr, f_out)
 
-main()
+    with open(dv_name, "wb") as f_out:
+        pickle.dump(dv, f_out)
+
+    #run_model(df_val_processed, categorical, dv, lr)
+
+main(date="2021-08-15")
