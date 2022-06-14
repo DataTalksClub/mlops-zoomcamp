@@ -1,0 +1,43 @@
+{
+  "module": {
+    "number": 4,
+    "title": "Model Deployment"
+  },
+  "units": [
+    {
+      "number": 1,
+      "title": "Three ways of deploying a model",
+      "youtube": "https://www.youtube.com/watch?v=JMGe4yIoBRA"
+    },
+    {
+      "number": 2,
+      "title": "Web-services: Deploying models with Flask and Docker",
+      "youtube": "https://www.youtube.com/watch?v=D7wfMAdgdF8"
+    },
+    {
+      "number": 3,
+      "title": "Web-services: Getting the models from the model registry (MLflow)",
+      "youtube": "https://www.youtube.com/watch?v=aewOpHSCkqI"
+    },
+    {
+      "number": 4,
+      "title": "(Optional) Streaming: Deploying models with Kinesis and Lambda ",
+      "youtube": "https://www.youtube.com/watch?v=TCqr9HNcrsI"
+    },
+    {
+      "number": 5,
+      "title": "Batch: Preparing a scoring script",
+      "youtube": "https://www.youtube.com/watch?v=18Lbaaeigek"
+    },
+    {
+      "number": 6,
+      "title": "Batch: TBA",
+      "youtube": ""
+    },
+    {
+      "number": 7,
+      "title": "Homework",
+      "youtube": ""
+    }
+  ]
+}
