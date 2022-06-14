@@ -93,15 +93,15 @@ This is a draft and will change.
 [More details](03-orchestration)
 
 
-### Module 4: Model Deployment 
+### [Module 4: Model Deployment](04-deployment)
 
-* Batch vs online
-* For online: web services vs streaming
-* Serving models in Batch mode
-* Web services
-* Streaming (Kinesis/SQS + AWS Lambda)
+* Three ways of model deployment: Online (web and streaming) and offline (batch)
+* Web service: model deployment with Frask
+* Streaming: consuming events with AWS Kinesis and Lambda
+* Batch: scoring data offline
 * Homework
 
+[More details](04-deployment)
 
 ### Module 5: Model Monitoring
 
