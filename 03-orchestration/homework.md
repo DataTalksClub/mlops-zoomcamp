@@ -15,12 +15,12 @@ We already have a model training script. Maybe a data scientist in your team han
 
 1. The training flow will be run every month.
 2. The flow will take in a parameter called `date` which will be a datetime.
-    a. `date` should default to None
-    b. If `date` is None, set `date` as the current day. Use the data from 2 months back as the training data and the data from the previous month as validation data.
-    c. If `date` is passed, get 2 months before the `date` as the training data, and the previous month as validation data.
-    d. As a concrete example, if the date passed is "2021-03-15", the training data should be "fhv_tripdata_2021-01.parquet" and the validation file will be "fhv_trip_data_2021-02.parquet"
-3. Save the model as "model-{date}.pkl" where date is in `YYYY-MM-DD`. Note that `date` here is the value of the flow `parameter`. In practice, this setup makes it very easy to get the latest model to run predictions because you just need to get the most recent one.
-4. In this example we use a DictVectorizer. That is needed to run future data through our model. Save that as "dv-{date}.pkl". Similar to above, if the date is `2021-03-15`, the files output should be `model-2021-03-15.bin` and `dv-2021-03-15.b`.
+    * a. `date` should default to `None`.
+    * b. If `date` is `None`, set `date` as the current day. Use the data from 2 months back as the training data and the data from the previous month as validation data.
+    * c. If `date` is passed, get 2 months before the `date` as the training data, and the previous month as validation data.
+    * d. As a concrete example, if the date passed is "2021-03-15", the training data should be "fhv_tripdata_2021-01.parquet" and the validation file will be "fhv_trip_data_2021-02.parquet".
+3. Save the model as "model-{date}.bin" where date is in `YYYY-MM-DD`. Note that `date` here is the value of the flow `parameter`. In practice, this setup makes it very easy to get the latest model to run predictions because you just need to get the most recent one.
+4. In this example we use a DictVectorizer. That is needed to run future data through our model. Save that as "dv-{date}.b". Similar to above, if the date is `2021-03-15`, the files output should be `model-2021-03-15.bin` and `dv-2021-03-15.b`.
 
 This convention is not strict in industry, and in practice, you will come up with your own system to manage these training pipeline runs. For example, if we wanted to train on the whole history instead of just one month, we'd need to allow for added parameterization and logic in our flow. If the data came in weekly instead of monthly, we might need a different naming convention. But these requirements are already a simple approximation of something you could use in production.
 
@@ -28,9 +28,9 @@ On the deployment side, it's very easy to just pull in the latest data and predi
 
 In order, this homework assignment will be about:
 
-1. Converting the script to a Flow
+1. Converting the script to a Flow.
 2. Changing the parameters to take in a `date`. Making this parameter dynamic.
-3. Scheduling a batch training job that outputs the latest model somewhere
+3. Scheduling a batch training job that outputs the latest model somewhere.
 
 ## Setup
 
@@ -78,11 +78,10 @@ def main(date=None):
 
 Where `get_paths` is a task that you have to implement. The specs for this are outlined in the motivation section. Listing them out again here:
 
-The flow will take in a parameter called `date` which will be a datetime.
-    a. `date` should default to None
-    b. If `date` is None, use the current day. Use the data from 2 months back as the training data and the data from the previous month as validation data.
-    c. If a `date` value is supplied, get 2 months before the `date` as the training data, and the previous month as validation data.
-    d. As a concrete example, if the date passed is "2021-03-15", the training data should be "fhv_tripdata_2021-01.parquet" and the validation file will be "fhv_trip_data_2021-02.parquet"
+* a. The flow will take in a parameter called `date` which will be a datetime. `date` should default to `None`.
+* b. If `date` is `None`, use the current day. Use the data from 2 months back as the training data and the data from the previous month as validation data.
+* c. If a `date` value is supplied, get 2 months before the `date` as the training data, and the previous month as validation data.
+* d. As a concrete example, if the date passed is "2021-03-15", the training data should be "fhv_tripdata_2021-01.parquet" and the validation file will be "fhv_trip_data_2021-02.parquet".
 
 Because we have two files:
 
@@ -124,8 +123,8 @@ The validation MSE is:
 
 At the moment, we are not saving the model and vectorizer for future use. You don't need a new task for this, you can just add it inside the `flow`. The requirements for filenames to save it as were mentioned in the Motivation section. They are pasted again here:
 
-* Save the model as "model-{date}.pkl" where date is in `YYYY-MM-DD`. Note that `date` here is the value of the flow `parameter`. In practice, this setup makes it very easy to get the latest model to run predictions because you just need to get the most recent one.
-* In this example we use a DictVectorizer. That is needed to run future data through our model. Save that as "dv-{date}.pkl". Similar to above, if the date is `2021-03-15`, the files output should be `model-2021-03-15.bin` and `dv-2021-03-15.b`.
+* Save the model as "model-{date}.bin" where date is in `YYYY-MM-DD`. Note that `date` here is the value of the flow `parameter`. In practice, this setup makes it very easy to get the latest model to run predictions because you just need to get the most recent one.
+* In this example we use a DictVectorizer. That is needed to run future data through our model. Save that as "dv-{date}.b". Similar to above, if the date is `2021-03-15`, the files output should be `model-2021-03-15.bin` and `dv-2021-03-15.b`.
 
 By using this file name, during inference, we can just pull the latest model from our model directory and apply it. Assuming we already had a list of filenames:
 
@@ -181,6 +180,8 @@ How many flow runs are scheduled by Prefect in advance? You should not be counti
 * 10
 * 25
 
+**Note:** Your answer may be off by 1. It's okay. Select the option closest to your answer.
+
 ## Q6. Creating a work-queue
 
 In order to run this flow, you will need an agent and a work queue. Because we scheduled our flow on every month, it won't really get picked up by an agent. For this exercise, create a work-queue from the UI and view it using the CLI. 
@@ -209,7 +210,7 @@ What is the command to view the available work-queues?
 
 ## Deadline
 
-The deadline for submitting is 11 June 2022 (Saturday) at 23:00 CEST. After that, the form will be closed.
+The deadline for submitting is 13 June 2022 (Monday) 23:00 CEST. After that, the form will be closed.
 
 
 ## Solution
