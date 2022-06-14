@@ -9,4 +9,7 @@ data/
 
 .venv
 venv
+
 .idea
+**/artifacts/
+**/models/

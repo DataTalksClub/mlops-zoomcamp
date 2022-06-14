@@ -4,13 +4,13 @@ If you use WSL, you should have no problems running Prefect Orion.
 
 But if you aren't, there is just a slight tweak to installation instructions if you are on Windows.
 
-You will need to install 2.0b6 (to be released Monday June 7). 2.0b6 will officially support Windows. Use this instead of 2.0b5 shows in the lectures.
+You will need to install 2.0b7 (to be released soon). 2.0b7 will officially support Windows. Use this instead of 2.0b5 shows in the lectures.
 
 ```
-pip install prefect==2.0b6
+pip install prefect==2.0b7
 ```
 
-Note that 2.0b5 and 2.0b6 are not compatible because 2.0b6 contains breaking changes. If you run into issues, you can reset the Prefect database by doing:
+Note that 2.0b5 and 2.0b7 are not compatible because 2.0b7 contains breaking changes. If you run into issues, you can reset the Prefect database by doing:
 
 ```
 prefect orion database reset
