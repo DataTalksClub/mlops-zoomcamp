@@ -9,7 +9,7 @@ def read_data(path):
     return df
 
 def prepare_features(df, categorical, train=True):
-    df['duration'] = df.dropOff_datetime - df.pickup_datetime
+    df['duration'] = df.dropoff_datetime - df.pickup_datetime
     df['duration'] = df.duration.dt.total_seconds() / 60
     df = df[(df.duration >= 1) & (df.duration <= 60)].copy()
 
