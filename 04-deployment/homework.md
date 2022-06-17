@@ -9,7 +9,7 @@ You'll find the starter code in the [homework](homework/) directory.
 
 We'll start with the same notebook we ended up with in homework 1.
 
-We cleaned it a little bit and kept only the scoring part. Now it's in [homework/starter.ipynb]
+We cleaned it a little bit and kept only the scoring part. Now it's in [homework/starter.ipynb](homework/starter.ipynb).
 
 Run this notebook for the February 2021 FVH data.
 
@@ -111,8 +111,9 @@ COPY [ "model2.bin", "model.bin" ]
 (see [`homehork/Dockerfile`](homehork/Dockerfile))
 
 We pushed it to [`agrigorev/zoomcamp-model:mlops-3.9.7-slim`](https://hub.docker.com/layers/zoomcamp-model/agrigorev/zoomcamp-model/mlops-3.9.7-slim/images/sha256-7fac33c783cc6018356ce16a4b408f6c977b55a4df52bdb6c4d0215edf83af5d?context=explore),
-which you should use as your base image. That is, this is
-how your Dockerfile should start:
+which you should use as your base image.
+
+That is, this is how your Dockerfile should start:
 
 ```docker
 FROM grigorev/zoomcamp-model:mlops-3.9.7-slim
