@@ -48,7 +48,7 @@ Links:
 
 ## 3.6 MLOps Zoomcamp 3.6 - (Optional) Work queues and agents
 
-<a href="https://www.youtube.com/watch?v=xw9JfaWPPps&list=PL3MmuxUbc_hIUISrluw_A7wDSmfOhErJK">
+<a href="https://www.youtube.com/watch?v=oDSf0ThKsso&list=PL3MmuxUbc_hIUISrluw_A7wDSmfOhErJK">
   <img src="images/thumbnail-3-06.jpg">
 </a>
 
