@@ -108,7 +108,7 @@ WORKDIR /app
 COPY [ "model2.bin", "model.bin" ]
 ```
 
-(see [`homehork/Dockerfile`](homehork/Dockerfile))
+(see [`homework/Dockerfile`](homework/Dockerfile))
 
 We pushed it to [`agrigorev/zoomcamp-model:mlops-3.9.7-slim`](https://hub.docker.com/layers/zoomcamp-model/agrigorev/zoomcamp-model/mlops-3.9.7-slim/images/sha256-7fac33c783cc6018356ce16a4b408f6c977b55a4df52bdb6c4d0215edf83af5d?context=explore),
 which you should use as your base image.
