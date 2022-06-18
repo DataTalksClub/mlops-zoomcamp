@@ -28,7 +28,7 @@ Like in the course videos, we want to prepare the dataframe with the output.
 First, let's create an artificial `ride_id` column:
 
 ```python
-df['ride_id'] = '{year:04d}/{month:02d}_' + df.index.astype('str')
+df['ride_id'] = f'{year:04d}/{month:02d}_' + df.index.astype('str')
 ```
 
 Next, write the ride id and the predictions to a dataframe with results. 
