@@ -116,7 +116,7 @@ which you should use as your base image.
 That is, this is how your Dockerfile should start:
 
 ```docker
-FROM grigorev/zoomcamp-model:mlops-3.9.7-slim
+FROM agrigorev/zoomcamp-model:mlops-3.9.7-slim
 
 # do stuff here
 ```
