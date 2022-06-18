@@ -64,14 +64,13 @@ Which command you need to execute for that?
 
 ## Q4. Virtual environment
 
-Now let's put everything into a virtual environment. We'll use
-pipenv for that.
+Now let's put everything into a virtual environment. We'll use pipenv for that.
 
-Install all the required libraries. Pay attention to the sklearn version. Check the notebook and use the same Scikit-Learn
-that we used for creating the pickle files. 
+Install all the required libraries. Pay attention to the Scikit-Learn version:
+check the starter notebook for details. 
 
 After installing the libraries, pipenv creates two files: `Pipfile`
-and `Pipfile.lock`. The `Pipfile.lock` keeps the hashes of the
+and `Pipfile.lock`. The `Pipfile.lock` file keeps the hashes of the
 dependencies we use for the virtual env.
 
 What's the first hash for the Scikit-Learn dependency?
