@@ -46,7 +46,14 @@ Links:
 * [Instructions for Hosting Prefect Orion](https://discourse.prefect.io/t/hosting-an-orion-instance-on-a-cloud-vm/967)
 
 
-## 3.6 Homework
+## 3.6 MLOps Zoomcamp 3.6 - (Optional) Work queues and agents
+
+<a href="https://www.youtube.com/watch?v=oDSf0ThKsso&list=PL3MmuxUbc_hIUISrluw_A7wDSmfOhErJK">
+  <img src="images/thumbnail-3-06.jpg">
+</a>
+
+
+## 3.7 Homework
 
 More information here: [homework.md](homework.md)
 
