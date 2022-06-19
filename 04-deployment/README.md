@@ -53,10 +53,14 @@
 COMING SOON
 
 
-
-## 4.7 Homework
+## 4.7 Choosing the right way of deployment
 
 COMING SOON
+
+
+## 4.8 Homework
+
+More information here: [homework.md](homework.md)
 
 
 ## Notes
