@@ -215,4 +215,5 @@ The deadline for submitting is 13 June 2022 (Monday) 23:00 CEST. After that, the
 
 ## Solution
 
-[Watch here](https://www.youtube.com/watch?v=DfmRb7J-Wuw)
+* [Code - `homework_solution.py`](homework_solution.py)
+* [Video](https://www.youtube.com/watch?v=DfmRb7J-Wuw)
