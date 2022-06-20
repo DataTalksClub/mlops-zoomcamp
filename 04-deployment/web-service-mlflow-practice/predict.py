@@ -4,10 +4,12 @@ import mlflow
 from flask import Flask, jsonify, request
 
 RUN_ID = os.getenv('RUN_ID')
-MLFLOW_TRACKING_URI = 'http://127.0.0.1:5000'
 
-client = mlflow.set_tracking_uri(MLFLOW_TRACKING_URI)
-logged_model = f'runs:/{RUN_ID}/model'
+# Uncomment below two lines if model not stored on s3
+# MLFLOW_TRACKING_URI = 'http://127.0.0.1:5000'
+# client = mlflow.set_tracking_uri(MLFLOW_TRACKING_URI)
+
+logged_model = f's3://mlops-zoomcamp-nakul/week-4-experiments/1/{RUN_ID}/artifacts/model'
 # logged_model = f'runs:/{RUN_ID}/model'
 model = mlflow.pyfunc.load_model(logged_model)
 
