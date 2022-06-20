@@ -8,11 +8,6 @@ Instructor: Alexey Grigorev
   <img src="images/thumbnail-1-01.jpg">
 </a>
 
-**Note**: If you get `It is required that your private key files are NOT accessible by others. This private key will be ignored.` error, you should change permits on the downloaded file to protect your private key:
-
- ```sh
-chmod 400 name-of-your-private-key-file.pem
-```
 
 
 ## 1.2 Environment preparation
@@ -102,6 +97,12 @@ docker run hello-world
 
 If you get `docker: Got permission denied while trying to connect to the Docker daemon socket at unix:///var/run/docker.sock: Post "http://%2Fvar%2Frun%2Fdocker.sock/v1.24/containers/create": dial unix /var/run/docker.sock: connect: permission denied.` error, restart your VM instance. 
 
+
+**Note**: If you get `It is required that your private key files are NOT accessible by others. This private key will be ignored.` error, you should change permits on the downloaded file to protect your private key:
+
+ ```sh
+chmod 400 name-of-your-private-key-file.pem
+```
 
 ## 1.3 (Optional) Training a ride duration prediction model
 
