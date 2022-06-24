@@ -153,7 +153,9 @@ from datetime import timedelta
 DeploymentSpec(
     flow=main,
     name="model_training",
-    schedule=IntervalSchedule(interval=timedelta(minutes=5)),
+    schedule=CronSchedule(
+        cron="0 0 15 * *",
+        timezone="America/New_York"),
     flow_runner=SubprocessFlowRunner(),
     tags=["ml"]
 )

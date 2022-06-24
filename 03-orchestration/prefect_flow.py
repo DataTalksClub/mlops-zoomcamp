@@ -127,9 +127,9 @@ def train_best_model(train, valid, y_val, dv):
         rmse = mean_squared_error(y_val, y_pred, squared=False)
         mlflow.log_metric("rmse", rmse)
 
-        with open("models/preprocessor.b", "wb") as f_out:
+        with open("./models/preprocessor.b", "wb") as f_out:
             pickle.dump(dv, f_out)
-        mlflow.log_artifact("models/preprocessor.b", artifact_path="preprocessor")
+        mlflow.log_artifact("./models/preprocessor.b", artifact_path="preprocessor")
 
         mlflow.xgboost.log_model(booster, artifact_path="models_mlflow")
 
@@ -140,8 +140,11 @@ def main(train_path: str="./data/green_tripdata_2021-01.parquet",
     mlflow.set_experiment("nyc-taxi-experiment")
     X_train = read_dataframe(train_path)
     X_val = read_dataframe(val_path)
+    #when adding @task to add_features() need .result()
     X_train, X_val, y_train, y_val, dv = add_features(X_train, X_val).result()
     train = xgb.DMatrix(X_train, label=y_train)
     valid = xgb.DMatrix(X_val, label=y_val)
     train_model_search(train, valid, y_val)
     train_best_model(train, valid, y_val, dv)
+
+main()
