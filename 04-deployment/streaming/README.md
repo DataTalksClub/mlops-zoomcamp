@@ -126,7 +126,11 @@ docker run -it --rm \
     -e TEST_RUN="True" \
     -e AWS_DEFAULT_REGION="eu-west-1" \
     stream-model-duration:v1
+```
 
+To use AWS CLI, you may need to set the env variables:
+
+```bash
 docker run -it --rm \
     -p 8080:8080 \
     -e PREDICTIONS_STREAM_NAME="ride_predictions" \
@@ -135,6 +139,18 @@ docker run -it --rm \
     -e AWS_ACCESS_KEY_ID="${AWS_ACCESS_KEY_ID}" \
     -e AWS_SECRET_ACCESS_KEY="${AWS_SECRET_ACCESS_KEY}" \
     -e AWS_DEFAULT_REGION="${AWS_DEFAULT_REGION}" \
+    stream-model-duration:v1
+```
+
+Alternatively, you can mount the `.aws` folder with your credentials to the `.aws` folder in the container:
+
+```bash
+docker run -it --rm \
+    -p 8080:8080 \
+    -e PREDICTIONS_STREAM_NAME="ride_predictions" \
+    -e RUN_ID="e1efc53e9bd149078b0c12aeaa6365df" \
+    -e TEST_RUN="True" \
+    -v c:/Users/alexe/.aws:/root/.aws \
     stream-model-duration:v1
 ```
 
