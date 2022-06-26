@@ -68,4 +68,5 @@ More information here: [homework.md](homework.md)
 Did you take notes? Add them here:
 
 * [Notes on model deployment (+ creating a modeling package) by Ron M.](https://particle1331.github.io/inefficient-networks/notebooks/mlops/04-deployment/notes.html)
+* [Notes on Model Deployment using Google Cloud Platform, by M. Ayoub C.](https://gist.github.com/Qfl3x/de2a9b98a370749a4b17a4c94ef46185)
 * Send a PR, add your notes above this line
