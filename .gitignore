@@ -12,3 +12,5 @@ venv
 .idea
 **/artifacts/
 **/models/
+
+__pycache__/
