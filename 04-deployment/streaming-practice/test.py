@@ -1,6 +1,4 @@
-import requests 
-
-url = "http://localhost:8080"
+from lambda_function import lambda_handler
 
 event = {
     "Records": [
@@ -16,14 +14,11 @@ event = {
             "eventVersion": "1.0",
             "eventID": "shardId-000000000000:49630081666084879290581185630324770398608704880802529282",
             "eventName": "aws:kinesis:record",
-            "invokeIdentityArn": "arn:aws:iam::387546586013:role/lambda-kinesis-role",
-            "awsRegion": "eu-west-1",
-            "eventSourceARN": "arn:aws:kinesis:eu-west-1:387546586013:stream/ride_events"
+            "invokeIdentityArn": "arn:aws:iam::135015496169:role/lambda-kinesis-role",
+            "awsRegion": "us-east-1",
+            "eventSourceARN": "arn:aws:kinesis:us-east-1:135015496169:stream/ride_events"
         }
     ]
 }
 
-
-url = 'http://localhost:8080/2015-03-31/functions/function/invocations'
-response = requests.post(url, json=event)
-print(response.json())
+result = lambda_handler(event=event, context=None)
