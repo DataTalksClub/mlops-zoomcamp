@@ -153,7 +153,7 @@ Modify your code to upload the parquet file to S3/GCS/etc.
 
 ## Deadline
 
-The deadline for submitting is 25 June 2022 (Saturday) 23:00 CEST. After that, the form will be closed.
+The deadline for submitting is 27 June 2022 (Monday) 23:00 CEST. After that, the form will be closed.
 
 
 ## Solution
