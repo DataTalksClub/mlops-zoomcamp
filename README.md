@@ -93,15 +93,15 @@ This is a draft and will change.
 [More details](03-orchestration)
 
 
-### Module 4: Model Deployment 
+### [Module 4: Model Deployment](04-deployment)
 
-* Batch vs online
-* For online: web services vs streaming
-* Serving models in Batch mode
-* Web services
-* Streaming (Kinesis/SQS + AWS Lambda)
+* Three ways of model deployment: Online (web and streaming) and offline (batch)
+* Web service: model deployment with Flask
+* Streaming: consuming events with AWS Kinesis and Lambda
+* Batch: scoring data offline
 * Homework
 
+[More details](04-deployment)
 
 ### Module 5: Model Monitoring
 
@@ -172,7 +172,7 @@ Possible candidates:
 
 If you haven't used Flask or Docker
 
-* Check [Module 5](https://github.com/alexeygrigorev/mlbookcamp-code/tree/master/course-zoomcamp/05-deployment) form ML Zoomcamp
+* Check [Module 5](https://github.com/alexeygrigorev/mlbookcamp-code/tree/master/course-zoomcamp/05-deployment) from ML Zoomcamp
 * The [section about Docker](https://github.com/DataTalksClub/data-engineering-zoomcamp/tree/main/week_1_basics_n_setup/2_docker_sql) from Data Engineering Zoomcamp could also be useful
 
 If you have no previous experience with ML
