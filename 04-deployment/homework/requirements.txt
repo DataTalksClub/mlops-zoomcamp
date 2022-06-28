@@ -1,0 +1,10 @@
+joblib==1.1.0
+numpy==1.23.0
+pandas==1.4.3
+pyarrow==8.0.0
+python-dateutil==2.8.2
+pytz==2022.1
+scikit-learn==1.0.2
+scipy==1.8.1
+six==1.16.0
+threadpoolctl==3.1.0

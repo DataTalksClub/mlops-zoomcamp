@@ -16,7 +16,7 @@ Run this notebook for the February 2021 FVH data.
 What's the mean predicted duration for this dataset?
 
 * 11.19
-* 16.19
+* 16.19 A
 * 21.19
 * 26.19
 
@@ -47,7 +47,7 @@ df_result.to_parquet(
 What's the size of the output file?
 
 * 9M
-* 19M
+* 19M A
 * 29M
 * 39M
 
@@ -61,6 +61,7 @@ Now let's turn the notebook into a script.
 
 Which command you need to execute for that?
 
+(base) ubuntu@ip-172-31-12-129:~/mlops-zoomcamp/04-deployment/homework$ jupyter nbconvert --to script starter.ipynb
 
 ## Q4. Virtual environment
 
@@ -74,7 +75,7 @@ and `Pipfile.lock`. The `Pipfile.lock` file keeps the hashes of the
 dependencies we use for the virtual env.
 
 What's the first hash for the Scikit-Learn dependency?
-
+sha256:08ef968f6b72033c16c479c966bf37ccd49b06ea91b765e1cc27afefe723920b
 
 ## Q5. Parametrize the script
 
@@ -86,11 +87,15 @@ Run the script for March 2021.
 What's the mean predicted duration? 
 
 * 11.29
-* 16.29
+* 16.29 A
 * 21.29
 * 26.29
 
 Hint: just add a print statement to your script.
+
+(homework) (base) ubuntu@ip-172-31-12-129:~/mlops-zoomcamp/04-deployment/homework$ python starter.py 2021 3
+mean of prediction is is 16.298821614015107
+output file size is 23.75357723236084 MB
 
 
 ## Q6. Docker contaner 
@@ -130,7 +135,7 @@ Now run the script with docker. What's the mean predicted duration
 for April 2021? 
 
 
-* 9.96
+* 9.96 A
 * 16.55
 * 25.96
 * 36.55
