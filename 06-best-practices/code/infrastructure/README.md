@@ -64,4 +64,8 @@ terraform [init | plan | apply ] -var-file="vars/dev.tfvars"
 terraform [init | plan | apply ] -var-file="vars/prod.tfvars"
 ```
 
-3. Testing with localstack ? (if time permits, or homework)
+3. TF state on s3
+
+4. Testing with localstack ? (if time permits, or homework)
+
+5. CI/CD
