@@ -18,3 +18,4 @@ __pycache__/
 **lambda*.zip
 **.terraform.lock.hcl
 **terraform.tfstate*
+**.terraform
