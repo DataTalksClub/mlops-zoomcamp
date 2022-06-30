@@ -39,4 +39,21 @@ aws --endpoint-url=http://localhost:4566 \
     --shard-count 1
 ```
 
- aws  --endpoint-url=http://localhost:4566 kinesis     get-shard-iterator         --shard-id ${SHARD}         --shard-iterator-type TRIM_HORIZON         --stream-name ${PREDICTIONS_STREAM_NAME}         --query 'ShardIterator'
+```bash
+aws  --endpoint-url=http://localhost:4566 \
+    kinesis     get-shard-iterator \
+    --shard-id ${SHARD} \
+    --shard-iterator-type TRIM_HORIZON \
+    --stream-name ${PREDICTIONS_STREAM_NAME} \
+    --query 'ShardIterator'
+```
+
+
+Without makefiles:
+
+```
+isort .
+black .
+pylint --recursive=y .
+pytest tests/
+```
