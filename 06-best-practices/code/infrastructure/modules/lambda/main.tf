@@ -1,19 +1,15 @@
 resource "aws_lambda_function" "kinesis_lambda" {
-  // filename      = "lambda_function.zip" # var
-  // source_code_hash = data.archive_file.lambda_zip.output_base64sha256
   function_name = var.lambda_function_name
   image_uri = var.image_uri
   package_type = "Image"
   role          = aws_iam_role.lambda_for_kinesis.arn   # to be updated
-//  handler       = "lambda_function.lambda_handler"
-//  runtime = "python3.8"
   tracing_config {
     mode = "Active"
   }
   environment {
     variables = {
-      OUTPUT_KINESIS_STREAM = var.output_stream_name
-      BUCKET_NAME = var.bucket_name
+      PREDICTIONS_STREAM_NAME = var.output_stream_name
+      MODEL_BUCKET = var.bucket_name
     }
   }
   timeout = 180
