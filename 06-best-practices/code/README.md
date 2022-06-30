@@ -25,3 +25,18 @@ docker run -it --rm \
     -v $(pwd)/model:/app/model \
     stream-model-duration:v2
 ```
+
+
+```bash
+aws --endpoint-url=http://localhost:4566 \
+    kinesis list-streams
+```
+
+```bash
+aws --endpoint-url=http://localhost:4566 \
+    kinesis create-stream \
+    --stream-name ride_predictions \
+    --shard-count 1
+```
+
+ aws  --endpoint-url=http://localhost:4566 kinesis     get-shard-iterator         --shard-id ${SHARD}         --shard-iterator-type TRIM_HORIZON         --stream-name ${PREDICTIONS_STREAM_NAME}         --query 'ShardIterator'
