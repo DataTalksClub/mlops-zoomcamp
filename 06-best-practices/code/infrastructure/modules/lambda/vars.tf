@@ -2,6 +2,10 @@ variable "lambda_function_name" {
   description = "Name of the lambda function"
 }
 
+variable "image_uri" {
+  description = "ECR image uri"
+}
+
 variable "source_stream_name" {
   type        = string
   description = "Source Kinesis Data Streams stream name"
