@@ -2,13 +2,10 @@
 
 import os
 import json
-
-import boto3
-
 from pprint import pprint
 
+import boto3
 from deepdiff import DeepDiff
-
 
 kinesis_endpoint = os.getenv('KINESIS_ENDPOINT_URL', "http://localhost:4566")
 kinesis_client = boto3.client('kinesis', endpoint_url=kinesis_endpoint)
@@ -28,7 +25,7 @@ shard_iterator_id = shard_iterator_response['ShardIterator']
 
 records_response = kinesis_client.get_records(
     ShardIterator=shard_iterator_id,
-    Limit=1
+    Limit=1,
 )
 
 
@@ -47,8 +44,8 @@ expected_record = {
     'version': 'Test123',
     'prediction': {
         'ride_duration': 21.3,
-        'ride_id': 256
-    }
+        'ride_id': 256,
+    },
 }
 
 diff = DeepDiff(actual_record, expected_record, significant_digits=1)

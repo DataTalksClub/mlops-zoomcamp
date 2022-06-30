@@ -1,10 +1,9 @@
 # pylint: disable=duplicate-code
 
 import json
-import requests 
 
+import requests
 from deepdiff import DeepDiff
-
 
 with open('event.json', 'rt', encoding='utf-8') as f_in:
     event = json.load(f_in)
@@ -17,14 +16,16 @@ print('actual response:')
 print(json.dumps(actual_response, indent=2))
 
 expected_response = {
-    'predictions': [{
-        'model': 'ride_duration_prediction_model',
-        'version': 'Test123',
-        'prediction': {
-            'ride_duration': 21.3,
-            'ride_id': 256
+    'predictions': [
+        {
+            'model': 'ride_duration_prediction_model',
+            'version': 'Test123',
+            'prediction': {
+                'ride_duration': 21.3,
+                'ride_id': 256,
+            },
         }
-    }]
+    ]
 }
 
 
