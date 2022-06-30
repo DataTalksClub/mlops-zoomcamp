@@ -1,0 +1,61 @@
+Q1: Converting Script to Prefect Flow
+- Made a conda new environment
+  - conda -n env-prefect python=3.8.5
+- pip install -r requirements.txt to this environment
+- Imported task and flow from prefect and added it to the code as decorators to functions
+
+A: train_model()
+A: train_model()
+
+PROBLEMS
+- What if it says "conda not recognized" in VSCODE Terminal
+A: Activate code environment in ananconda prompt and then type "code" there and it will open the VSCODE
+
+- What if the OUTPUT tab shows nothing and code keeps on running in Terminal
+A: Install CodeRunner and press CTRL ALT N to run the code
+
+Q2: 
+Max split
+Regex
+Get files in directory
+Parametrizing Date: Add more here
+Run everything on ubuntu
+
+Download 06 and 07 files and run the flow
+The MSE of validation is: 11.63703264088319
+
+Q3:
+Save model and dv pickle using 
+
+with open(model_name, "wb") as f_out:
+      pickle.dump(lr, f_out)
+
+#https://stackoverflow.com/questions/11720079/linux-command-to-get-size-of-files-and-directories-present-in-a-particular-folde
+
+ls -lh
+-rw-rw-r-- 1 ubuntu ubuntu  13K Jun 10 19:54 dv-2021-08-15.pkl
+
+
+Ans: 13K
+
+
+Q4:
+https://bradymholt.github.io/cron-expression-descriptor/
+0 9 15 * * : At 09:00 AM, on day 15 of the month
+
+Q5:
+I am getting 4 scheduled flows and the closest answer is 3.
+
+Q6:
+prefect work-queue preview 
+
+
+
+
+
+
+TO DO:
+- Cron 
+- Decorators
+- Docker
+- Documentation/Flow of W3
