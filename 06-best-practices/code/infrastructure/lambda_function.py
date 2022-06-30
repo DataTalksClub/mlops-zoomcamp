@@ -10,27 +10,21 @@ def lambda_handler(event, context):
     logger.setLevel('INFO')
     logger.info('event: {}'.format(event))
 
+    consumer_stream = os.environ.get('OUTPUT_KINESIS_STREAM')
+    bucket = os.environ.get('BUCKET_NAME')
+
     try:
         client = boto3.client('kinesis')
         response = client.put_record(
             Data=json.dumps(event),
             PartitionKey='123',
-            StreamName=os.environ.get('OUTPUT_KINESIS_STREAM')
+            StreamName=consumer_stream
         )
-        logger.info('response: {}'.format(response))
-
-        client = boto3.client('s3')
-        response = client.put_object(
-            Data=json.dumps(event),
-            PartitionKey='123',
-            StreamName=os.environ.get('OUTPUT_KINESIS_STREAM')
-        )
+        logger.info(f'response: {response} saved to consumer_stream: {consumer_stream}')
 
         s3 = boto3.resource('s3')
-        object = s3.Object(os.environ.get('BUCKET_NAME'), 'temp_file.json')  # TODO: filename?
-        object.put(Body=json.dumps(event))
-
-        logger.info('response: {}'.format(response))
+        s3.Bucket(bucket).put_object(Key='temp_file.json', Body=json.dumps(event))  # TODO: filename?
+        logger.info(f'response: saved to s3: {bucket}')
 
     except Exception as e:
         logger.error('error: {}'.format(e))

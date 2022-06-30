@@ -1,4 +1,14 @@
 terraform {
+  required_version = ">= 1.0"
+  backend "s3" {
+    bucket  = "tf-state-mlops-zoomcamp"
+    key     = "mlops-zoomcamp.tfstate"  # make it env/stg based
+    region  = "eu-west-1"
+    encrypt = true
+  }
+}
+
+terraform {
   required_version = ">= 0.12"
 }
 
