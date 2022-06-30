@@ -1,4 +1,4 @@
-## GCP Overview
+## IaC w/ Terraform
 
 ### Project infrastructure modules in GCP:
 * Amazon Web Service (AWS):
