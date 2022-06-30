@@ -51,6 +51,8 @@ And then check on CloudWatch logs. Unfortunately `get-records` on `output_kinesi
 
 ![image](cw_log_output.png)
 
+Or check on S3 (`mlflow-models-test`)
+
 ### Pending
 
 1. Remove test lambda and replace with prediction lambda
@@ -64,8 +66,6 @@ terraform [init | plan | apply ] -var-file="vars/dev.tfvars"
 terraform [init | plan | apply ] -var-file="vars/prod.tfvars"
 ```
 
-3. TF state on s3
+3. Testing with localstack ? (time won't permit, so homework ?)
 
-4. Testing with localstack ? (if time permits, or homework)
-
-5. CI/CD
+4. CI/CD
