@@ -1,6 +1,6 @@
 ## IaC w/ Terraform
 
-### Project infrastructure modules in GCP:
+### Project infrastructure modules:
 * Amazon Web Service (AWS):
     * S3 Bucket: artifacts
     * Lambda: Serving API
@@ -33,32 +33,32 @@
  
 ### Terraform
 
-(Content: TBD)
-
 1. To create infra
-```bash
-terraform init
-terraform plan
-terraform apply
-```
+   ```bash
+    terraform init
+    terraform plan
+    terraform apply
+    ```
 
-2. To test:
-```bash
-aws kinesis put-record --stream-name source_kinesis_stream --partition-key 123 --data "Hello, this is a test."
-```
-And then check on CloudWatch logs. Unfortunately `get-records` on `output_kinesis_stream` will not always work
-(unless you're willing to loop through all the `next_iterators`)
+2. To set prepare aws env (copy model artifacts, set env-vars for lambda etc.):
+    ```
+    bash deploy_manual.sh
+    ```
 
-![image](cw_log_output.png)
+3. To test the pipeline end-to-end with our new cloud infra:
+    ```
+    bash test_cloud_e2e.sh
+    ``` 
 
-Or check on S3 (`mlflow-models-test`)
+And then check on CloudWatch logs. Or try `get-records` on the `output_kinesis_stream` (refer to `integration_test`)
+
+![image](cw_log_lambda.png)
+
 
 ### Pending
 
-1. Remove test lambda and replace with prediction lambda
-```bash
-data "archive_file" -> source_file = "${path.module}/../
-```
+1. Unfortunately, the `RUN_ID` set via the `ENV` or `ARG` in `Dockerfile`, does not reflect during lambda invocation.
+Had to set it via `aws lambda update-function-configuration` cli command (refer to `deploy_manual.sh`)
 
 2. Stage-based infra
 ```bash
@@ -66,6 +66,9 @@ terraform [init | plan | apply ] -var-file="vars/dev.tfvars"
 terraform [init | plan | apply ] -var-file="vars/prod.tfvars"
 ```
 
-3. Testing with localstack ? (time won't permit, so homework ?)
-
-4. CI/CD
+3. CI/CD
+- tests (unit + intg) -> deploy
+- In principle, explain:
+    - generate metrics offline -> set env vars for lambda w/ stage-based deployments
+    - train_pipeline -> model registry & update run_id
+    - In practice, change in mlflow / db -> get curr run_id

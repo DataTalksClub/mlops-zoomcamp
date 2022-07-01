@@ -1,15 +1,17 @@
+
 resource "aws_lambda_function" "kinesis_lambda" {
   function_name = var.lambda_function_name
   image_uri = var.image_uri
   package_type = "Image"
-  role          = aws_iam_role.lambda_for_kinesis.arn   # to be updated
+  role          = aws_iam_role.lambda_for_kinesis.arn
   tracing_config {
     mode = "Active"
   }
+  // This step is optional (environment)
   environment {
     variables = {
       PREDICTIONS_STREAM_NAME = var.output_stream_name
-      MODEL_BUCKET = var.bucket_name
+      MODEL_BUCKET = var.model_bucket
     }
   }
   timeout = 180
@@ -18,7 +20,7 @@ resource "aws_lambda_function" "kinesis_lambda" {
 # Lambda Invoke & Event Source Mapping:
 
 resource "aws_lambda_function_event_invoke_config" "kinesis_lambda_event" {
-  function_name                = var.lambda_function_name # "lambda_function"
+  function_name                = aws_lambda_function.kinesis_lambda.function_name
   maximum_event_age_in_seconds = 60
   maximum_retry_attempts       = 0
 }

@@ -24,6 +24,6 @@ variable "output_stream_arn" {
   description = "ARN of output stream where all the events will be passed"
 }
 
-variable "bucket_name" {
+variable "model_bucket" {
   description = "Name of the bucket"
 }

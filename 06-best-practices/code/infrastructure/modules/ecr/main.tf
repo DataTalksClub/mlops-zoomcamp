@@ -7,6 +7,8 @@ resource "aws_ecr_repository" "repo" {
   }
 }
 
+# In practice, this step - i.e. pushing the image to ECR repo - is handled separately by the CI/CD pipeline and not the IaC script.
+# But given our single-stage IaC design, we are required to provide an existing ImageURI to package within Lambda config
 resource null_resource ecr_image {
    triggers = {
      python_file = md5(file(var.lambda_function_local_path))
@@ -23,6 +25,7 @@ resource null_resource ecr_image {
    }
 }
 
+// Wait for the image to be created, before lambda config runs
 data aws_ecr_image lambda_image {
  depends_on = [
    null_resource.ecr_image
@@ -32,5 +35,5 @@ data aws_ecr_image lambda_image {
 }
 
 output "image_uri" {
-  value = "${aws_ecr_repository.repo.repository_url}:${var.ecr_image_tag}"
+  value     = "${aws_ecr_repository.repo.repository_url}:${data.aws_ecr_image.lambda_image.image_tag}"
 }

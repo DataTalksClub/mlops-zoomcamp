@@ -87,7 +87,7 @@ EOF
 resource "aws_lambda_permission" "allow_cloudwatch_to_trigger_lambda_function" {
   statement_id  = "AllowExecutionFromCloudWatch"
   action        = "lambda:InvokeFunction"
-  function_name = var.lambda_function_name
+  function_name = aws_lambda_function.kinesis_lambda.function_name
   principal     = "events.amazonaws.com"
   source_arn    = var.source_stream_arn
 }
@@ -126,7 +126,7 @@ resource "aws_iam_role_policy_attachment" "lambda_logs" {
 resource "aws_iam_policy" "lambda_s3_role_policy" {
   name = "lambda_s3_policy"
   description = "IAM Policy for s3"
-  # TODO: change policies below to reflect put operation
+  # TODO: change policies below to reflect get operation
 policy = <<EOF
 {
   "Version": "2012-10-17",
@@ -144,8 +144,8 @@ policy = <<EOF
             "Effect": "Allow",
             "Action": "s3:*",
             "Resource": [
-                "arn:aws:s3:::${var.bucket_name}",
-                "arn:aws:s3:::${var.bucket_name}/*"
+                "arn:aws:s3:::${var.model_bucket}",
+                "arn:aws:s3:::${var.model_bucket}/*"
             ]
         },
         {
