@@ -48,10 +48,11 @@
 [See code here](batch/)
 
 
-## 4.6 Batch: TBA
+## 4.6 MLOps Zoomcamp 4.6 - Batch: Scheduling batch scoring jobs with Prefect
 
-COMING SOON
-
+<a href="https://www.youtube.com/watch?v=ekT_JW213Tc&list=PL3MmuxUbc_hIUISrluw_A7wDSmfOhErJK">
+  <img src="images/thumbnail-4-06.jpg">
+</a>
 
 ## 4.7 Choosing the right way of deployment
 
