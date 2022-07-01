@@ -52,7 +52,7 @@
 
 And then check on CloudWatch logs. Or try `get-records` on the `output_kinesis_stream` (refer to `integration_test`)
 
-![image](cw_log_lambda.png)
+![image](cw_logs_lambda.png)
 
 
 ### Pending
