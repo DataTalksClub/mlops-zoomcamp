@@ -5,7 +5,7 @@
 [x] Testing cloud services with Localstack
 [x] Code quality: linting and formatting
 [x] Git pre-commit hooks
-[ ] Makefiles
+[ ] Makefiles and make
 [ ] Staging and production environments
 [ ] Infrastructure as Code
 [ ] CI/CD and GitHub Actions
