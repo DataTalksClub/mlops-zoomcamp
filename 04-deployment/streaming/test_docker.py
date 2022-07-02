@@ -1,7 +1,5 @@
 import requests 
 
-url = "http://localhost:8080"
-
 event = {
     "Records": [
         {
