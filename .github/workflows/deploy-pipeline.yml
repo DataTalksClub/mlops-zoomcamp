@@ -15,12 +15,11 @@ jobs:
       AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
       AWS_DEFAULT_REGION: ${{ secrets.AWS_DEFAULT_REGION }}
     steps:
+      - uses: hashicorp/setup-terraform@v2
       - name: TF plan
-        uses: hashicorp/setup-terraform@v2
         working-directory: "06-best-practices/code/infrastructure"
         run: terraform init && terraform plan -var-file=vars/prod.tfvars
       - name: TF plan
-        uses: hashicorp/setup-terraform@v2
         working-directory: "06-best-practices/code/infrastructure"
         run: terraform apply -var-file=vars/prod.tfvars
 

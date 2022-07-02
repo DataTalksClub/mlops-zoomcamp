@@ -67,8 +67,9 @@
 Had to set it via `aws lambda update-function-configuration` cli command (refer to `deploy_manual.sh`)
 
 2. CI/CD
-- tests (unit + intg) -> deploy
 - In principle, explain:
     - generate metrics offline -> set env vars for lambda w/ stage-based deployments
     - train_pipeline -> model registry & update run_id
     - In practice, change in mlflow / db -> get curr run_id
+    
+3. Will need repo settings permission to set aws secret-keys
