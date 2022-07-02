@@ -33,40 +33,40 @@
  
 ### Terraform
 
-1. To create infra
+1. To create infra (manually, in order to test on staging env)
    ```bash
-    terraform init
-    terraform plan
-    terraform apply
+   terraform init
+   terraform plan -var-file=vars/stg.tfvars
+   terraform apply -var-file=vars/stg.tfvars
+   ```
+
+2. Make a copy of `.env_template` and generate shared env-vars 
+    ```bash
+    cp ../.env_template ../.env
+    . ../.env
     ```
 
-2. To set prepare aws env (copy model artifacts, set env-vars for lambda etc.):
+3. To prepare aws env (copy model artifacts, set env-vars for lambda etc.):
     ```
-    bash deploy_manual.sh
+    . ./deploy_manual.sh
     ```
 
-3. To test the pipeline end-to-end with our new cloud infra:
+4. To test the pipeline end-to-end with our new cloud infra:
     ```
-    bash test_cloud_e2e.sh
+    . ./test_cloud_e2e.sh
     ``` 
 
-And then check on CloudWatch logs. Or try `get-records` on the `output_kinesis_stream` (refer to `integration_test`)
+5. And then check on CloudWatch logs. Or try `get-records` on the `output_kinesis_stream` (refer to `integration_test`)
 
-![image](cw_log_lambda.png)
+![image](cw_logs_lambda.png)
 
 
 ### Pending
 
-1. Unfortunately, the `RUN_ID` set via the `ENV` or `ARG` in `Dockerfile`, does not reflect during lambda invocation.
+1. Unfortunately, the `RUN_ID` set via the `ENV` or `ARG` in `Dockerfile`, disappears during lambda invocation.
 Had to set it via `aws lambda update-function-configuration` cli command (refer to `deploy_manual.sh`)
 
-2. Stage-based infra
-```bash
-terraform [init | plan | apply ] -var-file="vars/dev.tfvars"
-terraform [init | plan | apply ] -var-file="vars/prod.tfvars"
-```
-
-3. CI/CD
+2. CI/CD
 - tests (unit + intg) -> deploy
 - In principle, explain:
     - generate metrics offline -> set env vars for lambda w/ stage-based deployments

@@ -1,0 +1,106 @@
+name: CI/CD
+on:
+  pull_request:
+    branches:
+      - 'develop'
+    paths:
+      - '06-best-practices/code/**'
+jobs:
+# TODO: Confirm this section with Alexey
+#  unit-test:
+#    name: Run Unit tests
+#    runs-on: ubuntu-latest
+#    working-directory: "06-best-practices/code/tests"
+#    # env:
+#    steps:
+#      - uses: actions/checkout@v2
+#      - name: Set up Python 3.8
+#        uses: actions/setup-python@v2
+#        with:
+#          python-version: 3.8
+#      - name: Install dependencies
+#        run: |
+#          python -m pip install --upgrade pip
+#          pip install flake8 pytest
+#          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+#          pip install -r service/requirements.txt
+#      - name: Lint with flake8
+#        run: |
+#          # stop the build if there are Python syntax errors or undefined names
+#          flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
+#          # exit-zero treats all errors as warnings. The GitHub editor is 127 chars wide
+#          flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
+#      - name: Test with pytest
+#        run: |
+#          pip install pytest-cov
+#          pytest --cov=./ tests/
+#          pytest model_test.py
+
+  integration-test:
+    name: Run Integration tests
+    runs-on: ubuntu-latest
+    working-directory: "06-best-practices/code/integration-test"
+    env:
+      AWS_ACCESS_KEY_ID:  ${{ secrets.AWS_ACCESS_KEY_ID}}
+      AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+      AWS_DEFAULT_REGION: ${{ secrets.AWS_DEFAULT_REGION }}
+    steps:
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ${{ secrets.AWS_DEFAULT_REGION }}
+      - name: Integration Test
+        run: run.sh
+
+  build_and_push:
+    runs-on: ubuntu-latest
+    if: github.base_ref == 'develop'
+    outputs:
+      image_tag: ${{ steps.build_image_step.outputs.image_tag }}
+
+    steps:
+      - name: Check out repo
+        uses: actions/checkout@v2
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ${{ secrets.AWS_DEFAULT_REGION }}
+      - name: Login to Amazon ECR
+        id: login-ecr
+        uses: aws-actions/amazon-ecr-login@v1
+
+      - name: Build, tag, and push image to Amazon ECR
+        id: build_image_step
+        env:
+          ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
+          ECR_REPOSITORY: your-repo-name
+          IMAGE_TAG: ${{ github.sha }}
+        run: |
+          docker build --build-arg -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG -t $ECR_REGISTRY/$ECR_REPOSITORY:latest .
+          docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
+          docker push $ECR_REGISTRY/$ECR_REPOSITORY:latest
+          echo "::set-output name=image_tag::$IMAGE_TAG"
+
+  deploy:
+    runs-on: ubuntu-latest
+    if: github.base_ref == 'develop'
+    needs: build_and_push
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ${{ secrets.AWS_DEFAULT_REGION }}
+      - name: Login to Amazon ECR
+        id: login-ecr
+        uses: aws-actions/amazon-ecr-login@v1
+      - name: Update Lambda and Publish
+        run: |
+          aws lambda update-function-code --function-name your-func-name --image-uri ${{ steps.login-ecr.outputs.registry }}/your-repo-name:${{ needs.build_and_push.outputs.image_tag }} --publish

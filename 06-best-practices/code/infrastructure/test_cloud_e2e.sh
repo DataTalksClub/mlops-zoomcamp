@@ -1,4 +1,4 @@
-export KINESIS_STREAM_INPUT="ride_events_mlops-zoomcamp"
+export KINESIS_STREAM_INPUT="stg_ride_events_mlops-zoomcamp"
 
 aws kinesis put-record  \
         --stream-name ${KINESIS_STREAM_INPUT}   \

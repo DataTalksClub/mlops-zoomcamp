@@ -7,8 +7,8 @@ resource "aws_ecr_repository" "repo" {
   }
 }
 
-# In practice, this step - i.e. pushing the image to ECR repo - is handled separately by the CI/CD pipeline and not the IaC script.
-# But given our single-stage IaC design, we are required to provide an existing ImageURI to package within Lambda config
+# In practice, the Image build-and-push step is handled separately by the CI/CD pipeline and not the IaC script.
+# Therefore, it can be any base image to bootstrap the lambda config, unrelated to your Inference service on ECR
 resource null_resource ecr_image {
    triggers = {
      python_file = md5(file(var.lambda_function_local_path))
