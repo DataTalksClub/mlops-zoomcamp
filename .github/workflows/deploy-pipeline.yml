@@ -1,8 +1,8 @@
-name: Deploy
+name: Deploy-Pipeline
 on:
   push:
     branches:
-      - main
+      - 'develop'
     paths:
       - '06-best-practices/code/**'
 strategy:
