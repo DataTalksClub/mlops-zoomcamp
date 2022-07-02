@@ -17,3 +17,7 @@ integration_test: build
 
 publish: build integration_test
 	LOCAL_IMAGE_NAME=${LOCAL_IMAGE_NAME} bash scripts/publish.sh
+
+setup:
+	pipenv install --dev
+	pre-commit install
