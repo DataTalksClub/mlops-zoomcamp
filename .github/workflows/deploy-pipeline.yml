@@ -1,0 +1,77 @@
+name: Deploy
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - '06-best-practices/code/**'
+jobs:
+  terraform-plan-apply:
+    strategy:
+      fail-fast: true # stop others if one fails
+    working-directory: "06-best-practices/code/infrastructure"
+    env:
+      AWS_ACCESS_KEY_ID:  ${{ secrets.AWS_ACCESS_KEY_ID}}
+      AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+      AWS_DEFAULT_REGION: ${{ secrets.AWS_DEFAULT_REGION }}
+    steps:
+      - name: TF plan
+        uses: hashicorp/setup-terraform@v2
+        run: terraform init && terraform plan -var-file=vars/prod.tfvars
+      - name: TF plan
+        uses: hashicorp/setup-terraform@v2
+        run: terraform apply -var-file=vars/prod.tfvars
+
+  build-and-push:
+    runs-on: ubuntu-latest
+    working-directory: "06-best-practices/code/infrastructure"
+    if: github.base_ref == 'develop'
+    outputs:
+      image_tag: ${{ steps.build-image-step.outputs.image_tag }}
+    steps:
+      - name: Check out repo
+        uses: actions/checkout@v2
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ${{ secrets.AWS_DEFAULT_REGION }}
+      - name: Login to Amazon ECR
+        id: login-ecr
+        uses: aws-actions/amazon-ecr-login@v1
+
+      - name: Build, tag, and push image to Amazon ECR
+        id: build-image-step
+        env:
+          ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
+          ECR_REPOSITORY: your-repo-name
+          IMAGE_TAG: ${{ github.sha }}
+        run: |
+          docker build --build-arg -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG -t $ECR_REGISTRY/$ECR_REPOSITORY:latest .
+          docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
+          docker push $ECR_REGISTRY/$ECR_REPOSITORY:latest
+          echo "::set-output name=image_tag::$IMAGE_TAG"
+  deploy:
+    runs-on: ubuntu-latest
+    if: github.base_ref == 'develop'
+    needs: build-and-push
+    steps:
+      - uses: actions/checkout@v2
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ${{ secrets.AWS_DEFAULT_REGION }}
+      - name: Login to Amazon ECR
+        id: login-ecr
+        uses: aws-actions/amazon-ecr-login@v1
+      - name: Update Lambda and Publish
+        run: |
+          variables="{PREDICTIONS_STREAM_NAME=${PREDICTIONS_STREAM_NAME}, MODEL_BUCKET=${MODEL_BUCKET_PROD}, RUN_ID=${RUN_ID}}"
+          aws lambda update-function-code \
+          --function-name $YOUR-FUNC-NAME \
+          --image-uri ${{ steps.login-ecr.outputs.registry }}/$YOUR-REPO-NAME:${{ needs.build-and-push.outputs.image_tag }} \
+          --environment "Variables=${variables}"
+          --publish
