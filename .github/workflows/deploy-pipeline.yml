@@ -5,11 +5,11 @@ on:
       - main
     paths:
       - '06-best-practices/code/**'
+strategy:
+  fail-fast: true # stop others if one fails
 jobs:
   terraform-plan-apply:
-    strategy:
-      fail-fast: true # stop others if one fails
-    working-directory: "06-best-practices/code/infrastructure"
+    if: github.event.pull_request.merged
     env:
       AWS_ACCESS_KEY_ID:  ${{ secrets.AWS_ACCESS_KEY_ID}}
       AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
@@ -17,15 +17,16 @@ jobs:
     steps:
       - name: TF plan
         uses: hashicorp/setup-terraform@v2
+        working-directory: "06-best-practices/code/infrastructure"
         run: terraform init && terraform plan -var-file=vars/prod.tfvars
       - name: TF plan
         uses: hashicorp/setup-terraform@v2
+        working-directory: "06-best-practices/code/infrastructure"
         run: terraform apply -var-file=vars/prod.tfvars
 
   build-and-push:
     runs-on: ubuntu-latest
-    working-directory: "06-best-practices/code/infrastructure"
-    if: github.base_ref == 'develop'
+    if: github.event.pull_request.merged
     outputs:
       image_tag: ${{ steps.build-image-step.outputs.image_tag }}
     steps:
@@ -52,9 +53,10 @@ jobs:
           docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
           docker push $ECR_REGISTRY/$ECR_REPOSITORY:latest
           echo "::set-output name=image_tag::$IMAGE_TAG"
+
   deploy:
     runs-on: ubuntu-latest
-    if: github.base_ref == 'develop'
+    if: github.base_ref == 'develop' # or if: github.event.pull_request.merged
     needs: build-and-push
     steps:
       - uses: actions/checkout@v2
