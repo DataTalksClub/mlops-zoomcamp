@@ -52,6 +52,6 @@ jobs:
           aws-region: ${{ secrets.AWS_DEFAULT_REGION }}
       - name: Integration Test
         run: |
-        cp ./06-best-practices/code/infrastructure/.env_template ./06-best-practices/code/.env
-        . ./.env
-        . ./06-best-practices/code/integration-test/run.sh
+          cp ./06-best-practices/code/infrastructure/.env_template ./06-best-practices/code/.env
+          . ./.env
+          . ./06-best-practices/code/integration-test/run.sh
