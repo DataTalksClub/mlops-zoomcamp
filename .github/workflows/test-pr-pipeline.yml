@@ -35,24 +35,21 @@ jobs:
 #          pip install pytest-cov
 #          pytest --cov=./ tests/
 #          pytest model_test.py
-
-  integration-test:
-    name: Run Integration tests
-    runs-on: ubuntu-latest
-    env:
-      # TODO: Will need repo settings permission to set secret-keys
-      AWS_ACCESS_KEY_ID:  ${{ secrets.AWS_ACCESS_KEY_ID}}
-      AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-      AWS_DEFAULT_REGION: ${{ secrets.AWS_DEFAULT_REGION }}
-    steps:
-      - name: Configure AWS Credentials
-        uses: aws-actions/configure-aws-credentials@v1
-        with:
-          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          aws-region: ${{ secrets.AWS_DEFAULT_REGION }}
-      - name: Integration Test
-        run: |
-          cp ./06-best-practices/code/infrastructure/.env_template ./06-best-practices/code/.env
-          . ./.env
-          . ./06-best-practices/code/integration-test/run.sh
+    integration-test:
+      name: Run Integration tests
+      runs-on: ubuntu-latest
+      env:
+        # TODO: Will need repo settings permission to set secret-keys
+        AWS_ACCESS_KEY_ID:  ${{ secrets.AWS_ACCESS_KEY_ID}}
+        AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        AWS_DEFAULT_REGION: ${{ secrets.AWS_DEFAULT_REGION }}
+      steps:
+        - name: Configure AWS Credentials
+          uses: aws-actions/configure-aws-credentials@v1
+          with:
+            aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+            aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+            aws-region: ${{ secrets.AWS_DEFAULT_REGION }}
+        - name: Integration Test
+          run: |
+            . ./06-best-practices/code/integration-test/run.sh

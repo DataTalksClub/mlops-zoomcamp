@@ -1,4 +1,4 @@
-export KINESIS_STREAM_INPUT="stg_ride_events_mlops-zoomcamp"
+export KINESIS_STREAM_INPUT="stg_ride_events_mlops-zoomcamp"  # TODO: change to .env var to bypass in ci/cd
 
 aws kinesis put-record  \
         --stream-name ${KINESIS_STREAM_INPUT}   \

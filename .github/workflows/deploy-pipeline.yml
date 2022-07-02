@@ -14,14 +14,17 @@ jobs:
       AWS_ACCESS_KEY_ID:  ${{ secrets.AWS_ACCESS_KEY_ID}}
       AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
       AWS_DEFAULT_REGION: ${{ secrets.AWS_DEFAULT_REGION }}
+
     steps:
       - uses: hashicorp/setup-terraform@v2
       - name: TF plan
         working-directory: "06-best-practices/code/infrastructure"
         run: terraform init && terraform plan -var-file=vars/prod.tfvars
+
       - name: TF plan
         working-directory: "06-best-practices/code/infrastructure"
         run: terraform apply -var-file=vars/prod.tfvars
+        # TODO: set envs from .env_template & tf apply output
 
   build-and-push:
     runs-on: ubuntu-latest
@@ -37,12 +40,14 @@ jobs:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: ${{ secrets.AWS_DEFAULT_REGION }}
+
       - name: Login to Amazon ECR
         id: login-ecr
         uses: aws-actions/amazon-ecr-login@v1
 
       - name: Build, tag, and push image to Amazon ECR
         id: build-image-step
+        working-directory: "06-best-practices/code/infrastructure"
         env:
           ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
           ECR_REPOSITORY: your-repo-name
@@ -65,11 +70,14 @@ jobs:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: ${{ secrets.AWS_DEFAULT_REGION }}
+
       - name: Login to Amazon ECR
         id: login-ecr
         uses: aws-actions/amazon-ecr-login@v1
-      - name: Update Lambda and Publish
+
+      - name: Update Lambda and Test e2e
         run: |
+        # TODO: use envs from .env_template & tf apply output
           variables="{PREDICTIONS_STREAM_NAME=${PREDICTIONS_STREAM_NAME}, MODEL_BUCKET=${MODEL_BUCKET_PROD}, RUN_ID=${RUN_ID}}"
           aws lambda update-function-code \
           --function-name $YOUR-FUNC-NAME \
