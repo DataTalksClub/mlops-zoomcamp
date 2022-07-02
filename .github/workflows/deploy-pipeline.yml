@@ -11,6 +11,7 @@ jobs:
   terraform-plan-apply:
     if: github.event.pull_request.merged
     env:
+      # TODO: Setup AWS secret keys in repo settings (need permissions)
       AWS_ACCESS_KEY_ID:  ${{ secrets.AWS_ACCESS_KEY_ID}}
       AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
       AWS_DEFAULT_REGION: ${{ secrets.AWS_DEFAULT_REGION }}
