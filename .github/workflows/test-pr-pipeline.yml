@@ -43,7 +43,7 @@ jobs:
       strategy:
         matrix:
           include:
-            - dir: '06-best-practices/code/integration-test'
+            - dir: '06-best-practices/code/integraton-test'
       env:
         AWS_ACCESS_KEY_ID:  ${{ secrets.AWS_ACCESS_KEY_ID}}
         AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}

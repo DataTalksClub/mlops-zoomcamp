@@ -23,18 +23,6 @@ locals {
   account_id = data.aws_caller_identity.current_identity.account_id
 }
 
-//  project_id                  = "mlops-zoomcamp"  # var.project_id
-//  region                      = var.aws_region
-//
-//  lambda_function_local_path  = "../lambda_function.py"
-//  docker_image_local_path     = "../Dockerfile"
-//  ecr_repo_name               = "stream_model_duration_${local.project_id}"
-//  lambda_function_name        = "prediction_lambda_${local.project_id}"
-//  model_bucket                = "mlflow-models-${local.project_id}"
-//  source_stream_name          = "ride_events_${local.project_id}"
-//  output_kinesis_stream       = "ride_predictions_${local.project_id}"
-//}
-
 module "ecr_image" {
    source = "./modules/ecr"
    ecr_repo_name = "${var.ecr_repo_name}_${var.project_id}"
