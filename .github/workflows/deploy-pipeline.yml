@@ -10,17 +10,15 @@ on:
     paths:
       - '06-best-practices/code/**'
 
-strategy:
-  fail-fast: true # stop others if one fails
-env:
-  AWS_DEFAULT_REGION: "eu-west-1"
+#strategy:
+#  fail-fast: true # stop others if one fails
 
 jobs:
   terraform-plan-apply:
     env:
       AWS_ACCESS_KEY_ID:  ${{ secrets.AWS_ACCESS_KEY_ID}}
       AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-      AWS_REGION: ${{ env.AWS_DEFAULT_REGION }}
+      AWS_REGION: "eu-west-1"
     steps:
       - uses: hashicorp/setup-terraform@v2
       - name: TF plan
