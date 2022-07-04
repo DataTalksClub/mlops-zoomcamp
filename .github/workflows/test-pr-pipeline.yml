@@ -59,5 +59,5 @@ jobs:
         - name: Integration Test
           run: |
             ls -la
-            . mlops-zoomcamp/06-best-practices/code/integraton-test/run.sh
+            . 06-best-practices/code/integraton-test/run.sh
 
