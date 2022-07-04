@@ -7,7 +7,7 @@ LOCAL_TAG=`date +"%Y-%m-%d-%H-%M"`
 export LOCAL_IMAGE_NAME="stream-model-duration:${LOCAL_TAG}"
 export PREDICTIONS_STREAM_NAME="ride_predictions"
 
-
+ls -la ..
 docker build -t ${LOCAL_IMAGE_NAME} ..
 
 docker-compose up -d

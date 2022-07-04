@@ -58,6 +58,5 @@ jobs:
             aws-region: ${{ env.AWS_DEFAULT_REGION }}
         - name: Integration Test
           run: |
-            ls -la
             . 06-best-practices/code/integraton-test/run.sh
 
