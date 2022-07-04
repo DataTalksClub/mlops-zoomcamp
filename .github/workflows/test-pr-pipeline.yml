@@ -5,6 +5,8 @@ on:
       - 'develop'
     paths:
       - '06-best-practices/code/**'
+env:
+  AWS_DEFAULT_REGION: 'eu-west-1'
 jobs:
 # TODO: Confirm this job with Alexey
 #  unit-test:
@@ -42,7 +44,6 @@ jobs:
         # TODO: Will need repo settings permission to set secret-keys
         AWS_ACCESS_KEY_ID:  ${{ secrets.AWS_ACCESS_KEY_ID}}
         AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-        AWS_DEFAULT_REGION: ${{ secrets.AWS_DEFAULT_REGION }}
       steps:
         - name: Configure AWS Credentials
           uses: aws-actions/configure-aws-credentials@v1
