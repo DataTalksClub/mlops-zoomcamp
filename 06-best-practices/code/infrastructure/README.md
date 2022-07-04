@@ -72,4 +72,4 @@ Had to set it via `aws lambda update-function-configuration` cli command (refer 
     - train_pipeline -> model registry & update run_id
     - In practice, change in mlflow / db -> get curr run_id
     
-3. pass working-dir as arg into `integration-test/run.sh` (required for ci/cd)
+3. can we do without setting the working-dir for local run? as it's resetting to root dir in the ci/cd pipeline

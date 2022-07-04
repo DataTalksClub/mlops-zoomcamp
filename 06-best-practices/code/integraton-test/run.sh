@@ -1,9 +1,7 @@
 #!/usr/bin/env bash
 
-ls -la
-cd "$(dirname "$0")"
-# cd "$(dirname "$1")"
-
+# TODO: can we do without setting the working-dir for local run? as it's resetting to root dir in the ci/cd pipeline
+# cd "$(dirname "$0")"
 
 LOCAL_TAG=`date +"%Y-%m-%d-%H-%M"`
 export LOCAL_IMAGE_NAME="stream-model-duration:${LOCAL_TAG}"
