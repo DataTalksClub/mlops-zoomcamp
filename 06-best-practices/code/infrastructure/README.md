@@ -72,4 +72,4 @@ Had to set it via `aws lambda update-function-configuration` cli command (refer 
     - train_pipeline -> model registry & update run_id
     - In practice, change in mlflow / db -> get curr run_id
     
-3. Will need repo settings permission to set aws secret-keys
+3. pass working-dir as arg into `integration-test/run.sh` (required for ci/cd)

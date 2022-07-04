@@ -1,7 +1,9 @@
 #!/usr/bin/env bash
 
 
-cd "$(dirname "$0")"
+# cd "$(dirname "$0")"
+cd "$(dirname "$1")"
+
 
 LOCAL_TAG=`date +"%Y-%m-%d-%H-%M"`
 export LOCAL_IMAGE_NAME="stream-model-duration:${LOCAL_TAG}"
