@@ -1,32 +1,36 @@
 name: Deploy-Pipeline
+#on:
+#  push:
+#    branches:
+#      - 'develop'
 on:
-  push:
+  pull_request:
     branches:
       - 'develop'
     paths:
       - '06-best-practices/code/**'
+
 strategy:
   fail-fast: true # stop others if one fails
 env:
   AWS_DEFAULT_REGION: "eu-west-1"
+
 jobs:
   terraform-plan-apply:
-    if: github.event.pull_request.merged
     env:
-      # TODO: Setup AWS secret keys in repo settings (need permissions)
       AWS_ACCESS_KEY_ID:  ${{ secrets.AWS_ACCESS_KEY_ID}}
       AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-
+      AWS_REGION: ${{ env.AWS_DEFAULT_REGION }}
     steps:
       - uses: hashicorp/setup-terraform@v2
       - name: TF plan
-        working-directory: "06-best-practices/code/infrastructure"
+        working-directory: '06-best-practices/code/infrastructure'
         run: terraform init && terraform plan -var-file=vars/prod.tfvars
 
-      - name: TF plan
-        working-directory: "06-best-practices/code/infrastructure"
-        run: terraform apply -var-file=vars/prod.tfvars
-        # TODO: set envs from .env_template & tf apply output
+#      - name: TF apply     # if: github.event.pull_request.merged
+#        working-directory: '06-best-practices/code/infrastructure'
+#        run: terraform apply -var-file=vars/prod.tfvars
+#        # TODO: set envs from .env_template & tf apply output
 
   build-and-push:
     runs-on: ubuntu-latest

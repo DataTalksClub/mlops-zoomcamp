@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-# TODO: can we do without setting the working-dir for local run? as it's resetting to root dir in the ci/cd pipeline
+# TODO: can we do without setting the curr working-dir for local run? as it's resetting to root dir in the ci/cd pipeline
 # cd "$(dirname "$0")"
 
 LOCAL_TAG=`date +"%Y-%m-%d-%H-%M"`
@@ -8,6 +8,9 @@ export LOCAL_IMAGE_NAME="stream-model-duration:${LOCAL_TAG}"
 export PREDICTIONS_STREAM_NAME="ride_predictions"
 
 docker build -t ${LOCAL_IMAGE_NAME} ..
+
+# TODO: Error (CI/CD) - Connection was closed before we received a valid response from endpoint URL: "http://localhost:4566/".
+# Network issue? Any chance we could set `--cli-connect-timeout`
 
 docker-compose up -d
 
