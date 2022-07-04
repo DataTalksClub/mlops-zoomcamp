@@ -5,8 +5,6 @@ on:
       - 'develop'
     paths:
       - '06-best-practices/code/**'
-env:
-  AWS_DEFAULT_REGION: 'eu-west-1'
 
 jobs:
 # TODO: Confirm this job (for model_test.py) with Alexey
@@ -43,9 +41,9 @@ jobs:
       name: Run Integration tests
       runs-on: ubuntu-latest
       env:
-        # TODO: Will need repo settings permission to set secret-keys
         AWS_ACCESS_KEY_ID:  ${{ secrets.AWS_ACCESS_KEY_ID}}
         AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        AWS_DEFAULT_REGION: 'eu-west-1'
       steps:
         - uses: actions/checkout@v2
         - name: Set up Python 3.9
@@ -55,10 +53,11 @@ jobs:
         - name: Configure AWS Credentials
           uses: aws-actions/configure-aws-credentials@v1
           with:
-            aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-            aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+            aws-access-key-id: ${{ env.AWS_ACCESS_KEY_ID }}
+            aws-secret-access-key: ${{ env.AWS_SECRET_ACCESS_KEY }}
             aws-region: ${{ env.AWS_DEFAULT_REGION }}
         - name: Integration Test
           run: |
-            . ./06-best-practices/code/integration-test/run.sh
+            ls -la
+            . mlops-zoomcamp/06-best-practices/code/integraton-test/run.sh
 
