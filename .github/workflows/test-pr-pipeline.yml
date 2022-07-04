@@ -7,8 +7,9 @@ on:
       - '06-best-practices/code/**'
 env:
   AWS_DEFAULT_REGION: 'eu-west-1'
+
 jobs:
-# TODO: Confirm this job with Alexey
+# TODO: Confirm this job (for model_test.py) with Alexey
 #  unit-test:
 #    name: Run Unit tests
 #    runs-on: ubuntu-latest
@@ -37,6 +38,7 @@ jobs:
 #          pip install pytest-cov
 #          pytest --cov=./ tests/
 #          pytest model_test.py
+
     integration-test:
       name: Run Integration tests
       runs-on: ubuntu-latest
@@ -50,7 +52,7 @@ jobs:
           with:
             aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
             aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-            aws-region: ${{ secrets.AWS_DEFAULT_REGION }}
+            aws-region: ${{ env.AWS_DEFAULT_REGION }}
         - name: Integration Test
           run: |
             . ./06-best-practices/code/integration-test/run.sh

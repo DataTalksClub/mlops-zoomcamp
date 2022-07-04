@@ -41,7 +41,7 @@ jobs:
         with:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          aws-region: ${{ secrets.AWS_DEFAULT_REGION }}
+          aws-region: ${{ env.AWS_DEFAULT_REGION }}
 
       - name: Login to Amazon ECR
         id: login-ecr
@@ -71,18 +71,18 @@ jobs:
         with:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          aws-region: ${{ secrets.AWS_DEFAULT_REGION }}
+          aws-region: ${{ env.AWS_DEFAULT_REGION }}
 
-      - name: Login to Amazon ECR
-        id: login-ecr
-        uses: aws-actions/amazon-ecr-login@v1
-
-      - name: Update Lambda and Test e2e
-        run: |
-        # TODO: use envs from .env_template & tf apply output
-          variables="{PREDICTIONS_STREAM_NAME=${PREDICTIONS_STREAM_NAME}, MODEL_BUCKET=${MODEL_BUCKET_PROD}, RUN_ID=${RUN_ID}}"
-          aws lambda update-function-code \
-          --function-name $YOUR-FUNC-NAME \
-          --image-uri ${{ steps.login-ecr.outputs.registry }}/$YOUR-REPO-NAME:${{ needs.build-and-push.outputs.image_tag }} \
-          --environment "Variables=${variables}"
-          --publish
+#      - name: Login to Amazon ECR
+#        id: login-ecr
+#        uses: aws-actions/amazon-ecr-login@v1
+#
+#      - name: Update Lambda and Test e2e
+#        run: |
+#        # TODO: use envs from .env_template & tf apply output
+#          variables="{PREDICTIONS_STREAM_NAME=${PREDICTIONS_STREAM_NAME}, MODEL_BUCKET=${MODEL_BUCKET_PROD}, RUN_ID=${RUN_ID}}"
+#          aws lambda update-function-code \
+#          --function-name $YOUR-FUNC-NAME \
+#          --image-uri ${{ steps.login-ecr.outputs.registry }}/$YOUR-REPO-NAME:${{ needs.build-and-push.outputs.image_tag }} \
+#          --environment "Variables=${variables}"
+#          --publish
