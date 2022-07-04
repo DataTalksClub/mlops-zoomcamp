@@ -63,5 +63,5 @@ jobs:
         - name: Integration Test
           working-directory: ${{ matrix.dir }}
           run: |
-            . run.sh  ${{ matrix.dir }}
+            . run.sh
 
