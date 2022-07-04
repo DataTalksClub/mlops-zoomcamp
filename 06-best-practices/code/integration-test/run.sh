@@ -1,15 +1,14 @@
 #!/usr/bin/env bash
 
-
-# cd "$(dirname "$0")"
-cd "$(dirname "$1")"
+ls -la
+cd "$(dirname "$0")"
+# cd "$(dirname "$1")"
 
 
 LOCAL_TAG=`date +"%Y-%m-%d-%H-%M"`
 export LOCAL_IMAGE_NAME="stream-model-duration:${LOCAL_TAG}"
 export PREDICTIONS_STREAM_NAME="ride_predictions"
 
-ls -la ..
 docker build -t ${LOCAL_IMAGE_NAME} ..
 
 docker-compose up -d
