@@ -1,0 +1,38 @@
+{
+  "module": {
+    "number": 5,
+    "title": "Model Monitoring"
+  },
+  "units": [
+    {
+      "number": 1,
+      "title": "Monitoring for ML-based services",
+      "youtube": "https://www.youtube.com/watch?v=gMiT11Bp05A"
+    },
+    {
+      "number": 2,
+      "title": "Setting up the environment",
+      "youtube": "https://www.youtube.com/watch?v=VkkpVXW53bo"
+    },
+    {
+      "number": 3,
+      "title": "Creating a prediction service and simulating traffic",
+      "youtube": "https://www.youtube.com/watch?v=umQ3Mo5G1o8"
+    },
+    {
+      "number": 4,
+      "title": "Realtime monitoring walktrough (Prometheus, Evidently, Grafana)",
+      "youtube": "https://www.youtube.com/watch?v=r_m4VFEJ8yY"
+    },
+    {
+      "number": 5,
+      "title": "Batch monitoring walktrough (Prefect, MongoDB, Evidently)",
+      "youtube": "https://www.youtube.com/watch?v=KefdYuue_FE"
+    },
+    {
+      "number": 6,
+      "title": "Homework",
+      "youtube": ""
+    }
+  ]
+}

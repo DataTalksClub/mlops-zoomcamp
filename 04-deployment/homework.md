@@ -2,14 +2,14 @@
 
 In this homework, we'll deploy the ride duration model in batch mode. Like in homework 1 and 3, we'll use the FHV data. 
 
-You'll find the starter code in the [homework](homework/) directory.
+You'll find the starter code in the [homework](https://github.com/DataTalksClub/mlops-zoomcamp/blob/74324e4d3759e9712ce406b8b30c77cff66e6cef/04-deployment/homework/) directory.
 
 
 ## Q1. Notebook
 
 We'll start with the same notebook we ended up with in homework 1.
 
-We cleaned it a little bit and kept only the scoring part. Now it's in [homework/starter.ipynb](homework/starter.ipynb).
+We cleaned it a little bit and kept only the scoring part. Now it's in [homework/starter.ipynb](https://github.com/DataTalksClub/mlops-zoomcamp/blob/74324e4d3759e9712ce406b8b30c77cff66e6cef/04-deployment/homework/starter.ipynb).
 
 Run this notebook for the February 2021 FVH data.
 
