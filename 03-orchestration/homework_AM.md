@@ -101,7 +101,14 @@ In the last step, I set up a deployment to run the workflow for 15th days of eve
 
 I am getting 4 scheduled flows and the closest answer is 3.
 
-Images here
+![schedule](images/scheduled_wfs.PNG)
+
+One workflow details:
+In the timeline chart, it shows which task is running when. If we choose sequential runner, it won't overlap.
+
+In the radar chart, it shows all the tasks we decorated.
+
+![workflow](images/flow_run.PNG)
 
 # Q6: What is the command to view the available work-queues?
 prefect work-queue preview
