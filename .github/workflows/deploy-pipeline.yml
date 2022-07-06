@@ -75,7 +75,7 @@ jobs:
 
       - name: TF Apply
         working-directory: '06-best-practices/code/infrastructure'
-        if: ${{ terraform-plan-apply.steps.plan.outcome }} == 'success'
+        if: ${{ steps.plan.outcome }} == 'success'
         run: terraform apply -auto-approve -var-file=vars/prod.tfvars
         # TODO: set envs from .env_template & tf apply output
 
@@ -89,7 +89,7 @@ jobs:
         env:
           ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
           ECR_REPOSITORY: your-repo-name
-          IMAGE_TAG: ${{ terraform-plan-apply.steps.build-image-step.image_tag }}
+          IMAGE_TAG: ${{ steps.build-image-step.image_tag }}
         run: |
           docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
           docker push $ECR_REGISTRY/$ECR_REPOSITORY:latest
