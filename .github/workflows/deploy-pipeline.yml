@@ -28,8 +28,8 @@ jobs:
       - name: TF plan
         working-directory: '06-best-practices/code/infrastructure'
         run: |
-        ls -la
-        terraform init && terraform plan -var-file=vars/prod.tfvars
+          ls -la
+          terraform init && terraform plan -var-file=vars/prod.tfvars
 #      - name: TF apply     # if: github.event.pull_request.merged
 #        working-directory: '06-best-practices/code/infrastructure'
 #        run: terraform apply -var-file=vars/prod.tfvars
