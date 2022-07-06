@@ -14,3 +14,8 @@ venv
 **/models/
 
 __pycache__/
+
+**.terraform/
+**lambda*.zip
+**.terraform.lock*
+**terraform.tfstate*

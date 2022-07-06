@@ -6,9 +6,12 @@ services:
     environment:
       - PREDICTIONS_STREAM_NAME=${PREDICTIONS_STREAM_NAME}
       - RUN_ID=Test123
-      - AWS_DEFAULT_REGION=eu-west-1
       - MODEL_LOCATION=/app/model
       - KINESIS_ENDPOINT_URL=http://kinesis:4566/
+      # Needed for Localstack to work with Docker Compose
+      - AWS_DEFAULT_REGION=eu-west-1
+      - AWS_ACCESS_KEY_ID=foobar
+      - AWS_SECRET_ACCESS_KEY=foobar
     volumes:
       - "./model:/app/model"
   kinesis:
