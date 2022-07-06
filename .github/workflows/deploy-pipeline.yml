@@ -38,8 +38,7 @@ jobs:
         id: plan
         working-directory: '06-best-practices/code/infrastructure'
         run: |
-          terraform init && terraform plan -var-file=vars/prod.tfvars -out
-          terraform output ecr_repo && terraform output predictions_stream_name && terraform output model_bucket
+          terraform init && terraform plan -var-file=vars/prod.tfvars
 
   deploy:
     runs-on: ubuntu-latest

@@ -4,3 +4,7 @@ isort
 black
 pylint
 pytest
+boto3
+mlflow
+requests
+deepdiff
