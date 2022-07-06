@@ -14,7 +14,7 @@ on:
 #  fail-fast: true # stop others if one fails
 
 jobs:
-  terraform-plan:
+  terraform-plan-apply:
     runs-on: ubuntu-latest
     id: plan
     env:
@@ -36,7 +36,9 @@ jobs:
       - name: TF Apply
         working-directory: '06-best-practices/code/infrastructure'
         if: steps.plan.outcome == 'success' & github.event.pull_request.merged
-        run: terraform apply -auto-approve -var-file=vars/prod.tfvars
+        run: |
+          ls -la
+          terraform apply -auto-approve -var-file=vars/prod.tfvars
 #        # TODO: set envs from .env_template & tf apply output
 
   build-and-push:
