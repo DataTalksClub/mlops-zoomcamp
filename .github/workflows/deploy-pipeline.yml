@@ -47,18 +47,18 @@ jobs:
         id: login-ecr
         uses: aws-actions/amazon-ecr-login@v1
 
-      - name: Build & tag image to Amazon ECR
-        id: build-image-step
-        working-directory: "06-best-practices/code/infrastructure"
-        env:
-          ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
-          ECR_REPOSITORY: your-repo-name
-          IMAGE_TAG: ${{ github.sha }}
-        run: |
-          docker build --build-arg -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG -t $ECR_REGISTRY/$ECR_REPOSITORY:latest .
-#          docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
-#          docker push $ECR_REGISTRY/$ECR_REPOSITORY:latest
-          echo "::set-output name=image_tag::$IMAGE_TAG"
+#      - name: Build & tag image to Amazon ECR
+#        id: build-image-step
+#        working-directory: "06-best-practices/code/infrastructure"
+#        env:
+#          ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
+#          ECR_REPOSITORY: your-repo-name
+#          IMAGE_TAG: ${{ github.sha }}
+#        run: |
+#          docker build --build-arg -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG -t $ECR_REGISTRY/$ECR_REPOSITORY:latest .
+##          docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
+##          docker push $ECR_REGISTRY/$ECR_REPOSITORY:latest
+#          echo "::set-output name=image_tag::$IMAGE_TAG"
 
   deploy:
     runs-on: ubuntu-latest
