@@ -62,3 +62,16 @@ module "lambda_function" {
   output_stream_arn       = module.output_kinesis_stream.stream_arn
   model_bucket            = module.s3_bucket.name
 }
+
+# For CI/CD
+output "model_bucket" {
+  value     = module.s3_bucket.name
+}
+
+output "predictions_stream_name" {
+  value     = "${var.output_kinesis_stream}_${var.project_id}"
+}
+
+output "ecr_repo" {
+  value = "${var.ecr_repo_name}_${var.project_id}"
+}

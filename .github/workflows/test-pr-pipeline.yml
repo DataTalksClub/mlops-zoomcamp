@@ -20,7 +20,7 @@ jobs:
       - name: Install dependencies, Lint with black, & run tests with Pytest
         working-directory: "06-best-practices/code"
         run: |
-          pip install -U pip & pip install pipenv
+          pip install -U pip && pip install pipenv
           make setup
           make quality_checks
           make test

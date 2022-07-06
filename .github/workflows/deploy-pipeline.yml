@@ -21,20 +21,9 @@ jobs:
       AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
       AWS_DEFAULT_REGION: "eu-west-1"
 
-    outputs:
-      image_tag: ${{ steps.build-image-step.outputs.image_tag }}
-
     steps:
       - name: Check out repo
         uses: actions/checkout@v2
-
-      - uses: hashicorp/setup-terraform@v2
-
-      - name: TF plan
-        id: plan
-        working-directory: '06-best-practices/code/infrastructure'
-        run: |
-          terraform init && terraform plan -var-file=vars/prod.tfvars
 
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v1
@@ -43,27 +32,26 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: ${{ env.AWS_DEFAULT_REGION }}
 
-      - name: Login to Amazon ECR
-        id: login-ecr
-        uses: aws-actions/amazon-ecr-login@v1
+      - uses: hashicorp/setup-terraform@v2
 
-#      - name: Build & tag image to Amazon ECR
-#        id: build-image-step
-#        working-directory: "06-best-practices/code/infrastructure"
-#        env:
-#          ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
-#          ECR_REPOSITORY: your-repo-name
-#          IMAGE_TAG: ${{ github.sha }}
-#        run: |
-#          docker build --build-arg -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG -t $ECR_REGISTRY/$ECR_REPOSITORY:latest .
-##          docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
-##          docker push $ECR_REGISTRY/$ECR_REPOSITORY:latest
-#          echo "::set-output name=image_tag::$IMAGE_TAG"
+      - name: TF plan
+        id: plan
+        working-directory: '06-best-practices/code/infrastructure'
+        run: |
+          terraform init && terraform plan -var-file=vars/prod.tfvars
+          terraform output ecr_repo && terraform output predictions_stream_name && terraform output model_bucket
 
   deploy:
     runs-on: ubuntu-latest
     if: github.event.pull_request.merged
     needs: build
+
+    outputs:
+      image_tag: ${{ steps.build-image-step.outputs.image_tag }}
+      ecr_repo: ${{ steps.tf-apply.outputs.ecr_repo }}
+      predictions_stream_name: ${{ steps.tf-apply.outputs.predictions_stream_name }}
+      model_bucket: ${{ steps.tf-apply.outputs.model_bucket }}
+
     steps:
       - uses: actions/checkout@v2
       - name: Configure AWS Credentials
@@ -74,10 +62,17 @@ jobs:
           aws-region: ${{ env.AWS_DEFAULT_REGION }}
 
       - name: TF Apply
+        id: tf-apply
         working-directory: '06-best-practices/code/infrastructure'
         if: ${{ steps.plan.outcome }} == 'success'
-        run: terraform apply -auto-approve -var-file=vars/prod.tfvars
-        # TODO: set envs from .env_template & tf apply output
+        run: |
+          terraform apply -auto-approve -var-file=vars/prod.tfvars
+          ECR_REPO = terraform output ecr_repo
+          PREDICTIONS_STREAM_NAME = terraform output predictions_stream_name
+          MODEL_BUCKET = terraform output model_bucket
+          echo "::set-output name=ecr_repo::$ECR_REPO"
+          echo "::set-output name=ecr_repo::$PREDICTIONS_STREAM_NAME"
+          echo "::set-output name=ecr_repo::$MODEL_BUCKET"
 
       - name: Login to Amazon ECR
         id: login-ecr
@@ -88,9 +83,10 @@ jobs:
         working-directory: "06-best-practices/code/infrastructure"
         env:
           ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
-          ECR_REPOSITORY: your-repo-name
-          IMAGE_TAG: ${{ steps.build-image-step.image_tag }}
+          ECR_REPOSITORY: ${{ steps.tf-apply.ecr_repo }}
+          IMAGE_TAG: ${{ github.sha }}
         run: |
+          docker build --build-arg -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG -t $ECR_REGISTRY/$ECR_REPOSITORY:latest .
           docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
           docker push $ECR_REGISTRY/$ECR_REPOSITORY:latest
           echo "::set-output name=image_tag::$IMAGE_TAG"
