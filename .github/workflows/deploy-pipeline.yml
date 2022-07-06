@@ -74,26 +74,26 @@ jobs:
           aws-region: ${{ env.AWS_DEFAULT_REGION }}
 
       - name: TF Apply
-          working-directory: '06-best-practices/code/infrastructure'
-          if: ${{ terraform-plan-apply.steps.plan.outcome }} == 'success'
-          run: terraform apply -auto-approve -var-file=vars/prod.tfvars
-      #        # TODO: set envs from .env_template & tf apply output
+        working-directory: '06-best-practices/code/infrastructure'
+        if: ${{ terraform-plan-apply.steps.plan.outcome }} == 'success'
+        run: terraform apply -auto-approve -var-file=vars/prod.tfvars
+        # TODO: set envs from .env_template & tf apply output
 
       - name: Login to Amazon ECR
         id: login-ecr
         uses: aws-actions/amazon-ecr-login@v1
 
       - name: Build, tag, and push image to Amazon ECR
-          id: build-image-step
-          working-directory: "06-best-practices/code/infrastructure"
-          env:
-            ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
-            ECR_REPOSITORY: your-repo-name
-            IMAGE_TAG: ${{ terraform-plan-apply.steps.build-image-step.image_tag }}
-          run: |
-            docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
-            docker push $ECR_REGISTRY/$ECR_REPOSITORY:latest
-            echo "::set-output name=image_tag::$IMAGE_TAG"
+        id: build-image-step
+        working-directory: "06-best-practices/code/infrastructure"
+        env:
+          ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
+          ECR_REPOSITORY: your-repo-name
+          IMAGE_TAG: ${{ terraform-plan-apply.steps.build-image-step.image_tag }}
+        run: |
+          docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
+          docker push $ECR_REGISTRY/$ECR_REPOSITORY:latest
+          echo "::set-output name=image_tag::$IMAGE_TAG"
 
 #      - name: Update Lambda and Test e2e
 #        run: |

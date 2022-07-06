@@ -7,61 +7,59 @@ on:
       - '06-best-practices/code/**'
 
 jobs:
-# TODO: Confirm this job (for model_test.py) with Alexey
-#  unit-test:
-#    name: Run Unit tests
-#    runs-on: ubuntu-latest
-#    working-directory: "06-best-practices/code/tests"
-#    # env:
-#    steps:
-#      - uses: actions/checkout@v2
-#      - name: Set up Python 3.8
-#        uses: actions/setup-python@v2
-#        with:
-#          python-version: 3.8
-#      - name: Install dependencies
-#        run: |
-#          python -m pip install --upgrade pip
-#          pip install flake8 pytest
-#          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
-#          pip install -r service/requirements.txt
-#      - name: Lint with flake8
-#        run: |
-#          # stop the build if there are Python syntax errors or undefined names
-#          flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
-#          # exit-zero treats all errors as warnings. The GitHub editor is 127 chars wide
-#          flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
-#      - name: Test with pytest
-#        run: |
-#          pip install pytest-cov
-#          pytest --cov=./ tests/
-#          pytest model_test.py
+  unit-test:
+    name: Run Unit tests
+    runs-on: ubuntu-latest
+    working-directory: "06-best-practices/code"
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up Python 3.9
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.9
+      - name: Install dependencies
+        run: |
+          make setup
+      - name: Lint with black
+        run: |
+          make quality_checks
+      - name: Test with pytest
+        run: |
+          make test
 
     integration-test:
       name: Run Integration tests
       runs-on: ubuntu-latest
-      strategy:
-        matrix:
-          include:
-            - dir: '06-best-practices/code/integraton-test'
+#      strategy:
+#        matrix:
+#          include:
+#            - dir:
       env:
         AWS_ACCESS_KEY_ID:  ${{ secrets.AWS_ACCESS_KEY_ID}}
         AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         AWS_DEFAULT_REGION: 'eu-west-1'
       steps:
         - uses: actions/checkout@v2
+
         - name: Set up Python 3.9
           uses: actions/setup-python@v2
           with:
             python-version: 3.9
+
         - name: Configure AWS Credentials
           uses: aws-actions/configure-aws-credentials@v1
           with:
             aws-access-key-id: ${{ env.AWS_ACCESS_KEY_ID }}
             aws-secret-access-key: ${{ env.AWS_SECRET_ACCESS_KEY }}
             aws-region: ${{ env.AWS_DEFAULT_REGION }}
+
+        - name: Setup
+          working-directory: '06-best-practices/code'
+          run: |
+            make setup
+
         - name: Integration Test
-          working-directory: ${{ matrix.dir }}
+          working-directory: '06-best-practices/code/integraton-test'
           run: |
             . run.sh
 
