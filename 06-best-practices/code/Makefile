@@ -20,4 +20,5 @@ publish: build integration_test
 
 setup:
 	pipenv install --dev
+	# Will this work if without activating virtual env?
 	pre-commit install
