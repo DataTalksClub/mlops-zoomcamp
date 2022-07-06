@@ -10,21 +10,18 @@ jobs:
   unit-test:
     name: Run Unit tests
     runs-on: ubuntu-latest
-    working-directory: "06-best-practices/code"
     steps:
       - uses: actions/checkout@v2
       - name: Set up Python 3.9
         uses: actions/setup-python@v2
         with:
           python-version: 3.9
-      - name: Install dependencies
+
+      - name: Install dependencies, Lint with black, & run tests with Pytest
+        working-directory: "06-best-practices/code"
         run: |
           make setup
-      - name: Lint with black
-        run: |
           make quality_checks
-      - name: Test with pytest
-        run: |
           make test
 
   integration-test:
