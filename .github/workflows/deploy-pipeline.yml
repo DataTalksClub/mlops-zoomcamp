@@ -23,7 +23,7 @@ jobs:
     steps:
       - name: Check out repo
         uses: actions/checkout@v2
-      # - uses: hashicorp/setup-terraform@v2
+      - uses: hashicorp/setup-terraform@v2
       - name: TF plan
         # working-directory: '06-best-practices/code/infrastructure'
         run: |
