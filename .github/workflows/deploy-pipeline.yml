@@ -1,17 +1,16 @@
 name: Deploy-Pipeline
-#on:
-#  push:
-#    branches:
-#      - 'develop'
 on:
+  push:
+    branches:
+      - 'develop'
+#    paths:
+#      - '06-best-practices/code/**'
+
   pull_request:
     branches:
       - 'develop'
     paths:
       - '06-best-practices/code/**'
-
-#strategy:
-#  fail-fast: true # stop others if one fails
 
 jobs:
   build:
@@ -42,7 +41,8 @@ jobs:
 
   deploy:
     runs-on: ubuntu-latest
-    if: github.event.pull_request.merged
+    # if: github.event.pull_request.merged
+    if: github.ref == 'refs/heads/develop'
     needs: build
 
     outputs:
