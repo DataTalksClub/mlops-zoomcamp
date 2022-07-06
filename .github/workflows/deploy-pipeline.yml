@@ -21,9 +21,11 @@ jobs:
       AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
       AWS_REGION: "eu-west-1"
     steps:
+      - name: Check out repo
+        uses: actions/checkout@v2
+        working-directory: '06-best-practices/code/infrastructure'
       - uses: hashicorp/setup-terraform@v2
       - name: TF plan
-        working-directory: '06-best-practices/code/infrastructure'
         run: terraform init && terraform plan -var-file=vars/prod.tfvars
 
 #      - name: TF apply     # if: github.event.pull_request.merged
