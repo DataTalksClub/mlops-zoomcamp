@@ -23,10 +23,9 @@ jobs:
     steps:
       - name: Check out repo
         uses: actions/checkout@v2
-        run: ls -la
-      - uses: hashicorp/setup-terraform@v2
+      # - uses: hashicorp/setup-terraform@v2
       - name: TF plan
-        working-directory: '06-best-practices/code/infrastructure'
+        # working-directory: '06-best-practices/code/infrastructure'
         run: |
           ls -la
           terraform init && terraform plan -var-file=vars/prod.tfvars
