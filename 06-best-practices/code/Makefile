@@ -19,6 +19,6 @@ publish: build integration_test
 	LOCAL_IMAGE_NAME=${LOCAL_IMAGE_NAME} bash scripts/publish.sh
 
 setup:
+	#TODO: Shouldn't we install pipenv, pre-commit, isort, black, pylint, pytest etc. here?
 	pipenv install --dev
-	# Will this work if without activating virtual env?
 	pre-commit install

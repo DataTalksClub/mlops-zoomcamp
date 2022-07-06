@@ -1,0 +1,6 @@
+pipenv
+pre-commit
+isort
+black
+pylint
+pytest
