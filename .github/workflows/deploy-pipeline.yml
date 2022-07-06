@@ -23,11 +23,13 @@ jobs:
     steps:
       - name: Check out repo
         uses: actions/checkout@v2
-        working-directory: '06-best-practices/code/infrastructure'
+        run: ls -la
       - uses: hashicorp/setup-terraform@v2
       - name: TF plan
-        run: terraform init && terraform plan -var-file=vars/prod.tfvars
-
+        working-directory: '06-best-practices/code/infrastructure'
+        run: |
+        ls -la
+        terraform init && terraform plan -var-file=vars/prod.tfvars
 #      - name: TF apply     # if: github.event.pull_request.merged
 #        working-directory: '06-best-practices/code/infrastructure'
 #        run: terraform apply -var-file=vars/prod.tfvars
