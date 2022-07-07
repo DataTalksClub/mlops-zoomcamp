@@ -10,7 +10,7 @@ jobs:
   build-deploy:
     runs-on: ubuntu-latest
     # if: github.ref == 'refs/heads/develop'
-    outputs:
+#    outputs:
 #      image_tag: ${{ steps.build-image-step.outputs.image_tag }}
 #      ecr_repo: ${{ steps.tf-apply.outputs.ecr_repo }}
 #      predictions_stream_name: ${{ steps.tf-apply.outputs.predictions_stream_name }}
