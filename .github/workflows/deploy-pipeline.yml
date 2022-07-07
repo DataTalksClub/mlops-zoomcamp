@@ -59,9 +59,10 @@ jobs:
           ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
           ECR_REPOSITORY: ${{ steps.tf-apply.outputs.ecr_repo }}
           IMAGE_TAG: ${{ github.sha }}
+          ECR_URI: $ECR_REGISTRY/$ECR_REPOSITORY
         run: |
-          echo $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
-          docker build --build-arg -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG -t $ECR_REGISTRY/$ECR_REPOSITORY:latest .
+          echo
+          docker build --build-arg -t $ECR_URI:$IMAGE_TAG -t $ECR_URI:latest .
           docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
           docker push $ECR_REGISTRY/$ECR_REPOSITORY:latest
           echo "::set-output name=image_tag::$IMAGE_TAG"
