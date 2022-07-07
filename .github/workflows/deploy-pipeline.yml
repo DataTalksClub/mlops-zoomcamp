@@ -11,10 +11,10 @@ jobs:
     runs-on: ubuntu-latest
     # if: github.ref == 'refs/heads/develop'
     outputs:
-      image_tag: ${{ steps.build-image-step.outputs.image_tag }}
-      ecr_repo: ${{ steps.tf-apply.outputs.ecr_repo }}
-      predictions_stream_name: ${{ steps.tf-apply.outputs.predictions_stream_name }}
-      model_bucket: ${{ steps.tf-apply.outputs.model_bucket }}
+#      image_tag: ${{ steps.build-image-step.outputs.image_tag }}
+#      ecr_repo: ${{ steps.tf-apply.outputs.ecr_repo }}
+#      predictions_stream_name: ${{ steps.tf-apply.outputs.predictions_stream_name }}
+#      model_bucket: ${{ steps.tf-apply.outputs.model_bucket }}
 
     steps:
       - name: Check out repo
@@ -47,6 +47,7 @@ jobs:
           echo "::set-output name=ecr_repo::$(terraform output ecr_repo | xargs)"
           echo "::set-output name=predictions_stream_name::$(terraform output predictions_stream_name)"
           echo "::set-output name=model_bucket::$(terraform output model_bucket)"
+          echo "::set-output name=lambda_function::$(terraform output lambda_function)"
 
       - name: Login to Amazon ECR
         id: login-ecr
@@ -60,7 +61,6 @@ jobs:
           ECR_REPOSITORY: ${{ steps.tf-apply.outputs.ecr_repo }}
           IMAGE_TAG: ${{ github.sha }}
         run: |
-          ls -la
           docker build -t ${ECR_REGISTRY}/${ECR_REPOSITORY}:${IMAGE_TAG} -t ${ECR_REGISTRY}/${ECR_REPOSITORY}:latest .
           docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
           docker push $ECR_REGISTRY/$ECR_REPOSITORY:latest
@@ -71,10 +71,15 @@ jobs:
           ECR_REPOSITORY: ${{ steps.tf-apply.outputs.ecr_repo }}
           PREDICTIONS_STREAM_NAME: ${{ steps.tf-apply.outputs.predictions_stream_name }}
           MODEL_BUCKET: ${{ steps.tf-apply.outputs.model_bucket }}
+          LAMBDA_FUNCTION: ${{ steps.tf-apply.outputs.lambda_function }}
         run: |
-          variables="{PREDICTIONS_STREAM_NAME=${PREDICTIONS_STREAM_NAME}, MODEL_BUCKET=${MODEL_BUCKET_PROD}, RUN_ID=${RUN_ID}}"
+          export RUN_ID=$(aws s3api list-objects-v2 --bucket ${MODEL_BUCKET_DEV} \
+          --query 'sort_by(Contents, &LastModified)[-1].Key' --output=text | cut -f2 -d/)
+          variables="{ \
+          PREDICTIONS_STREAM_NAME=$PREDICTIONS_STREAM_NAME, MODEL_BUCKET=$MODEL_BUCKET_PROD, RUN_ID=$RUN_ID \
+          }"
           aws lambda update-function-code \
-          --function-name $YOUR-FUNC-NAME \
+          --function-name $LAMBDA_FUNCTION \
           --image-uri ${{ steps.login-ecr.outputs.registry }}/$ECR_REPOSITORY:${{ steps.build-image-step.outputs.image_tag }} \
           --environment "Variables=${variables}"
           --publish
