@@ -57,7 +57,7 @@ jobs:
         working-directory: "06-best-practices/code/infrastructure"
         env:
           ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
-          ECR_REPOSITORY: $(echo ${{ steps.tf-apply.outputs.ecr_repo }} | xargs)
+          ECR_REPOSITORY: echo ${{ steps.tf-apply.outputs.ecr_repo }} | xargs
           IMAGE_TAG: ${{ github.sha }}
         run: |
           echo ${{ steps.tf-apply.outputs.ecr_repo }}
