@@ -61,7 +61,7 @@ jobs:
           IMAGE_TAG: ${{ github.sha }}
         run: |
           echo ${{ steps.tf-apply.outputs.ecr_repo }}
-          docker build --build-arg -t '$ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG' -t '$ECR_REGISTRY/$ECR_REPOSITORY:latest' .
+          docker build --build-arg '-t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG' '-t $ECR_REGISTRY/$ECR_REPOSITORY:latest' .
           docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
           docker push $ECR_REGISTRY/$ECR_REPOSITORY:latest
           echo "::set-output name=image_tag::$IMAGE_TAG"
