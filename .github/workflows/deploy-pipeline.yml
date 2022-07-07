@@ -5,9 +5,6 @@ on:
       - 'develop'
 #    paths:
 #      - '06-best-practices/code/**'
-# ECR_REPO = terraform output ecr_repo
-# PREDICTIONS_STREAM_NAME = terraform output predictions_stream_name
-# MODEL_BUCKET = terraform output model_bucket
 
 jobs:
   build-deploy:
@@ -57,7 +54,7 @@ jobs:
         working-directory: "06-best-practices/code/infrastructure"
         env:
           ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
-          ECR_REPOSITORY: ${{ steps.tf-apply.outputs.ecr_repo }}
+          ECR_REPOSITORY: ${{ needs.tf-apply.outputs.ecr_repo }}
           IMAGE_TAG: ${{ github.sha }}
         run: |
           docker build --build-arg -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG -t $ECR_REGISTRY/$ECR_REPOSITORY:latest .
