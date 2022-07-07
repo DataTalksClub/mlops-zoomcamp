@@ -49,7 +49,7 @@ module "output_kinesis_stream" {
 
 module "s3_bucket" {
   source = "./modules/s3"
-  bucket_name = "${var.model_bucket}_${var.project_id}"
+  bucket_name = "${var.model_bucket}-${var.project_id}"
 }
 
 module "lambda_function" {
