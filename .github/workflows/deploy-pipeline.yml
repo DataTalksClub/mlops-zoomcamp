@@ -9,13 +9,6 @@ on:
 jobs:
   build-deploy:
     runs-on: ubuntu-latest
-    # if: github.ref == 'refs/heads/develop'
-#    outputs:
-#      image_tag: ${{ steps.build-image-step.outputs.image_tag }}
-#      ecr_repo: ${{ steps.tf-apply.outputs.ecr_repo }}
-#      predictions_stream_name: ${{ steps.tf-apply.outputs.predictions_stream_name }}
-#      model_bucket: ${{ steps.tf-apply.outputs.model_bucket }}
-
     steps:
       - name: Check out repo
         uses: actions/checkout@v3
@@ -29,7 +22,6 @@ jobs:
 
       - uses: hashicorp/setup-terraform@v2
         with:
-          # terraform_version: 1.1.7
           terraform_wrapper: false
 
       - name: TF plan
@@ -73,7 +65,7 @@ jobs:
           MODEL_BUCKET: ${{ steps.tf-apply.outputs.model_bucket }}
           LAMBDA_FUNCTION: ${{ steps.tf-apply.outputs.lambda_function }}
         run: |
-          export RUN_ID=$(aws s3api list-objects-v2 --bucket ${MODEL_BUCKET_DEV} \
+          export RUN_ID=$(aws s3api list-objects-v2 --bucket $MODEL_BUCKET_PROD \
           --query 'sort_by(Contents, &LastModified)[-1].Key' --output=text | cut -f2 -d/)
           variables="{ \
           PREDICTIONS_STREAM_NAME=$PREDICTIONS_STREAM_NAME, MODEL_BUCKET=$MODEL_BUCKET_PROD, RUN_ID=$RUN_ID \
