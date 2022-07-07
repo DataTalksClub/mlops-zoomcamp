@@ -58,7 +58,7 @@ jobs:
         working-directory: "06-best-practices/code/infrastructure"
         env:
           ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
-          ECR_REPOSITORY: ${{ steps.tf-apply.outputs.ecr_repo }}
+          ECR_REPOSITORY: ${{ needs.build-deploy.outputs.ecr_repo }}
           IMAGE_TAG: ${{ github.sha }}
         run: |
           docker build --build-arg -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG -t $ECR_REGISTRY/$ECR_REPOSITORY:latest .
