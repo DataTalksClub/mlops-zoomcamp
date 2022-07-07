@@ -57,7 +57,7 @@ jobs:
         working-directory: "06-best-practices/code/infrastructure"
         env:
           ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
-          ECR_REPOSITORY: ${{ steps.tf-apply.ecr_repo }}
+          ECR_REPOSITORY: ${{ steps.tf-apply.outputs.ecr_repo }}
           IMAGE_TAG: ${{ github.sha }}
         run: |
           docker build --build-arg -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG -t $ECR_REGISTRY/$ECR_REPOSITORY:latest .
@@ -66,10 +66,14 @@ jobs:
           echo "::set-output name=image_tag::$IMAGE_TAG"
 
       - name: Update Lambda and Test e2e
+        env:
+          ECR_REPOSITORY: ${{ steps.tf-apply.outputs.ecr_repo }}
+          PREDICTIONS_STREAM_NAME: ${{ steps.tf-apply.outputs.predictions_stream_name }}
+          MODEL_BUCKET: ${{ steps.tf-apply.outputs.model_bucket }}
         run: |
           variables="{PREDICTIONS_STREAM_NAME=${PREDICTIONS_STREAM_NAME}, MODEL_BUCKET=${MODEL_BUCKET_PROD}, RUN_ID=${RUN_ID}}"
           aws lambda update-function-code \
           --function-name $YOUR-FUNC-NAME \
-          --image-uri ${{ steps.login-ecr.outputs.registry }}/$ECR_REPOSITORY:${{ needs.build-and-push.outputs.image_tag }} \
+          --image-uri ${{ steps.login-ecr.outputs.registry }}/$ECR_REPOSITORY:${{ steps.build-image-step.outputs.image_tag }} \
           --environment "Variables=${variables}"
           --publish
