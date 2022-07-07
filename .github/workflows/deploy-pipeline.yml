@@ -30,22 +30,23 @@ jobs:
       - uses: hashicorp/setup-terraform@v2
 
       - name: TF plan
-        id: plan
+        id: tfp
         working-directory: '06-best-practices/code/infrastructure'
         run: |
           terraform init && terraform plan -var-file=vars/prod.tfvars
 
       - name: TF Apply
-        id: tf-apply
+        id: tfa
         working-directory: '06-best-practices/code/infrastructure'
-        # if: ${{ steps.plan.outcome }} == 'success'
+        if: ${{ steps.tfp.outcome }} == 'success'
         run: |
           terraform apply -auto-approve -var-file=vars/prod.tfvars
-          echo "::set-output name=ECR_REPO::$(terraform output ecr_repo)"
-          echo "::set-output name=PREDICTIONS_STREAM_NAME::$(terraform output predictions_stream_name)"
-          echo "::set-output name=MODEL_BUCKET::$(terraform output model_bucket)"
-          echo "${{ steps.tf-apply.outputs.ECR_REPO }}"
-          echo "${{ needs.build-deploy.outputs.ECR_REPO }}"
+          echo "export ECR_REPO=$(terraform output ecr_repo)"
+#          echo "::set-output name=ECR_REPO::$(terraform output ecr_repo)"
+#          echo "::set-output name=PREDICTIONS_STREAM_NAME::$(terraform output predictions_stream_name)"
+#          echo "::set-output name=MODEL_BUCKET::$(terraform output model_bucket)"
+#          echo "${{ steps.tf-apply.outputs.ECR_REPO }}"
+#          echo "${{ needs.build-deploy.outputs.ECR_REPO }}"
 
       - name: Login to Amazon ECR
         id: login-ecr
@@ -56,7 +57,7 @@ jobs:
         working-directory: "06-best-practices/code/infrastructure"
         env:
           ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
-          ECR_REPOSITORY: ${{ needs.build-deploy.outputs.ECR_REPO }}
+          ECR_REPOSITORY: ${{ steps.tf-apply.outputs.ECR_REPO }}
           IMAGE_TAG: ${{ github.sha }}
         run: |
           docker build --build-arg -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG -t $ECR_REGISTRY/$ECR_REPOSITORY:latest .
