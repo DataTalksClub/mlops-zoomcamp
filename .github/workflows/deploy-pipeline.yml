@@ -29,6 +29,7 @@ jobs:
 
       - uses: hashicorp/setup-terraform@v2
         with:
+          terraform_version: 1.1.7
           terraform_wrapper: false
 
       - name: TF plan
@@ -46,7 +47,7 @@ jobs:
           echo "::set-output name=ecr_repo::$(terraform output ecr_repo)"
           echo "::set-output name=predictions_stream_name::$(terraform output predictions_stream_name)"
           echo "::set-output name=model_bucket::$(terraform output model_bucket)"
-          echo "${{ steps.tf-apply.outputs.ecr_repo }}"
+#          echo "${{ steps.tf-apply.outputs.ecr_repo }}"
 
       - name: Login to Amazon ECR
         id: login-ecr
