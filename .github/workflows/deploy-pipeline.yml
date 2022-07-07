@@ -62,13 +62,17 @@ jobs:
         env:
           ECR_REPOSITORY: ${{ steps.tf-apply.outputs.ecr_repo }}
           PREDICTIONS_STREAM_NAME: ${{ steps.tf-apply.outputs.predictions_stream_name }}
-          MODEL_BUCKET: ${{ steps.tf-apply.outputs.model_bucket }}
           LAMBDA_FUNCTION: ${{ steps.tf-apply.outputs.lambda_function }}
+          MODEL_BUCKET: ${{ steps.tf-apply.outputs.model_bucket }}
+          MODEL_BUCKET_DEV: ${{ secrets.MODEL_BUCKET_DEV }}
         run: |
-          export RUN_ID=$(aws s3api list-objects-v2 --bucket $MODEL_BUCKET_PROD \
+          export RUN_ID=$(aws s3api list-objects-v2 --bucket ${MODEL_BUCKET_DEV} \
           --query 'sort_by(Contents, &LastModified)[-1].Key' --output=text | cut -f2 -d/)
+
+          aws s3 sync s3://$MODEL_BUCKET_DEV s3://$MODEL_BUCKET
+
           variables="{ \
-          PREDICTIONS_STREAM_NAME=$PREDICTIONS_STREAM_NAME, MODEL_BUCKET=$MODEL_BUCKET_PROD, RUN_ID=$RUN_ID \
+          PREDICTIONS_STREAM_NAME=$PREDICTIONS_STREAM_NAME, MODEL_BUCKET=$MODEL_BUCKET, RUN_ID=$RUN_ID \
           }"
           aws lambda update-function-code \
           --function-name $LAMBDA_FUNCTION \
