@@ -7,7 +7,6 @@
 # In practice, this is generally picked up from a tool like MLflow or a DB
 export RUN_ID=$(aws s3api list-objects-v2 --bucket ${MODEL_BUCKET_DEV} \
 --query 'sort_by(Contents, &LastModified)[-1].Key' --output=text | cut -f2 -d/)
-# export RUNID="e1efc53e9bd149078b0c12aeaa6365df"
 
 # Copy Model artifacts to newly created bucket
 aws s3 sync s3://${MODEL_BUCKET_DEV} s3://${MODEL_BUCKET_PROD}
