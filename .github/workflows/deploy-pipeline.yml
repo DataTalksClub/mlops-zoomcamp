@@ -81,4 +81,4 @@ jobs:
           }"
 
           aws lambda update-function-configuration --function-name $LAMBDA_FUNCTION \
-          --environment "Variables=${variables}" --publish
+          --environment "Variables=${variables}"
