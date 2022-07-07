@@ -61,7 +61,7 @@ jobs:
           IMAGE_TAG: ${{ github.sha }}
           ECR_URI: $ECR_REGISTRY/$ECR_REPOSITORY
         run: |
-          echo
+          echo $ECR_REGISTRY/$ECR_REPOSITORY ${ECR_REGISTRY}/${ECR_REPOSITORY} $ ECR_URI
           docker build --build-arg -t ${ECR_REGISTRY}/${ECR_REPOSITORY}:${IMAGE_TAG} \
           -t ${ECR_REGISTRY}/${ECR_REPOSITORY}:latest .
           docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
