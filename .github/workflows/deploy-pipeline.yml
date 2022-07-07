@@ -44,9 +44,9 @@ jobs:
         if: ${{ steps.tf-plan.outcome }} == 'success'
         run: |
           terraform apply -auto-approve -var-file=vars/prod.tfvars
-          echo "::set-output name=ecr_repo::$(terraform output ecr_repo | tr -d '"')"
-          echo "::set-output name=predictions_stream_name::$(terraform output predictions_stream_name)"
-          echo "::set-output name=model_bucket::$(terraform output model_bucket)"
+          echo "::set-output name=ecr_repo::$(terraform output ecr_repo | xargs)"
+          echo "::set-output name=predictions_stream_name::$(terraform output predictions_stream_name | xargs)"
+          echo "::set-output name=model_bucket::$(terraform output model_bucket | xargs)"
 
       - name: Login to Amazon ECR
         id: login-ecr
@@ -61,7 +61,7 @@ jobs:
           IMAGE_TAG: ${{ github.sha }}
         run: |
           echo ${{ steps.tf-apply.outputs.ecr_repo }}
-          docker build --build-arg '-t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG' '-t $ECR_REGISTRY/$ECR_REPOSITORY:latest' .
+          docker build --build-arg -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG -t $ECR_REGISTRY/$ECR_REPOSITORY:latest .
           docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
           docker push $ECR_REGISTRY/$ECR_REPOSITORY:latest
           echo "::set-output name=image_tag::$IMAGE_TAG"
