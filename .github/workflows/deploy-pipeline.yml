@@ -41,12 +41,12 @@ jobs:
         if: ${{ steps.plan.outcome }} == 'success'
         run: |
           terraform apply -auto-approve -var-file=vars/prod.tfvars
-          ECR_REPO = terraform output ecr_repo
-          PREDICTIONS_STREAM_NAME = terraform output predictions_stream_name
-          MODEL_BUCKET = terraform output model_bucket
-          echo "::set-output name=ecr_repo::$ECR_REPO"
-          echo "::set-output name=ecr_repo::$PREDICTIONS_STREAM_NAME"
-          echo "::set-output name=ecr_repo::$MODEL_BUCKET"
+      #    ECR_REPO = terraform output ecr_repo
+      #    PREDICTIONS_STREAM_NAME = terraform output predictions_stream_name
+      #    MODEL_BUCKET = terraform output model_bucket
+          echo "::set-output name=ecr_repo::terraform output ecr_repo"
+          echo "::set-output name=predictions_stream_name::terraform output predictions_stream_name"
+          echo "::set-output name=model_bucket::terraform output model_bucket"
 
       - name: Login to Amazon ECR
         id: login-ecr
