@@ -38,12 +38,20 @@ jobs:
       - name: TF Apply
         id: tf-apply
         working-directory: '06-best-practices/code/infrastructure'
-        if: ${{ steps.plan.outcome }} == 'success'
+        # if: ${{ steps.plan.outcome }} == 'success'
         run: |
           terraform apply -auto-approve -var-file=vars/prod.tfvars
           echo "::set-output name=ecr_repo::$(terraform output ecr_repo)"
           echo "::set-output name=predictions_stream_name::$(terraform output predictions_stream_name)"
           echo "::set-output name=model_bucket::$(terraform output model_bucket)"
+          echo $ecr_repo
+          echo "${{ steps.tf-apply.outputs.ecr_repo }}"
+
+      - name: Set selected color
+        run: echo '::set-output name=SELECTED_COLOR::green'
+        id: random-color-generator
+      - name: Get color
+        run: echo "The selected color is ${{ steps.random-color-generator.outputs.SELECTED_COLOR }}"
 
       - name: Login to Amazon ECR
         id: login-ecr
@@ -54,10 +62,10 @@ jobs:
         working-directory: "06-best-practices/code/infrastructure"
         env:
           ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
-          # ECR_REPOSITORY: ${{ steps.tf-apply.outputs.ecr_repo }}
+          ECR_REPOSITORY: "${{ steps.tf-apply.outputs.ecr_repo }}"
           IMAGE_TAG: ${{ github.sha }}
         run: |
-          docker build --build-arg -t $ECR_REGISTRY/${{ steps.tf-apply.outputs.ecr_repo }}:$IMAGE_TAG -t $ECR_REGISTRY/${{ steps.tf-apply.outputs.ecr_repo }}:latest .
+          docker build --build-arg -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG -t $ECR_REGISTRY/$ECR_REPOSITORY:latest .
           docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
           docker push $ECR_REGISTRY/$ECR_REPOSITORY:latest
           echo "::set-output name=image_tag::$IMAGE_TAG"
