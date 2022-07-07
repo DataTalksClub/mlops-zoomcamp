@@ -6,19 +6,15 @@ on:
 #    paths:
 #      - '06-best-practices/code/**'
 
-  pull_request:
-    branches:
-      - 'develop'
-    paths:
-      - '06-best-practices/code/**'
-
 jobs:
-  build:
+  build-deploy:
     runs-on: ubuntu-latest
-#    env:
-#      AWS_ACCESS_KEY_ID:  ${{ secrets.AWS_ACCESS_KEY_ID}}
-#      AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-#      AWS_DEFAULT_REGION: "eu-west-1"
+    # if: github.ref == 'refs/heads/develop'
+    outputs:
+      image_tag: ${{ steps.build-image-step.outputs.image_tag }}
+      ecr_repo: ${{ steps.tf-apply.outputs.ecr_repo }}
+      predictions_stream_name: ${{ steps.tf-apply.outputs.predictions_stream_name }}
+      model_bucket: ${{ steps.tf-apply.outputs.model_bucket }}
 
     steps:
       - name: Check out repo
@@ -38,27 +34,6 @@ jobs:
         working-directory: '06-best-practices/code/infrastructure'
         run: |
           terraform init && terraform plan -var-file=vars/prod.tfvars
-
-  deploy:
-    runs-on: ubuntu-latest
-    # if: github.event.pull_request.merged
-    if: github.ref == 'refs/heads/develop'
-    needs: build
-
-    outputs:
-      image_tag: ${{ steps.build-image-step.outputs.image_tag }}
-      ecr_repo: ${{ steps.tf-apply.outputs.ecr_repo }}
-      predictions_stream_name: ${{ steps.tf-apply.outputs.predictions_stream_name }}
-      model_bucket: ${{ steps.tf-apply.outputs.model_bucket }}
-
-    steps:
-      - uses: actions/checkout@v2
-      - name: Configure AWS Credentials
-        uses: aws-actions/configure-aws-credentials@v1
-        with:
-          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          aws-region: "eu-west-1"
 
       - name: TF Apply
         id: tf-apply
@@ -90,12 +65,11 @@ jobs:
           docker push $ECR_REGISTRY/$ECR_REPOSITORY:latest
           echo "::set-output name=image_tag::$IMAGE_TAG"
 
-#      - name: Update Lambda and Test e2e
-#        run: |
-#        # TODO: use envs from .env_template & tf apply output
-#          variables="{PREDICTIONS_STREAM_NAME=${PREDICTIONS_STREAM_NAME}, MODEL_BUCKET=${MODEL_BUCKET_PROD}, RUN_ID=${RUN_ID}}"
-#          aws lambda update-function-code \
-#          --function-name $YOUR-FUNC-NAME \
-#          --image-uri ${{ steps.login-ecr.outputs.registry }}/$YOUR-REPO-NAME:${{ needs.build-and-push.outputs.image_tag }} \
-#          --environment "Variables=${variables}"
-#          --publish
+      - name: Update Lambda and Test e2e
+        run: |
+          variables="{PREDICTIONS_STREAM_NAME=${PREDICTIONS_STREAM_NAME}, MODEL_BUCKET=${MODEL_BUCKET_PROD}, RUN_ID=${RUN_ID}}"
+          aws lambda update-function-code \
+          --function-name $YOUR-FUNC-NAME \
+          --image-uri ${{ steps.login-ecr.outputs.registry }}/$ECR_REPOSITORY:${{ needs.build-and-push.outputs.image_tag }} \
+          --environment "Variables=${variables}"
+          --publish
