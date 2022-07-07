@@ -66,6 +66,11 @@ jobs:
           MODEL_BUCKET: ${{ steps.tf-apply.outputs.model_bucket }}
           MODEL_BUCKET_DEV: ${{ secrets.MODEL_BUCKET_DEV }}
         run: |
+
+          aws lambda update-function-code --function-name $LAMBDA_FUNCTION \
+          --image-uri ${{ steps.login-ecr.outputs.registry }}/$ECR_REPOSITORY:${{ steps.build-image-step.outputs.image_tag }} \
+          --publish
+
           export RUN_ID=$(aws s3api list-objects-v2 --bucket ${MODEL_BUCKET_DEV} \
           --query 'sort_by(Contents, &LastModified)[-1].Key' --output=text | cut -f2 -d/)
 
@@ -76,8 +81,4 @@ jobs:
           }"
 
           aws lambda update-function-configuration --function-name $LAMBDA_FUNCTION \
-          --environment "Variables=${variables} --publish
-
-#          aws lambda update-function-code --function-name $LAMBDA_FUNCTION \
-#          --image-uri ${{ steps.login-ecr.outputs.registry }}/$ECR_REPOSITORY:${{ steps.build-image-step.outputs.image_tag }} \
-#          --publish
+          --environment "Variables=${variables}" --publish
