@@ -41,7 +41,7 @@ jobs:
         if: ${{ steps.tfp.outcome }} == 'success'
         run: |
           terraform apply -auto-approve -var-file=vars/prod.tfvars
-          echo "export ECR_REPO=$(terraform output ecr_repo)"
+          echo "export ECR_REPOSITORY=$(terraform output ecr_repo)"
 #          echo "::set-output name=ECR_REPO::$(terraform output ecr_repo)"
 #          echo "::set-output name=PREDICTIONS_STREAM_NAME::$(terraform output predictions_stream_name)"
 #          echo "::set-output name=MODEL_BUCKET::$(terraform output model_bucket)"
@@ -57,7 +57,7 @@ jobs:
         working-directory: "06-best-practices/code/infrastructure"
         env:
           ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
-          ECR_REPOSITORY: ${{ steps.tf-apply.outputs.ECR_REPO }}
+          # ECR_REPOSITORY: # ${{ steps.tf-apply.outputs.ECR_REPO }}
           IMAGE_TAG: ${{ github.sha }}
         run: |
           docker build --build-arg -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG -t $ECR_REGISTRY/$ECR_REPOSITORY:latest .
