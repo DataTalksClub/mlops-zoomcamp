@@ -16,7 +16,7 @@ export PREDICTIONS_STREAM_NAME="ride_predictions"
 
 docker-compose up -d
 
-sleep 5
+sleep 5   # changed from 1 to 5
 
 aws --endpoint-url=http://localhost:4566 \
     kinesis create-stream \

@@ -6,6 +6,9 @@ on:
     paths:
       - '06-best-practices/code/**'
 
+env:
+  AWS_DEFAULT_REGION: eu-west-1
+
 jobs:
   test:
     runs-on: ubuntu-latest
@@ -44,7 +47,7 @@ jobs:
         with:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          aws-region: "eu-west-1"
+          aws-region: ${{ env.AWS_DEFAULT_REGION }}
 
       - uses: hashicorp/setup-terraform@v2
 
