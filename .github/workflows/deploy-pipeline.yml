@@ -10,15 +10,15 @@ jobs:
   build-deploy:
     runs-on: ubuntu-latest
     # if: github.ref == 'refs/heads/develop'
-#    outputs:
-#      image_tag: ${{ steps.build-image-step.outputs.image_tag }}
-#      ecr_repo: ${{ steps.tf-apply.outputs.ecr_repo }}
-#      predictions_stream_name: ${{ steps.tf-apply.outputs.predictions_stream_name }}
-#      model_bucket: ${{ steps.tf-apply.outputs.model_bucket }}
+    outputs:
+      image_tag: ${{ steps.build-image-step.outputs.image_tag }}
+      ecr_repo: ${{ steps.tf-apply.outputs.ecr_repo }}
+      predictions_stream_name: ${{ steps.tf-apply.outputs.predictions_stream_name }}
+      model_bucket: ${{ steps.tf-apply.outputs.model_bucket }}
 
     steps:
       - name: Check out repo
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v1
@@ -44,8 +44,8 @@ jobs:
           echo "::set-output name=ECR_REPO::$(terraform output ecr_repo)"
           echo "::set-output name=PREDICTIONS_STREAM_NAME::$(terraform output predictions_stream_name)"
           echo "::set-output name=MODEL_BUCKET::$(terraform output model_bucket)"
-          echo $ECR_REPO
-          echo "${{ steps.tf-apply.outputs.ECR_REPO }}}"
+          echo "${{ steps.tf-apply.outputs.ECR_REPO }}"
+          echo "${{ needs.build-deploy.outputs.ECR_REPO }}"
 
       - name: Login to Amazon ECR
         id: login-ecr
@@ -56,7 +56,7 @@ jobs:
         working-directory: "06-best-practices/code/infrastructure"
         env:
           ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
-          ECR_REPOSITORY: ${{ steps.tf-apply.outputs.ECR_REPO }} # -"${{ steps.tf-apply.outputs.ECR_REPO }}"
+          ECR_REPOSITORY: ${{ needs.build-deploy.outputs.ECR_REPO }}
           IMAGE_TAG: ${{ github.sha }}
         run: |
           docker build --build-arg -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG -t $ECR_REGISTRY/$ECR_REPOSITORY:latest .
