@@ -8,7 +8,7 @@ services:
       - RUN_ID=Test123
       - MODEL_LOCATION=/app/model
       - KINESIS_ENDPOINT_URL=http://kinesis:4566/
-      # Needed for Localstack to work with Docker Compose
+      # Needed for Localstack to work with Docker Compose, esp. in CI/CD env.
       - AWS_DEFAULT_REGION=eu-west-1
       - AWS_ACCESS_KEY_ID=foobar
       - AWS_SECRET_ACCESS_KEY=foobar
