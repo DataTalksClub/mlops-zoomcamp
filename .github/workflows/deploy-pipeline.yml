@@ -10,11 +10,11 @@ jobs:
   build-deploy:
     runs-on: ubuntu-latest
     # if: github.ref == 'refs/heads/develop'
-    outputs:
-      image_tag: ${{ steps.build-image-step.outputs.image_tag }}
-      ecr_repo: ${{ steps.tf-apply.outputs.ecr_repo }}
-      predictions_stream_name: ${{ steps.tf-apply.outputs.predictions_stream_name }}
-      model_bucket: ${{ steps.tf-apply.outputs.model_bucket }}
+#    outputs:
+#      image_tag: ${{ steps.build-image-step.outputs.image_tag }}
+#      ecr_repo: ${{ steps.tf-apply.outputs.ecr_repo }}
+#      predictions_stream_name: ${{ steps.tf-apply.outputs.predictions_stream_name }}
+#      model_bucket: ${{ steps.tf-apply.outputs.model_bucket }}
 
     steps:
       - name: Check out repo
@@ -41,17 +41,11 @@ jobs:
         # if: ${{ steps.plan.outcome }} == 'success'
         run: |
           terraform apply -auto-approve -var-file=vars/prod.tfvars
-          echo "::set-output name=ecr_repo::$(terraform output ecr_repo)"
-          echo "::set-output name=predictions_stream_name::$(terraform output predictions_stream_name)"
-          echo "::set-output name=model_bucket::$(terraform output model_bucket)"
-          echo $ecr_repo
-          echo "${{ steps.tf-apply.outputs.ecr_repo }}"
-
-      - name: Set selected color
-        run: echo '::set-output name=SELECTED_COLOR::green'
-        id: random-color-generator
-      - name: Get color
-        run: echo "The selected color is ${{ steps.random-color-generator.outputs.SELECTED_COLOR }}"
+          echo "::set-output name=ECR_REPO::$(terraform output ecr_repo)"
+          echo "::set-output name=PREDICTIONS_STREAM_NAME::$(terraform output predictions_stream_name)"
+          echo "::set-output name=MODEL_BUCKET::$(terraform output model_bucket)"
+          echo $ECR_REPO
+          echo "${{ steps.tf-apply.outputs.ECR_REPO }}}"
 
       - name: Login to Amazon ECR
         id: login-ecr
@@ -62,7 +56,7 @@ jobs:
         working-directory: "06-best-practices/code/infrastructure"
         env:
           ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
-          ECR_REPOSITORY: "${{ steps.tf-apply.outputs.ecr_repo }}"
+          ECR_REPOSITORY: "${{ steps.tf-apply.outputs.ECR_REPO }}"-${{ steps.tf-apply.outputs.ECR_REPO }}
           IMAGE_TAG: ${{ github.sha }}
         run: |
           docker build --build-arg -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG -t $ECR_REGISTRY/$ECR_REPOSITORY:latest .
