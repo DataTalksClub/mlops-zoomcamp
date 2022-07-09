@@ -86,9 +86,12 @@ w/ Terraform
 
 ### Project infrastructure modules:
 * Amazon Web Service (AWS):
-    * S3 Bucket: artifacts
-    * Lambda: Serving API
     * Kinesis: Streams (Producer & Consumer)
+    * Lambda: Serving API
+    * S3 Bucket: Model artifacts
+    * ECR: Image Registry
+    
+![image](AWS-stream-pipeline.png)
 
 ### Setup
 
