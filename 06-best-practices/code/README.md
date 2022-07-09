@@ -84,15 +84,6 @@ pytest tests/
 ### Section 5: IaC
 w/ Terraform
 
-### Project infrastructure modules:
-* Amazon Web Service (AWS):
-    * Kinesis: Streams (Producer & Consumer)
-    * Lambda: Serving API
-    * S3 Bucket: Model artifacts
-    * ECR: Image Registry
-    
-![image](AWS-stream-pipeline.png)
-
 ### Setup
 
 1. If you've already created an AWS account, head to the IAM section, generate your secret-key, and download it locally. 
