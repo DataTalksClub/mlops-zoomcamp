@@ -58,7 +58,7 @@ jobs:
           docker push $ECR_REGISTRY/$ECR_REPOSITORY:latest
           echo "::set-output name=image_tag::$IMAGE_TAG"
 
-      - name: Update Lambda and Test e2e
+      - name: Update Lambda
         env:
           ECR_REPOSITORY: ${{ steps.tf-apply.outputs.ecr_repo }}
           PREDICTIONS_STREAM_NAME: ${{ steps.tf-apply.outputs.predictions_stream_name }}
@@ -74,6 +74,7 @@ jobs:
           export RUN_ID=$(aws s3api list-objects-v2 --bucket ${MODEL_BUCKET_DEV} \
           --query 'sort_by(Contents, &LastModified)[-1].Key' --output=text | cut -f2 -d/)
 
+        # Only a hack in place of integrating MLflow to get latest version of model (RUN_ID)
           aws s3 sync s3://$MODEL_BUCKET_DEV s3://$MODEL_BUCKET
 
           variables="{ \

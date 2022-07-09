@@ -4,14 +4,19 @@
 To prepare the project, run 
 
 ```bash
+pip install pipenv
 make setup
 ```
 
 ### Section 1: Unit tests
+```bash
 make test
+```
 
 ### Section 2: Integration tests
+```bash
 . ./integraton-test/run.sh
+```
 
 ### Section 3: Testing on Cloud
 
@@ -64,7 +69,6 @@ aws  --endpoint-url=http://localhost:4566 \
 ```
 
 
-
 ### Section 4: Code quality & Makefiles
 
 Without makefiles:
@@ -94,9 +98,9 @@ w/ Terraform
 3. Check installation
   ```bash
     $ which aws
-    /usr/local/bin/aws 
+    /some/local/path/aws 
     $ aws --version
-    aws-cli/2.x Python/3.x Darwin/18.x botocore/2.x
+    aws-cli/X.x Python/3.x Darwin/18.x botocore/2.x
   ```
 4. [Configure]((https://docs.aws.amazon.com/cli/latest/userguide/getting-started-quickstart.html)) `aws-cli` with your downloaded AWS secret keys:
   ```shell
@@ -128,12 +132,12 @@ w/ Terraform
 
 3. To prepare aws env (copy model artifacts, set env-vars for lambda etc.):
     ```
-    . ./deploy_manual.sh
+    . ./scripts/deploy_manual.sh
     ```
 
 4. To test the pipeline end-to-end with our new cloud infra:
     ```
-    . ./test_cloud_e2e.sh
+    . ./scripts/test_cloud_e2e.sh
     ``` 
 
 5. And then check on CloudWatch logs. Or try `get-records` on the `output_kinesis_stream` (refer to `integration_test`)
@@ -160,4 +164,5 @@ Had to set it via `aws lambda update-function-configuration` cli command (refer 
 1. Create a PR (feature branch): `.github/workflows/test-pr-pipeline.yml`
     * Env setup, Unit test, Integration test, Terraform plan
 2. Merge PR to `develop`: `.github/workflows/deploy-pipeline.yml`
-    * Terraform plan, Terraform apply, Docker build & ECR push, Update Lamba config 
+    * Terraform plan, Terraform apply, Docker build & ECR push, Update Lamba config
+ 

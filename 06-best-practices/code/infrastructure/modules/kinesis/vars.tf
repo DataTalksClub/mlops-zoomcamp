@@ -29,5 +29,5 @@ variable "shard_level_metrics" {
 
 variable "tags" {
   description = "Tags for kinesis stream"
-    default = "terraform-kinesis-lambda"
+    default = "mlops-zoomcamp"
 }

@@ -24,9 +24,7 @@ jobs:
       - name: Install dependencies, Lint with black, & run tests with Pytest
         working-directory: "06-best-practices/code"
         run: |
-          pip install -U pip
-          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
-          make setup
+          pip install pipenv && pipenv install --dev
           make quality_checks
 
       - name: Run Unit tests
