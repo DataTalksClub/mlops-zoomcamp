@@ -16,7 +16,16 @@ with LocalStack
 
 ### Infrastructure as Code
 
-#### Part 0. Basics of IaC + TF**
+### Project infrastructure modules:
+* Amazon Web Service (AWS):
+    * Kinesis: Streams (Producer & Consumer)
+    * Lambda: Serving API
+    * S3 Bucket: Model artifacts
+    * ECR: Image Registry
+    
+![image](AWS-stream-pipeline.png)
+
+#### Part 0. Basics of IaC + TF
 
 1. For an introduction to Terraform and IaC concepts, please refer to this video (from the DE Zoomcamp), especially the sections in the time-codes:
     https://www.youtube.com/watch?v=Hajwnmj0xfQ&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=11

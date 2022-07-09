@@ -51,10 +51,9 @@ jobs:
         env:
           ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
           ECR_REPOSITORY: ${{ steps.tf-apply.outputs.ecr_repo }}
-          IMAGE_TAG: ${{ github.sha }}
+          # IMAGE_TAG: ${{ github.sha }}
         run: |
-          docker build -t ${ECR_REGISTRY}/${ECR_REPOSITORY}:${IMAGE_TAG} -t ${ECR_REGISTRY}/${ECR_REPOSITORY}:latest .
-          docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
+          docker build -t ${ECR_REGISTRY}/${ECR_REPOSITORY}:latest .
           docker push $ECR_REGISTRY/$ECR_REPOSITORY:latest
           echo "::set-output name=image_tag::$IMAGE_TAG"
 
@@ -66,11 +65,6 @@ jobs:
           MODEL_BUCKET: ${{ steps.tf-apply.outputs.model_bucket }}
           MODEL_BUCKET_DEV: ${{ secrets.MODEL_BUCKET_DEV }}
         run: |
-
-          aws lambda update-function-code --function-name $LAMBDA_FUNCTION \
-          --image-uri ${{ steps.login-ecr.outputs.registry }}/$ECR_REPOSITORY:${{ steps.build-image-step.outputs.image_tag }} \
-          --publish
-
           export RUN_ID=$(aws s3api list-objects-v2 --bucket ${MODEL_BUCKET_DEV} \
           --query 'sort_by(Contents, &LastModified)[-1].Key' --output=text | cut -f2 -d/)
 
@@ -80,5 +74,14 @@ jobs:
           PREDICTIONS_STREAM_NAME=$PREDICTIONS_STREAM_NAME, MODEL_BUCKET=$MODEL_BUCKET, RUN_ID=$RUN_ID \
           }"
 
+          STATE=$(aws lambda get-function --function-name $LAMBDA_FUNCTION --region "eu-west-1" --query 'Configuration.LastUpdateStatus' --output text)
+          while [[ "$STATE" == "InProgress" ]]
+          do
+              echo "sleep 5sec ...."
+              sleep 5s
+              STATE=$(aws lambda get-function --function-name $LAMBDA_FUNCTION --region "eu-west-1" --query 'Configuration.LastUpdateStatus' --output text)
+              echo $STATE
+          done
+          
           aws lambda update-function-configuration --function-name $LAMBDA_FUNCTION \
           --environment "Variables=${variables}"
