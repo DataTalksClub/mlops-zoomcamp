@@ -58,7 +58,7 @@ jobs:
           docker push $ECR_REGISTRY/$ECR_REPOSITORY:latest
           echo "::set-output name=image_tag::$IMAGE_TAG"
 
-      - name: Update Lambda and Test e2e
+      - name: Update Lambda
         env:
           ECR_REPOSITORY: ${{ steps.tf-apply.outputs.ecr_repo }}
           PREDICTIONS_STREAM_NAME: ${{ steps.tf-apply.outputs.predictions_stream_name }}
