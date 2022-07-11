@@ -21,15 +21,12 @@ jobs:
         with:
           python-version: 3.9
 
-      - name: Install dependencies, Lint with black, & run tests with Pytest
+      - name: Install dependencies, Lint with black, & run unit tests
         working-directory: "06-best-practices/code"
         run: |
-          pip install pipenv && pipenv install --dev && pipenv run pylint --recursive=y .
-
-      - name: Run Unit tests
-        working-directory: "06-best-practices/code"
-        run: |
-          make test
+          pip install pipenv && pipenv install --dev
+          pipenv run pylint --recursive=y .
+          pipenv run pytest tests/
 
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v1
