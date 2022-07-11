@@ -82,6 +82,6 @@ jobs:
               STATE=$(aws lambda get-function --function-name $LAMBDA_FUNCTION --region "eu-west-1" --query 'Configuration.LastUpdateStatus' --output text)
               echo $STATE
           done
-          
+
           aws lambda update-function-configuration --function-name $LAMBDA_FUNCTION \
           --environment "Variables=${variables}"
