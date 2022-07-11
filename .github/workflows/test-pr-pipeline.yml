@@ -25,7 +25,6 @@ jobs:
         working-directory: "06-best-practices/code"
         run: |
           pip install pipenv && pipenv install --dev && pipenv run pylint --recursive=y .
-          make quality_checks
 
       - name: Run Unit tests
         working-directory: "06-best-practices/code"
