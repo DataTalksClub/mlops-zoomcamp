@@ -25,13 +25,13 @@ jobs:
         working-directory: "06-best-practices/code"
         run: pip install pipenv && pipenv install --dev
 
-      - name: Lint with black, & run unit tests
-        working-directory: "06-best-practices/code"
-        run: pipenv run pylint --recursive=y .
-
       - name: Run Unit tests
         working-directory: "06-best-practices/code"
         run: pipenv run pytest tests/
+
+      - name: Lint
+        working-directory: "06-best-practices/code"
+        run: pipenv run pylint --recursive=y .
 
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v1
