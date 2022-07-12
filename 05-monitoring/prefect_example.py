@@ -24,6 +24,7 @@ def upload_target(filename):
         for line in f_target.readlines():
             row = line.split(",")
             collection.update_one({"id": row[0]}, {"$set": {"target": float(row[1])}})
+    client.close()
 
 
 @task
@@ -38,7 +39,7 @@ def load_reference_data(filename):
     # add target column
     reference_data['target'] = reference_data.lpep_dropoff_datetime - reference_data.lpep_pickup_datetime
     reference_data.target = reference_data.target.apply(lambda td: td.total_seconds() / 60)
-
+    reference_data = reference_data[(reference_data.target >= 1) & (reference_data.target <= 60)]
     features = ['PU_DO', 'PULocationID', 'DOLocationID', 'trip_distance']
     x_pred = dv.transform(reference_data[features].to_dict(orient='records'))
     reference_data['prediction'] = model.predict(x_pred)
