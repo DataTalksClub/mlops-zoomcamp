@@ -8,7 +8,7 @@ COPY requirements.txt requirements.txt
 
 RUN pip3 install -r requirements.txt
 
-RUN pip3 install evidently
+RUN pip3 install evidently==0.1.51.dev0
 
 COPY app.py .
 
