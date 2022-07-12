@@ -42,7 +42,8 @@
 
 ## 5.6 Homework
 
-No homework 
+No homework. But you can send us feedback using 
+[this form](https://forms.gle/fb7dJKjyb1oeNeAz9) 
 
 
 ## Notes
