@@ -158,5 +158,4 @@ Had to set it via `aws lambda update-function-configuration` cli command (refer 
 1. Create a PR (feature branch): `.github/workflows/test-pr-pipeline.yml`
     * Env setup, Unit test, Integration test, Terraform plan
 2. Merge PR to `develop`: `.github/workflows/deploy-pipeline.yml`
-    * Terraform plan, Terraform apply, Docker build & ECR push, Update Lamba config
- 
+    * Terraform plan, Terraform apply, Docker build & ECR push, Update Lambda config
