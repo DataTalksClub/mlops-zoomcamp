@@ -1,20 +1,22 @@
-## 06-Best-Practices
+# 06-Best-Practices
 
-### Testing the code:
+## Testing the code:
 unit tests with pytest
 
-### Integration tests
+## Integration tests
 with docker-compose
 
-### Testing cloud services
+## Testing cloud services
 with LocalStack
 
-### Code quality:
+## Code quality:
 - linting and formatting
 - Git pre-commit hooks
 - Makefiles and make
 
-### Infrastructure as Code
+<br>
+
+## Infrastructure as Code
 
 ### Project infrastructure modules:
 * Amazon Web Service (AWS):
@@ -25,7 +27,42 @@ with LocalStack
     
 ![image](AWS-stream-pipeline.png)
 
-#### Part 0. Basics of IaC + TF
+<br>
+
+### Part 0
+* Pre-Reqs: aws-cli v1, aws secret key pair, terraform client
+* Installation material: AWS & TF (refer to previous videos, links in README)
+
+#### Setup
+
+
+1. If you've already created an AWS account, head to the IAM section, generate your secret-key, and download it locally. 
+[Instructions](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-prereqs.html)
+2. Download [aws-cli](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html) as a tool to use on your terminal
+3. Check installation
+  ```bash
+    $ which aws
+    /some/local/path/aws 
+    $ aws --version
+    aws-cli/X.x Python/3.x Darwin/18.x botocore/2.x
+  ```
+4. [Configure]((https://docs.aws.amazon.com/cli/latest/userguide/getting-started-quickstart.html)) `aws-cli` with your downloaded AWS secret keys:
+  ```shell
+   $ aws configure
+     AWS Access Key ID [None]: xxx
+     AWS Secret Access Key [None]: xxx
+     Default region name [None]: eu-west-1
+     Default output format [None]:
+  ```
+5. Verify aws config:
+  ```shell
+   $ aws sts get-caller-identity
+  ```
+
+
+#### Concepts of Terraform and IaC
+(refer to previous videos, links in README)
+
 
 1. For an introduction to Terraform and IaC concepts, please refer to this video (from the DE Zoomcamp), especially the sections in the time-codes:
     https://www.youtube.com/watch?v=Hajwnmj0xfQ&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=11
@@ -52,17 +89,15 @@ with LocalStack
     * 13:35 running terraform commands
     * 18:08 recap
 
-#### Part 1. Setting up a stream-based pipeline infrastructure in AWS**
+<br>
 
-**Setup & Pre-Reqs:**
-* Installation material: AWS & TF (refer to previous videos, links in README)
-* Pre-Reqs: aws-cli v1, aws secret key pair, terraform client
-* Concepts of Terraform and IaC (refer to previous videos, links in README)
+### Part 1. Setting up a stream-based pipeline infrastructure in AWS
 
-**What are Modules and Outputs in Terraform?**
+* What are Modules and Outputs in Terraform?
 * Build components for ECR, Kinesis, Lambda, S3
 * Demo: apply TF to our use-case, manually deploy & test
 
+<br>
 
 ### CI/CD
 

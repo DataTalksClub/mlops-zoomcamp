@@ -1,4 +1,6 @@
-## 06-Best Practices
+## 06-Best Practices / Code
+
+Workshop commands
 
 ### Setup
 To prepare the project, run 
@@ -83,33 +85,6 @@ pytest tests/
 
 ### Section 5: IaC
 w/ Terraform
-
-### Setup
-
-1. If you've already created an AWS account, head to the IAM section, generate your secret-key, and download it locally. 
-[Instructions](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-prereqs.html)
-2. Download [aws-cli](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html) as a tool to use on your terminal
-3. Check installation
-  ```bash
-    $ which aws
-    /some/local/path/aws 
-    $ aws --version
-    aws-cli/X.x Python/3.x Darwin/18.x botocore/2.x
-  ```
-4. [Configure]((https://docs.aws.amazon.com/cli/latest/userguide/getting-started-quickstart.html)) `aws-cli` with your downloaded AWS secret keys:
-  ```shell
-   $ aws configure
-     AWS Access Key ID [None]: xxx
-     AWS Secret Access Key [None]: xxx
-     Default region name [None]: eu-west-1
-     Default output format [None]:
-  ```
-5. Verify aws config:
-  ```shell
-   $ aws sts get-caller-identity
-  ```
- 
-### Terraform
 
 1. To create infra (manually, in order to test on staging env)
    ```bash
