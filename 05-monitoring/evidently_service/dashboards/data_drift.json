@@ -514,7 +514,7 @@
           "refId": "B"
         }
       ],
-      "title": "P-value of features",
+      "title": "Feature Drift Score",
       "type": "timeseries"
     }
   ],

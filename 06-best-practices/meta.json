@@ -1,0 +1,43 @@
+{
+  "module": {
+    "number": 6,
+    "title": "Best Practices"
+  },
+  "units": [
+    {
+      "number": "1",
+      "title": "Testing Python code with pytest",
+      "youtube": "https://www.youtube.com/watch?v=CJp1eFQP5nk"
+    },
+    {
+      "number": "2",
+      "title": "Integration tests with docker-compose",
+      "youtube": "https://www.youtube.com/watch?v=lBX0Gl7Z1ck"
+    },
+    {
+      "number": "3",
+      "title": "Testing cloud services with LocalStack",
+      "youtube": "https://www.youtube.com/watch?v=9yMO86SYvuI"
+    },
+    {
+      "number": "4",
+      "title": "Code quality: linting and formatting",
+      "youtube": "https://www.youtube.com/watch?v=uImvWE-iSDQ"
+    },
+    {
+      "number": "5",
+      "title": "Git pre-commit hooks",
+      "youtube": "https://www.youtube.com/watch?v=lmMZ7Axk2T8"
+    },
+    {
+      "number": "6",
+      "title": "Makefiles and make",
+      "youtube": "https://www.youtube.com/watch?v=F6DZdvbRZQQ"
+    },
+    {
+      "number": "X",
+      "title": "Homework",
+      "youtube": ""
+    }
+  ]
+}

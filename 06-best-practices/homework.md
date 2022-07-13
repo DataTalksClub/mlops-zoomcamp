@@ -98,11 +98,154 @@ How many rows should be there in the expected dataframe?
 - 3
 - 4
 
-## Q4. WIP
 
-## Q5. WIP
+## Q4. Mocking S3 with Localstack 
 
-## Q6. WIP
+Now let's prepare for an integration test. In our script, we 
+write data to S3. So we'll use Localstack to mimic S3.
+
+First, let's run Localstack with Docker compose. Let's create a 
+`docker-compose.yaml` file with just one service: localstack. Inside
+localstack, we're only interested in running S3. 
+
+Start the service and test it by creating a bucket where we'll
+keep the output. Let's call it "nyc-duration".
+
+With AWS CLI, this is how we create a bucket:
+
+```bash
+aws s3 mb s3://nyc-duration
+```
+
+Adjust it for localstack. How does the command look like?
+
+Check that the bucket was successfully created. With AWS, this is how we typically do it:
+
+```bash
+aws s3 ls
+```
+
+## Make input and output paths configurable
+
+Right now the input and output paths are hardcoded, but we want
+to change it for the tests. 
+
+One of the possible ways would be to specify
+`INPUT_FILE_PATTERN` and `OUTPUT_FILE_PATTERN` via the env 
+variables. Let's do that:
+
+
+```bash
+export INPUT_FILE_PATTERN="s3://nyc-duration/in/{year:04d}-{month:02d}.parquet"
+export OUTPUT_FILE_PATTERN="s3://nyc-duration/out/{year:04d}-{month:02d}.parquet"
+```
+
+And this is how we can read them:
+
+```python
+def get_input_path(year, month):
+    default_input_pattern = 'https://raw.githubusercontent.com/alexeygrigorev/datasets/master/nyc-tlc/fhv/fhv_tripdata_{year:04d}-{month:02d}.parquet'
+    input_pattern = os.getenv('INPUT_FILE_PATTERN', default_input_pattern)
+    return input_pattern.format(year=year, month=month)
+
+
+def get_output_path(year, month):
+    default_output_pattern = 's3://nyc-duration-prediction-alexey/taxi_type=fhv/year={year:04d}/month={month:02d}/predictions.parquet'
+    output_pattern = os.getenv('OUTPUT_FILE_PATTERN', default_output_pattern)
+    return output_pattern.format(year=year, month=month)
+
+
+def main(year, month):
+    input_file = get_input_path(year, month)
+    output_file = get_output_path(year, month)
+    # rest of the main function ... 
+```
+
+
+## Reading from Localstack S3 with Pandas
+
+So far we've been reading parquet files from S3 with using
+pandas `read_parquet`. But this way we read it from the
+actual S3 service. Now we need to replace it with our localstack
+one.
+
+For that, we need to specify the endpoint url:
+
+```python
+options = {
+    'client_kwargs': {
+        'endpoint_url': S3_ENDPOINT_URL
+    }
+}
+
+df = pd.read_parquet('s3://bucket/file.parquet', storage_options=options)
+```
+
+Let's modify our `read_data` function:
+
+- check if `S3_ENDPOINT_URL` is set, and if it is, use it for reading
+- otherwise use the usual way
+
+
+## Q5. Creating test data
+
+Now let's create `integration_test.py`
+
+We'll use the dataframe we created in Q3 and save it to S3.
+Let's say this is data for January 2021.
+
+Run the script. After that, use AWS CLI to verify that the 
+file was created. 
+
+Use this snipped for saving the file:
+
+```python
+df_input.to_parquet(
+    input_file,
+    engine='pyarrow',
+    compression=None,
+    index=False,
+    storage_options=options
+)
+```
+
+What's the size of the file?
+
+- 3512
+- 33512
+- 63512
+- 93512
+
+Note: it's important to use the code from the snippet for saving
+the file. Otherwise the size may be different depending on the OS,
+engine and compression. 
+
+
+## Q6. Finish the integration test
+
+We can read from our localstack s3, but we also need to write to it.
+
+Create a function `save_data` which works similarly to `read_data`, but we use it for saving a dataframe. 
+
+Now let's run the `batch.py` script for January 2021. 
+
+We can do that from our integration test in Python: we can use
+`os.system` for doing that (there are other options too). 
+
+Now it saves the result to localstack.
+
+The only thing we need to do now is to read this data and 
+verify the result is correct. 
+
+What's the sum of predicted durations for the test dataframe?
+
+
+## Running the test (ungraded)
+
+The rest is ready, but we need to write a shell script for doing 
+that. 
+
+Let's do that!
 
 
 ## Submit the results
