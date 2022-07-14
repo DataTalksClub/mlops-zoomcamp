@@ -48,6 +48,14 @@ aws  --endpoint-url=http://localhost:4566 \
     --query 'ShardIterator'
 ```
 
+If you get `'Unable to locate credentials'` error, add these
+env variables to the `docker-compose.yaml` file:
+
+```yaml
+- AWS_ACCESS_KEY_ID=abc
+- AWS_SECRET_ACCESS_KEY=xyz
+```
+
 
 Without makefiles:
 
