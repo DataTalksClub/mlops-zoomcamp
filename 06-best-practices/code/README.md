@@ -1,4 +1,8 @@
 
+## Code snippets
+
+### Building and running Docker images
+
 ```bash
 docker build -t stream-model-duration:v2 .
 ```
@@ -13,6 +17,7 @@ docker run -it --rm \
     stream-model-duration:v2
 ```
 
+Mounting the model folder:
 
 ```
 docker run -it --rm \
@@ -26,6 +31,7 @@ docker run -it --rm \
     stream-model-duration:v2
 ```
 
+### Specifying endpoint URL
 
 ```bash
 aws --endpoint-url=http://localhost:4566 \
@@ -48,6 +54,8 @@ aws  --endpoint-url=http://localhost:4566 \
     --query 'ShardIterator'
 ```
 
+### Unable to locate credentials
+
 If you get `'Unable to locate credentials'` error, add these
 env variables to the `docker-compose.yaml` file:
 
@@ -56,8 +64,9 @@ env variables to the `docker-compose.yaml` file:
 - AWS_SECRET_ACCESS_KEY=xyz
 ```
 
+### Make
 
-Without makefiles:
+Without make:
 
 ```
 isort .
@@ -65,6 +74,14 @@ black .
 pylint --recursive=y .
 pytest tests/
 ```
+
+With make:
+
+```
+make quality_checks
+make test
+```
+
 
 To prepare the project, run 
 
