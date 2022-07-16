@@ -191,8 +191,8 @@ Let's modify our `read_data` function:
 
 Now let's create `integration_test.py`
 
-We'll use the dataframe we created in Q3 and save it to S3.
-You don't need to do anything else: just create a dataframe 
+We'll use the dataframe we created in Q3 (the dataframe for the unit test)
+and save it to S3. You don't need to do anything else: just create a dataframe 
 and save it.
 
 Let's say this is data for January 2021.
@@ -232,7 +232,7 @@ We can read from our localstack s3, but we also need to write to it.
 
 Create a function `save_data` which works similarly to `read_data`, but we use it for saving a dataframe. 
 
-Now let's run the `batch.py` script for January 2021. 
+Let's run the `batch.py` script for January 2021. 
 
 We can do that from our integration test in Python: we can use
 `os.system` for doing that (there are other options too). 
