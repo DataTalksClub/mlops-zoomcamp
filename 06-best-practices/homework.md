@@ -98,6 +98,11 @@ How many rows should be there in the expected dataframe?
 - 3
 - 4
 
+Tip: When you compare two Pandas DataFrames, the result is also a DataFrame.
+The same is true for Pandas Series. Also, a DataFrame could be turned into a
+list of dictionaries.  
+
+
 
 ## Q4. Mocking S3 with Localstack 
 
