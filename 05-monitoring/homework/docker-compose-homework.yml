@@ -1,0 +1,37 @@
+version: "3.7"
+
+volumes:
+    mongo_data: {}
+
+networks:
+  front-tier:
+  back-tier:
+
+services:
+  prediction_service:
+    build:
+      context: prediction_service
+      dockerfile: Dockerfile
+    depends_on:
+      - mongo
+    environment:
+      MONGO_DATABASE: "prediction_service"
+      MONGO_ADDRESS: "mongodb://mongo.:27017/"
+      MODEL_VERSION: "1"
+      MODEL_FILE: "lin_reg.bin"
+    
+    ports:
+      - 9696:9696
+    networks:
+      - back-tier
+      - front-tier
+
+  mongo:
+    image: mongo
+    ports:
+      - 27017:27017
+    volumes:
+      - mongo_data:/data/db
+    networks:
+      - back-tier
+      - front-tier
