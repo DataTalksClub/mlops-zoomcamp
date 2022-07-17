@@ -42,7 +42,7 @@
 
 ## 5.6 Homework
 
-More information here: [homework.md](homework.md). Please can you also send us feedback for this week videos using 
+More information here: [homework.md](homework.md). Please also give us feedback for this week videos using 
 [this form](https://forms.gle/fb7dJKjyb1oeNeAz9) 
 
 
