@@ -267,7 +267,7 @@ Let's do that!
 
 ## Deadline
 
-The deadline for submitting is TBA 23:00 CEST. After that, the form will be closed.
+The deadline for submitting is 25 July 23:00 CEST. After that, the form will be closed.
 
 
 ## Solution
