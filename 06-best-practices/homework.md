@@ -91,6 +91,10 @@ def dt(hour, minute, second=0):
 Define the expected output and use the assert to make sure 
 that the actual dataframe matches the expected one
 
+Tip: When you compare two Pandas DataFrames, the result is also a DataFrame.
+The same is true for Pandas Series. Also, a DataFrame could be turned into a
+list of dictionaries.  
+
 How many rows should be there in the expected dataframe?
 
 - 1
@@ -191,10 +195,13 @@ Let's modify our `read_data` function:
 
 Now let's create `integration_test.py`
 
-We'll use the dataframe we created in Q3 and save it to S3.
+We'll use the dataframe we created in Q3 (the dataframe for the unit test)
+and save it to S3. You don't need to do anything else: just create a dataframe 
+and save it.
+
 Let's say this is data for January 2021.
 
-Run the script. After that, use AWS CLI to verify that the 
+Run the `integration_test.py` script. After that, use AWS CLI to verify that the 
 file was created. 
 
 Use this snipped for saving the file:
@@ -218,16 +225,20 @@ What's the size of the file?
 
 Note: it's important to use the code from the snippet for saving
 the file. Otherwise the size may be different depending on the OS,
-engine and compression. 
+engine and compression.
+
+
 
 
 ## Q6. Finish the integration test
 
 We can read from our localstack s3, but we also need to write to it.
 
-Create a function `save_data` which works similarly to `read_data`, but we use it for saving a dataframe. 
+Create a function `save_data` which works similarly to `read_data`,
+but we use it for saving a dataframe. 
 
-Now let's run the `batch.py` script for January 2021. 
+Let's run the `batch.py` script for "January 2021" (the fake data
+we created in Q5). 
 
 We can do that from our integration test in Python: we can use
 `os.system` for doing that (there are other options too). 
@@ -256,7 +267,7 @@ Let's do that!
 
 ## Deadline
 
-The deadline for submitting is TBA 23:00 CEST. After that, the form will be closed.
+The deadline for submitting is 25 July 23:00 CEST. After that, the form will be closed.
 
 
 ## Solution

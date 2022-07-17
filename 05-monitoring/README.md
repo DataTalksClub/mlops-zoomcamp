@@ -42,7 +42,7 @@
 
 ## 5.6 Homework
 
-No homework. But you can send us feedback using 
+More information here: [homework.md](homework.md). Please also give us feedback for this week videos using 
 [this form](https://forms.gle/fb7dJKjyb1oeNeAz9) 
 
 
@@ -50,6 +50,7 @@ No homework. But you can send us feedback using
 
 Did you take notes? Add them here:
 
+* [Week 5 notes by M. Ayoub C.](https://gist.github.com/Qfl3x/aa6b1bec35fb645ded0371c46e8aafd1)
 * Send a PR, add your notes above this line
 
 

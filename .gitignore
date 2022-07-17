@@ -15,3 +15,7 @@ venv
 **/models/
 
 __pycache__/
+**.env
+**.terraform/
+**.terraform.lock*
+**terraform.tfstate*
