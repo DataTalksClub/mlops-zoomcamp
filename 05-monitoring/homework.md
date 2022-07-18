@@ -10,7 +10,7 @@ We have provided with two models:
 * one trained on 03-2021
 * another trained on both 03-2021 and 04-2021
 
-Both models are linear regression models. If you want to know how they are trained, check [homework/model_training.py](https://github.com/DataTalksClub/mlops-zoomcamp/blob/74324e4d3759e9712ce406b8b30c77cff66e6cef/05-monitoring/homework/model_training.py). 
+Both models are linear regression models. If you want to know how they are trained, check [homework/model_training.py](https://github.com/DataTalksClub/mlops-zoomcamp/blob/main/05-monitoring/homework/model_training.py). 
 
 Both models will be uploaded in the docker image, we will use `ENVIRONMENT` variables in the docker-compose file, to specify
 which one to use. 
@@ -21,7 +21,7 @@ You can create a datasets folder in the `homework` directory or modify location 
 ## Preparation
 
 To download data from 03-2021 to 05-2021, run
-[`prepare.py`](https://github.com/DataTalksClub/mlops-zoomcamp/blob/74324e4d3759e9712ce406b8b30c77cff66e6cef/05-monitoring/homework/prepare.py).
+[`prepare.py`](https://github.com/DataTalksClub/mlops-zoomcamp/blob/main/05-monitoring/homework/prepare.py).
 If you create the datasets folder, then you don't have to modify this file, 
 else modify it to point to the location where you want to store the data. 
 
@@ -29,16 +29,16 @@ If you get 403 errors, change it to S3 location or reach out in the channel,
 this issue has been addressed in the slack channel.
 
 For Q6 and Q7 we want to prepare the dataset which combines 03-2021 and Q4-2021.
-Run the [`prepare_reference_data.py`](https://github.com/DataTalksClub/mlops-zoomcamp/blob/74324e4d3759e9712ce406b8b30c77cff66e6cef/05-monitoring/homework/prefect_monitoring/prepare_reference_data.py)
+Run the [`prepare_reference_data.py`](https://github.com/DataTalksClub/mlops-zoomcamp/blob/main/05-monitoring/homework/prefect-monitoring/prepare_reference_data.py)
 script for that.
 
-You'll find all the starter code in the [homework](https://github.com/DataTalksClub/mlops-zoomcamp/blob/74324e4d3759e9712ce406b8b30c77cff66e6cef/05-monitoring/homework/) directory.
+You'll find all the starter code in the [homework](https://github.com/DataTalksClub/mlops-zoomcamp/blob/main/05-monitoring/homework/) directory.
 
 
 ## Q1. Docker compose
 
 We'll start with the docker compose file in the homework directory. The file is ready to use and is in 
-[homework/docker-compose-homework.yml](https://github.com/DataTalksClub/mlops-zoomcamp/blob/74324e4d3759e9712ce406b8b30c77cff66e6cef/05-monitoring/homework/docker-compose-homework.yml).
+[homework/docker-compose-homework.yml](https://github.com/DataTalksClub/mlops-zoomcamp/blob/main/05-monitoring/homework/docker-compose-homework.yml).
 
 Run docker compose. Once up and running, open the localhost for mongo.
 
@@ -68,8 +68,8 @@ What is the command to find the name of our volume?
 ## Q3. Sending data to the prediction service
 
 The service is now up and running. When the requet comes in, it makes the prediction,
-and then saves it to mongo DB. Inspect the [homework/prediction_service/app.py](https://github.com/DataTalksClub/mlops-zoomcamp/blob/74324e4d3759e9712ce406b8b30c77cff66e6cef/05-monitoring/homework/prediction_service/app.py) file.
-We want to simulate traffic and get it ready for monitoring. For that we have prepared a python script [homework/prefect_monitoring/send_data.py](https://github.com/DataTalksClub/mlops-zoomcamp/blob/74324e4d3759e9712ce406b8b30c77cff66e6cef/05-monitoring/homework/prefect_monitoring/send_data.py).
+and then saves it to mongo DB. Inspect the [homework/prediction_service/app.py](https://github.com/DataTalksClub/mlops-zoomcamp/blob/main/05-monitoring/homework/prediction_service/app.py) file.
+We want to simulate traffic and get it ready for monitoring. For that we have prepared a python script [homework/prefect-monitoring/send_data.py](https://github.com/DataTalksClub/mlops-zoomcamp/blob/main/05-monitoring/homework/prefect-monitoring/send_data.py).
 
 Run this script to score 5000 random datapoints for period 2021-05.
 
@@ -91,7 +91,7 @@ trips in 05-2021 deviated from 03-2021.
 You may have to modify two functions in the prefect monitoring script to generate
 the evidently profile and evidently report, `save_report` and `save_html_report`.
 
-The monitoring script is located in [homework/prefect_monitoring/prefect_monitoring.py](https://github.com/DataTalksClub/mlops-zoomcamp/blob/74324e4d3759e9712ce406b8b30c77cff66e6cef/05-monitoring/homework/prefect_monitoring/prefect_monitoring.py)
+The monitoring script is located in [homework/prefect-monitoring/prefect_monitoring.py](https://github.com/DataTalksClub/mlops-zoomcamp/blob/main/05-monitoring/homework/prefect-monitoring/prefect_monitoring.py)
 
 How many model features have drifted based on the html report?
 
@@ -121,7 +121,7 @@ the `send_data.py` file.
 
 Before we run this, we need to clean the mongo database. 
 
-To do it, run [homework/prefect_monitoring/clean_mongo.py](https://github.com/DataTalksClub/mlops-zoomcamp/blob/74324e4d3759e9712ce406b8b30c77cff66e6cef/05-monitoring/homework/prefect_monitoring/clean_mongo.py).
+To do it, run [homework/prefect-monitoring/clean_mongo.py](https://github.com/DataTalksClub/mlops-zoomcamp/blob/main/05-monitoring/homework/prefect-monitoring/clean_mongo.py).
 
 What is the last prediction made by the new model?
 
@@ -153,7 +153,7 @@ dataset, in comaprison to old run?
 
 Whats the length of the metrics for collection name "report" stored as a collection in mongo db?
 
-Use this jupyter notebook: [homework/prefect_monitoring/monitor_profile.ipynb](https://github.com/DataTalksClub/mlops-zoomcamp/blob/74324e4d3759e9712ce406b8b30c77cff66e6cef/05-monitoring/homework/prefect_monitoring/monitor_profile.ipynb)
+Use this jupyter notebook: [homework/prefect-monitoring/monitor_profile.ipynb](https://github.com/DataTalksClub/mlops-zoomcamp/blob/main/05-monitoring/homework/prefect-monitoring/monitor_profile.ipynb)
 
 * 2
 * 9 

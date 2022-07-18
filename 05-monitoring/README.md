@@ -7,6 +7,8 @@
 </a>
 
 
+[Slides](https://drive.google.com/file/d/1wcMU75ZcNNJie4ELjsKPkITIL93wHykt/view?usp=sharing)
+
 
 ## 5.2 Setting up the environment
 
