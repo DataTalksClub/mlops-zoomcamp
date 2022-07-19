@@ -49,7 +49,7 @@ services:
       - '--config.file=/etc/prometheus/prometheus.yml'
       - '--storage.tsdb.path=/prometheus'
     ports:
-      - "9091:9090"
+      - "9090:9090"
     networks:
       - back-tier
     restart: always
