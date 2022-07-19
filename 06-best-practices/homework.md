@@ -261,13 +261,13 @@ Let's do that!
 
 ## Submit the results
 
-* Submit your results here: TBA
+* Submit your results here: https://forms.gle/SGLiBTwbBWNhK2sv6
 * It's possible that your answers won't match exactly. If it's the case, select the closest one.
 * You can submit your answers multiple times. In this case, the last submission will be used for scoring.
 
 ## Deadline
 
-The deadline for submitting is 25 July 23:00 CEST. After that, the form will be closed.
+The deadline for submitting is 26 July 23:00 CEST. After that, the form will be closed.
 
 
 ## Solution

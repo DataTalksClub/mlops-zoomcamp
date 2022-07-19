@@ -163,17 +163,13 @@ Use this jupyter notebook: [homework/prefect-monitoring/monitor_profile.ipynb](h
 
 ## Submit the results
 
-* Submit your results here: TBA
+* The homework is optional and there's no form for submitting the results 
 * Its possible results may not match, but should be close
-
-## Deadline
-
-TBA
 
 
 ## Solution
 
-After the deadline, we'll post the solution here
+We'll post the solution here soon
 
 
 
