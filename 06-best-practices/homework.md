@@ -199,7 +199,7 @@ We'll use the dataframe we created in Q3 (the dataframe for the unit test)
 and save it to S3. You don't need to do anything else: just create a dataframe 
 and save it.
 
-Let's say this is data for January 2021.
+We will pretent that this is data for January 2021.
 
 Run the `integration_test.py` script. After that, use AWS CLI to verify that the 
 file was created. 
@@ -225,7 +225,8 @@ What's the size of the file?
 
 Note: it's important to use the code from the snippet for saving
 the file. Otherwise the size may be different depending on the OS,
-engine and compression.
+engine and compression. Even if you use this exact snippet, the size
+of your dataframe may still be a bit off. Just select the closest option.
 
 
 
