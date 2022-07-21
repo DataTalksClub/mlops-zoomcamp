@@ -95,11 +95,11 @@ def main(date=None):
 
 # main("2021-08-15")
 
-from prefect.deployments import DeploymentSpec
+from prefect.deployments import Deployment
 from prefect.orion.schemas.schedules import CronSchedule
 from prefect.flow_runners import SubprocessFlowRunner
 
-DeploymentSpec(
+Deployment(
     flow=main,
     name="model_training",
     schedule=CronSchedule(cron="0 9 15 * *"),
