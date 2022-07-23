@@ -2,6 +2,7 @@
 
 **Note:** [`orchestration.py`](orchestration.py) is a ready final version. The rest of the files were worked on together during the video tutorials.
 
+**Note** With Prefect version [`2.0b8`](https://github.com/PrefectHQ/prefect/blob/orion/RELEASE-NOTES.md#20b8) or later `DeploymentSpec`'s are now just `Deployment`'s.
 
 ## 3.1 Negative engineering and workflow orchestration
 
