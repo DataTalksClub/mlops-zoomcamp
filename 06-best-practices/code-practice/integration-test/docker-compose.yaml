@@ -1,0 +1,17 @@
+version: "3.7"
+services:
+  lambda_backend:
+    image: ${LOCAL_IMAGE_NAME}
+    ports:
+      - "8080:8080"
+    environment:
+      - STREAM_NAME=$STREAM_NAME
+      - RUN_ID=$RUN_ID
+      - TEST_RUN=$TEST_RUN
+      - MODEL_PATH="/app/model"
+      - AWS_ACCESS_KEY_ID=${AWS_ACCESS_KEY_ID}
+      - AWS_SECRET_ACCESS_KEY=${AWS_SECRET_ACCESS_KEY}
+      - AWS_DEFAULT_REGION=${AWS_DEFAULT_REGION}
+
+    volumes:
+      - "/Users/bajajn/mlopszoomcamp/mlops-zoomcamp/06-best-practices/code-practice/integration-test/model:/app/model"
