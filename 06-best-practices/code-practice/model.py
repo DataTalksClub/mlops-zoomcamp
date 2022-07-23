@@ -27,8 +27,8 @@ def get_model_location(run_id: str=""):
 
 def load_model(run_id:str = ""):
     """Function to load mlflow model from location based on run id"""
-
-    logged_model_path = load_model(run_id=run_id)
+    
+    logged_model_path = get_model_location(run_id=run_id)
     model = mlflow.pyfunc.load_model(logged_model_path)
     return model
 
@@ -115,6 +115,15 @@ class KinesisRideCallBack():
             PartitionKey=str(ride_id),
         )
 
+def create_kinesis_client():
+    """Function to provide kinesis client"""
+    
+    endpoint_url = os.getenv('KINESIS_ENDPOINT_URL')
+    if endpoint_url is None:
+        return boto3.client('kinesis')
+    else:
+        return boto3.client('kinesis', endpoint_url=endpoint_url)
+
 
         
 def init(run_id: str="", prediction_stream_name: str="", test_run: bool=True):
@@ -125,7 +134,7 @@ def init(run_id: str="", prediction_stream_name: str="", test_run: bool=True):
     callbacks = []
 
     if not test_run:
-        kinesis_client = boto3.client("kinesis")
+        kinesis_client = create_kinesis_client()
         kinesis_callback = KinesisRideCallBack(client=kinesis_client,
                                            stream_name=prediction_stream_name)
         callbacks.append(kinesis_callback.put_record)
@@ -135,4 +144,7 @@ def init(run_id: str="", prediction_stream_name: str="", test_run: bool=True):
                                  test_run=test_run,
                                  callbacks=callbacks)
     return model_service
+
+
+
 

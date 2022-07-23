@@ -13,7 +13,7 @@ event = {
     ]
 }
 
-actual_response = response = requests.post(url=url, json=event).json()
+actual_response = requests.post(url=url, json=event).json()
 expected_response = {'statusCode': 200,
                      'predictions': [
                         {'model': 'ride_prediction_model',

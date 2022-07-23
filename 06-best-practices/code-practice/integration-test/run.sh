@@ -13,25 +13,41 @@ fi
 
 
 
-export STREAM_NAME="ride_predictions"
+export STREAM_NAME="prediction-service"
 export RUN_ID="20c7e3f3b3584b769bf6cacd4643d43d"
-export TEST_RUN="True"
+export TEST_RUN=False
 export AWS_ACCESS_KEY_ID=$(aws configure get lamda_kinesis.aws_access_key_id)
 export AWS_SECRET_ACCESS_KEY=$(aws configure get lamda_kinesis.aws_secret_access_key)
 export AWS_DEFAULT_REGION=$(aws configure get lamda_kinesis.region)
+export KINESIS_ENDPOINT_URL='http://localstack:4566/'
+
+docker-compose config
 
 docker-compose up -d
 
-sleep 5s
+sleep 5
 
-pipenv run python test_docker.py 2>&1
+aws --endpoint-url http://localhost:4566  kinesis create-stream --stream-name $STREAM_NAME --shard-count 1 
+
+sleep 5
+
+pipenv run python test_docker.py
 RESULT=$?
 
 if [ $RESULT -eq 0 ]; then
-  echo integration tests passed
+  echo model lambda integration tests passed
 else
   docker-compose logs
-  echo integration tests failed
+  echo model lambda integration tests failed
 fi
 
+
+pipenv run python test_kinesis.py
+RESULT=$?
+if [ $RESULT -eq 0 ]; then
+  echo kinesis integration test passed
+else
+  docker-compose logs
+  echo kinesis integration tests failed
+fi
 docker-compose down
