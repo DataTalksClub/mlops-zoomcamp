@@ -123,6 +123,13 @@ To make discussions in Slack more organized:
 [More details](06-best-practices)
 
 
+### [Project](07-project/)
+
+* End-to-end project with all the things above
+
+[More details](07-project/)
+
+
 ### Module 7: Processes
 
 * CRISP-DM, CRISP-ML
@@ -134,9 +141,6 @@ To make discussions in Slack more organized:
 (In October)
 
 
-### Project
-
-* End-to-end project with all the things above
 
 
 ## Instructors
