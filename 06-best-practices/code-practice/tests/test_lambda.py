@@ -1,12 +1,14 @@
 from model import ModelService
 
 RUN_ID = "Test123"
-#STREAM_NAME = "TestStream"
+# STREAM_NAME = "TestStream"
 
 model_service = ModelService(run_id=RUN_ID)
 
 
 def test_features():
+    """Function to test feature transformation"""
+
     ride = {
         "PULocationID": 130,
         "DOLocationID": 205,
@@ -15,47 +17,47 @@ def test_features():
 
     output_result = model_service.prepare_features(ride=ride)
 
-    expected_result = {
-        "PU_DO" : "130_205",
-        "trip_distance": 3.66
-    }
+    expected_result = {"PU_DO": "130_205", "trip_distance": 3.66}
 
     assert output_result == expected_result
 
 
 def test_base64_decode():
-    ride_event = {"data": "ewogICAgICAgICJyaWRlIjogewogICAgICAgICAgICAiUFVMb2NhdGlvbklEIjogMTMwLAogICAgICAgICAgICAiRE9Mb2NhdGlvbklEIjogMjA1LAogICAgICAgICAgICAidHJpcF9kaXN0YW5jZSI6IDMuNjYKICAgICAgICB9LCAKICAgICAgICAicmlkZV9pZCI6IDI1NgogICAgfQ=="}
+    """Function to test base64 decoding"""
+
+    ride_event = {
+        "data": "ewogICAgICAgICJyaWRlIjogewogICAgICAgICAgICAiUFVMb2NhdGlvbklEIjogMTMwLAogICAgICAgICAgICAiRE9Mb2NhdGlvbklEIjogMjA1LAogICAgICAgICAgICAidHJpcF9kaXN0YW5jZSI6IDMuNjYKICAgICAgICB9LCAKICAgICAgICAicmlkZV9pZCI6IDI1NgogICAgfQ=="
+    }
     raw_ride_data = ride_event["data"]
 
     output_result = model_service.decode_base64(raw_ride_data)
 
-    expected_result = {'ride' : {'DOLocationID': 205,
-                                 'PULocationID': 130,
-                                 'trip_distance': 3.66
-                                 },
-                                 'ride_id': 256
-                      }
+    expected_result = {
+        'ride': {'DOLocationID': 205, 'PULocationID': 130, 'trip_distance': 3.66},
+        'ride_id': 256,
+    }
 
-    assert output_result == expected_result 
+    assert output_result == expected_result
 
 
-class MockModel(ModelService):
+class MockModel:
+    """Mock class for model prediction method"""
 
-    def __init__(self, val: float=10):
+    def __init__(self, val: float = 10):
         self.val = val
 
     def predict(self, ride):
-        n = len([ride])
-        return [self.val]*n
+        """Mock predict function to overwrite existing function"""
+
+        num_rows = len([ride])
+        return [self.val] * num_rows
 
 
 def test_predict():
+    """Test function to test predict method"""
 
     model = MockModel(10)
-    ride = {
-        "PU_DO" : "130_205",
-        "trip_distance": 3.66
-    }
+    ride = {"PU_DO": "130_205", "trip_distance": 3.66}
 
     model_service = ModelService(model=model)
 
@@ -65,6 +67,7 @@ def test_predict():
 
 
 def test_lambda():
+    """Test function to test lambda funtion"""
 
     event = {
         "Records": [
@@ -74,8 +77,8 @@ def test_lambda():
                 },
             }
         ]
-        }
-    
+    }
+
     model = MockModel(11)
     model_service = ModelService(model=model, run_id=RUN_ID)
 
@@ -83,15 +86,13 @@ def test_lambda():
 
     expected_output = {
         'statusCode': 200,
-        'predictions': [{
-            'model': 'ride_prediction_model',
+        'predictions': [
+            {
+                'model': 'ride_prediction_model',
                 'version': RUN_ID,
-                'prediction': {
-                    'ride_id' : 256,
-                    'prediction': 11
-                }
-        }]
+                'prediction': {'ride_id': 256, 'prediction': 11},
+            }
+        ],
     }
 
     assert event_output == expected_output
-

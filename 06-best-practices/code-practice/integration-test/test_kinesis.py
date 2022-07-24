@@ -5,7 +5,9 @@ import boto3
 import deepdiff
 import requests
 
-url = "http://localhost:8080/2015-03-31/functions/function/invocations"
+URL = "http://localhost:8080/2015-03-31/functions/function/invocations"
+SHARD_ID = "shardId-000000000000"
+STREAM_NAME = "prediction-service"
 
 event = {
     "Records": [
@@ -19,20 +21,17 @@ event = {
 
 client = boto3.client('kinesis', endpoint_url="http://localhost:4566")
 
-response = requests.post(url=url, json=event).json()
+response = requests.post(url=URL, json=event).json()
 
-shard_id = "shardId-000000000000"
-stream_name = "prediction-service"
+
 if response["statusCode"] == 200:
 
     time.sleep(5)
-    shard_iterator_response = client.get_shard_iterator(StreamName=stream_name,
-                                                        ShardId=shard_id,
-                                                        ShardIteratorType='TRIM_HORIZON'
-                                                        )
-    
-    shard_iterator_id = shard_iterator_response['ShardIterator']
+    shard_iterator_response = client.get_shard_iterator(
+        StreamName=STREAM_NAME, ShardId=SHARD_ID, ShardIteratorType='TRIM_HORIZON'
+    )
 
+    shard_iterator_id = shard_iterator_response['ShardIterator']
 
     records_response = client.get_records(
         ShardIterator=shard_iterator_id,
@@ -44,14 +43,13 @@ if response["statusCode"] == 200:
     assert len(records) == 1
 
     actual_record = json.loads(records[0]['Data'])
-    expected_record = {'model': 'ride_prediction_model',
-                         'version': '20c7e3f3b3584b769bf6cacd4643d43d',
-                         'prediction': {'ride_id': 256,
-                                        'prediction': 18.019
-                                        }
-                        }
+    expected_record = {
+        'model': 'ride_prediction_model',
+        'version': '20c7e3f3b3584b769bf6cacd4643d43d',
+        'prediction': {'ride_id': 256, 'prediction': 18.019},
+    }
 
-    diff =  deepdiff.DeepDiff(actual_record, expected_record, significant_digits=2)
+    diff = deepdiff.DeepDiff(actual_record, expected_record, significant_digits=2)
 
     assert "type_changes" not in diff
     assert "values_changed" not in diff

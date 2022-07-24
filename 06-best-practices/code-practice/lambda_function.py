@@ -6,10 +6,10 @@ STREAM_NAME = os.getenv("STREAM_NAME")
 RUN_ID = os.getenv("RUN_ID")
 TEST_RUN = os.getenv('TEST_RUN', 'False') == 'True'
 
-model_service = init(run_id=RUN_ID,
-                     prediction_stream_name=STREAM_NAME, 
-                     test_run=TEST_RUN)
+model_service = init(run_id=RUN_ID, prediction_stream_name=STREAM_NAME, test_run=TEST_RUN)
 
 
 def lambda_handler(event, context):
+    """This method is used by lambda function"""
+
     return model_service.lambda_handler(event=event)
