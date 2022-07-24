@@ -170,5 +170,6 @@ Deploying Serverless Machine Learning with AWS (one of my previous videos explai
 ## Notes
 
 Did you take notes? Add them here:
+* [Week 6a Notes by M. Ayoub C.](https://gist.github.com/Qfl3x/267d4cff36b58de67b4e33ca3fc9983f)
 
 * Send a PR, add your notes above this line
