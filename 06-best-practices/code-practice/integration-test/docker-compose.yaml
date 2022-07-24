@@ -16,7 +16,7 @@ services:
 
     volumes:
       - "/Users/bajajn/mlopszoomcamp/mlops-zoomcamp/06-best-practices/code-practice/integration-test/model:/app/model"
-  
+
 
   localstack:
     image: localstack/localstack

@@ -1,7 +1,7 @@
 FROM public.ecr.aws/lambda/python:3.9
 
-RUN pip install -U pip 
-RUN pip install -U pipenv 
+RUN pip install -U pip
+RUN pip install -U pipenv
 
 COPY ["Pipfile", "Pipfile.lock", "./"]
 

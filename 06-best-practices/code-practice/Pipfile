@@ -15,8 +15,9 @@ requests = "*"
 pytest = "*"
 deepdiff = "*"
 pylint = "==2.14.5"
-black = "*"
+black = "==22.6.0"
 isort = "*"
+pre-commit = "*"
 
 [requires]
 python_version = "3.9"

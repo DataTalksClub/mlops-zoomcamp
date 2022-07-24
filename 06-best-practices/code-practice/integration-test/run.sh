@@ -2,7 +2,7 @@
 cd "$(dirname "$0")"
 
 
-if [ "${LOCAL_IMAGE_NAME}" == "" ]; then 
+if [ "${LOCAL_IMAGE_NAME}" == "" ]; then
     LOCAL_TAG=`date +"%Y-%m-%d-%H-%M"`
     export LOCAL_IMAGE_NAME="stream-model-duration:${LOCAL_TAG}"
     echo "LOCAL_IMAGE_NAME is not set, building a new image with tag ${LOCAL_IMAGE_NAME}"
@@ -27,7 +27,7 @@ docker-compose up -d
 
 sleep 5
 
-aws --endpoint-url http://localhost:4566  kinesis create-stream --stream-name $STREAM_NAME --shard-count 1 
+aws --endpoint-url http://localhost:4566  kinesis create-stream --stream-name $STREAM_NAME --shard-count 1
 
 sleep 5
 
