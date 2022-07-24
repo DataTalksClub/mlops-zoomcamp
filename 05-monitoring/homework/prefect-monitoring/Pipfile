@@ -1,0 +1,18 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+scikit-learn = "==1.0.2"
+pyarrow = "*"
+prefect = ">=2.0b"
+pandas = "*"
+pymongo = "*"
+psutil = "==5.9.1"
+evidently = "*"
+
+[dev-packages]
+
+[requires]
+python_version = "3.8"
