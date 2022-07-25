@@ -7,6 +7,8 @@
 </a>
 
 
+[Slides](https://drive.google.com/file/d/1wcMU75ZcNNJie4ELjsKPkITIL93wHykt/view?usp=sharing)
+
 
 ## 5.2 Setting up the environment
 
@@ -42,7 +44,7 @@
 
 ## 5.6 Homework
 
-No homework. But you can send us feedback using 
+More information here: [homework.md](homework.md). Please also give us feedback for this week videos using 
 [this form](https://forms.gle/fb7dJKjyb1oeNeAz9) 
 
 

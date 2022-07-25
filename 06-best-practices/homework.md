@@ -1,4 +1,4 @@
-## 6.X Homework
+## 6.7 Homework
 
 In this homework, we'll take the ride duration prediction model
 that we deployed in batch mode in homework 4 and improve the 
@@ -199,7 +199,7 @@ We'll use the dataframe we created in Q3 (the dataframe for the unit test)
 and save it to S3. You don't need to do anything else: just create a dataframe 
 and save it.
 
-Let's say this is data for January 2021.
+We will pretent that this is data for January 2021.
 
 Run the `integration_test.py` script. After that, use AWS CLI to verify that the 
 file was created. 
@@ -225,7 +225,8 @@ What's the size of the file?
 
 Note: it's important to use the code from the snippet for saving
 the file. Otherwise the size may be different depending on the OS,
-engine and compression.
+engine and compression. Even if you use this exact snippet, the size
+of your dataframe may still be a bit off. Just select the closest option.
 
 
 
@@ -261,13 +262,13 @@ Let's do that!
 
 ## Submit the results
 
-* Submit your results here: TBA
+* Submit your results here: https://forms.gle/SGLiBTwbBWNhK2sv6
 * It's possible that your answers won't match exactly. If it's the case, select the closest one.
 * You can submit your answers multiple times. In this case, the last submission will be used for scoring.
 
 ## Deadline
 
-The deadline for submitting is TBA 23:00 CEST. After that, the form will be closed.
+The deadline for submitting is 1 August 23:00 CEST. After that, the form will be closed.
 
 
 ## Solution

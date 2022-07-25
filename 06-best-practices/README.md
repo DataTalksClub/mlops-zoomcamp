@@ -45,11 +45,16 @@
   <img src="images/thumbnail-6-6.jpg">
 </a>
 
-
-### 6.X Homework
-
+### 6.7 Homework
 
 More information here: [homework.md](homework.md)
+
+### Notes
+
+Did you take notes? Add them here:
+
+* [Week 6a Notes by M. Ayoub C.](https://gist.github.com/Qfl3x/267d4cff36b58de67b4e33ca3fc9983f)
+* Send a PR, add your notes above this line
 
 <br>
 
@@ -57,15 +62,14 @@ More information here: [homework.md](homework.md)
 
 ### 6.7 Infrastructure as Code
 
+![image](AWS-stream-pipeline.png)
+
 #### Project infrastructure modules:
 * Amazon Web Service (AWS):
     * Kinesis: Streams (Producer & Consumer)
     * Lambda: Serving API
     * S3 Bucket: Model artifacts
     * ECR: Image Registry
-    
-![image](AWS-stream-pipeline.png)
-
 
 #### Summary
 Setting up a stream-based pipeline infrastructure in AWS, using Terraform
@@ -115,60 +119,20 @@ Setting up a stream-based pipeline infrastructure in AWS, using Terraform
 
 4. (Optional) Configuring with `aws profile`: [here](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-sourcing-external.html) and [here](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#using-an-external-credentials-process) 
 
-#### Concepts of Terraform and IaC
-(refer to previous videos, links in README)
-
-1. For an introduction to Terraform and IaC concepts, please refer to [this video](https://www.youtube.com/watch?v=Hajwnmj0xfQ&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=11) 
-(from the DE Zoomcamp), especially the sections in the time-codes:
-
-    * 00:00 Introduction
-    * 00:35 What is Terraform?
-    * 01:10 What is IaC?
-    * 01:43 Advantages of IaC
-    * 14:48 Installing Terraform
-    * 02:28 More on Installing Terraform
-
-2. For a quickstart tutorial, and understanding the main components of a basic Terraform script, please refer to [this video](https://www.youtube.com/watch?v=dNkEgO-CExg&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=12)
-    (from the DE Zoomcamp). Please note that this example uses GCP as a cloud provider, while for MLOps Zoomcamp we are using AWS.
-    
-    * 00:00 Introduction
-    * 00:20 .terraform-version
-    * 01:04 main.tf
-    * 01:23 terraform declaration
-    * 03:25 provider plugins
-    * 04:00 resource example - google_storage_bucket
-    * 05:42 provider credentials
-    * 06:34 variables.tf
-    * 10:54 overview of terraform commands
-    * 13:35 running terraform commands
-    * 18:08 recap
-
 <br>
 
 ### CI/CD
 CI/CD w/ GitHub Actions
 
 * What are GitHub workflows?
-* `test-pr-pipeline.yml`
+* `ci-tests.yml`
     * Automate sections from tests: Env setup, Unit test, Integration test, Terraform plan
     * Create a CI for `on-pull-request` to `develop` branch
     * Execute demo
 
-* `deploy-pipeline.yml`
+* `cd-deploy.yml`
     * Automate sections from tests: Terraform plan, Terraform apply, Docker build & ECR push, Update Lambda config
     * Create a CI for `on-push-to` to `develop` branch
     * Execute demo
     
 <br>
-
-**Other material:**
-
-Deploying Serverless Machine Learning with AWS (one of my previous videos explaining Lambda integration with Docker images): https://www.youtube.com/watch?v=79B8AOKkpho&t=689s 
-
-
-
-## Notes
-
-Did you take notes? Add them here:
-
-* Send a PR, add your notes above this line
