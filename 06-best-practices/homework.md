@@ -1,4 +1,4 @@
-## 6.X Homework
+## 6.7 Homework
 
 In this homework, we'll take the ride duration prediction model
 that we deployed in batch mode in homework 4 and improve the 
@@ -268,7 +268,7 @@ Let's do that!
 
 ## Deadline
 
-The deadline for submitting is 26 July 23:00 CEST. After that, the form will be closed.
+The deadline for submitting is 1 August 23:00 CEST. After that, the form will be closed.
 
 
 ## Solution

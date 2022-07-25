@@ -46,14 +46,28 @@
 </a>
 
 
-### 6.X Homework
+### 6.7 Homework
 
 
 More information here: [homework.md](homework.md)
 
+
+### Notes
+
+Did you take notes? Add them here:
+
+* [Week 6a Notes by M. Ayoub C.](https://gist.github.com/Qfl3x/267d4cff36b58de67b4e33ca3fc9983f)
+* Send a PR, add your notes above this line
+
 <br>
 
+
+
 ## Part B
+
+
+
+
 
 ### 6.7 Infrastructure as Code
 
@@ -166,9 +180,10 @@ CI/CD w/ GitHub Actions
 Deploying Serverless Machine Learning with AWS (one of my previous videos explaining Lambda integration with Docker images): https://www.youtube.com/watch?v=79B8AOKkpho&t=689s 
 
 
-
-## Notes
+### Notes
 
 Did you take notes? Add them here:
 
 * Send a PR, add your notes above this line
+
+
