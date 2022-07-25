@@ -10,6 +10,11 @@ pyarrow = "*"
 s3fs = "*"
 
 [dev-packages]
+pytest = "*"
+boto3 = "*"
+pylint = "==2.14.5"
+black = "==22.6.0"
+isort = "*"
 
 [requires]
 python_version = "3.9"

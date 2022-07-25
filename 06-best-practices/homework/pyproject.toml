@@ -1,0 +1,27 @@
+[tool.pylint.messages_control]
+
+max-line-length = 102
+
+disable = [
+  "unused-argument",
+  "no-value-for-parameter",
+  "no-else-return",
+  "line-too-long",
+  "too-few-public-methods",
+  "missing-module-docstring",
+  "redefined-outer-name",
+  "duplicate-code",
+  "subprocess-run-check",
+  "invalid-name",
+  "consider-using-f-string",
+  "missing-function-docstring",
+]
+
+[tool.black]
+line-length = 102
+target-version = ['py38', 'py39']
+skip-string-normalization = true
+
+[tool.isort]
+multi_line_output = 3
+length_sort = false
