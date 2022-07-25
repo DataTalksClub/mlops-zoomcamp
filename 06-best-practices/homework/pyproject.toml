@@ -14,7 +14,6 @@ disable = [
   "subprocess-run-check",
   "invalid-name",
   "consider-using-f-string",
-  "missing-function-docstring",
 ]
 
 [tool.black]

@@ -7,10 +7,13 @@ from batch import prepare_data
 
 
 def dt(hour, minute, second=0):
+    """Function to prepare datetime object"""
+
     return datetime(2021, 1, 1, hour, minute, second)
 
 
 def test_data_prep():
+    """Test function to create fake data in bucket and checks if data exists"""
 
     data = [
         (None, None, dt(1, 2), dt(1, 10)),
