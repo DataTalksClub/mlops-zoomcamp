@@ -1,6 +1,18 @@
 ## Extra Material
 
-#### Concepts of Terraform and IaC
+### Concepts of Terraform and IaC
+
+#### Summary
+
+Infrastructure as code (IaC): 
+* Define & automate operations around your application’s infrastructure.
+* Can use version control to track changes made to infrastructure
+* Easy to replicate the configuration across different envs such as development, staging, or production
+
+Terraform:
+* Open-source technology to build cloud-provider agnostic infrastructure that serves multiple purposes (beyond lambda/serveless)
+
+#### Reference material
 (refer to previous videos, links in README)
 
 1. For an introduction to Terraform and IaC concepts, please refer to [this video](https://www.youtube.com/watch?v=Hajwnmj0xfQ&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=11) 
@@ -27,3 +39,5 @@
     * 10:54 overview of terraform commands
     * 13:35 running terraform commands
     * 18:08 recap
+
+#### 

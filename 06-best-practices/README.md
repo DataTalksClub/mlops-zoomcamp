@@ -60,9 +60,13 @@ Did you take notes? Add them here:
 
 ## Part B
 
-### 6.7 Infrastructure as Code
+### Infrastructure-as-Code
+with Terraform 
 
 ![image](AWS-stream-pipeline.png)
+
+#### Summary
+Setting up a stream-based pipeline infrastructure in AWS, using Terraform
 
 #### Project infrastructure modules:
 * Amazon Web Service (AWS):
@@ -71,25 +75,37 @@ Did you take notes? Add them here:
     * S3 Bucket: Model artifacts
     * ECR: Image Registry
 
-#### Summary
-Setting up a stream-based pipeline infrastructure in AWS, using Terraform
+#### 6B.1: Terraform - Introduction
 
-1. Video 1: Terraform - Introduction
-    * Introduction
-    * Setup & Pre-Reqs
-    * Concepts of Terraform and IaC (reference material from previous courses)
+<a href="https://www.youtube.com/watch?v=zRcLgT7Qnio&list=PL3MmuxUbc_hIUISrluw_A7wDSmfOhErJK&index=48">
+  <img src="images/AWS-stream-pipeline.png">
+</a>
 
-2. Video 2: Terraform - Modules and Outputs variables
-    * What are they?
-    * Creating a Kinesis module
+* Introduction
+* Setup & Pre-Reqs
+* Concepts of Terraform and IaC (reference material from previous courses)
 
-3. Video 3: Build an e2e workflow for Ride Predictions
-    * TF resources for ECR, Lambda, S3
+#### 6B.2: Terraform - Modules and Outputs variables
 
-4. Video 4: Test the pipeline e2e
-    * Demo: apply TF to our use-case, manually deploy data dependencies & test
-    (This video is TBD)
+<a href="https://www.youtube.com/watch?v=-6scXrFcPNk&list=PL3MmuxUbc_hIUISrluw_A7wDSmfOhErJK&index=49">
+  <img src="images/AWS-stream-pipeline.png">
+</a>
 
+* What are they?
+* Creating a Kinesis module
+
+#### 6B.3: Build an e2e workflow for Ride Predictions
+
+<a href="https://www.youtube.com/watch?v=JVydd1K6R7M&list=PL3MmuxUbc_hIUISrluw_A7wDSmfOhErJK&index=50">
+  <img src="images/AWS-stream-pipeline.png">
+</a>
+
+* TF resources for ECR, Lambda, S3
+
+#### 6B.4: Test the pipeline e2e
+
+* Demo: apply TF to our use-case, manually deploy data dependencies & test
+* Recap: IaC, Terraform, next steps
 
 #### Setup
 
@@ -121,15 +137,26 @@ Setting up a stream-based pipeline infrastructure in AWS, using Terraform
 
 <br>
 
-### CI/CD
-CI/CD w/ GitHub Actions
+Additional material on understanding Terraform concepts: [here](docs.md)
 
+<br>
+
+### CI/CD
+with GitHub Actions
+
+![image](ci_cd_zoomcamp.png)
+
+#### 6B.5: CI/CD - Introduction
+* Architecture (Ride Predictions)
 * What are GitHub workflows?
+
+#### 6B.6: Continuous Integration
 * `ci-tests.yml`
     * Automate sections from tests: Env setup, Unit test, Integration test, Terraform plan
     * Create a CI for `on-pull-request` to `develop` branch
     * Execute demo
 
+#### 6B.7: Continuous Delivery
 * `cd-deploy.yml`
     * Automate sections from tests: Terraform plan, Terraform apply, Docker build & ECR push, Update Lambda config
     * Create a CI for `on-push-to` to `develop` branch
