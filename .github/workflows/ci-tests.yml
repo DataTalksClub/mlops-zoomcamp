@@ -63,4 +63,4 @@ jobs:
         id: plan
         working-directory: '06-best-practices/code/infrastructure'
         run: |
-          terraform init && terraform plan -var-file=vars/prod.tfvars
+          terraform init -backend-config="key=mlops-zoomcamp-prod.tfstate"  && terraform plan -var-file=vars/prod.tfvars
