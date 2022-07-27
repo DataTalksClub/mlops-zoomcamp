@@ -70,4 +70,5 @@ Did you take notes? Add them here:
 * [Quickstart your homework by Zioalex](https://github.com/zioalex/mlops-zoomcamp/blob/week3/03-orchestration/homework_quickstart.md)
 * [Notes from Maxime M](https://github.com/maxmarkov/mlops-zoomcamp/blob/master/lecture-notes/WEEK-3/03-orchestration.md)
 * [Week3: Prefect introduction and homework notes by Bhagabat](https://github.com/BPrasad123/MLOps_Zoomcamp/tree/main/Week3)
+* [Week 3: Orchestration notes by Ayoub.B](https://github.com/ayoub-berdeddouch/mlops-journey/blob/main/orchestration-03.md)
 * Send a PR, add your notes above this line
