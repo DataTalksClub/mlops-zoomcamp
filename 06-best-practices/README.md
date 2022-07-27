@@ -184,6 +184,7 @@ Deploying Serverless Machine Learning with AWS (one of my previous videos explai
 
 Did you take notes? Add them here:
 
+* [Week 6: Best Practices by Ayoub.B `to be continued`](https://github.com/ayoub-berdeddouch/mlops-journey/blob/main/bestpractices-06.md)
 * Send a PR, add your notes above this line
 
 
