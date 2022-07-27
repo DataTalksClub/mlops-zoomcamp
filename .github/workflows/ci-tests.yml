@@ -49,7 +49,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v1
         with:
@@ -63,4 +62,4 @@ jobs:
         id: plan
         working-directory: '06-best-practices/code/infrastructure'
         run: |
-          terraform init -backend-config="key=mlops-zoomcamp-prod.tfstate"  && terraform plan -var-file=vars/prod.tfvars
+          terraform init -backend-config="key=mlops-zoomcamp-prod.tfstate" --reconfigure && terraform plan --var-file vars/prod.tfvars
