@@ -9,6 +9,8 @@ services:
       - AWS_DEFAULT_REGION=eu-west-1
       - MODEL_LOCATION=/app/model
       - KINESIS_ENDPOINT_URL=http://kinesis:4566/
+      - AWS_ACCESS_KEY_ID=abc
+      - AWS_SECRET_ACCESS_KEY=xyz
     volumes:
       - "./model:/app/model"
   kinesis:
