@@ -80,9 +80,7 @@ Setting up a stream-based pipeline infrastructure in AWS, using Terraform
 
 #### 6B.1: Terraform - Introduction
 
-<a href="https://www.youtube.com/watch?v=zRcLgT7Qnio&list=PL3MmuxUbc_hIUISrluw_A7wDSmfOhErJK&index=48">
-  <img src="images/AWS-stream-pipeline.png">
-</a>
+https://www.youtube.com/watch?v=zRcLgT7Qnio&list=PL3MmuxUbc_hIUISrluw_A7wDSmfOhErJK&index=48
 
 * Introduction
 * Setup & Pre-Reqs
@@ -90,18 +88,14 @@ Setting up a stream-based pipeline infrastructure in AWS, using Terraform
 
 #### 6B.2: Terraform - Modules and Outputs variables
 
-<a href="https://www.youtube.com/watch?v=-6scXrFcPNk&list=PL3MmuxUbc_hIUISrluw_A7wDSmfOhErJK&index=49">
-  <img src="images/AWS-stream-pipeline.png">
-</a>
+https://www.youtube.com/watch?v=-6scXrFcPNk&list=PL3MmuxUbc_hIUISrluw_A7wDSmfOhErJK&index=49
 
 * What are they?
 * Creating a Kinesis module
 
 #### 6B.3: Build an e2e workflow for Ride Predictions
 
-<a href="https://www.youtube.com/watch?v=JVydd1K6R7M&list=PL3MmuxUbc_hIUISrluw_A7wDSmfOhErJK&index=50">
-  <img src="images/AWS-stream-pipeline.png">
-</a>
+https://www.youtube.com/watch?v=JVydd1K6R7M&list=PL3MmuxUbc_hIUISrluw_A7wDSmfOhErJK&index=50
 
 * TF resources for ECR, Lambda, S3
 
