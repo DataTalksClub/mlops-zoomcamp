@@ -61,15 +61,15 @@ Did you take notes? Add them here:
 
 <br>
 
-
-
 ## Part B
 
+### Infrastructure-as-Code
+with Terraform 
 
+![image](AWS-stream-pipeline.png)
 
-
-
-### 6.7 Infrastructure as Code
+#### Summary
+Setting up a stream-based pipeline infrastructure in AWS, using Terraform
 
 #### Project infrastructure modules:
 * Amazon Web Service (AWS):
@@ -77,29 +77,32 @@ Did you take notes? Add them here:
     * Lambda: Serving API
     * S3 Bucket: Model artifacts
     * ECR: Image Registry
-    
-![image](AWS-stream-pipeline.png)
 
+#### 6B.1: Terraform - Introduction
 
-#### Summary
-Setting up a stream-based pipeline infrastructure in AWS, using Terraform
+https://www.youtube.com/watch?v=zRcLgT7Qnio&list=PL3MmuxUbc_hIUISrluw_A7wDSmfOhErJK&index=48
 
-1. Video 1: Terraform - Introduction
-    * Introduction
-    * Setup & Pre-Reqs
-    * Concepts of Terraform and IaC (reference material from previous courses)
+* Introduction
+* Setup & Pre-Reqs
+* Concepts of Terraform and IaC (reference material from previous courses)
 
-2. Video 2: Terraform - Modules and Outputs variables
-    * What are they?
-    * Creating a Kinesis module
+#### 6B.2: Terraform - Modules and Outputs variables
 
-3. Video 3: Build an e2e workflow for Ride Predictions
-    * TF resources for ECR, Lambda, S3
+https://www.youtube.com/watch?v=-6scXrFcPNk&list=PL3MmuxUbc_hIUISrluw_A7wDSmfOhErJK&index=49
 
-4. Video 4: Test the pipeline e2e
-    * Demo: apply TF to our use-case, manually deploy data dependencies & test
-    (This video is TBD)
+* What are they?
+* Creating a Kinesis module
 
+#### 6B.3: Build an e2e workflow for Ride Predictions
+
+https://www.youtube.com/watch?v=JVydd1K6R7M&list=PL3MmuxUbc_hIUISrluw_A7wDSmfOhErJK&index=50
+
+* TF resources for ECR, Lambda, S3
+
+#### 6B.4: Test the pipeline e2e
+
+* Demo: apply TF to our use-case, manually deploy data dependencies & test
+* Recap: IaC, Terraform, next steps
 
 #### Setup
 
@@ -129,62 +132,31 @@ Setting up a stream-based pipeline infrastructure in AWS, using Terraform
 
 4. (Optional) Configuring with `aws profile`: [here](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-sourcing-external.html) and [here](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#using-an-external-credentials-process) 
 
-#### Concepts of Terraform and IaC
-(refer to previous videos, links in README)
+<br>
 
-1. For an introduction to Terraform and IaC concepts, please refer to [this video](https://www.youtube.com/watch?v=Hajwnmj0xfQ&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=11) 
-(from the DE Zoomcamp), especially the sections in the time-codes:
-
-    * 00:00 Introduction
-    * 00:35 What is Terraform?
-    * 01:10 What is IaC?
-    * 01:43 Advantages of IaC
-    * 14:48 Installing Terraform
-    * 02:28 More on Installing Terraform
-
-2. For a quickstart tutorial, and understanding the main components of a basic Terraform script, please refer to [this video](https://www.youtube.com/watch?v=dNkEgO-CExg&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=12)
-    (from the DE Zoomcamp). Please note that this example uses GCP as a cloud provider, while for MLOps Zoomcamp we are using AWS.
-    
-    * 00:00 Introduction
-    * 00:20 .terraform-version
-    * 01:04 main.tf
-    * 01:23 terraform declaration
-    * 03:25 provider plugins
-    * 04:00 resource example - google_storage_bucket
-    * 05:42 provider credentials
-    * 06:34 variables.tf
-    * 10:54 overview of terraform commands
-    * 13:35 running terraform commands
-    * 18:08 recap
+Additional material on understanding Terraform concepts: [here](docs.md)
 
 <br>
 
 ### CI/CD
-CI/CD w/ GitHub Actions
+with GitHub Actions
 
+![image](ci_cd_zoomcamp.png)
+
+#### 6B.5: CI/CD - Introduction
+* Architecture (Ride Predictions)
 * What are GitHub workflows?
-* `test-pr-pipeline.yml`
+
+#### 6B.6: Continuous Integration
+* `ci-tests.yml`
     * Automate sections from tests: Env setup, Unit test, Integration test, Terraform plan
     * Create a CI for `on-pull-request` to `develop` branch
     * Execute demo
 
-* `deploy-pipeline.yml`
+#### 6B.7: Continuous Delivery
+* `cd-deploy.yml`
     * Automate sections from tests: Terraform plan, Terraform apply, Docker build & ECR push, Update Lambda config
     * Create a CI for `on-push-to` to `develop` branch
     * Execute demo
     
 <br>
-
-**Other material:**
-
-Deploying Serverless Machine Learning with AWS (one of my previous videos explaining Lambda integration with Docker images): https://www.youtube.com/watch?v=79B8AOKkpho&t=689s 
-
-
-### Notes
-
-Did you take notes? Add them here:
-
-* [Week 6: Best Practices by Ayoub.B `to be continued`](https://github.com/ayoub-berdeddouch/mlops-journey/blob/main/bestpractices-06.md)
-* Send a PR, add your notes above this line
-
-
