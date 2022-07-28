@@ -78,6 +78,8 @@ Setting up a stream-based pipeline infrastructure in AWS, using Terraform
     * S3 Bucket: Model artifacts
     * ECR: Image Registry
 
+Further info here: [Concepts of IaC and Terraform](docs.md#concepts-of-iac-and-terraform)
+
 #### 6B.1: Terraform - Introduction
 
 https://www.youtube.com/watch?v=zRcLgT7Qnio&list=PL3MmuxUbc_hIUISrluw_A7wDSmfOhErJK&index=48
@@ -134,7 +136,7 @@ https://www.youtube.com/watch?v=JVydd1K6R7M&list=PL3MmuxUbc_hIUISrluw_A7wDSmfOhE
 
 <br>
 
-Additional material on understanding Terraform concepts: [here](docs.md)
+Additional material on understanding Terraform concepts here: [Reference Material](docs.md#concepts-of-iac-and-terraform)
 
 <br>
 
@@ -143,20 +145,34 @@ with GitHub Actions
 
 ![image](ci_cd_zoomcamp.png)
 
+#### Summary
+
+* Automate a complete CI/CD pipeline using GitHub Actions to automatically trigger jobs 
+to build, test, and deploy our service to Lambda for every new commit/code change to our repository.
+* The goal of our CI/CD pipeline is to execute tests, build and push container image to a registry,
+and update our lambda service for every commit to the GitHub repository.
+
+Further info here: [Concepts of CI/CD and GitHub Actions](docs.md#concepts-of-ci-cd-and-github-actions)
+
+
 #### 6B.5: CI/CD - Introduction
 * Architecture (Ride Predictions)
-* What are GitHub workflows?
+* What are GitHub Workflows?
 
 #### 6B.6: Continuous Integration
 * `ci-tests.yml`
     * Automate sections from tests: Env setup, Unit test, Integration test, Terraform plan
-    * Create a CI for `on-pull-request` to `develop` branch
+    * Create a CI workflow for `on-pull-request` to `develop` branch
     * Execute demo
 
 #### 6B.7: Continuous Delivery
 * `cd-deploy.yml`
     * Automate sections from tests: Terraform plan, Terraform apply, Docker build & ECR push, Update Lambda config
-    * Create a CI for `on-push-to` to `develop` branch
+    * Create a CD workflow for `on-push-to` to `develop` branch
     * Execute demo
-    
-<br>
+
+### Notes
+
+Did you take notes? Add them here:
+
+* Send a PR, add your notes above this line
