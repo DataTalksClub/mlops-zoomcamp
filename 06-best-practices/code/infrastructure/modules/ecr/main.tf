@@ -5,6 +5,8 @@ resource "aws_ecr_repository" "repo" {
   image_scanning_configuration {
     scan_on_push = false
   }
+
+  force_delete = true
 }
 
 # In practice, the Image build-and-push step is handled separately by the CI/CD pipeline and not the IaC script.

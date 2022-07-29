@@ -61,15 +61,15 @@ Did you take notes? Add them here:
 
 <br>
 
-
-
 ## Part B
 
+### Infrastructure-as-Code
+with Terraform 
 
+![image](AWS-stream-pipeline.png)
 
-
-
-### 6.7 Infrastructure as Code
+#### Summary
+Setting up a stream-based pipeline infrastructure in AWS, using Terraform
 
 #### Project infrastructure modules:
 * Amazon Web Service (AWS):
@@ -77,29 +77,34 @@ Did you take notes? Add them here:
     * Lambda: Serving API
     * S3 Bucket: Model artifacts
     * ECR: Image Registry
-    
-![image](AWS-stream-pipeline.png)
 
+Further info here: [Concepts of IaC and Terraform](docs.md#concepts-of-iac-and-terraform)
 
-#### Summary
-Setting up a stream-based pipeline infrastructure in AWS, using Terraform
+#### 6B.1: Terraform - Introduction
 
-1. Video 1: Terraform - Introduction
-    * Introduction
-    * Setup & Pre-Reqs
-    * Concepts of Terraform and IaC (reference material from previous courses)
+https://www.youtube.com/watch?v=zRcLgT7Qnio&list=PL3MmuxUbc_hIUISrluw_A7wDSmfOhErJK&index=48
 
-2. Video 2: Terraform - Modules and Outputs variables
-    * What are they?
-    * Creating a Kinesis module
+* Introduction
+* Setup & Pre-Reqs
+* Concepts of Terraform and IaC (reference material from previous courses)
 
-3. Video 3: Build an e2e workflow for Ride Predictions
-    * TF resources for ECR, Lambda, S3
+#### 6B.2: Terraform - Modules and Outputs variables
 
-4. Video 4: Test the pipeline e2e
-    * Demo: apply TF to our use-case, manually deploy data dependencies & test
-    (This video is TBD)
+https://www.youtube.com/watch?v=-6scXrFcPNk&list=PL3MmuxUbc_hIUISrluw_A7wDSmfOhErJK&index=49
 
+* What are they?
+* Creating a Kinesis module
+
+#### 6B.3: Build an e2e workflow for Ride Predictions
+
+https://www.youtube.com/watch?v=JVydd1K6R7M&list=PL3MmuxUbc_hIUISrluw_A7wDSmfOhErJK&index=50
+
+* TF resources for ECR, Lambda, S3
+
+#### 6B.4: Test the pipeline e2e
+
+* Demo: apply TF to our use-case, manually deploy data dependencies & test
+* Recap: IaC, Terraform, next steps
 
 #### Setup
 
@@ -129,62 +134,45 @@ Setting up a stream-based pipeline infrastructure in AWS, using Terraform
 
 4. (Optional) Configuring with `aws profile`: [here](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-sourcing-external.html) and [here](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#using-an-external-credentials-process) 
 
-#### Concepts of Terraform and IaC
-(refer to previous videos, links in README)
+<br>
 
-1. For an introduction to Terraform and IaC concepts, please refer to [this video](https://www.youtube.com/watch?v=Hajwnmj0xfQ&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=11) 
-(from the DE Zoomcamp), especially the sections in the time-codes:
-
-    * 00:00 Introduction
-    * 00:35 What is Terraform?
-    * 01:10 What is IaC?
-    * 01:43 Advantages of IaC
-    * 14:48 Installing Terraform
-    * 02:28 More on Installing Terraform
-
-2. For a quickstart tutorial, and understanding the main components of a basic Terraform script, please refer to [this video](https://www.youtube.com/watch?v=dNkEgO-CExg&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=12)
-    (from the DE Zoomcamp). Please note that this example uses GCP as a cloud provider, while for MLOps Zoomcamp we are using AWS.
-    
-    * 00:00 Introduction
-    * 00:20 .terraform-version
-    * 01:04 main.tf
-    * 01:23 terraform declaration
-    * 03:25 provider plugins
-    * 04:00 resource example - google_storage_bucket
-    * 05:42 provider credentials
-    * 06:34 variables.tf
-    * 10:54 overview of terraform commands
-    * 13:35 running terraform commands
-    * 18:08 recap
+Additional material on understanding Terraform concepts here: [Reference Material](docs.md#concepts-of-iac-and-terraform)
 
 <br>
 
 ### CI/CD
-CI/CD w/ GitHub Actions
+with GitHub Actions
 
-* What are GitHub workflows?
-* `test-pr-pipeline.yml`
+![image](ci_cd_zoomcamp.png)
+
+#### Summary
+
+* Automate a complete CI/CD pipeline using GitHub Actions to automatically trigger jobs 
+to build, test, and deploy our service to Lambda for every new commit/code change to our repository.
+* The goal of our CI/CD pipeline is to execute tests, build and push container image to a registry,
+and update our lambda service for every commit to the GitHub repository.
+
+Further info here: [Concepts of CI/CD and GitHub Actions](docs.md#concepts-of-ci-cd-and-github-actions)
+
+
+#### 6B.5: CI/CD - Introduction
+* Architecture (Ride Predictions)
+* What are GitHub Workflows?
+
+#### 6B.6: Continuous Integration
+* `ci-tests.yml`
     * Automate sections from tests: Env setup, Unit test, Integration test, Terraform plan
-    * Create a CI for `on-pull-request` to `develop` branch
+    * Create a CI workflow for `on-pull-request` to `develop` branch
     * Execute demo
 
-* `deploy-pipeline.yml`
+#### 6B.7: Continuous Delivery
+* `cd-deploy.yml`
     * Automate sections from tests: Terraform plan, Terraform apply, Docker build & ECR push, Update Lambda config
-    * Create a CI for `on-push-to` to `develop` branch
+    * Create a CD workflow for `on-push-to` to `develop` branch
     * Execute demo
-    
-<br>
-
-**Other material:**
-
-Deploying Serverless Machine Learning with AWS (one of my previous videos explaining Lambda integration with Docker images): https://www.youtube.com/watch?v=79B8AOKkpho&t=689s 
-
 
 ### Notes
 
 Did you take notes? Add them here:
 
-* [Week 6: Best Practices by Ayoub.B `to be continued`](https://github.com/ayoub-berdeddouch/mlops-journey/blob/main/bestpractices-06.md)
 * Send a PR, add your notes above this line
-
-
