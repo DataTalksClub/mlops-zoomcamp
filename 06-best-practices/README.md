@@ -103,6 +103,8 @@ https://www.youtube.com/watch?v=JVydd1K6R7M&list=PL3MmuxUbc_hIUISrluw_A7wDSmfOhE
 
 #### 6B.4: Test the pipeline e2e
 
+https://www.youtube.com/watch?v=YWao0rnqVoI&list=PL3MmuxUbc_hIUISrluw_A7wDSmfOhErJK&index=51
+
 * Demo: apply TF to our use-case, manually deploy data dependencies & test
 * Recap: IaC, Terraform, next steps
 
@@ -156,16 +158,25 @@ Further info here: [Concepts of CI/CD and GitHub Actions](docs.md#concepts-of-ci
 
 
 #### 6B.5: CI/CD - Introduction
+
+https://www.youtube.com/watch?v=OMwwZ0Z_cdk&list=PL3MmuxUbc_hIUISrluw_A7wDSmfOhErJK&index=52
+
 * Architecture (Ride Predictions)
 * What are GitHub Workflows?
 
 #### 6B.6: Continuous Integration
+
+https://www.youtube.com/watch?v=xkTWF9c33mU&list=PL3MmuxUbc_hIUISrluw_A7wDSmfOhErJK&index=53
+
 * `ci-tests.yml`
     * Automate sections from tests: Env setup, Unit test, Integration test, Terraform plan
     * Create a CI workflow for `on-pull-request` to `develop` branch
     * Execute demo
 
 #### 6B.7: Continuous Delivery
+
+https://www.youtube.com/watch?v=jCNxqXCKh2s&list=PL3MmuxUbc_hIUISrluw_A7wDSmfOhErJK&index=54
+
 * `cd-deploy.yml`
     * Automate sections from tests: Terraform plan, Terraform apply, Docker build & ECR push, Update Lambda config
     * Create a CD workflow for `on-push-to` to `develop` branch
