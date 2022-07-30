@@ -97,8 +97,8 @@ If you're not certain about some tools, ask in Slack.
     * 4 points: The model deployment code is containerized and could be deployed to cloud or special tools for model deployment are used
 * Model monitoring
     * 0 points: No model monitoring
-    * 2 points: TBA
-    * 4 points: TBA
+    * 2 points: Basic model monitoring that calculates and reports metrics
+    * 4 points: Comprehensive model monitoring that send alerts or runs a conditional workflow (e.g. retraining, generating debugging dashboard, switching to a different model) if the defined metrics threshold is violated
 * Reproducibility
     * 0 points: No instructions how to run code at all
     * 2 points: Some instructions are there, but they are not complete
