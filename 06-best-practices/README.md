@@ -136,7 +136,7 @@ https://www.youtube.com/watch?v=xkTWF9c33mU&list=PL3MmuxUbc_hIUISrluw_A7wDSmfOhE
 
 * `ci-tests.yml`
     * Automate sections from tests: Env setup, Unit test, Integration test, Terraform plan
-    * Create a CI workflow for `on-pull-request` to `develop` branch
+    * Create a CI workflow to trigger on `pull-request` to `develop` branch
     * Execute demo
 
 #### 6B.7: Continuous Delivery
@@ -145,7 +145,7 @@ https://www.youtube.com/watch?v=jCNxqXCKh2s&list=PL3MmuxUbc_hIUISrluw_A7wDSmfOhE
 
 * `cd-deploy.yml`
     * Automate sections from tests: Terraform plan, Terraform apply, Docker build & ECR push, Update Lambda config
-    * Create a CD workflow for `on-push-to` to `develop` branch
+    * Create a CD workflow to trigger on `push` to `develop` branch
     * Execute demo
 
 ### Notes
