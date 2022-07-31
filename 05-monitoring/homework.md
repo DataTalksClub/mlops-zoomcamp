@@ -169,7 +169,10 @@ Use this jupyter notebook: [homework/prefect-monitoring/monitor_profile.ipynb](h
 
 ## Solution
 
-We'll post the solution here soon
+* Code
+    * [Code - `docker compose.py`](https://github.com/DataTalksClub/mlops-zoomcamp/blob/main/05-monitoring/homework/docker-compose-homework-solution.yml)
+    * [Code - `prefect monitoring script`](https://github.com/DataTalksClub/mlops-zoomcamp/blob/main/05-monitoring/homework/prefect-monitoring/prefect_monitoring_solution.py)
+    * [Code - `monitor profile notebook`](https://github.com/DataTalksClub/mlops-zoomcamp/blob/main/05-monitoring/homework/prefect-monitoring/monitor_profile_solution.ipynb)
 
-
+* [Video]
 
