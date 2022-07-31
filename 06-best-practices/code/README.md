@@ -124,12 +124,20 @@ w/ Terraform
 
 #### Execution
 
+
 1. To create infra (manually, in order to test on staging env)
-   ```bash
-   terraform init
-   terraform plan -var-file=vars/stg.tfvars
-   terraform apply -var-file=vars/stg.tfvars
-   ```
+    ```shell
+    # Initialize state file (.tfstate)
+    terraform init
+
+    # Check changes to new infra plan
+    terraform plan -var-file=vars/stg.tfvars
+    ```
+
+    ```shell
+    # Create new infra
+    terraform apply -var-file=vars/stg.tfvars
+    ```
 
 2. To prepare aws env (copy model artifacts, set env-vars for lambda etc.):
     ```
@@ -142,6 +150,11 @@ w/ Terraform
     ``` 
 
 4. And then check on CloudWatch logs. Or try `get-records` on the `output_kinesis_stream` (refer to `integration_test`)
+
+5. Destroy infra after use:
+```shell
+# Delete infra after your work, to avoid costs on any running services
+terraform destroy
 
 <br>
 
