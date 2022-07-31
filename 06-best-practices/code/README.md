@@ -143,6 +143,7 @@ w/ Terraform
 
 4. And then check on CloudWatch logs. Or try `get-records` on the `output_kinesis_stream` (refer to `integration_test`)
 
+<br>
 
 ### CI/CD
 
