@@ -49,6 +49,10 @@ In case you're using GCP instead of AWS, following is some setup material:
 * [GCP Overview](https://github.com/DataTalksClub/data-engineering-zoomcamp/blob/main/week_1_basics_n_setup/1_terraform_gcp/2_gcp_overview.md)
 * [main.tf](https://github.com/DataTalksClub/data-engineering-zoomcamp/blob/main/week_1_basics_n_setup/1_terraform_gcp/terraform/main.tf)
 
+#### References
+* Terraform with AWS: [Getting Started](https://learn.hashicorp.com/collections/terraform/aws-get-started) and [AWS provider library](https://registry.terraform.io/providers/hashicorp/aws/latest/docs)
+* Terraform Modules: [Define](https://www.terraform.io/language/modules/develop) and [Call](https://www.terraform.io/language/modules/syntax)
+
 
 ### Concepts of CI/CD and GitHub Actions
 
@@ -63,4 +67,6 @@ build and push a Docker image, and deploy the updated lambda service to producti
 
 
 #### Reference Material
-(TBD)
+* [GitHub Actions & Workflows](https://docs.github.com/en/actions/using-workflows)
+* [Build-Push image to ECR](https://docs.github.com/en/actions/deployment/deploying-to-your-cloud-provider/deploying-to-amazon-elastic-container-service)
+* [Python tests](https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-python)
