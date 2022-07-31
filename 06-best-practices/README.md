@@ -69,14 +69,8 @@ with Terraform
 ![image](AWS-stream-pipeline.png)
 
 #### Summary
-Setting up a stream-based pipeline infrastructure in AWS, using Terraform
-
-#### Project infrastructure modules:
-* Amazon Web Service (AWS):
-    * Kinesis: Streams (Producer & Consumer)
-    * Lambda: Serving API
-    * S3 Bucket: Model artifacts
-    * ECR: Image Registry
+* Setting up a stream-based pipeline infrastructure in AWS, using Terraform
+* Project infrastructure modules (AWS): Kinesis Streams (Producer & Consumer), Lambda (Serving API), S3 Bucket (Model artifacts), ECR (Image Registry)
 
 Further info here:
 * [Concepts of IaC and Terraform](docs.md#concepts-of-iac-and-terraform)
