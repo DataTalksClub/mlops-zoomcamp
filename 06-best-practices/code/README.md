@@ -152,9 +152,10 @@ w/ Terraform
 4. And then check on CloudWatch logs. Or try `get-records` on the `output_kinesis_stream` (refer to `integration_test`)
 
 5. Destroy infra after use:
-```shell
-# Delete infra after your work, to avoid costs on any running services
-terraform destroy
+    ```shell
+    # Delete infra after your work, to avoid costs on any running services
+    terraform destroy
+    ```
 
 <br>
 
