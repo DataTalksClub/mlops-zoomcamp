@@ -3,17 +3,15 @@ import os
 import pickle
 
 import pandas
+import pyarrow.parquet as pq
+from evidently import ColumnMapping
+from evidently.dashboard import Dashboard
+from evidently.dashboard.tabs import DataDriftTab, RegressionPerformanceTab
+from evidently.model_profile import Profile
+from evidently.model_profile.sections import (
+    DataDriftProfileSection, RegressionPerformanceProfileSection)
 from prefect import flow, task
 from pymongo import MongoClient
-import pyarrow.parquet as pq
-
-from evidently import ColumnMapping
-
-from evidently.dashboard import Dashboard
-from evidently.dashboard.tabs import DataDriftTab,RegressionPerformanceTab
-
-from evidently.model_profile import Profile
-from evidently.model_profile.sections import DataDriftProfileSection, RegressionPerformanceProfileSection
 
 MONGO_CLIENT_ADDRESS = "mongodb://localhost:27017/"
 MONGO_DATABASE = "prediction_service"

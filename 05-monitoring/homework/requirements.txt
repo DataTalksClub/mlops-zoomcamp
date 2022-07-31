@@ -8,6 +8,7 @@ prometheus_client~=0.11.0
 pyyaml~=5.4.1
 tqdm
 pyarrow
-prefect>=2.0b
+prefect==2.0b8
 pymongo
 evidently
+pipenv
