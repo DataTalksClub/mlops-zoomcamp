@@ -78,7 +78,9 @@ Setting up a stream-based pipeline infrastructure in AWS, using Terraform
     * S3 Bucket: Model artifacts
     * ECR: Image Registry
 
-Further info here: [Concepts of IaC and Terraform](docs.md#concepts-of-iac-and-terraform)
+Further info here:
+* [Concepts of IaC and Terraform](docs.md#concepts-of-iac-and-terraform)
+* [Setup and Execution](https://github.com/DataTalksClub/mlops-zoomcamp/tree/main/06-best-practices/code#iac)
 
 #### 6B.1: Terraform - Introduction
 
@@ -107,36 +109,6 @@ https://www.youtube.com/watch?v=YWao0rnqVoI&list=PL3MmuxUbc_hIUISrluw_A7wDSmfOhE
 
 * Demo: apply TF to our use-case, manually deploy data dependencies & test
 * Recap: IaC, Terraform, next steps
-
-#### Setup
-
-**Installation**:
-
-* [aws-cli](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html) (both versions are fine)
-* [terraform client](https://www.terraform.io/downloads)
-
-**Configuration**:
-
-1. If you've already created an AWS account, head to the IAM section, generate your secret-key, and download it locally. 
-[Instructions](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-prereqs.html)
-
-2. [Configure]((https://docs.aws.amazon.com/cli/latest/userguide/getting-started-quickstart.html)) `aws-cli` with your downloaded AWS secret keys:
-      ```shell
-         $ aws configure
-         AWS Access Key ID [None]: xxx
-         AWS Secret Access Key [None]: xxx
-         Default region name [None]: eu-west-1
-         Default output format [None]:
-      ```
-
-3. Verify aws config:
-      ```shell
-        $ aws sts get-caller-identity
-      ```
-
-4. (Optional) Configuring with `aws profile`: [here](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-sourcing-external.html) and [here](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#using-an-external-credentials-process) 
-
-<br>
 
 Additional material on understanding Terraform concepts here: [Reference Material](docs.md#concepts-of-iac-and-terraform)
 
