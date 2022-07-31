@@ -47,6 +47,7 @@ We have already covered Terraform concepts at a deeper level in the [Data Engine
 In case you're using GCP instead of AWS, following is some setup material:
 * [Local Setup for Terraform and GCP](https://github.com/DataTalksClub/data-engineering-zoomcamp/tree/main/week_1_basics_n_setup/1_terraform_gcp)
 * [GCP Overview](https://github.com/DataTalksClub/data-engineering-zoomcamp/blob/main/week_1_basics_n_setup/1_terraform_gcp/2_gcp_overview.md)
+* [main.tf](https://github.com/DataTalksClub/data-engineering-zoomcamp/blob/main/week_1_basics_n_setup/1_terraform_gcp/terraform/main.tf)
 
 
 ### Concepts of CI/CD and GitHub Actions
