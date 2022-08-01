@@ -69,16 +69,12 @@ with Terraform
 ![image](AWS-stream-pipeline.png)
 
 #### Summary
-Setting up a stream-based pipeline infrastructure in AWS, using Terraform
+* Setting up a stream-based pipeline infrastructure in AWS, using Terraform
+* Project infrastructure modules (AWS): Kinesis Streams (Producer & Consumer), Lambda (Serving API), S3 Bucket (Model artifacts), ECR (Image Registry)
 
-#### Project infrastructure modules:
-* Amazon Web Service (AWS):
-    * Kinesis: Streams (Producer & Consumer)
-    * Lambda: Serving API
-    * S3 Bucket: Model artifacts
-    * ECR: Image Registry
-
-Further info here: [Concepts of IaC and Terraform](docs.md#concepts-of-iac-and-terraform)
+Further info here:
+* [Concepts of IaC and Terraform](docs.md#concepts-of-iac-and-terraform)
+* [Setup and Execution](https://github.com/DataTalksClub/mlops-zoomcamp/tree/main/06-best-practices/code#iac)
 
 #### 6B.1: Terraform - Introduction
 
@@ -107,36 +103,6 @@ https://www.youtube.com/watch?v=YWao0rnqVoI&list=PL3MmuxUbc_hIUISrluw_A7wDSmfOhE
 
 * Demo: apply TF to our use-case, manually deploy data dependencies & test
 * Recap: IaC, Terraform, next steps
-
-#### Setup
-
-**Installation**:
-
-* [aws-cli](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html) (both versions are fine)
-* [terraform client](https://www.terraform.io/downloads)
-
-**Configuration**:
-
-1. If you've already created an AWS account, head to the IAM section, generate your secret-key, and download it locally. 
-[Instructions](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-prereqs.html)
-
-2. [Configure]((https://docs.aws.amazon.com/cli/latest/userguide/getting-started-quickstart.html)) `aws-cli` with your downloaded AWS secret keys:
-      ```shell
-         $ aws configure
-         AWS Access Key ID [None]: xxx
-         AWS Secret Access Key [None]: xxx
-         Default region name [None]: eu-west-1
-         Default output format [None]:
-      ```
-
-3. Verify aws config:
-      ```shell
-        $ aws sts get-caller-identity
-      ```
-
-4. (Optional) Configuring with `aws profile`: [here](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-sourcing-external.html) and [here](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#using-an-external-credentials-process) 
-
-<br>
 
 Additional material on understanding Terraform concepts here: [Reference Material](docs.md#concepts-of-iac-and-terraform)
 
@@ -170,7 +136,7 @@ https://www.youtube.com/watch?v=xkTWF9c33mU&list=PL3MmuxUbc_hIUISrluw_A7wDSmfOhE
 
 * `ci-tests.yml`
     * Automate sections from tests: Env setup, Unit test, Integration test, Terraform plan
-    * Create a CI workflow for `on-pull-request` to `develop` branch
+    * Create a CI workflow to trigger on `pull-request` to `develop` branch
     * Execute demo
 
 #### 6B.7: Continuous Delivery
@@ -179,7 +145,7 @@ https://www.youtube.com/watch?v=jCNxqXCKh2s&list=PL3MmuxUbc_hIUISrluw_A7wDSmfOhE
 
 * `cd-deploy.yml`
     * Automate sections from tests: Terraform plan, Terraform apply, Docker build & ECR push, Update Lambda config
-    * Create a CD workflow for `on-push-to` to `develop` branch
+    * Create a CD workflow to trigger on `push` to `develop` branch
     * Execute demo
 
 ### Notes
