@@ -1,6 +1,7 @@
 import json
 import os
 import pickle
+from datetime import datetime
 
 import pandas
 import pyarrow.parquet as pq
@@ -17,9 +18,9 @@ MONGO_CLIENT_ADDRESS = "mongodb://localhost:27017/"
 MONGO_DATABASE = "prediction_service"
 PREDICTION_COLLECTION = "data"
 REPORT_COLLECTION = "report"
-REFERENCE_DATA_FILE = "../datasets/green_tripdata_2021-03.parquet" # Modify this for Q7
+REFERENCE_DATA_FILE = "green_tripdata_2021-03to04.parquet" # Modify this for Q7
 TARGET_DATA_FILE = "target.csv"
-MODEL_FILE = os.getenv('MODEL_FILE', '../prediction_service/lin_reg.bin') # Modify this for Q7
+MODEL_FILE = os.getenv('MODEL_FILE', '../prediction_service/lin_reg_V2.bin') # Modify this for Q7
 
 @task
 def upload_target(filename):
@@ -79,11 +80,20 @@ def run_evidently(ref_data, data):
 
 @task
 def save_report(result):
-    pass
+    """Save evidendtly profile for ride prediction to mongo server"""
+
+    client = MongoClient(MONGO_CLIENT_ADDRESS)
+    collection = client.get_database(MONGO_DATABASE).get_collection(REPORT_COLLECTION)
+    collection.insert_one(result)
 
 @task
-def save_html_report(result):
-    pass
+def save_html_report(result, filename_suffix=None):
+    """Create evidently html report file for ride prediction"""
+    
+    if filename_suffix is None:
+        filename_suffix = datetime.now().strftime('%Y-%m-%d-%H-%M')
+    
+    result.save(f"ride_prediction_drift_report_{filename_suffix}.html")
 
 
 @flow
