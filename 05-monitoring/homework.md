@@ -174,5 +174,5 @@ Use this jupyter notebook: [homework/prefect-monitoring/monitor_profile.ipynb](h
     * [Code - `prefect monitoring script`](https://github.com/DataTalksClub/mlops-zoomcamp/blob/main/05-monitoring/homework/prefect-monitoring/prefect_monitoring_solution.py)
     * [Code - `monitor profile notebook`](https://github.com/DataTalksClub/mlops-zoomcamp/blob/main/05-monitoring/homework/prefect-monitoring/monitor_profile_solution.ipynb)
 
-* [Video]
+* [Video](https://www.youtube.com/watch?v=uwGg6PE8sLg)
 
