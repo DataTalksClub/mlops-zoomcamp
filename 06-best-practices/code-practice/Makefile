@@ -12,6 +12,9 @@ build: quality_checks
 integration_tests: build
 	bash ./integration-test/run.sh
 
+deploy_stage: 
+	bash ./deploy/run.sh stage
+
 publish: integration_tests
 	echo Publishing the image to AWS
 	bash pushEcr.sh
