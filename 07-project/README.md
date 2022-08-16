@@ -13,13 +13,13 @@ Remember that to pass the project, you must evaluate 3 peers. If you don't do th
 Project:
 
 * Form: https://forms.gle/7UmQkK4BBxqdgMDp9
-* Deadline: 15 August, 23:00 CEST
+* Deadline: 22 August, 23:00 CEST
 
 Peer reviewing:
 
 * Peer review assignments: TBA
 * Form: https://forms.gle/KaBMoYhmfeEFmiWb7
-* Deadline: 22 August, 23:00 CEST
+* Deadline: 29 August, 23:00 CEST
 
 Project feedback: TBA
 
