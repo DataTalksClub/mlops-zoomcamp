@@ -102,7 +102,7 @@ If you're not certain about some tools, ask in Slack.
 * Reproducibility
     * 0 points: No instructions how to run code at all
     * 2 points: Some instructions are there, but they are not complete
-    * 4 points: Instructions are clear, it's easy to run the code, and the code works
+    * 4 points: Instructions are clear, it's easy to run the code, and the code works. The version for all the dependencies are specified.
 * Best practices
     * [ ] There are unit tests (1 point)
     * [ ] There is an integration test (1 point)
