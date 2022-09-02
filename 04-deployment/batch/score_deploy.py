@@ -1,17 +1,14 @@
-from prefect.deployments import DeploymentSpec
+from prefect.deployments import Deployment
 from prefect.orion.schemas.schedules import CronSchedule
-from prefect.flow_runners import SubprocessFlowRunner
+from score import ride_duration_prediction
 
-
-DeploymentSpec(
-    flow_location="score.py",
+Deployment.build_from_flow(
+    flow=ride_duration_prediction,
     name="ride_duration_prediction",
     parameters={
         "taxi_type": "green",
         "run_id": "e1efc53e9bd149078b0c12aeaa6365df",
     },
-    flow_storage="fb2163c7-c9ac-448b-b225-0fe9a9ae197a",
     schedule=CronSchedule(cron="0 3 2 * *"),
-    flow_runner=SubprocessFlowRunner(),
-    tags=["ml"]
+    work_queue_name="ml"
 )
