@@ -29,13 +29,13 @@ Project feedback: TBA
 Project:
 
 * Form: https://forms.gle/aj8LHkY7PrWG9XzW6
-* Deadline: 5 September, 23:00 CEST
+* Deadline: 12 September, 23:00 CEST
 
 Peer reviewing:
 
 * Peer review assignments: TBA
 * Form: https://forms.gle/BeQ2HCohrM3puKf26
-* Deadline: 12 September, 23:00 CEST
+* Deadline: 19 September, 23:00 CEST
 
 Project feedback: TBA
 
