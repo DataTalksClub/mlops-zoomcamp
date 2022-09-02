@@ -2,7 +2,7 @@
 
 **Note:** [`orchestration.py`](orchestration.py) is a ready final version. The rest of the files were worked on together during the video tutorials.
 
-**Note** With Prefect version [`2.0b8`](https://github.com/PrefectHQ/prefect/blob/orion/RELEASE-NOTES.md#20b8) or later `DeploymentSpec`'s are now just `Deployment`'s.
+**Note** With Prefect version [`2.2.1`](https://github.com/PrefectHQ/prefect/blob/orion/RELEASE-NOTES.md#20b8) or later `DeploymentSpec`'s are now just `Deployment`'s.
 
 ## 3.1 Negative engineering and workflow orchestration
 
@@ -37,6 +37,26 @@
 
 
 ## 3.5 Deployment of Prefect flow
+
+**Note:** There are several changes to deployment in Prefect 2.3.1 since 2.0b8:
+- `DeploymentSpec` in 2.0b8 now becomes `Deployment`. 
+- `work_queue_name` is used instead of `tags` to submit the deployment to the a specific work queue. 
+- You don't need to create a work queue before using the work queue. A work queue will be created if it doesn't exist. 
+
+```python
+from prefect.deployments import Deployment
+from prefect.orion.schemas.schedules import IntervalSchedule
+from datetime import timedelta
+
+deployment = Deployment.build_from_flow(
+    flow=main,
+    name="model_training",
+    schedule=IntervalSchedule(interval=timedelta(minutes=5)),
+    work_queue_name="ml"
+)
+
+deployment.apply()
+```
 
 <a href="https://www.youtube.com/watch?v=xw9JfaWPPps&list=PL3MmuxUbc_hIUISrluw_A7wDSmfOhErJK">
   <img src="images/thumbnail-3-05.jpg">

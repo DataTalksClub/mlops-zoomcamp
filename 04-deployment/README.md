@@ -50,6 +50,30 @@
 
 ## 4.6 MLOps Zoomcamp 4.6 - Batch: Scheduling batch scoring jobs with Prefect
 
+**Note:** There are several changes to deployment in Prefect 2.3.1 since 2.0b8:
+- `DeploymentSpec` in 2.0b8 now becomes `Deployment`. 
+- `work_queue_name` is used instead of `tags` to submit the deployment to the a specific work queue. 
+- You don't need to create a work queue before using the work queue. A work queue will be created if it doesn't exist. 
+- `flow_location` is replaced with `flow`
+- `flow_runner` and `flow_storage` is no longer supported
+
+```python
+from prefect.deployments import Deployment
+from prefect.orion.schemas.schedules import CronSchedule
+from score import ride_duration_prediction
+
+Deployment.build_from_flow(
+    flow=ride_duration_prediction,
+    name="ride_duration_prediction",
+    parameters={
+        "taxi_type": "green",
+        "run_id": "e1efc53e9bd149078b0c12aeaa6365df",
+    },
+    schedule=CronSchedule(cron="0 3 2 * *"),
+    work_queue_name="ml"
+)
+```
+
 <a href="https://www.youtube.com/watch?v=ekT_JW213Tc&list=PL3MmuxUbc_hIUISrluw_A7wDSmfOhErJK">
   <img src="images/thumbnail-4-06.jpg">
 </a>
