@@ -151,13 +151,11 @@ def main_flow(train_path: str = './data/green_tripdata_2021-01.parquet',
 
 from prefect.deployments import Deployment
 from prefect.orion.schemas.schedules import IntervalSchedule
-from prefect.flow_runners import SubprocessFlowRunner
 from datetime import timedelta
 
-Deployment(
+Deployment.build_from_flow(
     flow=main_flow,
     name="model_training",
     # schedule=IntervalSchedule(interval=timedelta(weeks=1)),
-    flow_runner=SubprocessFlowRunner(),
-    tags=["ml"],
+    work_queue_name="ml",
 )
