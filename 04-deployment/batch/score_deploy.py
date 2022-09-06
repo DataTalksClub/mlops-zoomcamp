@@ -10,7 +10,7 @@ deployment = Deployment.build_from_flow(
         "run_id": "e1efc53e9bd149078b0c12aeaa6365df",
     },
     schedule=CronSchedule(cron="0 3 2 * *"),
-    work_queue_name="ml"
+    work_queue_name="ml",
 )
 
 deployment.apply()
