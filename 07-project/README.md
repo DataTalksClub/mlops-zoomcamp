@@ -18,7 +18,7 @@ Project:
 
 Peer reviewing:
 
-* Peer review assignments: [link](https://docs.google.com/spreadsheets/d/e/2PACX-1vQYTps829bmaN-aaJPiBUc3UwtN3e_llI44DKv-rQDsmVRMS1No7XWQqOyNI4ZbFbIvN351Q-G6edCP/pubhtml)
+* Peer review assignments: [link](https://docs.google.com/spreadsheets/d/e/2PACX-1vQYTps829bmaN-aaJPiBUc3UwtN3e_llI44DKv-rQDsmVRMS1No7XWQqOyNI4ZbFbIvN351Q-G6edCP/pubhtml) ("project 2" tab)
 * Form: https://forms.gle/BeQ2HCohrM3puKf26
 * Deadline: 19 September, 23:00 CEST
 
@@ -34,7 +34,7 @@ Project:
 
 Peer reviewing:
 
-* Peer review assignments: [link](https://docs.google.com/spreadsheets/d/e/2PACX-1vQYTps829bmaN-aaJPiBUc3UwtN3e_llI44DKv-rQDsmVRMS1No7XWQqOyNI4ZbFbIvN351Q-G6edCP/pubhtml) (tab "project 1")
+* Peer review assignments: [link](https://docs.google.com/spreadsheets/d/e/2PACX-1vQYTps829bmaN-aaJPiBUc3UwtN3e_llI44DKv-rQDsmVRMS1No7XWQqOyNI4ZbFbIvN351Q-G6edCP/pubhtml) ("project 1" tab)
 * Form: https://forms.gle/KaBMoYhmfeEFmiWb7
 * Deadline: 29 August, 23:00 CEST
 
