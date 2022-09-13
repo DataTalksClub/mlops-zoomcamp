@@ -8,6 +8,23 @@ Remember that to pass the project, you must evaluate 3 peers. If you don't do th
 
 ### Submitting 
 
+
+#### Project Cohort #2
+
+Project:
+
+* Form: https://forms.gle/aj8LHkY7PrWG9XzW6
+* Deadline: 12 September, 23:00 CEST
+
+Peer reviewing:
+
+* Peer review assignments: [link](https://docs.google.com/spreadsheets/d/e/2PACX-1vQYTps829bmaN-aaJPiBUc3UwtN3e_llI44DKv-rQDsmVRMS1No7XWQqOyNI4ZbFbIvN351Q-G6edCP/pubhtml)
+* Form: https://forms.gle/BeQ2HCohrM3puKf26
+* Deadline: 19 September, 23:00 CEST
+
+Project feedback: TBA
+
+
 #### Project Cohort #1
 
 Project:
@@ -23,21 +40,6 @@ Peer reviewing:
 
 Project feedback: TBA
 
-
-#### Project Cohort #2
-
-Project:
-
-* Form: https://forms.gle/aj8LHkY7PrWG9XzW6
-* Deadline: 12 September, 23:00 CEST
-
-Peer reviewing:
-
-* Peer review assignments: TBA
-* Form: https://forms.gle/BeQ2HCohrM3puKf26
-* Deadline: 19 September, 23:00 CEST
-
-Project feedback: TBA
 
 
 ### Problem statement
