@@ -41,6 +41,16 @@ Peer reviewing:
 Project feedback: TBA
 
 
+Getting your hash for peer reviewing:
+
+```python
+from hashlib import sha1
+
+def compute_hash(email):
+    return sha1(email.lower().encode('utf-8')).hexdigest()
+```
+
+
 
 ### Problem statement
 
