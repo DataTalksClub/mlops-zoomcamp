@@ -28,3 +28,19 @@ print(url)
 ```
 
 Example: https://certificate.datatalks.club/mlops-zoomcamp/2022/fe629854d45c559e9c10b3b8458ea392fdeb68a9.pdf
+
+
+## Adding to LinkedIn
+
+You can add your certificate to LinkedIn:
+
+* Log in to your LinkedIn account, then go to your profile.
+* On the right, in the Add profile section dropdown, choose Background and then select the drop-down triangle next to Licenses & Certifications.
+* In Name, enter the name of the course or program.
+* In Issuing Organization, enter "DataTalksClub".
+* (Optional) In Issue Date, enter the time period during which you earned the certification.
+* (Optional) Select the checkbox This certification does not expire. 
+* Put your certificate ID.
+* In Certification URL, enter the URL for your certificate.
+
+[Adapted from here](https://support.edx.org/hc/en-us/articles/206501938-How-can-I-add-my-certificate-to-my-LinkedIn-profile-)
