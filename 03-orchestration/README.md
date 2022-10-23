@@ -91,4 +91,6 @@ Did you take notes? Add them here:
 * [Notes from Maxime M](https://github.com/maxmarkov/mlops-zoomcamp/blob/master/lecture-notes/WEEK-3/03-orchestration.md)
 * [Week3: Prefect introduction and homework notes by Bhagabat](https://github.com/BPrasad123/MLOps_Zoomcamp/tree/main/Week3)
 * [Week 3: Orchestration notes by Ayoub.B](https://github.com/ayoub-berdeddouch/mlops-journey/blob/main/orchestration-03.md)
+* [Introduction to orchestration by Pathik](https://github.com/pathikg/MLOps-Zoomcamp-DataTalks/blob/main/week-03-orchestration/orchestration-intro.md)
+* [Getting started with Prefect by Pathik](https://github.com/pathikg/MLOps-Zoomcamp-DataTalks/blob/main/week-03-orchestration/prefect-intro.md)
 * Send a PR, add your notes above this line
