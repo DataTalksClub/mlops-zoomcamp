@@ -18,3 +18,5 @@ __pycache__/
 **.terraform/
 **.terraform.lock*
 **terraform.tfstate*
+mlops/*
+02-experiment-tracking/mlops02/
