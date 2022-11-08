@@ -20,3 +20,5 @@ __pycache__/
 **terraform.tfstate*
 mlops/*
 02-experiment-tracking/mlops02/
+*mlruns*
+*.pkl

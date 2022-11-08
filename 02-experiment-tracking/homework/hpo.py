@@ -25,11 +25,14 @@ def run(data_path, num_trials):
 
     def objective(params):
 
-        rf = RandomForestRegressor(**params)
-        rf.fit(X_train, y_train)
-        y_pred = rf.predict(X_valid)
-        rmse = mean_squared_error(y_valid, y_pred, squared=False)
+        with mlflow.start_run():
+            mlflow.log_params(params)
+            rf = RandomForestRegressor(**params)
+            rf.fit(X_train, y_train)
+            y_pred = rf.predict(X_valid)
+            rmse = mean_squared_error(y_valid, y_pred, squared=False)
 
+            mlflow.log_metric("rmse", rmse)
         return {'loss': rmse, 'status': STATUS_OK}
 
     search_space = {

@@ -13,6 +13,9 @@ Once you installed the package, run the command `mlflow --version` and check the
 
 What's the version that you have?
 
+pip list | grep mlflow
+mlflow --version
+1.3.0.0
 
 ## Q2. Download and preprocess the data
 
@@ -40,7 +43,7 @@ How many files were saved to `OUTPUT_FOLDER`?
 
 * 1
 * 3
-* 4
+* 4 ***
 * 7
 
 
@@ -56,10 +59,21 @@ Tip 1: don't forget to wrap the training code with a `with mlflow.start_run():` 
 
 Tip 2: don't modify the hyperparameters of the model to make sure that the training will finish quickly.
 
+`
+import mlflow
+
+def mlflow_experiment_registry(experiment_name, data_path):
+    mlflow.set_experiment(experiment_name)
+    mlflow.sklearn.autolog()
+    
+    with mlflow.start_run():
+        rmse = run(data_path)
+        mlflow.log_metric("rmse",rmse)
+`
 How many parameters are automatically logged by MLflow?
 
 * 19
-* 17
+* 17 **
 * 10
 * 20
 
@@ -77,7 +91,8 @@ You should keep the tracking server running to work on the next two exercises th
 
 In addition to `backend-store-uri`, what else do you need to pass to properly configure the server?
 
-* `default-artifact-root`
+--default-artifact-root ./artifacts
+* `default-artifact-root` ***
 * `serve-artifacts`
 * `artifacts-only`
 * `artifacts-destination`
@@ -100,10 +115,25 @@ The idea is to just log the information that you need to answer the question bel
 * the list of hyperparameters that are passed to the `objective` function during the optimization.
 * the RMSE obtained on the validation set (February 2021 data).
 
+```
+def objective(params):
+
+    with mlflow.start_run():
+        mlflow.log_params(params)
+        rf = RandomForestRegressor(**params)
+        rf.fit(X_train, y_train)
+        y_pred = rf.predict(X_valid)
+        rmse = mean_squared_error(y_valid, y_pred, squared=False)
+
+        mlflow.log_metric("rmse", rmse)
+    return {'loss': rmse, 'status': STATUS_OK} 
+```
+
+
 What's the best validation RMSE that you got?
 
 * 6.128
-* 6.628
+* 6.628 ***
 * 7.128
 * 7.628
 
@@ -120,7 +150,7 @@ Tip 2: to register the model you can use the method `mlflow.register_model` and 
 What is the test RMSE of the best model?
 
 * 6.1
-* 6.55
+* 6.55 ***
 * 7.93
 * 15.1
 
