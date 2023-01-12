@@ -224,8 +224,3 @@ Thanks to our friends for spreading the word about the course
   </a>
 </p>
 
-<p align="center">
-  <a href="https://mlopsworld.com/">
-    <img height="75" src="images/mlops-world.png">
-  </a>
-</p>
