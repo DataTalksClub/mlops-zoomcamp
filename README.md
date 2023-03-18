@@ -234,15 +234,11 @@ Thanks to the course sponsors for making it possible to create this course
 </p>
 
 
-
-Thanks to our friends for spreading the word about the course
-
 <p align="center">
-  <a href="https://dphi.tech/">
-    <img height="75" src="https://datatalks.club/images/partners/dphi.png">
-  </a>
-  <a href="https://www.confetti.ai/">
-    <img height="75" src="https://datatalks.club/images/partners/confetti.png">
+  <a href="https://wandb.ai/">
+    <img height="100" src="https://datatalks.club/images/partners/wandb-abb.svg">
   </a>
 </p>
+
+
 
