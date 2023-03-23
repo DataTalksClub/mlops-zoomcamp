@@ -167,10 +167,8 @@ To make discussions in Slack more organized:
 
 ## Instructors
 
-- Larysa Visengeriyeva
 - Cristian Martinez
-- Kevin Kho
-- Theofilos Papapanagiotou 
+- Jeff Hale 
 - Alexey Grigorev
 - Emeli Dral
 - Sejal Vaidya
