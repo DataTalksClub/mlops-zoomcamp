@@ -49,7 +49,7 @@ can take the course at your own pace
 
 ### Objective
 
-Teach practical aspects of productionizing ML services — from collecting requirements to model deployment and monitoring.
+Teach practical aspects of productionizing ML services — from training and experimenting to model deployment and monitoring.
 
 ### Target audience
 
@@ -150,18 +150,6 @@ To make discussions in Slack more organized:
 * End-to-end project with all the things above
 
 [More details](07-project/)
-
-
-### Module 7: Processes
-
-* CRISP-DM, CRISP-ML
-* ML Canvas
-* Data Landscape canvas
-* MLOps Stack Canvas
-* Documentation practices in ML projects (Model Cards Toolkit)
-
-(In October)
-
 
 
 
