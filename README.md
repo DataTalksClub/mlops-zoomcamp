@@ -1,7 +1,7 @@
 # MLOps Zoomcamp
 
 <p align="center">
-  <a href="https://www.youtube.com/watch?v=3T5kUA3eWWc&list=PL3MmuxUbc_hIUISrluw_A7wDSmfOhErJK" target="_blank">
+  <a href="https://airtable.com/shrCb8y6eTbPKwSTL" target="_blank">
     <img src="images/IMG_20230323_134059_927.png">
   </a>
 </p>
