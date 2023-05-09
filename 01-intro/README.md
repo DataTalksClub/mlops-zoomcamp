@@ -141,7 +141,7 @@ Links:
 
 ## 1.6 Homework
 
-More information here: [homework.md](homework.md)
+More information here: TBD
 
 
 ## Notes
