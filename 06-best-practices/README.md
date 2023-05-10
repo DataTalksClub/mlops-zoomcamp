@@ -49,7 +49,7 @@
 ### 6.7 Homework
 
 
-More information here: [homework.md](homework.md)
+More information here: TBD
 
 
 ### Notes
