@@ -78,7 +78,7 @@ If you're not certain about some tools, ask in Slack.
     * [ ] Linter and/or code formatter are used (1 point)
     * [ ] There's a Makefile (1 point)
     * [ ] There are pre-commit hooks (1 point)
-    * [ ] There's a CI/CI pipeline (2 points)
+    * [ ] There's a CI/CD pipeline (2 points)
 
 
 
