@@ -6,4 +6,4 @@
 
 [**Module 1: Introduction**](01-intro)
 
-* Homework (TBD)
+* [Homework](01-intro/homework.md)
