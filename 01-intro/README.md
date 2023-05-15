@@ -141,7 +141,7 @@ Links:
 
 ## 1.6 Homework
 
-More information here: TBD
+More information [here](../cohorts/2023/01-intro/homework.md).
 
 
 ## Notes
