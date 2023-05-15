@@ -40,12 +40,6 @@ can take the course at your own pace
 * Check [FAQ](https://docs.google.com/document/d/12TlBfhIiKtyBv8RnsoJR6F72bkPDGEvPOItJIxaEzE0/edit) if you have problems
 * If you can't find a solution to your problem in FAQ, ask for help in Slack
 
-### 2022 Cohort
-
-- [Leaderboard](https://docs.google.com/spreadsheets/d/e/2PACX-1vRhinTR4Gpxcud-xX0cPBVqboO8RE5gFY7W2dfgfhzECuPFOaCoo9TVWUTxxrSmzvbZY0D-N1vai8RN/pubhtml)
-
-
-
 ## Overview
 
 ### Objective
