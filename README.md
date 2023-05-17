@@ -133,7 +133,7 @@ To make discussions in Slack more organized:
 * Testing: unit, integration
 * Python: linting and formatting
 * Pre-commit hooks and makefiles
-* CI/CD (Github Actions)
+* CI/CD (GitHub Actions)
 * Infrastructure as code (Terraform)
 * Homework
 
