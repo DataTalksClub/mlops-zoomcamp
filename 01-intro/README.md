@@ -85,7 +85,7 @@ export PATH="${HOME}/soft:${PATH}"
 Save it and run the following to make sure the changes are applied:
 
 ```bash
-source .bashrc
+source ~/.bashrc
 ```
 
 
