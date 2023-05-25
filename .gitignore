@@ -18,3 +18,5 @@ __pycache__/
 **.terraform/
 **.terraform.lock*
 **terraform.tfstate*
+
+mlops_jupyter_book/_build
