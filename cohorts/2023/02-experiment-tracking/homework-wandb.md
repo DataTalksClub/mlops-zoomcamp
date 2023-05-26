@@ -80,7 +80,7 @@ Once you have successfully ran the script, navigate the `Overview` section of th
 * 8
 * 10
 
-## Q4. Tune model hyperparameters
+# Q4. Tune model hyperparameters
 
 Now let's try to reduce the validation error by tuning the hyperparameters of the `RandomForestRegressor` using [Weights & Biases Sweeps](https://docs.wandb.ai/guides/sweeps). We have prepared the script `sweep.py` for this exercise in the `homework-wandb` directory.
 
