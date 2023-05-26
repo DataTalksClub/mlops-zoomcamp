@@ -13,7 +13,7 @@ Once you installed the package, run the command `wandb --version` and check the 
 
 What's the version that you have?
 
-## Q2. Download and preprocess the data
+# Q2. Download and preprocess the data
 
 We'll use the Green Taxi Trip Records dataset to predict the amount of tips for each trip. 
 
