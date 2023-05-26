@@ -114,3 +114,16 @@ Now that the model artifact is linked to the Registered Model, which of these in
 * Source run
 * All of these
 * None of these
+
+## Submit the results
+
+* Submit your results here: <google-form-link>
+* You can submit your solution multiple times. In this case, only the last submission will be used
+* If your answer doesn't match options exactly, select the closest one
+
+
+## Deadline
+
+The deadline for submitting is <deadline-date>, <time> (Berlin time). 
+
+After that, the form will be closed.
