@@ -111,5 +111,6 @@ Now that the model artifact is linked to the Registered Model, which of these in
 * Metadata
 * Aliases
 * Metric (MSE)
+* Source run
 * All of these
 * None of these
