@@ -26,13 +26,8 @@ def run_train(data_artifact: str):
     X_val, y_val = load_pickle(os.path.join(data_path, "val.pkl"))
 
     # Define the XGBoost Regressor Mode, train the model and perform prediction
-    rf = RandomForestRegressor(
-        max_depth=config.max_depth,
-        random_state=0,
-        n_estimators=config.n_estimators,
-        criterion=config.criterion,
-        min_weight_fraction_leaf=config.min_weight_fraction_leaf,
-    )
+    # TODO: Pass the parameters n_estimators, min_samples_split, min_samples_leaf from `config` to `RandomForestRegressor`
+    rf = RandomForestRegressor(max_depth=config.max_depth, random_state=0)
     rf.fit(X_train, y_train)
     y_pred = rf.predict(X_val)
 
@@ -45,25 +40,24 @@ SWEEP_CONFIG = {
     "metric": {"name": "MSE", "goal": "minimize"},
     "parameters": {
         "max_depth": {
-            # a uniform distribution between 1 and 20
             "distribution": "int_uniform",
             "min": 1,
             "max": 20,
         },
         "n_estimators": {
-            # a uniform distribution between 1 and 20
+            "distribution": "int_uniform",
+            "min": 10,
+            "max": 50,
+        },
+        "min_samples_split": {
+            "distribution": "int_uniform",
+            "min": 2,
+            "max": 10,
+        },
+        "min_samples_leaf": {
             "distribution": "int_uniform",
             "min": 1,
-            "max": 100,
-        },
-        "criterion": {
-            "values": ["squared_error", "absolute_error", "friedman_mse", "poisson"]
-        },
-        "min_weight_fraction_leaf": {
-            # a uniform distribution between 1 and 20
-            "distribution": "uniform",
-            "min": 0.0,
-            "max": 0.5,
+            "max": 4,
         },
     },
 }
@@ -76,9 +70,10 @@ SWEEP_CONFIG = {
     "--data_artifact",
     help="Address of the Weights & Biases artifact holding the preprocessed data",
 )
-def run_sweep(wandb_project: str, wandb_entity: str, data_artifact: str):
+@click.option("--count", default=5, help="Number of iterations in the sweep")
+def run_sweep(wandb_project: str, wandb_entity: str, data_artifact: str, count: int):
     sweep_id = wandb.sweep(SWEEP_CONFIG, project=wandb_project, entity=wandb_entity)
-    wandb.agent(sweep_id, partial(run_train, data_artifact=data_artifact), count=3)
+    wandb.agent(sweep_id, partial(run_train, data_artifact=data_artifact), count=count)
 
 
 if __name__ == "__main__":

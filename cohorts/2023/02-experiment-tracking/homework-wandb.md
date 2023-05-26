@@ -80,3 +80,18 @@ Once you have successfully ran the script, navigate the `Overview` section of th
 * 8
 * 10
 
+## Q4. Tune model hyperparameters
+
+Now let's try to reduce the validation error by tuning the hyperparameters of the `RandomForestRegressor` using [Weights & Biases Sweeps](https://docs.wandb.ai/guides/sweeps). We have prepared the script `sweep.py` for this exercise in the `homework-wandb` directory.
+
+Your task is to modify `sweep.py` to pass the parameters `n_estimators`, `min_samples_split` and `min_samples_leaf` from `config` to `RandomForestRegressor` inside the `run_train()` function. Then we will run the sweep to figure out not only the best best of hyperparameters for training our model, but also to analyze the most optimum trends in different hyperparameters. We can run the sweep using:
+
+```
+pyhon sweep.py --wandb_project <WANDB_PROJECT_NAME> --wandb_entity <WANDB_USERNAME> --data_artifact "<WANDB_PROJECT_NAME>/<WANDB_USERNAME>/NYC-Taxi:v0"
+```
+
+This command will run the sweep for 5 iterations using the **Bayesian Optimization and HyperBand** method proposed by the paper [BOHB: Robust and Efficient Hyperparameter Optimization at Scale](https://arxiv.org/abs/1807.01774). You can take a look at the sweep on your Weights & Biases dashboard, take a look at the **Parameter Inportance Panel** and the **Parallel Coordinates Plot** to determine, and analyze what is the most optimum trend for the hyperparameter `min_samples_leaf`:
+
+* minimize
+* maximize
+* doesn't correlate
