@@ -52,6 +52,7 @@ def run_data_prep(
     dest_path: str,
     dataset: str = "green",
 ):
+    # Initialize a Weights & Biases run
     wandb.init(project=wandb_project, entity=wandb_entity, job_type="preprocess")
 
     # Load parquet files

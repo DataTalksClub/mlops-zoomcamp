@@ -42,3 +42,33 @@ Once you navigate to the `Files` tab of your artifact on your Weights & Biases p
 * 154 kB
 * 54 MB
 * 154 MB
+
+# Q3. Train a model with Weights & Biases logging
+
+We will train a `RandomForestRegressor` (from Scikit-Learn) on the taxi dataset.
+
+We have prepared the training script `train.py` for this exercise, which can be also found in the folder `homework-wandb`. 
+
+The script will:
+
+* initialize a Weights & Biases run.
+* load the preprocessed datasets by fetching them from the Weights & Biases artifact previously created,
+* train the model on the training set,
+* calculate the MSE score on the validation set and log it to Weights & Biases,
+* save the trained model and log it to Weights & Biases as a model artifact.
+
+Your task is to modify the script to enable to add Weights & Biases logging, execute the script and then check the Weights & Biases run UI to check that the experiment run was properly tracked.
+
+TODO 1: log `mse` to Weights & Biases under the key `"MSE"`
+
+TODO 2: log `regressor.pkl` as an artifact of type `model`, refer to the [official docs](https://docs.wandb.ai/guides/artifacts) in order to know more about logging artifacts.
+
+You can run the script using:
+
+```
+pyhon train.py --wandb_project <WANDB_PROJECT_NAME> --wandb_entity <WANDB_USERNAME> --data_artifact "<WANDB_PROJECT_NAME>/<WANDB_USERNAME>/NYC-Taxi:v0"
+```
+
+Tip 1: You can find the artifact address under the `Usage` tab in the respective artifact's page.
+
+Tip 2: don't modify the hyperparameters of the model to make sure that the training will finish quickly.
