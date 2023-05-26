@@ -72,3 +72,11 @@ pyhon train.py --wandb_project <WANDB_PROJECT_NAME> --wandb_entity <WANDB_USERNA
 Tip 1: You can find the artifact address under the `Usage` tab in the respective artifact's page.
 
 Tip 2: don't modify the hyperparameters of the model to make sure that the training will finish quickly.
+
+Once you have successfully ran the script, navigate the `Overview` section of the run in the Weights & Biases UI and scroll down to the `Configs`. What is the value of the `max_depth` parameter:
+
+* 4
+* 6
+* 8
+* 10
+
