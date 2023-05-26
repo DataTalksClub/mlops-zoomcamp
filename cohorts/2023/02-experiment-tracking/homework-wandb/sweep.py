@@ -34,6 +34,13 @@ def run_train(data_artifact: str):
     mse = mean_squared_error(y_val, y_pred, squared=False)
     wandb.log({"MSE": mse})
 
+    with open("regressor.pkl", "wb") as f:
+        pickle.dump(rf, f)
+
+    artifact = wandb.Artifact(f"{wandb.run.id}-model", type="model")
+    artifact.add_file("regressor.pkl")
+    wandb.log_artifact(artifact)
+
 
 SWEEP_CONFIG = {
     "method": "bayes",

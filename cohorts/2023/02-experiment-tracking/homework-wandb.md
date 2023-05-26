@@ -90,8 +90,26 @@ Your task is to modify `sweep.py` to pass the parameters `n_estimators`, `min_sa
 pyhon sweep.py --wandb_project <WANDB_PROJECT_NAME> --wandb_entity <WANDB_USERNAME> --data_artifact "<WANDB_PROJECT_NAME>/<WANDB_USERNAME>/NYC-Taxi:v0"
 ```
 
-This command will run the sweep for 5 iterations using the **Bayesian Optimization and HyperBand** method proposed by the paper [BOHB: Robust and Efficient Hyperparameter Optimization at Scale](https://arxiv.org/abs/1807.01774). You can take a look at the sweep on your Weights & Biases dashboard, take a look at the **Parameter Inportance Panel** and the **Parallel Coordinates Plot** to determine, and analyze what is the most optimum trend for the hyperparameter `min_samples_leaf`:
+This command will run the sweep for 5 iterations using the **Bayesian Optimization and HyperBand** method proposed by the paper [BOHB: Robust and Efficient Hyperparameter Optimization at Scale](https://arxiv.org/abs/1807.01774). You can take a look at the sweep on your Weights & Biases dashboard, take a look at the **Parameter Inportance Panel** and the **Parallel Coordinates Plot** to determine, and analyze which hyperparameter is the most important:
 
-* minimize
-* maximize
-* doesn't correlate
+* `max_depth`
+* `n_estimators`
+* `min_samples_split`
+* `min_samples_leaf`
+
+# Q5. Link the best model to the model registry
+
+Now that we have obtained the optimal set of hyperparameters and trained the best model, we can assume that we are ready to test some of these models in production. In this exercise, you'll create a model registry and link the best model from the Sweep to the model registry.
+
+First, you will need to create a Registered Model to hold all the candidate models for your particular modeling task. You can refer to [this section](https://docs.wandb.ai/guides/models/walkthrough#1-create-a-new-registered-model) of the official docs to learn how to create a registered model using the Weights & Biases UI.
+
+Once you have created the Registered Model successfully, you can navigate to the best run of your sweep, navigate to the model artifact created by the particular run, and click on the Link to Registry option from the UI. This would link the model artifact to the Registered Model. You can choose to add some suitable aliases for the Registered Model, such as `production`, `best`, etc.
+
+Now that the model artifact is linked to the Registered Model, which of these information do we see on the Registered Model UI?
+
+* Versioning
+* Metadata
+* Aliases
+* Metric (MSE)
+* All of these
+* None of these
