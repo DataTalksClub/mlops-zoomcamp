@@ -7,3 +7,8 @@
 [**Module 1: Introduction**](01-intro)
 
 * [Homework](01-intro/homework.md)
+
+[**Module 2: Experiment Tracking**](02-experiment-tracking/)
+
+* [Homework](02-experiment-tracking/homework.md)
+* [Workshop: Weights & Biases](02-experiment-tracking/wandb.md)

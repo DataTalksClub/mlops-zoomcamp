@@ -1,3 +1,7 @@
+## Weights & Biases workshop
+
+* Registration link: https://eventbrite.com/e/638021528567
+
 ## Homework with Weights & Biases
 
 The goal of this homework is to get familiar with Weights & Biases for experiment tracking, model management, hyperparameter optimization, and many more.
