@@ -74,7 +74,7 @@ TODO 2: log `regressor.pkl` as an artifact of type `model`, refer to the [offici
 You can run the script using:
 
 ```bash
-pyhon train.py \
+python train.py \
   --wandb_project <WANDB_PROJECT_NAME> \
   --wandb_entity <WANDB_USERNAME> \
   --data_artifact "<WANDB_PROJECT_NAME>/<WANDB_USERNAME>/NYC-Taxi:v0"
@@ -98,7 +98,7 @@ Now let's try to reduce the validation error by tuning the hyperparameters of th
 Your task is to modify `sweep.py` to pass the parameters `n_estimators`, `min_samples_split` and `min_samples_leaf` from `config` to `RandomForestRegressor` inside the `run_train()` function. Then we will run the sweep to figure out not only the best best of hyperparameters for training our model, but also to analyze the most optimum trends in different hyperparameters. We can run the sweep using:
 
 ```bash
-pyhon sweep.py \
+python sweep.py \
   --wandb_project <WANDB_PROJECT_NAME> \
   --wandb_entity <WANDB_USERNAME> \
   --data_artifact "<WANDB_PROJECT_NAME>/<WANDB_USERNAME>/NYC-Taxi:v0"
