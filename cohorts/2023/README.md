@@ -7,6 +7,7 @@
 [**Module 1: Introduction**](01-intro)
 
 * [Homework](01-intro/homework.md)
+* [Solution](01-intro/homework.ipynb)
 
 [**Module 2: Experiment Tracking**](02-experiment-tracking/)
 
