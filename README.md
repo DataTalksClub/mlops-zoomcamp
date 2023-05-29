@@ -96,6 +96,8 @@ To make discussions in Slack more organized:
 
 [More details](02-experiment-tracking)
 
+[**Weights and biases workshop**](cohorts/2023/02-experiment-tracking/wandb.md) 
+
 
 ### [Module 3: Orchestration and ML Pipelines](03-orchestration)
 
