@@ -64,7 +64,7 @@ difference between using Jupyter with VS code and without
 
 ## 2.7 Homework
 
-More information here: TBD
+More information [here](../cohorts/2023/02-experiment-tracking/homework.md).
 
 ## Weights & Biases Workshop
 
