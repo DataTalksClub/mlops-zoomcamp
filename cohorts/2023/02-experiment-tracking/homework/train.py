@@ -15,7 +15,7 @@ from mlflow.tracking import MlflowClient
 from mlflow import log_metric, log_param, log_artifacts
 
 #Set the MLflow server and backend and artifact stores
-mlflow.set_tracking_uri("http://193.196.36.191:5000")
+mlflow.set_tracking_uri("http://localhost:5000")
 
 mlflow.set_experiment("mlops_zoomcamp")
 
