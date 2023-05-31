@@ -141,7 +141,7 @@ Now explore your best model in the model registry using UI. What information doe
 
 ## Submit the results
 
-* Submit your results here: coming soon
+* Submit your results here: https://forms.gle/Fy1pvrPEKd4yjz3s6
 * You can submit your solution multiple times. In this case, only the last submission will be used
 * If your answer doesn't match options exactly, select the closest one
 
