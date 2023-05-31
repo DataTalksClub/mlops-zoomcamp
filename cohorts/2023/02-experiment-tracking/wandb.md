@@ -1,6 +1,8 @@
 ## Weights & Biases workshop
 
-* Registration link: https://eventbrite.com/e/638021528567
+* Video: https://www.youtube.com/watch?v=yNyqFMwEyL4
+* Github repository: https://wandb.me/mlops-zoomcamp-github
+
 
 ## Homework with Weights & Biases
 
