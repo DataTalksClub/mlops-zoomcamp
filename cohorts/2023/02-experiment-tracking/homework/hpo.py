@@ -20,7 +20,7 @@ def load_pickle(filename):
 @click.command()
 @click.option(
     "--data_path",
-    default="./output",
+    default="data/processed",
     help="Location where the processed NYC taxi trip data was saved"
 )
 @click.option(
@@ -34,21 +34,25 @@ def run_optimization(data_path: str, num_trials: int):
     X_val, y_val = load_pickle(os.path.join(data_path, "val.pkl"))
 
     def objective(trial):
-        params = {
-            'n_estimators': trial.suggest_int('n_estimators', 10, 50, 1),
-            'max_depth': trial.suggest_int('max_depth', 1, 20, 1),
-            'min_samples_split': trial.suggest_int('min_samples_split', 2, 10, 1),
-            'min_samples_leaf': trial.suggest_int('min_samples_leaf', 1, 4, 1),
-            'random_state': 42,
-            'n_jobs': -1
-        }
+        with mlflow.start_run():
+            params = {
+                'n_estimators': trial.suggest_int('n_estimators', 10, 50, 1),
+                'max_depth': trial.suggest_int('max_depth', 1, 20, 1),
+                'min_samples_split': trial.suggest_int('min_samples_split', 2, 10, 1),
+                'min_samples_leaf': trial.suggest_int('min_samples_leaf', 1, 4, 1),
+                'random_state': 42,
+                'n_jobs': -1
+            }
 
-        rf = RandomForestRegressor(**params)
-        rf.fit(X_train, y_train)
-        y_pred = rf.predict(X_val)
-        rmse = mean_squared_error(y_val, y_pred, squared=False)
+            mlflow.log_params(params)
 
-        return rmse
+            rf = RandomForestRegressor(**params)
+            rf.fit(X_train, y_train)
+            y_pred = rf.predict(X_val)
+            rmse = mean_squared_error(y_val, y_pred, squared=False)
+            mlflow.log_metric("val_rmse", rmse)
+
+            return rmse
 
     sampler = TPESampler(seed=42)
     study = optuna.create_study(direction="minimize", sampler=sampler)
