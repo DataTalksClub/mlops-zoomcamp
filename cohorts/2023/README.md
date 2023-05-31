@@ -13,7 +13,7 @@
 [**Module 2: Experiment Tracking**](02-experiment-tracking/)
 
 * [Homework](02-experiment-tracking/homework.md)
-* [Workshop: Weights & Biases](02-experiment-tracking/wandb.md)\
+* [Workshop: Weights & Biases](02-experiment-tracking/wandb.md)
 
 [**Module 3: Orchestration and ML pipelines**](03-orchestration/)
 
