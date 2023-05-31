@@ -79,7 +79,7 @@ You can run the script using:
 python train.py \
   --wandb_project <WANDB_PROJECT_NAME> \
   --wandb_entity <WANDB_USERNAME> \
-  --data_artifact "<WANDB_PROJECT_NAME>/<WANDB_USERNAME>/NYC-Taxi:v0"
+  --data_artifact "<WANDB_USERNAME>/<WANDB_PROJECT_NAME>/NYC-Taxi:v0"
 ```
 
 Tip 1: You can find the artifact address under the `Usage` tab in the respective artifact's page.
