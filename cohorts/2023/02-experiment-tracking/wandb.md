@@ -35,6 +35,14 @@ We'll use the Green Taxi Trip Records dataset to predict the amount of tips for 
 
 Download the data for January, February and March 2022 in parquet format from [here](https://www1.nyc.gov/site/tlc/about/tlc-trip-record-data.page).
 
+**Tip:** In case you're on [GitHub Codespaces](https://github.com/features/codespaces) or [gitpod.io](https://gitpod.io), you can open up the terminal and run the following commands to download the data:
+
+```shell
+wget https://d37ci6vzurychx.cloudfront.net/trip-data/green_tripdata_2022-01.parquet
+wget https://d37ci6vzurychx.cloudfront.net/trip-data/green_tripdata_2022-02.parquet
+wget https://d37ci6vzurychx.cloudfront.net/trip-data/green_tripdata_2022-03.parquet
+```
+
 Use the script `preprocess_data.py` located in the folder [`homework-wandb`](homework-wandb) to preprocess the data.
 
 The script will:
