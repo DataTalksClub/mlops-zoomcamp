@@ -1,10 +1,14 @@
 ## Weights & Biases workshop
 
-* Registration link: https://eventbrite.com/e/638021528567
+* Video: https://www.youtube.com/watch?v=yNyqFMwEyL4
+* Github repository: https://wandb.me/mlops-zoomcamp-github
+
 
 ## Homework with Weights & Biases
 
 The goal of this homework is to get familiar with Weights & Biases for experiment tracking, model management, hyperparameter optimization, and many more.
+
+Befor getting started with the homework, you need to have a Weights & Biases account. You can do so by visiting [wandb.ai/site](https://wandb.ai/site) and clicking on the **Sign Up** button.
 
 # Q1. Install the Package
 
@@ -12,6 +16,14 @@ To get started with Weights & Biases you'll need to install the appropriate Pyth
 
 For this we recommend creating a separate Python environment, for example, you can use [conda environments](https://docs.conda.io/projects/conda/en/latest/user-guide/getting-started.html#managing-envs), 
 and then install the package there with `pip` or `conda`.
+
+Following are the libraries you need to install:
+
+* `pandas`
+* `matplotlib`
+* `scikit-learn`
+* `pyarrow`
+* `wandb`
 
 Once you installed the package, run the command `wandb --version` and check the output.
 
@@ -22,6 +34,14 @@ What's the version that you have?
 We'll use the Green Taxi Trip Records dataset to predict the amount of tips for each trip. 
 
 Download the data for January, February and March 2022 in parquet format from [here](https://www1.nyc.gov/site/tlc/about/tlc-trip-record-data.page).
+
+**Tip:** In case you're on [GitHub Codespaces](https://github.com/features/codespaces) or [gitpod.io](https://gitpod.io), you can open up the terminal and run the following commands to download the data:
+
+```shell
+wget https://d37ci6vzurychx.cloudfront.net/trip-data/green_tripdata_2022-01.parquet
+wget https://d37ci6vzurychx.cloudfront.net/trip-data/green_tripdata_2022-02.parquet
+wget https://d37ci6vzurychx.cloudfront.net/trip-data/green_tripdata_2022-03.parquet
+```
 
 Use the script `preprocess_data.py` located in the folder [`homework-wandb`](homework-wandb) to preprocess the data.
 
@@ -77,7 +97,7 @@ You can run the script using:
 python train.py \
   --wandb_project <WANDB_PROJECT_NAME> \
   --wandb_entity <WANDB_USERNAME> \
-  --data_artifact "<WANDB_PROJECT_NAME>/<WANDB_USERNAME>/NYC-Taxi:v0"
+  --data_artifact "<WANDB_USERNAME>/<WANDB_PROJECT_NAME>/NYC-Taxi:v0"
 ```
 
 Tip 1: You can find the artifact address under the `Usage` tab in the respective artifact's page.
@@ -101,7 +121,7 @@ Your task is to modify `sweep.py` to pass the parameters `n_estimators`, `min_sa
 python sweep.py \
   --wandb_project <WANDB_PROJECT_NAME> \
   --wandb_entity <WANDB_USERNAME> \
-  --data_artifact "<WANDB_PROJECT_NAME>/<WANDB_USERNAME>/NYC-Taxi:v0"
+  --data_artifact "<WANDB_USERNAME>/<WANDB_PROJECT_NAME>/NYC-Taxi:v0"
 ```
 
 This command will run the sweep for 5 iterations using the **Bayesian Optimization and HyperBand** method proposed by the paper [BOHB: Robust and Efficient Hyperparameter Optimization at Scale](https://arxiv.org/abs/1807.01774). You can take a look at the sweep on your Weights & Biases dashboard, take a look at the **Parameter Inportance Panel** and the **Parallel Coordinates Plot** to determine, and analyze which hyperparameter is the most important:
