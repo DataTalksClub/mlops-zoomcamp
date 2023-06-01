@@ -8,12 +8,22 @@
 
 The goal of this homework is to get familiar with Weights & Biases for experiment tracking, model management, hyperparameter optimization, and many more.
 
+Befor getting started with the homework, you need to have a Weights & Biases account. You can do so by visiting [wandb.ai/site](https://wandb.ai/site) and clicking on the **Sign Up** button.
+
 # Q1. Install the Package
 
 To get started with Weights & Biases you'll need to install the appropriate Python package.
 
 For this we recommend creating a separate Python environment, for example, you can use [conda environments](https://docs.conda.io/projects/conda/en/latest/user-guide/getting-started.html#managing-envs), 
 and then install the package there with `pip` or `conda`.
+
+Following are the libraries you need to install:
+
+* `pandas`
+* `matplotlib`
+* `scikit-learn`
+* `pyarrow`
+* `wandb`
 
 Once you installed the package, run the command `wandb --version` and check the output.
 
@@ -24,6 +34,14 @@ What's the version that you have?
 We'll use the Green Taxi Trip Records dataset to predict the amount of tips for each trip. 
 
 Download the data for January, February and March 2022 in parquet format from [here](https://www1.nyc.gov/site/tlc/about/tlc-trip-record-data.page).
+
+**Tip:** In case you're on [GitHub Codespaces](https://github.com/features/codespaces) or [gitpod.io](https://gitpod.io), you can open up the terminal and run the following commands to download the data:
+
+```shell
+wget https://d37ci6vzurychx.cloudfront.net/trip-data/green_tripdata_2022-01.parquet
+wget https://d37ci6vzurychx.cloudfront.net/trip-data/green_tripdata_2022-02.parquet
+wget https://d37ci6vzurychx.cloudfront.net/trip-data/green_tripdata_2022-03.parquet
+```
 
 Use the script `preprocess_data.py` located in the folder [`homework-wandb`](homework-wandb) to preprocess the data.
 
