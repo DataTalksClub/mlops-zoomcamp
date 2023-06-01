@@ -8,6 +8,8 @@
 
 The goal of this homework is to get familiar with Weights & Biases for experiment tracking, model management, hyperparameter optimization, and many more.
 
+Befor getting started with the homework, you need to have a Weights & Biases account. You can do so by visiting [wandb.ai/site](https://wandb.ai/site) and clicking on the **Sign Up** button.
+
 # Q1. Install the Package
 
 To get started with Weights & Biases you'll need to install the appropriate Python package.
