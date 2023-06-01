@@ -17,6 +17,14 @@ To get started with Weights & Biases you'll need to install the appropriate Pyth
 For this we recommend creating a separate Python environment, for example, you can use [conda environments](https://docs.conda.io/projects/conda/en/latest/user-guide/getting-started.html#managing-envs), 
 and then install the package there with `pip` or `conda`.
 
+Following are the libraries you need to install:
+
+* `pandas`
+* `matplotlib`
+* `scikit-learn`
+* `pyarrow`
+* `wandb`
+
 Once you installed the package, run the command `wandb --version` and check the output.
 
 What's the version that you have?
