@@ -41,7 +41,7 @@ This section of the repo contains Python code to accompany the videos that show 
 
 ## 3.7 Homework
 
-Coming soon!
+More information [here](../cohorts/2023/03-orchestration/homework.md).
 
 ## Quick setup
 
