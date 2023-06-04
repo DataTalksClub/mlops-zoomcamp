@@ -140,13 +140,13 @@ What is the name of the second step in the Automation creation process?
 
 ## Submit the results
 
-* Submit your results here: TBA
+* Submit your results here: https://forms.gle/nVSYH5fGGamdY1LaA
 * You can submit your solution multiple times. In this case, only the last submission will be used
 * If your answer doesn't match options exactly, select the closest one
 
 
 ## Deadline
 
-The deadline for submitting is TBA, 23:00 CEST (Berlin time). 
+The deadline for submitting is 14 June, 23:00 CEST (Berlin time). 
 
 After that, the form will be closed.
