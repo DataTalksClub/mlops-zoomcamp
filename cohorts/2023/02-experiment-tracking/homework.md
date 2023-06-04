@@ -148,6 +148,6 @@ Now explore your best model in the model registry using UI. What information doe
 
 ## Deadline
 
-The deadline for submitting is 1 June 2023 (Thursday), 23:00 CEST (Berlin time). 
+The deadline for submitting is 4 June 2023 (Sunday), 22:00 CEST (Berlin time). 
 
 After that, the form will be closed.
