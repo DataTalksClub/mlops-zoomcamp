@@ -147,6 +147,6 @@ What is the name of the second step in the Automation creation process?
 
 ## Deadline
 
-The deadline for submitting is 14 June, 23:00 CEST (Berlin time). 
+The deadline for submitting is 12 June (Monday), 23:00 CEST (Berlin time). 
 
 After that, the form will be closed.
