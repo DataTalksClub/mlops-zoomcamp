@@ -6,33 +6,33 @@
   "units": [
     {
       "number": 1,
-      "title": "Negative engineering and workflow orchestration",
-      "youtube": "https://www.youtube.com/watch?v=eKzCjNXoCTc"
+      "title": "Introdution to Workflow Orchestration",
+      "youtube": "https://www.youtube.com/watch?v=Cqb7wyaNF08"
     },
     {
       "number": 2,
-      "title": "Introduction to Prefect 2.0",
-      "youtube": "https://www.youtube.com/watch?v=Yb6NJwI7bXw"
+      "title": "Introduction to Prefect",
+      "youtube": "https://www.youtube.com/watch?v=rTUBTvXvXvM"
     },
     {
       "number": 3,
-      "title": "First Prefect flow and basics",
-      "youtube": "https://www.youtube.com/watch?v=MCFpURG506w"
+      "title": "Prefect Workflow",
+      "youtube": "https://www.youtube.com/watch?v=x3bV8yMKjtc"
     },
     {
       "number": 4,
-      "title": "Remote Prefect Orion deployment",
-      "youtube": "https://www.youtube.com/watch?v=ComkSIAB0k4"
+      "title": "Deploying Your Workflow",
+      "youtube": "https://www.youtube.com/watch?v=3YjagezFhOo"
     },
     {
       "number": 5,
-      "title": "Deployment of Prefect flow",
-      "youtube": "https://www.youtube.com/watch?v=xw9JfaWPPps"
+      "title": "Working with Deployments",
+      "youtube": "https://www.youtube.com/watch?v=jVmaaqs63O8"
     },
     {
       "number": 6,
-      "title": "MLOps Zoomcamp 3.6 - (Optional) Work queues and agents",
-      "youtube": "https://www.youtube.com/watch?v=oDSf0ThKsso"
+      "title": "Prefect Cloud (optional)",
+      "youtube": "https://www.youtube.com/watch?v=y89Ww85EUdo"
     },
     {
       "number": 7,
