@@ -1,48 +1,65 @@
 # 5. Model Monitoring
 
-## 5.1 Monitoring for ML-based services
+# 5. Model Monitoring
 
-<a href="https://www.youtube.com/watch?v=gMiT11Bp05A&list=PL3MmuxUbc_hIUISrluw_A7wDSmfOhErJK">
+## 5.1 Intro to ML monitoring
+
+<a href="https://www.youtube.com/watch?v=IjNrkqMYQeQ&list=PL3MmuxUbc_hIUISrluw_A7wDSmfOhErJK">
   <img src="images/thumbnail-5-01.jpg">
 </a>
 
 
-[Slides](https://drive.google.com/file/d/1wcMU75ZcNNJie4ELjsKPkITIL93wHykt/view?usp=sharing)
 
+## 5.2 Environment setup
 
-## 5.2 Setting up the environment
-
-<a href="https://www.youtube.com/watch?v=VkkpVXW53bo&list=PL3MmuxUbc_hIUISrluw_A7wDSmfOhErJK">
+<a href="https://www.youtube.com/watch?v=fytrmPbcLhI&list=PL3MmuxUbc_hIUISrluw_A7wDSmfOhErJK">
   <img src="images/thumbnail-5-02.jpg">
 </a>
 
 
 
-## 5.3 Creating a prediction service and simulating traffic
+## 5.3 Prepare reference and model
 
-<a href="https://www.youtube.com/watch?v=umQ3Mo5G1o8&list=PL3MmuxUbc_hIUISrluw_A7wDSmfOhErJK">
+<a href="https://www.youtube.com/watch?v=kP3lzh_HfWY&list=PL3MmuxUbc_hIUISrluw_A7wDSmfOhErJK">
   <img src="images/thumbnail-5-03.jpg">
 </a>
 
 
 
-## 5.4 Realtime monitoring walktrough (Prometheus, Evidently, Grafana)
+## 5.4 Evidently metrics calculation
 
-<a href="https://www.youtube.com/watch?v=r_m4VFEJ8yY&list=PL3MmuxUbc_hIUISrluw_A7wDSmfOhErJK">
+<a href="https://www.youtube.com/watch?v=-c4iumyZMyw&list=PL3MmuxUbc_hIUISrluw_A7wDSmfOhErJK">
   <img src="images/thumbnail-5-04.jpg">
 </a>
 
 
 
-## 5.5 Batch monitoring walktrough (Prefect, MongoDB, Evidently)
+## 5.5 Dummy monitoring
 
-<a href="https://www.youtube.com/watch?v=KefdYuue_FE&list=PL3MmuxUbc_hIUISrluw_A7wDSmfOhErJK">
+<a href="https://www.youtube.com/watch?v=SQ0jBwd_3kk&list=PL3MmuxUbc_hIUISrluw_A7wDSmfOhErJK">
   <img src="images/thumbnail-5-05.jpg">
 </a>
 
 
 
-## 5.6 Homework
+## 5.6 Save Grafana Dashboard
+
+<a href="https://www.youtube.com/watch?v=s3G4PMsOMOA&list=PL3MmuxUbc_hIUISrluw_A7wDSmfOhErJK">
+  <img src="images/thumbnail-5-06.jpg">
+</a>
+
+
+
+## 5.7 Debugging with test suites and reports
+
+<a href="https://www.youtube.com/watch?v=sNSk3ojISh&list=PL3MmuxUbc_hIUISrluw_A7wDSmfOhErJK">
+  <img src="images/thumbnail-5-07.jpg">
+</a>
+
+
+
+## 5.8 Homework
+
 
 More information here: TBD
 

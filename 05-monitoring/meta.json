@@ -6,31 +6,41 @@
   "units": [
     {
       "number": 1,
-      "title": "Monitoring for ML-based services",
-      "youtube": "https://www.youtube.com/watch?v=gMiT11Bp05A"
+      "title": "Intro to ML monitoring",
+      "youtube": "https://www.youtube.com/watch?v=IjNrkqMYQeQ"
     },
     {
       "number": 2,
-      "title": "Setting up the environment",
-      "youtube": "https://www.youtube.com/watch?v=VkkpVXW53bo"
+      "title": "Environment setup",
+      "youtube": "https://www.youtube.com/watch?v=fytrmPbcLhI"
     },
     {
       "number": 3,
-      "title": "Creating a prediction service and simulating traffic",
-      "youtube": "https://www.youtube.com/watch?v=umQ3Mo5G1o8"
+      "title": "Prepare reference and model",
+      "youtube": "https://www.youtube.com/watch?v=kP3lzh_HfWY"
     },
     {
       "number": 4,
-      "title": "Realtime monitoring walktrough (Prometheus, Evidently, Grafana)",
-      "youtube": "https://www.youtube.com/watch?v=r_m4VFEJ8yY"
+      "title": "Evidently metrics calculation",
+      "youtube": "https://www.youtube.com/watch?v=-c4iumyZMyw"
     },
     {
       "number": 5,
-      "title": "Batch monitoring walktrough (Prefect, MongoDB, Evidently)",
-      "youtube": "https://www.youtube.com/watch?v=KefdYuue_FE"
+      "title": "Dummy monitoring",
+      "youtube": "https://www.youtube.com/watch?v=SQ0jBwd_3kk"
     },
     {
       "number": 6,
+      "title": "Save Grafana Dashboard",
+      "youtube": "https://www.youtube.com/watch?v=s3G4PMsOMOA"
+    },
+    {
+      "number": 7,
+      "title": "Debugging with test suites and reports",
+      "youtube": "https://www.youtube.com/watch?v=sNSk3ojISh"
+    },
+    {
+      "number": 8,
       "title": "Homework",
       "youtube": ""
     }
