@@ -86,9 +86,9 @@ You need following tools installed:
 
 Note: all actions expected to be executed in repo folder.
 
-- Create virtual environment and activate it (eg. `python -m venv venv && source ./venv/bin/activate`)
+- Create virtual environment and activate it (eg. `python -m venv venv && source ./venv/bin/activate` or `conda create -n venv python=3.11 && conda activate venv`)
 - Install required packages `pip install -r requirements.txt`
-- Run `python prepare.py` for downloading datasets
+- Run `baseline_model_nyc_taxi_data.ipynb` for downloading datasets, training model and creating reference dataset 
 
 ## Monitoring Example
 
@@ -100,35 +100,36 @@ docker-compose up
 ```
 
 It will start following services:
-- `prometheus` - TSDB for metrics
-- `grafana` - Visual tool for metrics
-- `mongo` - MongoDB, for storing raw data, predictions, targets and profile reports
-- `evidently_service` - Evindently RT-monitoring service (draft example)
-- `prediction_service` - main service, which makes predictions
+- `db` - PostgreSQL, for storing metrics data
+- `adminer` - database management tool
+- `grafana` - Visual dashboarding tool 
+
 
 ### Sending data
 
-To start sending data to service, execute:
+To calculate evidently metrics with prefect and send them to database, execute:
 ```bash
-python send_data.py
+python evidently_metrics_calculation.py
 ```
 
-This script will send every second single row from dataset to prediction service along with creating file `target.csv` with actual results (so it can be loaded after)
+This script will simulate batch monitoring. Every 10 secinds it will collect data for a daily batch, cacluate metrics and insert them into database. This metrics will be avaliable in Grafana in preconfigured dashboard. 
 
-## Batch Monitoring Example
+### Accsess dashboard
 
-After you stop sending data to service, you can run batch monitoring pipeline (using Prefect) by running script:
+- In your browser go to a `localhost:3000`
+The default username and password are `admin`
 
+- Then navigate to `General/Home` menu and click on `Home`.
+
+- In the folder `General` you will see `New Dashboard`. Click on it to access preconfigured dashboard.
+
+### Ad-hoc debugging
+
+Run `debugging_nyc_taxi_data.ipynb` to see how you can perform a debugging with help of Evidently `TestSuites` and `Reports`
+
+### Stopping services
+
+To stop all services, execute:
 ```bash
-python prefect_example.py
+docker-compose down
 ```
-
-This script will:
-- load `target.csv` to MongoDB
-- download dataset from MongoDB
-- Run Evidently Model Profile and Evidently Report on this data
-- Save Profile data back to MongoDB
-- Save Report to `evidently_report_example.html`
-
-You can look at Prefect steps in Prefect Orion UI
-(to start it execute `prefect orion start`)
