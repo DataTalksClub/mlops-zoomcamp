@@ -87,7 +87,7 @@ COMING SOON
 
 ## 4.8 Homework
 
-More information here: TBD
+More information [here](../cohorts/2023/04-deployment/homework.md).
 
 
 ## Notes
