@@ -18,7 +18,6 @@ This section of the repo contains Python code to accompany the videos that show 
 <a href="https://www.youtube.com/watch?v=x3bV8yMKjtc&list=PL3MmuxUbc_hIUISrluw_A7wDSmfOhErJK">
   <img src="images/thumbnail-3-03.jpg">
 
-
 ## 3.4 Deploying Your Workflow
 
 <a href="https://www.youtube.com/watch?v=3YjagezFhOo&list=PL3MmuxUbc_hIUISrluw_A7wDSmfOhErJK">
@@ -31,13 +30,11 @@ This section of the repo contains Python code to accompany the videos that show 
   <img src="images/thumbnail-3-05.jpg">
 </a>
 
-
 ## 3.6 Prefect Cloud (optional)
 
 <a href="https://www.youtube.com/watch?v=y89Ww85EUdo&list=PL3MmuxUbc_hIUISrluw_A7wDSmfOhErJK">
   <img src="images/thumbnail-3-06.jpg">
 </a>
-
 
 ## 3.7 Homework
 
@@ -55,7 +52,7 @@ pip install -r requirements.txt
 
 ### Start the Prefect server locally
 
-Create another window and activate your conda environment. Start the Prefect API server locally with 
+Create another window and activate your conda environment. Start the Prefect API server locally with
 
 ```bash
 prefect server start
@@ -63,7 +60,7 @@ prefect server start
 
 ### Alternative to self-hosted server use Prefect Cloud for added capabilties
 
-Signup and use for free at https://app.prefect.cloud
+Signup and use for free at <https://app.prefect.cloud>
 
 Authenticate through the terminal with
 
@@ -73,14 +70,13 @@ prefect cloud login
 
 Use your [Prefect profile](https://docs.prefect.io/latest/concepts/settings/) to switch between a self-hosted server and Cloud.
 
-
 ## Notes
 
 Did you take notes? Add them here:
 
+* [Prefect local deployment using Google Cloud Storage as data storage](https://github.com/ugm2/mlops-zoomcamp-workshop/tree/main/03-workflow-orchestration/3.5)
 * Send a PR, add your notes above this line
-
 
 ### Notes 2022 Edition
 
-To read the notes from the previous edition, see [here](../cohorts/2022/03-orchestration/README.md) 
+To read the notes from the previous edition, see [here](../cohorts/2022/03-orchestration/README.md)
