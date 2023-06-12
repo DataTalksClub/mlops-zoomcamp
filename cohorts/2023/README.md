@@ -21,9 +21,9 @@
 
 * [Homework](03-orchestration/homework.md)
 
-**Module 4**
+[**Module 4: Model Deployment**](04-deployment)
 
-* TBA
+* [Homework](04-deployment/homework.md)
 
 **Module 5**
 
