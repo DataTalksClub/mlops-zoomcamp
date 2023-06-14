@@ -76,7 +76,7 @@ Did you take notes? Add them here:
 
 * [Prefect local deployment using Google Cloud Storage as data storage](https://github.com/ugm2/mlops-zoomcamp-workshop/tree/main/03-workflow-orchestration/3.5)
 * Notes by Sagar Thacker
-  * [Inrtoduction to Workflow Orchestratio & Prefect](https://sagarthacker.com/posts/mlops/intro_workflow_orchestration.html)
+  * [Inrtoduction to Workflow Orchestration & Prefect](https://sagarthacker.com/posts/mlops/intro_workflow_orchestration.html)
   * [Prefect Blocks](https://sagarthacker.com/posts/mlops/prefect-blocks.html)
   * [Prefect Deployments](https://sagarthacker.com/posts/mlops/prefect-deployment.html)
 * Send a PR, add your notes above this line
