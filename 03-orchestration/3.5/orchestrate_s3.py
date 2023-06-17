@@ -112,16 +112,16 @@ def train_best_model(
 
         markdown__rmse_report = f"""# RMSE Report
 
-        ## Summary
+## Summary
 
-        Duration Prediction 
+Duration Prediction 
 
-        ## RMSE XGBoost Model
+## RMSE XGBoost Model
 
-        | Region    | RMSE |
-        |:----------|-------:|
-        | {date.today()} | {rmse:.2f} |
-        """
+| Region    | RMSE |
+|:----------|-------:|
+| {date.today()} | {rmse:.2f} |
+"""
 
         create_markdown_artifact(
             key="duration-model-report", markdown=markdown__rmse_report
