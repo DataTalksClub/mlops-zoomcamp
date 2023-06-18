@@ -10,7 +10,7 @@ copyright: "2023"  # Copyright year to be placed in the footer
 execute:
   execute_notebooks: force
   nb_execution_show_traceback: true
-  timeout: 300
+  timeout: 600
 
 # Define the name of the latex output file for PDF builds
 latex:

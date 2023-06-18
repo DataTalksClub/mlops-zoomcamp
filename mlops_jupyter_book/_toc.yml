@@ -5,5 +5,11 @@ format: jb-book
 root: intro
 options:
   numbered: true
-chapters:
-- file: homeworks/homework_1.ipynb
+chapters: 
+- file: experiments_and_tracking.md 
+  sections:
+  - file: course_material/model_tracking.ipynb
+  - file: course_material/optuna_tutorial.ipynb
+- file: homeworks.md
+  sections:
+  - file: homeworks/homework_1.ipynb
