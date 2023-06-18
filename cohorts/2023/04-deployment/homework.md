@@ -164,5 +164,5 @@ docker push svizor/zoomcamp-model:mlops-3.10.0-slim
 
 ## Deadline
 
-The deadline for submitting is 19 June 2023 (Monday) 23:00 CEST. 
+The deadline for submitting is 26 June 2023 (Monday) 23:00 CEST. 
 After that, the form will be closed.
