@@ -42,19 +42,19 @@ If you're not certain about some tools, ask in Slack.
 
 ## Peer review criteria
 
-(This is still a draft. Feedbask is welcome)
+(This is still a draft. Feedback is welcome)
 
 * Problem description
-    * 0 points: Problem is not described
-    * 1 point: Problem is described but shortly or not clearly 
-    * 2 points: Problem is well described and it's clear what the problem the project solves
+    * 0 points: The problem is not described
+    * 1 point: The problem is described but shortly or not clearly 
+    * 2 points: The problem is well described and it's clear what the problem the project solves
 * Cloud
     * 0 points: Cloud is not used, things run only locally
     * 2 points: The project is developed on the cloud OR the project is deployed to Kubernetes or similar container management platforms
     * 4 points: The project is developed on the cloud and IaC tools are used for provisioning the infrastructure
 * Experiment tracking and model registry
     * 0 points: No experiment tracking or model registry
-    * 2 points: Experiments are tracked or models are registred in the registry
+    * 2 points: Experiments are tracked or models are registered in the registry
     * 4 points: Both experiment tracking and model registry are used
 * Workflow orchestration
     * 0 points: No workflow orchestration
@@ -67,9 +67,9 @@ If you're not certain about some tools, ask in Slack.
 * Model monitoring
     * 0 points: No model monitoring
     * 2 points: Basic model monitoring that calculates and reports metrics
-    * 4 points: Comprehensive model monitoring that send alerts or runs a conditional workflow (e.g. retraining, generating debugging dashboard, switching to a different model) if the defined metrics threshold is violated
+    * 4 points: Comprehensive model monitoring that sends alerts or runs a conditional workflow (e.g. retraining, generating debugging dashboard, switching to a different model) if the defined metrics threshold is violated
 * Reproducibility
-    * 0 points: No instructions how to run code at all
+    * 0 points: No instructions on how to run code at all
     * 2 points: Some instructions are there, but they are not complete
     * 4 points: Instructions are clear, it's easy to run the code, and the code works. The version for all the dependencies are specified.
 * Best practices
