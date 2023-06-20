@@ -37,7 +37,8 @@ What’s the cron schedule for that?
 ## Q3. RMSE 
 
 Download the January 2023 Green Taxi data and use it for your training data.
-Download the February 2023 Green Taxi data and use it for your validation data. 
+Download the February 2023 Green Taxi data and use it for your validation data.
+Download the data from [here](https://www1.nyc.gov/site/tlc/about/tlc-trip-record-data.page).
 
 Make sure you upload the data to GitHub so it is available for your deployment.
 
