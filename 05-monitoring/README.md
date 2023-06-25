@@ -1,10 +1,8 @@
 # 5. Model Monitoring
 
-# 5. Model Monitoring
-
 ## 5.1 Intro to ML monitoring
 
-<a href="https://www.youtube.com/watch?v=IjNrkqMYQeQ&list=PL3MmuxUbc_hIUISrluw_A7wDSmfOhErJK">
+<a href="https://www.youtube.com/watch?v=SQ0jBwd_3kk&list=PL3MmuxUbc_hIUISrluw_A7wDSmfOhErJK">
   <img src="images/thumbnail-5-01.jpg">
 </a>
 
@@ -12,7 +10,7 @@
 
 ## 5.2 Environment setup
 
-<a href="https://www.youtube.com/watch?v=fytrmPbcLhI&list=PL3MmuxUbc_hIUISrluw_A7wDSmfOhErJK">
+<a href="https://www.youtube.com/watch?v=yixA3C1xSxc&list=PL3MmuxUbc_hIUISrluw_A7wDSmfOhErJK">
   <img src="images/thumbnail-5-02.jpg">
 </a>
 
@@ -20,7 +18,7 @@
 
 ## 5.3 Prepare reference and model
 
-<a href="https://www.youtube.com/watch?v=kP3lzh_HfWY&list=PL3MmuxUbc_hIUISrluw_A7wDSmfOhErJK">
+<a href="https://www.youtube.com/watch?v=IjNrkqMYQeQ&list=PL3MmuxUbc_hIUISrluw_A7wDSmfOhErJK">
   <img src="images/thumbnail-5-03.jpg">
 </a>
 
@@ -28,7 +26,7 @@
 
 ## 5.4 Evidently metrics calculation
 
-<a href="https://www.youtube.com/watch?v=-c4iumyZMyw&list=PL3MmuxUbc_hIUISrluw_A7wDSmfOhErJK">
+<a href="https://www.youtube.com/watch?v=kP3lzh_HfWY&list=PL3MmuxUbc_hIUISrluw_A7wDSmfOhErJK">
   <img src="images/thumbnail-5-04.jpg">
 </a>
 
@@ -36,25 +34,34 @@
 
 ## 5.5 Dummy monitoring
 
-<a href="https://www.youtube.com/watch?v=SQ0jBwd_3kk&list=PL3MmuxUbc_hIUISrluw_A7wDSmfOhErJK">
+<a href="https://www.youtube.com/watch?v=s3G4PMsOMOA&list=PL3MmuxUbc_hIUISrluw_A7wDSmfOhErJK">
   <img src="images/thumbnail-5-05.jpg">
 </a>
 
 
 
-## 5.6 Save Grafana Dashboard
+## 5.6 Data quality monitoring
 
-<a href="https://www.youtube.com/watch?v=s3G4PMsOMOA&list=PL3MmuxUbc_hIUISrluw_A7wDSmfOhErJK">
+<a href="https://www.youtube.com/watch?v=fytrmPbcLhI&list=PL3MmuxUbc_hIUISrluw_A7wDSmfOhErJK">
   <img src="images/thumbnail-5-06.jpg">
 </a>
 
 
 
-## 5.7 Debugging with test suites and reports
+## 5.7 Save Grafana Dashboard
 
-<a href="https://www.youtube.com/watch?v=sNSk3ojISh&list=PL3MmuxUbc_hIUISrluw_A7wDSmfOhErJK">
+<a href="https://www.youtube.com/watch?v=-c4iumyZMyw&list=PL3MmuxUbc_hIUISrluw_A7wDSmfOhErJK">
   <img src="images/thumbnail-5-07.jpg">
 </a>
+
+
+
+## 5.8 Debugging with test suites and reports
+
+<a href="https://www.youtube.com/watch?v=sNSk3ojISh8&list=PL3MmuxUbc_hIUISrluw_A7wDSmfOhErJK">
+  <img src="images/thumbnail-5-08.jpg">
+</a>
+
 
 
 
