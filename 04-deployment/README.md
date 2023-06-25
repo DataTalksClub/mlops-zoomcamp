@@ -64,6 +64,9 @@ The unit 4.6 consists of multiple videos:
 * [4.6.10 - Adding schedule](https://www.youtube.com/watch?v=0WpR3ZUINpA )
 * [4.6.11 - Overview Wrap up](https://www.youtube.com/watch?v=C5mM8Jkt2jI)
 
+
+[Old Video (2022 Edition)](https://www.youtube.com/watch?v=ekT_JW213Tc)
+
 ## 4.7 Choosing the right way of deployment
 
 COMING SOON
