@@ -25,9 +25,9 @@
 
 * [Homework](04-deployment/homework.md)
 
-**Module 5**
+[**Module 5: Model Monitoring**](05-monitoring/)
 
-* TBA
+* [Homework](05-monitoring/homework.md)
 
 **Module 6**
 

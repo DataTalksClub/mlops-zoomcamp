@@ -63,12 +63,10 @@
 </a>
 
 
-
-
 ## 5.8 Homework
 
 
-More information here: TBD
+More information [here](../cohorts/2023/05-monitoring/homework.md)
 
 
 ## Notes
