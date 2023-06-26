@@ -6,7 +6,7 @@ The goal of this homework is to familiarize users with monitoring for ML batch s
 
 ## Q1. Prepare the dataset
 
-Start with `baseline_model_nyc_taxi_data.ipynb`. Download the March 2023 Green Taxi data. We will use this data to simulate a production usage of a taxi trip duration prediction service.
+Start with `baseline_model_nyc_taxi_data.ipynb` that can be found [here](https://github.com/DataTalksClub/mlops-zoomcamp/blob/eb3fbf64c874f72ca015d456a3a6e824291e08af/05-monitoring/baseline_model_nyc_taxi_data.ipynb). Download the March 2023 Green Taxi data. We will use this data to simulate a production usage of a taxi trip duration prediction service.
 
 What is the shape of the downloaded data? How many rows are there?
 
