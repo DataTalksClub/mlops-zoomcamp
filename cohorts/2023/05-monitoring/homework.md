@@ -10,8 +10,8 @@ Start with `baseline_model_nyc_taxi_data.ipynb`. Download the March 2023 Green T
 
 What is the shape of the downloaded data? How many rows are there?
 
-* 85371
-* 78537
+* 72044
+* 78537 
 * 62495
 * 54396
 
