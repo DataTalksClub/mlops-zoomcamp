@@ -43,9 +43,9 @@ def calculate_dummy_metrics_postgresql(curr):
 
 def main():
 	prep_db()
-	last_send = datetime.datetime.now() - datetime.timedelta(seconds=10)
+	last_send = datetime.datetime.now()
 	with psycopg.connect("host=localhost port=5432 dbname=test user=postgres password=example", autocommit=True) as conn:
-		for i in range(0, 100):
+		for _ in range(100):
 			with conn.cursor() as curr:
 				calculate_dummy_metrics_postgresql(curr)
 
@@ -53,8 +53,7 @@ def main():
 			seconds_elapsed = (new_send - last_send).total_seconds()
 			if seconds_elapsed < SEND_TIMEOUT:
 				time.sleep(SEND_TIMEOUT - seconds_elapsed)
-			while last_send < new_send:
-				last_send = last_send + datetime.timedelta(seconds=10)
+			last_send = last_send + datetime.timedelta(seconds=10)
 			logging.info("data sent")
 
 if __name__ == '__main__':
