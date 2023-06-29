@@ -11,16 +11,12 @@ def prepare_features(ride):
     features['PU_DO'] = '%s_%s' % (ride['PULocationID'], ride['DOLocationID'])
     features['trip_distance'] = ride['trip_distance']
     return features
-
-
 def predict(features):
     X = dv.transform(features)
     preds = model.predict(X)
     return float(preds[0])
 
-
 app = Flask('duration-prediction')
-
 
 @app.route('/predict', methods=['POST'])
 def predict_endpoint():
