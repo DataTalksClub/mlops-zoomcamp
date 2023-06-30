@@ -68,7 +68,7 @@ Where to place a dashboard config file?
 
 ## Submit the results
 
-* Submit your results here: TBA
+* Submit your results here: https://forms.gle/PJaYeWsnWShAEBF79
 * You can submit your solution multiple times. In this case, only the last submission will be used
 * If your answer doesn't match options exactly, select the closest one
 
