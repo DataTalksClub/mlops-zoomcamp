@@ -75,6 +75,6 @@ Where to place a dashboard config file?
 
 ## Deadline
 
-The deadline for submitting is 3 July (Monday), 23:00 CEST (Berlin time). 
+The deadline for submitting is 7 July (Friday), 23:00 CEST (Berlin time). 
 
 After that, the form will be closed.
