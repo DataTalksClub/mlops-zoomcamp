@@ -1,10 +1,8 @@
 # 5. Model Monitoring
 
-# 5. Model Monitoring
-
 ## 5.1 Intro to ML monitoring
 
-<a href="https://www.youtube.com/watch?v=IjNrkqMYQeQ&list=PL3MmuxUbc_hIUISrluw_A7wDSmfOhErJK">
+<a href="https://www.youtube.com/watch?v=SQ0jBwd_3kk&list=PL3MmuxUbc_hIUISrluw_A7wDSmfOhErJK">
   <img src="images/thumbnail-5-01.jpg">
 </a>
 
@@ -12,7 +10,7 @@
 
 ## 5.2 Environment setup
 
-<a href="https://www.youtube.com/watch?v=fytrmPbcLhI&list=PL3MmuxUbc_hIUISrluw_A7wDSmfOhErJK">
+<a href="https://www.youtube.com/watch?v=yixA3C1xSxc&list=PL3MmuxUbc_hIUISrluw_A7wDSmfOhErJK">
   <img src="images/thumbnail-5-02.jpg">
 </a>
 
@@ -20,7 +18,7 @@
 
 ## 5.3 Prepare reference and model
 
-<a href="https://www.youtube.com/watch?v=kP3lzh_HfWY&list=PL3MmuxUbc_hIUISrluw_A7wDSmfOhErJK">
+<a href="https://www.youtube.com/watch?v=IjNrkqMYQeQ&list=PL3MmuxUbc_hIUISrluw_A7wDSmfOhErJK">
   <img src="images/thumbnail-5-03.jpg">
 </a>
 
@@ -28,7 +26,7 @@
 
 ## 5.4 Evidently metrics calculation
 
-<a href="https://www.youtube.com/watch?v=-c4iumyZMyw&list=PL3MmuxUbc_hIUISrluw_A7wDSmfOhErJK">
+<a href="https://www.youtube.com/watch?v=kP3lzh_HfWY&list=PL3MmuxUbc_hIUISrluw_A7wDSmfOhErJK">
   <img src="images/thumbnail-5-04.jpg">
 </a>
 
@@ -36,32 +34,39 @@
 
 ## 5.5 Dummy monitoring
 
-<a href="https://www.youtube.com/watch?v=SQ0jBwd_3kk&list=PL3MmuxUbc_hIUISrluw_A7wDSmfOhErJK">
+<a href="https://www.youtube.com/watch?v=s3G4PMsOMOA&list=PL3MmuxUbc_hIUISrluw_A7wDSmfOhErJK">
   <img src="images/thumbnail-5-05.jpg">
 </a>
 
 
 
-## 5.6 Save Grafana Dashboard
+## 5.6 Data quality monitoring
 
-<a href="https://www.youtube.com/watch?v=s3G4PMsOMOA&list=PL3MmuxUbc_hIUISrluw_A7wDSmfOhErJK">
+<a href="https://www.youtube.com/watch?v=fytrmPbcLhI&list=PL3MmuxUbc_hIUISrluw_A7wDSmfOhErJK">
   <img src="images/thumbnail-5-06.jpg">
 </a>
 
 
 
-## 5.7 Debugging with test suites and reports
+## 5.7 Save Grafana Dashboard
 
-<a href="https://www.youtube.com/watch?v=sNSk3ojISh&list=PL3MmuxUbc_hIUISrluw_A7wDSmfOhErJK">
+<a href="https://www.youtube.com/watch?v=-c4iumyZMyw&list=PL3MmuxUbc_hIUISrluw_A7wDSmfOhErJK">
   <img src="images/thumbnail-5-07.jpg">
 </a>
 
 
 
+## 5.8 Debugging with test suites and reports
+
+<a href="https://www.youtube.com/watch?v=sNSk3ojISh8&list=PL3MmuxUbc_hIUISrluw_A7wDSmfOhErJK">
+  <img src="images/thumbnail-5-08.jpg">
+</a>
+
+
 ## 5.8 Homework
 
 
-More information here: TBD
+More information [here](../cohorts/2023/05-monitoring/homework.md)
 
 
 ## Notes
@@ -86,9 +91,9 @@ You need following tools installed:
 
 Note: all actions expected to be executed in repo folder.
 
-- Create virtual environment and activate it (eg. `python -m venv venv && source ./venv/bin/activate`)
+- Create virtual environment and activate it (eg. `python -m venv venv && source ./venv/bin/activate` or `conda create -n venv python=3.11 && conda activate venv`)
 - Install required packages `pip install -r requirements.txt`
-- Run `python prepare.py` for downloading datasets
+- Run `baseline_model_nyc_taxi_data.ipynb` for downloading datasets, training model and creating reference dataset 
 
 ## Monitoring Example
 
@@ -100,35 +105,36 @@ docker-compose up
 ```
 
 It will start following services:
-- `prometheus` - TSDB for metrics
-- `grafana` - Visual tool for metrics
-- `mongo` - MongoDB, for storing raw data, predictions, targets and profile reports
-- `evidently_service` - Evindently RT-monitoring service (draft example)
-- `prediction_service` - main service, which makes predictions
+- `db` - PostgreSQL, for storing metrics data
+- `adminer` - database management tool
+- `grafana` - Visual dashboarding tool 
+
 
 ### Sending data
 
-To start sending data to service, execute:
+To calculate evidently metrics with prefect and send them to database, execute:
 ```bash
-python send_data.py
+python evidently_metrics_calculation.py
 ```
 
-This script will send every second single row from dataset to prediction service along with creating file `target.csv` with actual results (so it can be loaded after)
+This script will simulate batch monitoring. Every 10 seconds it will collect data for a daily batch, calculate metrics and insert them into database. This metrics will be available in Grafana in preconfigured dashboard. 
 
-## Batch Monitoring Example
+### Accsess dashboard
 
-After you stop sending data to service, you can run batch monitoring pipeline (using Prefect) by running script:
+- In your browser go to a `localhost:3000`
+The default username and password are `admin`
 
+- Then navigate to `General/Home` menu and click on `Home`.
+
+- In the folder `General` you will see `New Dashboard`. Click on it to access preconfigured dashboard.
+
+### Ad-hoc debugging
+
+Run `debugging_nyc_taxi_data.ipynb` to see how you can perform a debugging with help of Evidently `TestSuites` and `Reports`
+
+### Stopping services
+
+To stop all services, execute:
 ```bash
-python prefect_example.py
+docker-compose down
 ```
-
-This script will:
-- load `target.csv` to MongoDB
-- download dataset from MongoDB
-- Run Evidently Model Profile and Evidently Report on this data
-- Save Profile data back to MongoDB
-- Save Report to `evidently_report_example.html`
-
-You can look at Prefect steps in Prefect Orion UI
-(to start it execute `prefect orion start`)

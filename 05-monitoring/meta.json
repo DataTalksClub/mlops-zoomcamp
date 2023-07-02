@@ -1,48 +1,48 @@
 {
   "module": {
     "number": 5,
-    "title": "Model Monitoring"
+    "title": "ML Monitoring"
   },
   "units": [
     {
       "number": 1,
       "title": "Intro to ML monitoring",
-      "youtube": "https://www.youtube.com/watch?v=IjNrkqMYQeQ"
+      "youtube": "https://www.youtube.com/watch?v=SQ0jBwd_3kk"
     },
     {
       "number": 2,
       "title": "Environment setup",
-      "youtube": "https://www.youtube.com/watch?v=fytrmPbcLhI"
+      "youtube": "https://www.youtube.com/watch?v=yixA3C1xSxc"
     },
     {
       "number": 3,
       "title": "Prepare reference and model",
-      "youtube": "https://www.youtube.com/watch?v=kP3lzh_HfWY"
+      "youtube": "https://www.youtube.com/watch?v=IjNrkqMYQeQ"
     },
     {
       "number": 4,
       "title": "Evidently metrics calculation",
-      "youtube": "https://www.youtube.com/watch?v=-c4iumyZMyw"
+      "youtube": "https://www.youtube.com/watch?v=kP3lzh_HfWY"
     },
     {
       "number": 5,
       "title": "Dummy monitoring",
-      "youtube": "https://www.youtube.com/watch?v=SQ0jBwd_3kk"
-    },
-    {
-      "number": 6,
-      "title": "Save Grafana Dashboard",
       "youtube": "https://www.youtube.com/watch?v=s3G4PMsOMOA"
     },
     {
+      "number": 6,
+      "title": "Data quality monitoring",
+      "youtube": "https://www.youtube.com/watch?v=fytrmPbcLhI"
+    },
+    {
       "number": 7,
-      "title": "Debugging with test suites and reports",
-      "youtube": "https://www.youtube.com/watch?v=sNSk3ojISh"
+      "title": "Save Grafana Dashboard",
+      "youtube": "https://www.youtube.com/watch?v=-c4iumyZMyw"
     },
     {
       "number": 8,
-      "title": "Homework",
-      "youtube": ""
+      "title": "Debugging with test suites and reports",
+      "youtube": "https://www.youtube.com/watch?v=sNSk3ojISh8"
     }
   ]
 }
