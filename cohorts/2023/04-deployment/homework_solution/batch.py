@@ -11,7 +11,7 @@ year = int(sys.argv[1]) # 2022
 month = int(sys.argv[2]) # 2
 
 input_file = f'https://d37ci6vzurychx.cloudfront.net/trip-data/yellow_tripdata_{year:04d}-{month:02d}.parquet'
-output_file = f'output/fhv_tripdata_{year:04d}-{month:02d}.parquet'
+output_file = f'output/yellow_tripdata_{year:04d}-{month:02d}.parquet'
 
 
 with open('model.bin', 'rb') as f_in:
