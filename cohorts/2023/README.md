@@ -30,9 +30,9 @@
 
 * [Homework](05-monitoring/homework.md)
 
-**Module 6**
+[**Module 6: Best Practices**](06-best-practices)
 
-* TBA
+* [Homework](06-best-practices/homework.md)
 
 
 **Projects**
