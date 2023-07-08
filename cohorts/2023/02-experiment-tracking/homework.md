@@ -40,10 +40,10 @@ Tip: go to `02-experiment-tracking/homework/` folder before executing the comman
 
 So what's the size of the saved `DictVectorizer` file?
 
-* 54 Kb
-* 154 Kb
-* 54 Mb
-* 154 Mb
+* 54 kB
+* 154 kB
+* 54 MB
+* 154 MB
 
 
 ## Q3. Train a model with autolog
@@ -141,13 +141,13 @@ Now explore your best model in the model registry using UI. What information doe
 
 ## Submit the results
 
-* Submit your results here: coming soon
+* Submit your results here: https://forms.gle/Fy1pvrPEKd4yjz3s6
 * You can submit your solution multiple times. In this case, only the last submission will be used
 * If your answer doesn't match options exactly, select the closest one
 
 
 ## Deadline
 
-The deadline for submitting is 1 June 2023 (Thursday), 23:00 CEST (Berlin time). 
+The deadline for submitting is 4 June 2023 (Sunday), 22:00 CEST (Berlin time). 
 
 After that, the form will be closed.

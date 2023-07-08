@@ -48,8 +48,7 @@
 
 ### 6.7 Homework
 
-
-More information here: TBD
+More information [here](../cohorts/2023/06-best-practices/homework.md).
 
 
 ### Notes
