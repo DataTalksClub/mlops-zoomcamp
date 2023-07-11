@@ -45,7 +45,7 @@ What is the correct way of doing that?
 
 Let’s start monitoring. Run expanded monitoring for a new batch of data (March 2023). 
 
-What is the maximum value of metric `quantile = 0.5` on th `"fare_amount"` column during March 2023 (calculated daily)?
+What is the maximum value of metric `quantile = 0.5` on the `"fare_amount"` column during March 2023 (calculated daily)?
 
 * 10
 * 12.5
@@ -56,7 +56,7 @@ What is the maximum value of metric `quantile = 0.5` on th `"fare_amount"` colum
 ## Q5. Dashboard
 
 
-Finally, let’s add panels with new added metrics to the dashboard. After we customize the  dashboard lets save a dashboard config, so that we can access it later. Hint: click on “Save dashboard” to access JSON configuration of the dashboard. This configuration should be saved locally.
+Finally, let’s add panels with new added metrics to the dashboard. After we customize the  dashboard let's save a dashboard config, so that we can access it later. Hint: click on “Save dashboard” to access JSON configuration of the dashboard. This configuration should be saved locally.
 
 Where to place a dashboard config file?
 
