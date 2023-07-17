@@ -6,6 +6,7 @@
 * [Leaderboard](https://docs.google.com/spreadsheets/d/e/2PACX-1vTHTc2eDorvcprX3SRd_ZejSnOjd7SUBlmr7ttYs9NsbS3G9szB9wMlMfCOLVL5XWCB0p8oaDOfffaZ/pubhtml)
 * [Deadline calendar](https://docs.google.com/spreadsheets/d/e/2PACX-1vRNTwA0Of1lyprYpn2YxU-l0gvNeq-up7g7ITB42nPf2gT9Qd3PTzqTmkjAZjk1s__r7D99CsJfcZEO/pubhtml?gid=0&single=true) 
 
+
 [**Module 1: Introduction**](01-intro)
 
 * [Homework](01-intro/homework.md)
@@ -35,6 +36,6 @@
 * [Homework](06-best-practices/homework.md)
 
 
-**Projects**
+[**Projects**](07-project/)
 
-* TBA
+* [More information](07-project/README.md)
