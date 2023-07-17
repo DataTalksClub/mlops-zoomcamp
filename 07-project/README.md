@@ -3,10 +3,10 @@
 The goal of this project is to apply everything we learned
 in this course and build an end-to-end machine learning project.
 
-Remember that to pass the project, you must evaluate 3 peers. If you don't do that, your project can't be considered compelete.  
+Remember that you must evaluate three peers. If you don't do that, your project can't be considered complete.  
 
+* [2023 Projects](../cohorts/2023/07-project)
 * [2022 Projects](../cohorts/2022/07-project)
-* 2023 Projects (TBD)
 
 
 ## Problem statement
