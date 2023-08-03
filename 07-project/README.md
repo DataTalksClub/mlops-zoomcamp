@@ -42,8 +42,6 @@ If you're not certain about some tools, ask in Slack.
 
 ## Peer review criteria
 
-(This is still a draft. Feedback is welcome)
-
 * Problem description
     * 0 points: The problem is not described
     * 1 point: The problem is described but shortly or not clearly 
