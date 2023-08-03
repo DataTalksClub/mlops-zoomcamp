@@ -17,11 +17,11 @@ Project:
 
 Peer reviewing:
 
-* Peer review assignments: TBA ("project 1" tab)
-* Form: TBA 
-* Deadline: 7 August, 23:00 CEST
+* Peer review assignments: [link](https://docs.google.com/spreadsheets/d/e/2PACX-1vTAztxXsLidZV8I18gL9_qtJpxhyvyhJsEeXrP3kFyZoauGgR-S4p6b7H5yJ9kdTbUE5wAAvZgTTZ49/pubhtml?gid=0&single=true) ("project 1" tab)
+* Form: https://forms.gle/MRMHDuFiP6DFShaj7
+* Deadline: 10 August, 23:00 CEST
 
-Project feedback: [link](https://docs.google.com/spreadsheets/d/e/2PACX-1vRB5xKkhCyAUVNSNJvxaP94RwgNbYhf3dNf_ctRHhNKvvQQB94YVBn9JRdCTdQb5NGCJdYBtjXP7tP9/pubhtml) ("feedback-01" tab)
+Project feedback: TBA ("feedback-01" tab)
 
 
 
