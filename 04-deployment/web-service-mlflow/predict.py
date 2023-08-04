@@ -5,10 +5,13 @@ import mlflow
 from flask import Flask, request, jsonify
 
 
-RUN_ID = os.getenv('RUN_ID')
+#RUN_ID = os.getenv('RUN_ID')
+RUN_ID = "4680bb12ecda4755ade30611daf30c48"
+MLFLOW_TRACKING_URI = "http://127.0.0.1:5000"
 
-logged_model = f's3://mlflow-models-alexey/1/{RUN_ID}/artifacts/model'
-# logged_model = f'runs:/{RUN_ID}/model'
+mlflow.set_tracking_uri(MLFLOW_TRACKING_URI)
+
+logged_model = f'runs:/{RUN_ID}/model'
 model = mlflow.pyfunc.load_model(logged_model)
 
 

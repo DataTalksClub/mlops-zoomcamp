@@ -1,0 +1,16 @@
+artifact_uri: file:///Users/rollan/Desktop/mlops-zoomcamp/mlruns/333973961430353652/e76e66433d4d4c0fa038e53097f6149c/artifacts
+deleted_time: null
+end_time: null
+entry_point_name: ''
+experiment_id: '333973961430353652'
+lifecycle_stage: active
+run_id: e76e66433d4d4c0fa038e53097f6149c
+run_name: thoughtful-gnat-194
+run_uuid: e76e66433d4d4c0fa038e53097f6149c
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1690199050655
+status: 1
+tags: []
+user_id: rollan

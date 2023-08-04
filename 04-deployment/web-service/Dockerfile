@@ -1,4 +1,4 @@
-FROM python:3.9.7-slim
+FROM python:3.9.13-bullseye
 
 RUN pip install -U pip
 RUN pip install pipenv 
