@@ -29,8 +29,8 @@ Project feedback: TBA ("feedback-01" tab)
 
 Project:
 
-* Form: TBA
-* Deadline: TBA
+* Form: https://forms.gle/o1s3NmYE4UmFSMVD7
+* Deadline: 21 August (Monday), 23:00 CEST
 
 Peer reviewing:
 
