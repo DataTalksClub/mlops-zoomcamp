@@ -20,7 +20,7 @@ def compute_certificate_id(email):
 Then use this hash to get the URL
 
 ```python
-cohort = 2022
+cohort = 2023
 course = 'mlops-zoomcamp'
 your_id = compute_certificate_id('never.give.up@gmail.com')
 url = f"https://certificate.datatalks.club/{course}/{cohort}/{your_id}.pdf"
