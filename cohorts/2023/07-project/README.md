@@ -34,9 +34,9 @@ Project:
 
 Peer reviewing:
 
-* Peer review assignments: TBA ("project 2" tab)
-* Form: TBA
-* Deadline: TBA
+* Peer review assignments: [link](https://docs.google.com/spreadsheets/d/e/2PACX-1vTAztxXsLidZV8I18gL9_qtJpxhyvyhJsEeXrP3kFyZoauGgR-S4p6b7H5yJ9kdTbUE5wAAvZgTTZ49/pubhtml?gid=1942033009&single=true) ("project 2" tab)
+* Form: https://forms.gle/R4Y58WSxGDWsDBFv7
+* Deadline: 29 August (Tuesday), 23:00 CEST
 
 Project feedback: TBA ("feedback-02" tab)
 
