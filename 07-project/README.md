@@ -3,10 +3,10 @@
 The goal of this project is to apply everything we learned
 in this course and build an end-to-end machine learning project.
 
-Remember that to pass the project, you must evaluate 3 peers. If you don't do that, your project can't be considered compelete.  
+Remember that you must evaluate three peers. If you don't do that, your project can't be considered complete.  
 
+* [2023 Projects](../cohorts/2023/07-project)
 * [2022 Projects](../cohorts/2022/07-project)
-* 2023 Projects (TBD)
 
 
 ## Problem statement
@@ -42,15 +42,13 @@ If you're not certain about some tools, ask in Slack.
 
 ## Peer review criteria
 
-(This is still a draft. Feedback is welcome)
-
 * Problem description
     * 0 points: The problem is not described
     * 1 point: The problem is described but shortly or not clearly 
     * 2 points: The problem is well described and it's clear what the problem the project solves
 * Cloud
     * 0 points: Cloud is not used, things run only locally
-    * 2 points: The project is developed on the cloud OR the project is deployed to Kubernetes or similar container management platforms
+    * 2 points: The project is developed on the cloud OR uses localstack (or similar tool) OR the project is deployed to Kubernetes or similar container management platforms
     * 4 points: The project is developed on the cloud and IaC tools are used for provisioning the infrastructure
 * Experiment tracking and model registry
     * 0 points: No experiment tracking or model registry
@@ -69,9 +67,9 @@ If you're not certain about some tools, ask in Slack.
     * 2 points: Basic model monitoring that calculates and reports metrics
     * 4 points: Comprehensive model monitoring that sends alerts or runs a conditional workflow (e.g. retraining, generating debugging dashboard, switching to a different model) if the defined metrics threshold is violated
 * Reproducibility
-    * 0 points: No instructions on how to run code at all
-    * 2 points: Some instructions are there, but they are not complete
-    * 4 points: Instructions are clear, it's easy to run the code, and the code works. The version for all the dependencies are specified.
+    * 0 points: No instructions on how to run code at all, the data is missing
+    * 2 points: Some instructions are there, but they are not complete OR instructions are clear and complete, the code works, but the data is missing
+    * 4 points: Instructions are clear, it's easy to run the code, and it works. The versions for all the dependencies are specified.
 * Best practices
     * [ ] There are unit tests (1 point)
     * [ ] There is an integration test (1 point)
