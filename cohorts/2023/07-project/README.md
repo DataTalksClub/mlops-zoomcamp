@@ -38,7 +38,7 @@ Peer reviewing:
 * Form: https://forms.gle/R4Y58WSxGDWsDBFv7
 * Deadline: 29 August (Tuesday), 23:00 CEST
 
-Project feedback: TBA ("feedback-02" tab)
+Project feedback: [link](https://docs.google.com/spreadsheets/d/e/2PACX-1vTS8Mlu6sWyu6JinFUftUl6OB5mxXlwGT2icIyQCSbhDDmW36WWyAbv2dCFJhng6Nln0o3cwvTchjcU/pubhtml?gid=546664034&single=true) ("feedback-02" tab)
 
 
 
