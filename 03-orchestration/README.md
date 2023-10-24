@@ -80,6 +80,7 @@ Did you take notes? Add them here:
   * [Prefect Blocks](https://sagarthacker.com/posts/mlops/prefect-blocks.html)
   * [Prefect Deployments](https://sagarthacker.com/posts/mlops/prefect-deployment.html)
   * [Prefect Cloud Deployment](https://sagarthacker.com/posts/mlops/prefect-cloud.html)
+* [Week 3: Prefect by Hongfan (Amber)](https://github.com/Muhongfan/MLops/blob/main/03-orchestration/README.md)
 * Send a PR, add your notes above this line
 
 ### Notes 2022 Edition

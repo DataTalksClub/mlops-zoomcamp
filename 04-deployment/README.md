@@ -86,4 +86,5 @@ Did you take notes? Add them here:
 * [Week4: Notes on Model Deployment by Bhagabat](https://github.com/BPrasad123/MLOps_Zoomcamp/tree/main/Week4)
 * [Week 4: Deployment notes by Ayoub.B](https://github.com/ayoub-berdeddouch/mlops-journey/blob/main/deployment-04.md)
 * [Week 4: Deployment notes by Waleed](https://github.com/waleedayoub/mlops-zoomcamp/blob/main/cohorts/2023/04-deployment/module4notes.waleed.md)
+* [Week4: Deployment: Offline (Batch), Online (Web service /w MLflow, Streaming) by Hongfan (Amber)](https://github.com/Muhongfan/MLops/blob/main/04-deployment/README.md)
 * Send a PR, add your notes above this line
