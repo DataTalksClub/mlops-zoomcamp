@@ -210,3 +210,12 @@ No and yes. There will be two parts:
 
 Thanks to the course sponsors for making it possible to create this course
 
+<p align="center">
+  <a href="https://mage.ai/">
+    <img height="120" src="https://github.com/DataTalksClub/data-engineering-zoomcamp/raw/main/images/mage.svg">
+  </a>
+</p>
+
+Do you want to support our course and our community? Reach out to [alexey@datatalks.club](alexey@datatalks.club)
+
+
