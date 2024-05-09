@@ -170,4 +170,5 @@ Did you take notes? Add them here:
 * [What is MLOps? - Storytime by Pathik Ghugare](https://github.com/pathikg/MLOps-Zoomcamp-DataTalks/blob/main/week-01-introduction/MLOps-Introduction.md)
 * [Module 1 Notes by Stephen Barrie](https://stephen137.github.io/posts/MLOps_Zoomcamp_Week_1/MLOps_Zoomcamp_Week_1.html)
 * [Module 1 Notes - MacOS + Pycharm by Hongfan (Amber)](https://github.com/Muhongfan/MLops/blob/main/01-intro/README.md)
+* [Short how-to guide on setting up a development environment on AWS Cloud](https://github.com/shamilnabiyev/mlops-course-2024-notes/blob/main/module-01/README.md)
 * Send a PR, add your notes above this line
