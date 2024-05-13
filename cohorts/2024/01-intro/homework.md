@@ -88,5 +88,5 @@ What's the RMSE on validation?
 
 ## Submit the results
 
-* Submit your results here: 
+* Submit your results here: https://courses.datatalks.club/mlops-zoomcamp-2024/homework/hw1
 * If your answer doesn't match options exactly, select the closest one
