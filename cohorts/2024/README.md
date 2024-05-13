@@ -1,7 +1,7 @@
 ## MLOps Zoomcamp 2024 Cohort
 
 * [Pre-Course Live Q&A](https://www.youtube.com/watch?v=YmllO3ld5LE)
-* TODO: Course Launch video
+* [Course Launch video](https://www.youtube.com/watch?v=2jM7t-NTZxs) and [Slides](https://docs.google.com/presentation/d/1Tp2VVph5_vYIazQ53VR7TYmhJjQg9wuNIKKne3wlZVU/edit?usp=sharing)
 * [Technical FAQ](https://docs.google.com/document/d/12TlBfhIiKtyBv8RnsoJR6F72bkPDGEvPOItJIxaEzE0/edit)
 * TODO: Course Playlist: Only 2024 Live videos & homeworks
 
