@@ -148,7 +148,7 @@ To make discussions in Slack more organized:
 ## Instructors
 
 - Cristian Martinez
-- Jeff Hale 
+- Tommy Dang
 - Alexey Grigorev
 - Emeli Dral
 - Sejal Vaidya
