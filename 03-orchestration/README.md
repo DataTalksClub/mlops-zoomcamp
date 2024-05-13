@@ -1,9 +1,10 @@
 # 3. Orchestration and ML Pipelines
 
-## 3.0 Introduction to ML pipelines
+## 3.0 Introduction to ML pipelines and quickstart
 
 - Why do we need orchestration and automation for ML?
 - How does Mage help with MLOps?
+- Setup Mage project
 - How to build a simple data pipeline
 - How to run a simple data pipeline
 
