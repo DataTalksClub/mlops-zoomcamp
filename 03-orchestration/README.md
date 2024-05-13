@@ -1,50 +1,43 @@
 # 3. Orchestration and ML Pipelines
 
+## 3.0 Introduction to ML pipelines
 
-## 3.0 Intro to Orchestration and Mage
-
-* What is Mage
-* How to build a simple pipeline
-* How to run a pipeline
+- Why do we need orchestration and automation for ML?
+- How does Mage help with MLOps?
+- How to build a simple data pipeline
+- How to run a simple data pipeline
 
 ## 3.1 Data preparation pipelines
 
-* Data preparation pipeline
-* Ingest data
-* Prepare data
-* Build training sets
-* Version training sets
+- Ingest raw data
+- Prepare data for training
+- Build training sets
 
-## 3.2 Training pipeline
+## 3.2 ML model training pipelines
 
-* Training pipeline
-* Setup experiment tracking
-* Split data
-* Train model
-* Improve model through hyperparameter tuning
-* Build more training pipelines for different types of models
+- Training pipeline for sklearn models
+- Training pipeline for XGBoost
+- Tracking training metrics with experiments
 
-## 3.3 Testing and monitoring
+## 3.3 Monitoring and alerting
 
-* Setup tests for models
-* Monitoring and alerting
-* Default charts
-* Custom dashboard
-* Email alerts
+- Dashboard for sklearn training pipeline health
+- Dashboard for XGBoost model explainability
+- Dashboard for model training performance
+- Alerts for successful pipeline runs and errors
 
 ## 3.4 Deploying to production
-* CI/CD
-* Infra setup
-* Deploy
+
+- Containerization and Docker setup
+- Deploy to AWS using Terraform
+- Automate development workflow with CI/CD
 
 ## 3.5 Running in production
 
-* Scheduling and triggering
-* API trigger
-* Trigger from a block
-* Automatic retraining
+- Automatic retraining pipeline
+- Online inference pipeline for real-time predictions
 
 # Notes previous editions
 
-* [2022 Prefect notes](../cohorts/2022/03-orchestration/README.md)
-* [2023 Prefect notes](../cohorts/2023/03-orchestration/prefect/README.md)
+- [2022 Prefect notes](../cohorts/2022/03-orchestration/README.md)
+- [2023 Prefect notes](../cohorts/2023/03-orchestration/prefect/README.md)
