@@ -77,7 +77,7 @@ What's the RMSE on train?
 
 ## Q6. Evaluating the model
 
-Now let's apply this model to the validation dataset (February 2022). 
+Now let's apply this model to the validation dataset (February 2023). 
 
 What's the RMSE on validation?
 
