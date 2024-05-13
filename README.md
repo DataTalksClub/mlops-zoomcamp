@@ -23,12 +23,12 @@ Our MLOps Zoomcamp course
 
 ## Taking the course
 
-### 2023 Cohort
+### 2024 Cohort
 
-* **Start**: 15 May 2023 (Monday) at 17:00 CET
+* **Start**: 13 May 2024 (Monday) at 17:00 CET
 * **Registration link**: https://airtable.com/shrCb8y6eTbPKwSTL
 * Subscribe to our [public Google Calendar](https://calendar.google.com/calendar/?cid=M3Jzbmg0ZDA2aHVsY2M1ZjcyNDJtODNyMTRAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ) (it works from Desktop only)
-* [Cohort folder](cohorts/2023)
+
 
 ### Self-paced mode
 
@@ -167,7 +167,7 @@ To make discussions in Slack more organized:
 If you haven't used Flask or Docker
 
 * Check [Module 5](https://github.com/alexeygrigorev/mlbookcamp-code/tree/master/course-zoomcamp/05-deployment) from ML Zoomcamp
-* The [section about Docker](https://github.com/DataTalksClub/data-engineering-zoomcamp/tree/main/week_1_basics_n_setup/2_docker_sql) from Data Engineering Zoomcamp could also be useful
+* The [section about Docker](https://github.com/DataTalksClub/data-engineering-zoomcamp/tree/main/01-docker-terraform/2_docker_sql) from Data Engineering Zoomcamp could also be useful
 
 If you have no previous experience with ML
 
@@ -192,17 +192,11 @@ If you want to make sure you don't miss anything:
 Thanks to the course sponsors for making it possible to create this course
 
 <p align="center">
-  <a href="https://www.prefect.io/">
-    <img height="100" src="images/prefect.png">
+  <a href="https://mage.ai/">
+    <img height="120" src="https://github.com/DataTalksClub/data-engineering-zoomcamp/raw/main/images/mage.svg">
   </a>
 </p>
 
-
-<p align="center">
-  <a href="https://wandb.ai/">
-    <img height="100" src="https://datatalks.club/images/partners/wandb-abb.svg">
-  </a>
-</p>
-
+Do you want to support our course and our community? Reach out to [alexey@datatalks.club](alexey@datatalks.club)
 
 

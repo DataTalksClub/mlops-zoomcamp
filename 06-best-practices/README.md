@@ -56,6 +56,7 @@ More information [here](../cohorts/2023/06-best-practices/homework.md).
 Did you take notes? Add them here:
 
 * [Week 6a Notes by M. Ayoub C.](https://gist.github.com/Qfl3x/267d4cff36b58de67b4e33ca3fc9983f)
+* [Week 6: Unit test/Integration test/Test Automation/Could service test with LocalStack/Code quality/Git pre-commit/Makefile by Hongfan (Amber)](https://github.com/Muhongfan/MLops/blob/main/06-best-practice/README.md)
 * Send a PR, add your notes above this line
 
 <br>
@@ -159,5 +160,5 @@ https://www.youtube.com/watch?v=jCNxqXCKh2s&list=PL3MmuxUbc_hIUISrluw_A7wDSmfOhE
 ### Notes
 
 Did you take notes? Add them here:
-
+* [Week 6 Best Practices: 2023](https://github.com/dimzachar/mlops-zoomcamp/tree/master/notes/Week_6)
 * Send a PR, add your notes above this line

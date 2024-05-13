@@ -34,6 +34,7 @@
 [**Module 6: Best Practices**](06-best-practices)
 
 * [Homework](06-best-practices/homework.md)
+* [Solution](06-best-practices/homework_solution)
 
 
 [**Projects**](07-project/)

@@ -46,7 +46,8 @@ What fraction of the records left after you dropped the outliers?
 
 Let's apply one-hot encoding to the pickup and dropoff location IDs. We'll use only these two features for our model. 
 
-* Turn the dataframe into a list of dictionaries
+* Turn the dataframe into a list of dictionaries (remember to re-cast the ids to strings - otherwise it will 
+  label encode them)
 * Fit a dictionary vectorizer 
 * Get a feature matrix from it
 

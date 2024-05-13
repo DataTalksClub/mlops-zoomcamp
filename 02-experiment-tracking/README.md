@@ -87,4 +87,5 @@ Did you take notes? Add them here:
 * [Blog post on setting up MLFlow on GCP by Isaac Kargar](https://kargarisaac.github.io/blog/mlops/data%20engineering/2022/06/15/MLFlow-on-GCP.html).
 * [Week2: Experiment tracking notes and notebook by Bhagabat](https://github.com/BPrasad123/MLOps_Zoomcamp/tree/main/Week2)
 * [Notes of ML-flow by Jaime Cabrera-Salcedo](https://github.com/jaimeh94/MLOps-Zoomcamp/tree/main/02-experiment-tracking)
+* [Experiment tracking with MLflow by Hongfan (Amber)](https://github.com/Muhongfan/MLops/blob/main/02-experiment-tracking/README.md)
 * Send a PR, add your notes above this line
