@@ -1,0 +1,43 @@
+{
+  "module": {
+    "number": 3,
+    "title": "Orchestration and ML Pipelines"
+  },
+  "units": [
+    {
+      "number": 1,
+      "title": "Introdution to Workflow Orchestration",
+      "youtube": "https://www.youtube.com/watch?v=Cqb7wyaNF08"
+    },
+    {
+      "number": 2,
+      "title": "Introduction to Prefect",
+      "youtube": "https://www.youtube.com/watch?v=rTUBTvXvXvM"
+    },
+    {
+      "number": 3,
+      "title": "Prefect Workflow",
+      "youtube": "https://www.youtube.com/watch?v=x3bV8yMKjtc"
+    },
+    {
+      "number": 4,
+      "title": "Deploying Your Workflow",
+      "youtube": "https://www.youtube.com/watch?v=3YjagezFhOo"
+    },
+    {
+      "number": 5,
+      "title": "Working with Deployments",
+      "youtube": "https://www.youtube.com/watch?v=jVmaaqs63O8"
+    },
+    {
+      "number": 6,
+      "title": "Prefect Cloud (optional)",
+      "youtube": "https://www.youtube.com/watch?v=y89Ww85EUdo"
+    },
+    {
+      "number": 7,
+      "title": "Homework",
+      "youtube": ""
+    }
+  ]
+}
