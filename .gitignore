@@ -21,3 +21,7 @@ __pycache__/
 
 
 .DS_Store
+
+# additional
+/data
+/models
