@@ -14,9 +14,8 @@ Read the data for January. How many columns are there?
 
 * 16
 * 17
-* 18
+* [X] 18
 * 19
-
 
 ## Q2. Computing duration
 
@@ -25,7 +24,7 @@ Now let's compute the `duration` variable. It should contain the duration of a r
 What's the standard deviation of the trips duration in January?
 
 * 32.59
-* 42.59
+* [X] 42.59
 * 52.59
 * 62.59
 
@@ -39,7 +38,7 @@ What fraction of the records left after you dropped the outliers?
 * 90%
 * 92%
 * 95%
-* 98%
+* [X] 98%
 
 
 ## Q4. One-hot encoding
