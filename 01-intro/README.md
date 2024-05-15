@@ -14,7 +14,7 @@ Instructor: Alexey Grigorev
 
 ### 1.2.1 GitHub Codespaces
 <a href="https://www.youtube.com/watch?v=MzcmWXYxi2s&list=PL3MmuxUbc_hIUISrluw_A7wDSmfOhErJK&index=2">
-  <img src="images/thumbnail-1-02-1.jpeg" width=480, height=300>
+  <img src="images/thumbnail-1-02-1.jpeg" />
 </a>
 
 
