@@ -19,6 +19,7 @@ for setting up your local environment.
   <img src="images/thumbnail-1-02.jpg">
 </a>
 
+ - Note: One potential issue at approximately the 11:49 minute mark that you might encounter is being able to connect to the ec2 instance using bash terminal but still being unable to connect using VSCODE remote-ssh extension. I was able to resolve it after about 4 hours of trouble shooting. The permissions in powershell and command prompt for the config and .ssh directory had to be modified on windows the local machine using admin rights (won't allow connection if ssh keys and the directories they are in are too open and won't allow connection if not enough permissions granted) until VS Code remote connection extension was finally happy with the settings enough to allow a connection. If you are not able to get it to work with modifications to the directories and files in your .ssh folder, another approach might be to delete the entire .ssh directory and keys and generate an entire new directory and ssh keys altogether from scratch or from backups, in additional to a clean install and full update of VSCode.
 
 Code:
 
@@ -169,5 +170,6 @@ Did you take notes? Add them here:
 * [Notes for Week1 by Bhagabat](https://github.com/BPrasad123/MLOps_Zoomcamp/tree/main/Week1)
 * [What is MLOps? - Storytime by Pathik Ghugare](https://github.com/pathikg/MLOps-Zoomcamp-DataTalks/blob/main/week-01-introduction/MLOps-Introduction.md)
 * [Module 1 Notes by Stephen Barrie](https://stephen137.github.io/posts/MLOps_Zoomcamp_Week_1/MLOps_Zoomcamp_Week_1.html)
+* [Module 1 Notes - MacOS + Pycharm by Hongfan (Amber)](https://github.com/Muhongfan/MLops/blob/main/01-intro/README.md)
 * [Module 1 Notes - MacOS + Pycharm by Hongfan (Amber)](https://github.com/Muhongfan/MLops/blob/main/01-intro/README.md)
 * Send a PR, add your notes above this line
