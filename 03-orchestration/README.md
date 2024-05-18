@@ -2,9 +2,9 @@
 
 ## 3.0 Introduction: ML pipelines and Mage
 
-- Why do we need ML operations?
+- What is MLOps
+- Why we need to operationalize ML
 - How Mage helps MLOps
-- Mage setup
 - Example data pipeline
 
 ## 3.1 Data preparation: ETL and feature engineering
@@ -12,9 +12,11 @@
 - Ingest raw data
 - Prepare data for training
 - Build training sets
+- Data validations using built-in testing framework
 
 ## 3.2 Training: sklearn models and XGBoost
 
+- Reusable training set data product
 - Training pipeline for sklearn models
 - Training pipeline for XGBoost
 - Tracking training metrics with experiments
@@ -24,22 +26,43 @@
 - Dashboard for sklearn training pipeline health
 - Dashboard for XGBoost model explainability
 - Dashboard for model training performance
-- Alerts for successful pipeline runs and errors
+- Alerts for pipeline runs
 
-## 3.4 Deploying: Infrastructure on AWS
-
-- Containerization and Docker setup
-- Deploy to AWS using Terraform
-- Automate development workflow with CI/CD
-
-## 3.5 Production: Running pipelines
+## 3.4 Triggering: Inference and retraining
 
 - Automatic retraining pipeline
-- Online inference pipeline for real-time predictions
+- No-code UI input fields to interact with models
+- Inference pipeline for real-time predictions
 
-# Code for entire project
+## 3.5 Deploying: Running operations in production
 
-https://github.com/mage-ai/mlops.git
+- Setup AWS permissions and credentials
+- Terraform setup
+- Initial deployment to AWS
+- Use GitHub Actions for CI/CD to automate deployment to production
+
+## Quickstart
+
+1. Clone the following respository containing the complete code for this module:
+
+   ```
+   git clone https://github.com/mage-ai/mlops.git
+   ```
+
+1. Change directory into the cloned repo:
+
+   ```
+   cd mlops
+   ```
+
+1. Launch Mage and the database service (PostgreSQL):
+
+   ```
+   ./scripts/start.sh
+   ```
+
+1. The subproject that contains all the pipelines and code is named
+   [`unit_3_observability`](https://github.com/mage-ai/mlops/tree/master/mlops/unit_3_observability)
 
 # Notes previous editions
 
