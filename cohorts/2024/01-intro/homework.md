@@ -8,7 +8,7 @@ The goal of this homework is to train a simple model for predicting the duration
 We'll use [the same NYC taxi dataset](https://www1.nyc.gov/site/tlc/about/tlc-trip-record-data.page),
 but instead of "**Green** Taxi Trip Records", we'll use "**Yellow** Taxi Trip Records".
 
-Download the data for January and February 2022.
+Download the data for January and February 2023.
 
 Read the data for January. How many columns are there?
 
@@ -24,10 +24,10 @@ Now let's compute the `duration` variable. It should contain the duration of a r
 
 What's the standard deviation of the trips duration in January?
 
-* 41.45
-* 46.45
-* 51.45
-* 56.45
+* 32.59
+* 42.59
+* 52.59
+* 62.59
 
 
 ## Q3. Dropping outliers
@@ -69,32 +69,24 @@ Now let's use the feature matrix from the previous step to train a model.
 
 What's the RMSE on train?
 
-* 6.99
-* 11.99
-* 16.99
-* 21.99
+* 3.64
+* 7.64
+* 11.64
+* 16.64
 
 
 ## Q6. Evaluating the model
 
-Now let's apply this model to the validation dataset (February 2022). 
+Now let's apply this model to the validation dataset (February 2023). 
 
 What's the RMSE on validation?
 
-* 7.79
-* 12.79
-* 17.79
-* 22.79
+* 3.81
+* 7.81
+* 11.81
+* 16.81
 
 ## Submit the results
 
-* Submit your results here: https://forms.gle/uYTnWrcsubi2gdGV7
-* You can submit your solution multiple times. In this case, only the last submission will be used
+* Submit your results here: https://courses.datatalks.club/mlops-zoomcamp-2024/homework/hw1
 * If your answer doesn't match options exactly, select the closest one
-
-
-## Deadline
-
-The deadline for submitting is 23 May 2023 (Tuesday), 23:00 CEST (Berlin time). 
-
-After that, the form will be closed.

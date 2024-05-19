@@ -12,6 +12,16 @@ Instructor: Alexey Grigorev
 
 ## 1.2 Environment preparation
 
+### 1.2.1 GitHub Codespaces
+<a href="https://www.youtube.com/watch?v=MzcmWXYxi2s&list=PL3MmuxUbc_hIUISrluw_A7wDSmfOhErJK&index=2">
+  <img src="images/thumbnail-1-02-1.jpeg" />
+</a>
+
+
+OR
+
+### 1.2.2 VM in AWS
+
 **Note**: You don't have to rent an instance in the cloud. You can follow the same instructions 
 for setting up your local environment. 
 
@@ -141,7 +151,7 @@ Links:
 
 ## 1.6 Homework
 
-More information [here](../cohorts/2023/01-intro/homework.md).
+More information [here](../cohorts/2024/01-intro/homework.md).
 
 
 ## Notes
