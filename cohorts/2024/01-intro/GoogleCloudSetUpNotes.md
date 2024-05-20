@@ -16,31 +16,31 @@ All that I've done is add in some screenshots for MacOS and tried to spend a bit
 
 **Installing google-cloud-sdk**
 
-    i. In your terminal navigate to the `google-cloud-sdk` and type `install.sh` to begin this process.
+i. In your terminal navigate to the `google-cloud-sdk` and type `install.sh` to begin this process.
 
-    ii. `Do you want to help improve the Google Cloud CLI (y/N)?` --> I chose y but it doesn't matter.
+ii. `Do you want to help improve the Google Cloud CLI (y/N)?` --> I chose y but it doesn't matter.
 
-    iii. `Modify profile to update your $PATH and enable shell command completion?... Do you want to continue (Y/n)?` --->y, this way you don't always need to enter the relevant path.
+iii. `Modify profile to update your $PATH and enable shell command completion?... Do you want to continue (Y/n)?` --->y, this way you don't always need to enter the relevant path.
 
-    iv. `Enter a path to an rc file to update, or leave blank to use [/Users/marcusleiwe/.zshrc]:` --> left blank.
+iv. `Enter a path to an rc file to update, or leave blank to use [/Users/marcusleiwe/.zshrc]:` --> left blank.
 
-    v. `Google Cloud CLI works best with Python 3.11 and certain modules. Download and run Python 3.11 installer? (Y/n)?` --> I picked no because I already have 3.11.7.
-    ![alt text](<Screenshot 2024-05-19 at 9.10.08 PM.png>)
+v. `Google Cloud CLI works best with Python 3.11 and certain modules. Download and run Python 3.11 installer? (Y/n)?` --> I picked no because I already have 3.11.7.
+![alt text](<Screenshot 2024-05-19 at 9.10.08 PM.png>)
 
-    vi. Reload the .zshrc file to make sure you're in the right place.
+vi. Reload the .zshrc file to make sure you're in the right place.
 
-    `source ~/.zshrc`
+`source ~/.zshrc`
 
-    vii. type `gclou` and press tab. If it auto-completes to `gcloud then you should have gcloud on your system.
+vii. type `gclou` and press tab. If it auto-completes to `gcloud then you should have gcloud on your system.
 
-    viii. Run gcloud init from a terminal and follow the instructions.
+viii. Run gcloud init from a terminal and follow the instructions.
 
-        * There's a login section, where it will launch a page and allow you to login to the google account associated with your cloud account.
+    * There's a login section, where it will launch a page and allow you to login to the google account associated with your cloud account.
 
-        * Then select the project you want to run or create a new project (in this case I picked mlops-zoomcamp)
-        ![alt text]](</Users/marcusleiwe/Desktop/Ch1_Screenshots/Screenshot 2024-05-20 at 8.01.44 AM.png>)
+    * Then select the project you want to run or create a new project (in this case I picked mlops-zoomcamp)
+    ![alt text]](</Users/marcusleiwe/Desktop/Ch1_Screenshots/Screenshot 2024-05-20 at 8.01.44 AM.png>)
 
-    ix. Make sure that your project is selected with the command `gcloud config list`
+ix. Make sure that your project is selected with the command `gcloud config list`
 
 # Creating a VM instance
 From your project's dashboard, go to Cloud Compute > VM instance
