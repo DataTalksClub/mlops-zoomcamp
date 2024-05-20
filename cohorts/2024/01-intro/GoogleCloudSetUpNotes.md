@@ -125,15 +125,11 @@ When you create an instance, it will be started automatically. You can skip to s
     Troubleshooting...
 
     i. If you have multiple google accounts but the current config does not match the account you want:
-
         a. Use `gcloud config configurations list` to see all of the available configs and their associated accounts.
-
         b. Change to the config you want with `gcloud config configurations activate my-project` --> In this case it would be `gcloud config configurations activate mlops-course-vm`
 
     ii. If the config matches your account but points to a different project:
-
         a. Use `gcloud projects list` to list the projects available to your account (it can take a while to load).
-        
         b. Use `gcloud config set project my-project` to change your current config to your project. --> In this case it would be `gcloud config set project mlops-course-vm`
     
     
