@@ -7,10 +7,10 @@ All that I've done is add in some screenshots for MacOS and tried to spend a bit
 
 ## Install and setup Gcloud SDK
 ### 1. Download Gcloud SDK from [this link](https://cloud.google.com/sdk/docs/install) and install it according to the instructions for your OS.
-    * NB I gunzipped it 
-    ![alt text](<Screenshot 2024-05-19 at 5.59.33 PM.png>)
-    * Then had to double click the .tar file in order to create the folder `google-cloud-sdk`
-    ![alt text](<Screenshot 2024-05-19 at 6.05.16 PM.png>)
+* NB I gunzipped it 
+![alt text](<Screenshot 2024-05-19 at 5.59.33 PM.png>)
+* Then had to double click the .tar file in order to create the folder `google-cloud-sdk`
+![alt text](<Screenshot 2024-05-19 at 6.05.16 PM.png>)
 
 ### 2. Initialize the SDK following [these instructions](https://cloud.google.com/sdk/docs/quickstart).
 
