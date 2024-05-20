@@ -43,12 +43,14 @@ viii. Run `gcloud init` from a terminal and follow the instructions.
 
 ix. Make sure that your project is selected with the command `gcloud config list`.
 This should produce the following inputs
+    ```
     [core]
     account = marcusleiwe@gmail.com
     disable_usage_reporting = False
     project = mlops-zoomcamp-423810
 
     Your active configuration is: [default]
+    ```
 
 
 # Creating a VM instance
