@@ -52,7 +52,35 @@ This should produce the following inputs
     Your active configuration is: [default]
 
 
-# Creating a VM instance
+## Creating a VM instance
+From the project dashboard, we need to create a virtual instance. If it is not visible as a card in the products section click on the `view all products` button (see screenshot).
+![alt text](ProjectDashboard.png)
+
+From here, select compute engine to set it up
+![alt text](ComputeEngine.png)
+
+If not already installed you may need to enable the `Compute Engine API` (see screenshot).
+![alt text](ComputeEngineAPI.png)
+
+From here it should navigate you to the VM instances page, from here we can create our VM instance. (click on the Create Instance button in the main pane)
+![alt text](VM_instancePage.png)
+
+### VM configs for MLops course
+This should take you to the config settings for your VN. I will be following Alvaro's suggestions and also following the suggestions from Alexy on how he set up his EC2 instance in AWS.
+* Name: `mlops-course-vm` 
+You can choose anything, but pick something that isn't too long to type
+
+* Region: `asia-east1`
+There are lots of options here, and you can check them out on the link [here](https://cloud.google.com/about/locations). I'm based in Hong Kong at the moment so I've picked Taiwan (asia-east1) because it offers more services than the current Hong Kong region while still minimising the latencies. 
+Helpful links to make your decision
+    * [What to look for when choosing your region](https://cloud.google.com/solutions/best-practices-compute-engine-region-selection). 
+    * [Regions Pricings](https://cloud.google.com/skus/?currency=USD&hl=en&filter=asia-east)
+
+* Zone: `asia-east-1b`
+From what I understand in general it is helpful to try and store all the data within the same zone as it is faster and potentially cheaper. Once again there is a helpful google guide [here](https://cloud.google.com/compute/docs/regions-zones) to explain the differences between regions, zones, and clusters.
+
+* Machine Configuration
+
 From your project's dashboard, go to Cloud Compute > VM instance
 Create a new instance:
 Manual setup:
