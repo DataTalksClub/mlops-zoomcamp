@@ -69,6 +69,7 @@ From here it should navigate you to the VM instances page, from here we can crea
 This should take you to the config settings for your VN. I will be following Alvaro's suggestions and also following the suggestions from Alexy on how he set up his EC2 instance in AWS.
 
 #### Manual Installation (recommended if you want to learn about the set up)
+
 * Name: `mlops-course-vm` 
 You can choose anything, but pick something that isn't too long to type
 
@@ -83,23 +84,21 @@ From what I understand in general it is helpful to try and store all the data wi
 
 * Machine Configuration: `E2 series instance`
  ![alt text](MachineConfigs.png)
- 
- A e2-standard-4 instance is recommended (4 vCPUs, 16GB RAM). To do this select
-    * General purpose: `E2`
 
-    * Machine Type: `e2-standard-4 (4vCPU, 2 core, 16GB memory)` 
-    NB this is not the default option, in the screenshot below it will show you how to roughly navigate to selecting the option.
+A e2-standard-4 instance is recommended (4 vCPUs, 16GB RAM). To do this select
+* General purpose: `E2`
+    * Machine Type: `e2-standard-4 (4vCPU, 2 core, 16GB memory)`  NB this is not the default option, in the screenshot above it will show you how to roughly navigate to selecting the option.
         * vCPUs to core ration and visible core count left blank
     
-    * Availability policies: `Standard` 
-    There is also the [Spot](https://cloud.google.com/compute/docs/instances/spot) option. Essentially, this is cheaper but uses spare capacity, so your processes could terminate at any given time. For safety's sake I've stuck to standard, but seeing as this is just a training course I probably could get away with running spot instances.
-    
-    * Display device: Not selected
-    
-    * Boot disk: Recommended to change to `Ubuntu 20.04 LTS`, and pick at least `30GB` of storage.
-    ![alt text](ChangeBootDisk.png)
-    
-    * Leave all other settings on their default values and click `create`
+* Availability policies: `Standard` 
+There is also the [Spot](https://cloud.google.com/compute/docs/instances/spot) option. Essentially, this is cheaper but uses spare capacity, so your processes could terminate at any given time. For safety's sake I've stuck to standard, but seeing as this is just a training course I probably could get away with running spot instances.
+
+* Display device: Not selected
+
+* Boot disk: Recommended to change to `Ubuntu 20.04 LTS`, and pick at least `30GB` of storage.
+![alt text](ChangeBootDisk.png)
+
+* Leave all other settings on their default values and click `create`
  
  You should then be directed back to the VM Instances page and you should see the instance is running
 ![alt text](SuccesfulInstanceInstallation.png)
