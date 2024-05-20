@@ -39,19 +39,17 @@ viii. Run `gcloud init` from a terminal and follow the instructions.
 * There's a login section, where it will launch a page and allow you to login to the google account associated with your cloud account. (NB This is the part which Tony forogt initially in the video)
 
 * Then select the project you want to run or create a new project (in this case I picked mlops-zoomcamp which I created beforehand)
-![alt text]](</Users/marcusleiwe/Desktop/Ch1_Screenshots/Screenshot 2024-05-20 at 8.01.44 AM.png>)
+![alt text](</Users/marcusleiwe/Desktop/Ch1_Screenshots/Screenshot 2024-05-20 at 8.01.44 AM.png>)
 
 ix. Make sure that your project is selected with the command `gcloud config list`.
 This should produce the following inputs
 
-    ```
     [core]
     account = marcusleiwe@gmail.com
     disable_usage_reporting = False
     project = mlops-zoomcamp-423810
 
     Your active configuration is: [default]
-    ```
 
 
 # Creating a VM instance
