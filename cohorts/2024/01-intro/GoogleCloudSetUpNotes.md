@@ -67,6 +67,8 @@ From here it should navigate you to the VM instances page, from here we can crea
 
 ### VM configs for MLops course
 This should take you to the config settings for your VN. I will be following Alvaro's suggestions and also following the suggestions from Alexy on how he set up his EC2 instance in AWS.
+
+#### Manual Installation (recommended if you want to learn about the set up)
 * Name: `mlops-course-vm` 
 You can choose anything, but pick something that isn't too long to type
 
@@ -79,20 +81,31 @@ Helpful links to make your decision
 * Zone: `asia-east-1b`
 From what I understand in general it is helpful to try and store all the data within the same zone as it is faster and potentially cheaper. Once again there is a helpful google guide [here](https://cloud.google.com/compute/docs/regions-zones) to explain the differences between regions, zones, and clusters.
 
-* Machine Configuration
+* Machine Configuration: `E2 series instance`
+ ![alt text](MachineConfigs.png)
+ 
+ A e2-standard-4 instance is recommended (4 vCPUs, 16GB RAM). To do this select
+    * General purpose: `E2`
+    * Machine Type: `e2-standard-4 (4vCPU, 2 core, 16GB memory)` 
+    NB this is not the default option, in the screenshot below it will show you how to roughly navigate to selecting the option.
+        * vCPUs to core ration and visible core count left blank
+    * Availability policies: `Standard` 
+    There is also the [Spot](https://cloud.google.com/compute/docs/instances/spot) option. Essentially, this is cheaper but uses spare capacity, so your processes could terminate at any given time. For safety's sake I've stuck to standard, but seeing as this is just a training course I probably could get away with running spot instances.
+    * Display device: Not selected
+    * Boot disk: Recommended to change to `Ubuntu 20.04 LTS`, and pick at least `30GB` of storage.
+    ![alt text](ChangeBootDisk.png)
+    * Leave all other settings on their default values and click `create`
+ You should then be directed back to the VM Instances page and you should see the instance is running
+![alt text](SuccesfulInstanceInstallation.png)
+NB when you are finished remember to switch it off. Otherwise you will pay for it.
+#### CLI based Installation
+This is much easier. Just type the following instructions
 
-From your project's dashboard, go to Cloud Compute > VM instance
-Create a new instance:
-Manual setup:
-Any name of your choosing
-Pick your favourite region. You can check out the regions in this link.
-Pick a E2 series instance. A e2-standard-4 instance is recommended (4 vCPUs, 16GB RAM)
-Change the boot disk to Ubuntu. The Ubuntu 20.04 LTS version is recommended. Also pick at least 30GB of storage.
-Leave all other settings on their default value and click on Create.
-Gcloud SDK setup:
-gcloud compute instances create dezoomcamp --zone=europe-west1-b --image-family=ubuntu-2004-lts --image-project=ubuntu-os-cloud --machine-type=e2-standard-4 --boot-disk-size=30GB
+    gcloud compute instances create dezoomcamp --zone=europe-west1-b --image-family=ubuntu-2004-lts --image-project=ubuntu-os-cloud --machine-type=e2-standard-4 --boot-disk-size=30GB
+
 When you create an instance, it will be started automatically. You can skip to step 3 of the next section.
-Set up SSH access
+
+## Set up SSH access
 Start your instance from the VM instances dashboard.
 In your local terminal, make sure that gcloud SDK is configured for your project. Use gcloud config list to list your current config's details.
 If you have multiple google accounts but the current config does not match the account you want:
