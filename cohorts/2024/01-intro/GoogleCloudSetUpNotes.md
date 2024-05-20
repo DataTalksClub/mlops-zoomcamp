@@ -124,24 +124,50 @@ When you create an instance, it will be started automatically. You can skip to s
 
     Troubleshooting...
 
-    i. If you have multiple google accounts but the current config does not match the account you want:
-        a. Use `gcloud config configurations list` to see all of the available configs and their associated accounts.
-        b. Change to the config you want with `gcloud config configurations activate my-project` --> In this case it would be `gcloud config configurations activate mlops-course-vm`
-
-    ii. If the config matches your account but points to a different project:
-        a. Use `gcloud projects list` to list the projects available to your account (it can take a while to load).
-        b. Use `gcloud config set project my-project` to change your current config to your project. --> In this case it would be `gcloud config set project mlops-course-vm`
+    **If you have multiple google accounts but the current config does not match the account you want:**        
     
+    i. Use `gcloud config configurations list` to see all of the available configs and their associated accounts.
+
+    ii. Change to the config you want with `gcloud config configurations activate my-project` --> In this case it would be `gcloud config configurations activate mlops-course-vm`.
+
+    **If the config matches your account but points to a different project:**
     
+    i. Use `gcloud projects list` to list the projects available to your account (it can take a while to load).
+
+    ii. Use `gcloud config set project my-project` to change your current config to your project. --> In this case it would be `gcloud config set project mlops-course-vm`.
+
+3. Set up the SSH connection to your VM instances with `gcloud compute config-ssh`.
+    * Inside ~/ssh/ a new config file should appear with the necessary info to connect.
+    * If you did not have a SSH key, a pair of public and private SSH keys will be generated for you. ![alt text](sshConnectionInstallation.png)
+    After the fingerprint and random art you should receive this
+        Updating project ssh metadata...⠹Updated [https://www.googleapis.com/compute/v1/projects/mlops-zoomcamp-423810].                                                             
+        Updating project ssh metadata...done.                                                                                                                                        
+        You should now be able to use ssh/scp with your instances.
+        For example, try running:
+
+        $ ssh mlops-course-vm.asia-east1-b.mlops-zoomcamp-xxxxx
+
+    * The output of this command will give you the host name of your instance in this format: instance.zone.project ; write it down. NB You can [find it out](https://cloud.google.com/compute/docs/samples/compute-instances-get-hostname#compute_instances_get_hostname-python) if you forget but it seems like a lot of hassle.
+
+4. You should now be able to open a terminal and SSH to your VM instance like this:
+
+    ```ssh instance.zone.project```
+
+    I received a warning stating
+
+    ```
+    The authenticity of host 'compute.xxxxxxxxx (xx.xxx.xxx.xx)' can't be established.
+    ED25519 key fingerprint is SHA256:xxxxxxx.
+    This key is not known by any other names
+    Are you sure you want to continue connecting (yes/no/[fingerprint])?
+    ```
+    Here I typed in the fingerprint obtained from above. It will close the connection and you will have to restart.
+    Type `gcloud compute config-ssh`
+    You will then be prompted to enter your passphrase and once done you're in!!
+    [alt text](SuccessfulSSHconnection.png)
 
 
-Set up the SSH connection to your VM instances with gcloud compute config-ssh
-Inside ~/ssh/ a new config file should appear with the necessary info to connect.
-If you did not have a SSH key, a pair of public and private SSH keys will be generated for you.
-The output of this command will give you the host name of your instance in this format: instance.zone.project ; write it down.
-You should now be able to open a terminal and SSH to your VM instance like this:
-ssh instance.zone.project
-In VSCode, with the Remote SSH extension, if you run the command palette and look for Remote-SSH: Connect to Host (or alternatively you click on the Remote SSH icon on the bottom left corner and click on Connect to Host), your instance should now be listed. Select it to connect to it and work remotely.
+5. In VSCode, with the Remote SSH extension, if you run the command palette and look for Remote-SSH: Connect to Host (or alternatively you click on the Remote SSH icon on the bottom left corner and click on Connect to Host), your instance should now be listed. Select it to connect to it and work remotely.
 (Optional) Starting your instance with gcloud sdk after you shut it down.
 List your available instances.
 gcloud compute instances list
