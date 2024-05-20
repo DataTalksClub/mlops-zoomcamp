@@ -139,13 +139,14 @@ When you create an instance, it will be started automatically. You can skip to s
 3. Set up the SSH connection to your VM instances with `gcloud compute config-ssh`.
     * Inside ~/ssh/ a new config file should appear with the necessary info to connect.
     * If you did not have a SSH key, a pair of public and private SSH keys will be generated for you. ![alt text](sshConnectionInstallation.png)
-    After the fingerprint and random art you should receive this
-        Updating project ssh metadata...⠹Updated [https://www.googleapis.com/compute/v1/projects/mlops-zoomcamp-423810].                                                             
-        Updating project ssh metadata...done.                                                                                                                                        
-        You should now be able to use ssh/scp with your instances.
-        For example, try running:
+    After the fingerprint and random art you should receive this message
+        
+            Updating project ssh metadata...⠹Updated [https://www.googleapis.com/compute/v1/projects/mlops-zoomcamp-xxxx].                                                             
+            Updating project ssh metadata...done.                                                                                                                                        
+            You should now be able to use ssh/scp with your instances.
+            For example, try running:
 
-        $ ssh mlops-course-vm.asia-east1-b.mlops-zoomcamp-xxxxx
+            $ ssh mlops-course-vm.asia-east1-b.mlops-zoomcamp-xxxxx
 
     * The output of this command will give you the host name of your instance in this format: instance.zone.project ; write it down. NB You can [find it out](https://cloud.google.com/compute/docs/samples/compute-instances-get-hostname#compute_instances_get_hostname-python) if you forget but it seems like a lot of hassle.
 
@@ -222,40 +223,93 @@ Run the installer with bash <filename> (you can start typing the name and then p
     v. Test that Docker can run successfully with `docker run hello-world`.
     NB If it can't find it locally it will download the image. Regardless you should obtain the output below.
     ![alt text](Docker_HelloWorldWorks.png)
+
+### Docker compose:
+1. Go to https://github.com/docker/compose/releases and copy the URL for the `docker-compose-linux-x86_64` binary for its latest version.
     
-Docker compose:
-Go to https://github.com/docker/compose/releases and copy the URL for the docker-compose-linux-x86_64 binary for its latest version.
-At the time of writing, the last available version is v2.2.3 and the URL for it is https://github.com/docker/compose/releases/download/v2.2.3/docker-compose-linux-x86_64
-Create a folder for binary files for your Linux user:
-Create a subfolder bin in your home account with mkdir ~/bin
-Go to the folder with cd ~/bin
-Download the binary file with wget <compose_url> -O docker-compose
-If you forget to add the -O option, you can rename the file with mv <long_filename> docker-compose
-Make sure that the docker-compose file is in the folder with ls
-Make the binary executable with chmod +x docker-compose
-Check the file with ls again; it should now be colored green. You should now be able to run it with ./docker-compose version
-Go back to the home folder with cd ~
-Run nano .bashrc to modify your path environment variable:
-Scroll to the end of the file
-Add this line at the end:
-export PATH="${HOME}/bin:${PATH}"
-Press CTRL + o in your keyboard and press Enter afterwards to save the file.
-Press CTRL + x in your keyboard to exit the Nano editor.
-Reload the path environment variable with source .bashrc
-You should now be able to run Docker compose from anywhere; test it with docker-compose version
-Terraform:
-Run curl -fsSL https://apt.releases.hashicorp.com/gpg | sudo apt-key add -
-Run sudo apt-add-repository "deb [arch=amd64] https://apt.releases.hashicorp.com $(lsb_release -cs) main"
-Run sudo apt-get update && sudo apt-get install terraform
-Upload/download files to/from your instance
-Download a file.
+    i. At the time of writing, the last available version is v2.27.0 and the URL for it is https://github.com/docker/compose/releases/download/v2.27.0/docker-compose-linux-x86_64
 
-# From your local machine
-scp <instance_name>:path/to/remote/file path/to/local/file
-Upload a file.
+2. Create a folder for binary files for your Linux user:
 
-# From your local machine
-scp path/to/local/file <instance_name>:path/to/remote/file
+    1. Create a subfolder `bin` in your home account with `mkdir ~/bin`.
+    
+    2. Go to the folder with `cd ~/bin`.
+    
+    3. Download the binary file with `wget <compose_url> -O docker-compose`. 
+    I this case I typed...
+
+        `wget https://github.com/docker/compose/releases/download/v2.27.0/docker-compose-linux-x86_64 -O docker-compose`
+        
+    If you forget to add the -O option, you can rename the file with `mv <long_filename> docker-compose`
+    
+    4. Make sure that the docker-compose file is in the folder with `ls`.
+
+    5. Make the binary executable with `chmod +x docker-compose`.
+    
+    6. Check the file with ls again; it should now be colored green. You should now be able to run it with `./docker-compose version`
+    ![alt text](DockerCompose_SetUp.png)
+
+    7. Go back to the home folder with `cd ~`.
+
+    8. Run `nano .bashrc` to modify your path environment variable:
+        
+        1. Scroll to the end of the file.
+
+        2. Add this line at the end:
+            `export PATH="${HOME}/bin:${PATH}"`
+        It should look like this
+
+        ![alt text](NanoBashrc.png)
+    
+        3. Press `CTRL + o` in your keyboard and press Enter afterwards to save the file.
+
+        4. Press `CTRL + x` in your keyboard to exit the Nano editor.
+
+3. Reload the path environment variable with `source .bashrc`.
+4. You should now be able to run Docker compose from anywhere; test it with `docker-compose version`
+
+### Terraform:
+Before we start on the instructions here, if you don't know what terraforming is you can read about it [here](https://developer.hashicorp.com/terraform/intro). Or you can watch the [Data Talks Data Engineering video on Terraforming](https://www.youtube.com/watch?v=s2bOYDCKl_M&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=12). 
+
+But essentially it allows us to store infrastructure as code
+* Simplicity in keeping track of infrastructure; you can view a file to see how the infrastructure is set up
+* Collaboration; you can upload the file to a repository and get others to proofread your set up
+* Reproducibility; you can build it in a dev environment and tweak it, then push it to prod
+* Ensure resources are removed; You can quickly and easily determine which features are needed
+
+NB It does not
+* Manage code and update code on infrastructure
+* Change immutable resources. I.e you cannot change the provisions of your virtual machine here. That will need to be done elsewhere.
+* Manage resources that are not in your terraform file
+
+
+1. Run `curl -fsSL https://apt.releases.hashicorp.com/gpg | sudo apt-key add -`
+2. Run `sudo apt-add-repository "deb [arch=amd64] https://apt.releases.hashicorp.com $(lsb_release -cs) main"`
+3. Run `sudo apt-get update && sudo apt-get install terraform`
+
+![alt text](Terraforming.png)
+
+4. Upload/download files to/from your instance
+**Upload a file to the instance.**
+
+*Type in a terminal of your loacl machine* 
+
+    scp path/to/local/file <instance_name>:path/to/remote/file
+
+NB You will also be prompted to enter your passphrase if you have set one up.
+
+e.g.
+
+    scp ./Desktop/Ch1_Screenshots/Terraforming.png mlops-course-vm.asia-east1-b.mlops-zoomcamp-xxxx:./test/test.png
+
 You can also drag & drop stuff in VSCode with the remote extension.
+
+**Download a file.**
+
+    # To your local machine
+    scp <instance_name>:path/to/remote/file path/to/local/file
+    
+e.g.
+    scp mlops-course-vm.asia-east1-b.mlops-zoomcamp-xxxx:./test/test.png ./Desktop/Ch1_Screenshots/FromGoogle.png
 
 If you use a client like Cyberduck, you can connect with SFTP to your instance using the instance.zone.project name as server, and adding the generated private ssh key.
