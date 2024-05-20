@@ -9,11 +9,13 @@ All that I've done is add in some screenshots for MacOS and tried to spend a bit
     * Then had to double click the .tar file in order to create the folder `google-cloud-sdk`
     ![alt text](<Screenshot 2024-05-19 at 6.05.16 PM.png>)
 2. Initialize the SDK following [these instructions](https://cloud.google.com/sdk/docs/quickstart).
-**Before you do this make sure you create a GoogleCloud account. NB This is not the same as Colab etc. There are links in the guide above, and as of writing this there is still $300 USD worth of credits for free.**
+
+*Before you do this make sure you create a GoogleCloud account. NB This is not the same as Colab etc. There are links in the guide above, and as of writing this there is still $300 USD worth of credits for free.*
 
 [I also found this youtube video helpful](https://www.youtube.com/watch?v=3wPl-AnegI4) 
 
 **Installing google-cloud-sdk**
+
     i. In your terminal navigate to the `google-cloud-sdk` and type `install.sh` to begin this process.
 
     ii. `Do you want to help improve the Google Cloud CLI (y/N)?` --> I chose y but it doesn't matter.
