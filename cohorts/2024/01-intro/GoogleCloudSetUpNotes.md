@@ -1,20 +1,22 @@
-Credits these notes are modified from [Alvaro Navas's](https://gist.github.com/ziritrion) notes on [Environment Set up in GCP](https://gist.github.com/ziritrion/3214aa570e15ae09bf72c4587cb9d686).
+# Setting up Google Cloud Platform on your MacOS
+Credits: 
+* These notes are modified from [Alvaro Navas's](https://gist.github.com/ziritrion) notes on [Environment Set up in GCP](https://gist.github.com/ziritrion/3214aa570e15ae09bf72c4587cb9d686).
+* I also found this [youtube video](https://www.youtube.com/watch?v=3wPl-AnegI4) helpful, it has someone going through this in realtime. The order is a little different to these notes. But the initial set up is the same upto ~2:37.
 
 All that I've done is add in some screenshots for MacOS and tried to spend a bit of time on explaining things that I didn't understand being completely new to cloud computing.
 
-# Install and setup Gcloud SDK
-1. Download Gcloud SDK from [this link](https://cloud.google.com/sdk/docs/install) and install it according to the instructions for your OS.
+## Install and setup Gcloud SDK
+### 1. Download Gcloud SDK from [this link](https://cloud.google.com/sdk/docs/install) and install it according to the instructions for your OS.
     * NB I gunzipped it 
     ![alt text](<Screenshot 2024-05-19 at 5.59.33 PM.png>)
     * Then had to double click the .tar file in order to create the folder `google-cloud-sdk`
     ![alt text](<Screenshot 2024-05-19 at 6.05.16 PM.png>)
-2. Initialize the SDK following [these instructions](https://cloud.google.com/sdk/docs/quickstart).
+
+### 2. Initialize the SDK following [these instructions](https://cloud.google.com/sdk/docs/quickstart).
 
 *Before you do this make sure you create a GoogleCloud account. NB This is not the same as Colab etc. There are links in the guide above, and as of writing this there is still $300 USD worth of credits for free.*
 
-[I also found this youtube video helpful](https://www.youtube.com/watch?v=3wPl-AnegI4) 
-
-**Installing google-cloud-sdk**
+#### 2a. Installing google-cloud-sdk
 
 i. In your terminal navigate to the `google-cloud-sdk` and type `install.sh` to begin this process.
 
@@ -25,22 +27,30 @@ iii. `Modify profile to update your $PATH and enable shell command completion?..
 iv. `Enter a path to an rc file to update, or leave blank to use [/Users/marcusleiwe/.zshrc]:` --> left blank.
 
 v. `Google Cloud CLI works best with Python 3.11 and certain modules. Download and run Python 3.11 installer? (Y/n)?` --> I picked no because I already have 3.11.7.
+You can see what version you have by typing `python -V` into your terminal command line (see the screenshot below)
 ![alt text](<Screenshot 2024-05-19 at 9.10.08 PM.png>)
 
-vi. Reload the .zshrc file to make sure you're in the right place.
+vi. Reload the .zshrc file to make sure you're in the right place. By typing the command out below
 
 `source ~/.zshrc`
 
 vii. type `gclou` and press tab. If it auto-completes to `gcloud then you should have gcloud on your system.
 
-viii. Run gcloud init from a terminal and follow the instructions.
+viii. Run `gcloud init` from a terminal and follow the instructions.
 
-    * There's a login section, where it will launch a page and allow you to login to the google account associated with your cloud account.
+    * There's a login section, where it will launch a page and allow you to login to the google account associated with your cloud account. (NB This is the part which Tony forogt initially in the video)
 
-    * Then select the project you want to run or create a new project (in this case I picked mlops-zoomcamp)
+    * Then select the project you want to run or create a new project (in this case I picked mlops-zoomcamp which I created beforehand)
     ![alt text]](</Users/marcusleiwe/Desktop/Ch1_Screenshots/Screenshot 2024-05-20 at 8.01.44 AM.png>)
 
-ix. Make sure that your project is selected with the command `gcloud config list`
+ix. Make sure that your project is selected with the command `gcloud config list`.
+    This should produce the following inputs
+``[core]
+account = marcusleiwe@gmail.com
+disable_usage_reporting = False
+project = mlops-zoomcamp-423810
+
+Your active configuration is: [default]``
 
 # Creating a VM instance
 From your project's dashboard, go to Cloud Compute > VM instance
