@@ -106,19 +106,33 @@ NB when you are finished remember to switch it off. Otherwise you will pay for i
 #### CLI based Installation
 This is much easier. Just type the following instructions
 
-    gcloud compute instances create dezoomcamp --zone=europe-west1-b --image-family=ubuntu-2004-lts --image-project=ubuntu-os-cloud --machine-type=e2-standard-4 --boot-disk-size=30GB
+    gcloud compute instances create mlops-course-vm --zone=asia-east1b --image-family=ubuntu-2004-lts --image-project=ubuntu-os-cloud --machine-type=e2-standard-4 --boot-disk-size=30GB
 
 When you create an instance, it will be started automatically. You can skip to step 3 of the next section.
 
 ## Set up SSH access
-Start your instance from the VM instances dashboard.
-In your local terminal, make sure that gcloud SDK is configured for your project. Use gcloud config list to list your current config's details.
-If you have multiple google accounts but the current config does not match the account you want:
-Use gcloud config configurations list to see all of the available configs and their associated accounts.
-Change to the config you want with gcloud config configurations activate my-project
-If the config matches your account but points to a different project:
-Use gcloud projects list to list the projects available to your account (it can take a while to load).
-use gcloud config set project my-project to change your current config to your project.
+1. Start your instance from the VM instances dashboard.
+2. In your local terminal, make sure that gcloud SDK is configured for your project. Use `gcloud config list` to list your current config's details.
+    The output should be the same as your initialisation
+
+    [core]
+    account = xxxxxxxx@gmail.com #Your e-mail should go here
+    disable_usage_reporting = False
+    project = mlops-zoomcamp-423810
+
+    Your active configuration is: [default]
+
+    Troubleshooting...
+    i. If you have multiple google accounts but the current config does not match the account you want:
+        a. Use `gcloud config configurations list` to see all of the available configs and their associated accounts.
+        b. Change to the config you want with `gcloud config configurations activate my-project` --> In this case it would be `gcloud config configurations activate mlops-course-vm`
+    ii. If the config matches your account but points to a different project:
+        a. Use `gcloud projects list` to list the projects available to your account (it can take a while to load).
+        b. Use `gcloud config set project my-project` to change your current config to your project. --> In this case it would be `gcloud config set project mlops-course-vm`
+    
+    
+
+
 Set up the SSH connection to your VM instances with gcloud compute config-ssh
 Inside ~/ssh/ a new config file should appear with the necessary info to connect.
 If you did not have a SSH key, a pair of public and private SSH keys will be generated for you.
