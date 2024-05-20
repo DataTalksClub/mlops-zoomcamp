@@ -45,7 +45,7 @@ ix. Make sure that your project is selected with the command `gcloud config list
 This should produce the following inputs
 
     [core]
-    account = marcusleiwe@gmail.com
+    account = xxxxxxxx@gmail.com #Your e-mail should go here
     disable_usage_reporting = False
     project = mlops-zoomcamp-423810
 
