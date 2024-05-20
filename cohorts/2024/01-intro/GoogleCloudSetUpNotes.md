@@ -3,7 +3,7 @@ Credits:
 * These notes are modified from [Alvaro Navas's](https://gist.github.com/ziritrion) notes on [Environment Set up in GCP](https://gist.github.com/ziritrion/3214aa570e15ae09bf72c4587cb9d686).
 * I also found this [youtube video](https://www.youtube.com/watch?v=3wPl-AnegI4) helpful, it has someone going through this in realtime. The order is a little different to these notes. But the initial set up is the same upto ~2:37.
 
-All that I've done is add in some screenshots for MacOS and tried to spend a bit of time on explaining things that I didn't understand being completely new to cloud computing.
+All that I've done is add in some screenshots for MacOS and tried to spend a bit of time on explaining things that I thought might be helpful for similar learners.
 
 ## Install and setup Gcloud SDK
 ### 1. Download Gcloud SDK from [this link](https://cloud.google.com/sdk/docs/install) and install it according to the instructions for your OS.
@@ -167,34 +167,62 @@ When you create an instance, it will be started automatically. You can skip to s
     ![alt text](SuccessfulSSHconnection.png)
 
 
-5. In VSCode, with the Remote SSH extension, if you run the command palette and look for Remote-SSH: Connect to Host (or alternatively you click on the Remote SSH icon on the bottom left corner and click on Connect to Host), your instance should now be listed. Select it to connect to it and work remotely.
-(Optional) Starting your instance with gcloud sdk after you shut it down.
+5. In VSCode, with the Remote SSH extension, if you run the [command palette](https://code.visualstudio.com/docs/getstarted/userinterface#_command-palette) (press cmd/cntrl + shift + p) and look for Remote-SSH: Connect to Host (or alternatively you click on the Remote SSH icon on the bottom left corner and click on Connect to Host), your instance should now be listed. Select it to connect to it and work remotely.
+
+This can be found on the remote explorer icon on the left hand ribbon, from there you can either run in the current window or in a new window
+
+![alt text](RemoteExplorerConnection.png)
+
+
+## (Optional) Starting your instance with gcloud sdk after you shut it down.
 List your available instances.
-gcloud compute instances list
+`gcloud compute instances list`
 Start your instance.
 gcloud compute instances start <instance_name>
 Set up ssh so that you don't have to manually change the IP in your config files.
-gcloud compute config-ssh
-Install stuff
-Run this first in your SSH session: sudo apt update && sudo apt -y upgrade
-It's a good idea to run this command often, once per day or every few days, to keep your VM up to date.
-Anaconda:
+`gcloud compute config-ssh`
+
+## Install Tools
+Run this first in your SSH session: sudo apt update && sudo apt -y upgrade. I did this through the terminal
+
+![alt text](SudoUpdate_Install.png)
+
+Alvaro recommends to to run this command often, once per day or every few days, to keep your VM up to date.
+
+### Anaconda:
 In your local browser, go to the Anaconda download page, scroll to the bottom, right click on the 64 bit x86 installer link under Linux and copy the URL.
 At the time of writing this gist, the URL is https://repo.anaconda.com/archive/Anaconda3-2021.11-Linux-x86_64.sh
-In your SSH session, type wget <anaconda_url> to download the installer.
-Find the filename of the installer with ls
+1. In your SSH session, type `wget <anaconda_url>` to download the installer.
+2. Find the filename of the installer with ls
 Run the installer with bash <filename> (you can start typing the name and then press the Tab key to autocomplete)
-Follow the on-screen instructions. Anwer yes to all yes/no questions and leave all other default values.
-Log out of your current SSH session with exit and log back in. You should now see a (base) at the beginning of your command prompt.
-You may now remove the Anaconda installer with rm <filename>
-Docker:
-Run sudo apt install docker.io to install it.
-Change your settings so that you can run Docker without sudo:
-Run sudo groupadd docker
-Run sudo gpasswd -a $USER docker
-Log out of your SSH session and log back in.
-Run sudo service docker restart
-Test that Docker can run successfully with docker run hello-world
+
+![alt text](AnacondaInstall.png)
+
+3. Follow the on-screen instructions. Anwer yes to all yes/no questions and leave all other default values.
+4. Log out of your current SSH session with `exit` and log back in. You should now see a (base) at the beginning of your command prompt.
+![Succesful Install](SuccessfulAnacondaInstall.png)
+5. You may now remove the Anaconda installer with 
+    rm <filename>
+
+### Docker:
+1. Run `sudo apt install docker.io` to install it.
+* `After this operation, 267 MB of additional disk space will be used. Do you want to continue? [Y/n]` : y
+2. Change your settings so that you can run Docker without `sudo`:
+    
+    i. Run `sudo groupadd docker`
+    This might already be accesible. This creates a group called `docker` which you can use to allow permissions etc. A [helpful guide](https://ioflood.com/blog/groupadd-linux-command/#:~:text=To%20create%20a%20new%20user,new%20group%20called%20'developers'.) will explain it in more detail.
+
+    ii. Run `sudo gpasswd -a $USER docker`
+    This adds the user to the group that can use docker. [Geeks4Geeks](https://www.geeksforgeeks.org/gpasswd-command-in-linux-with-examples/) offer a reasonable description if you find the `-help` tag a bit vague
+
+    iii. Log out of your SSH session and log back in.
+    
+    iv. Run `sudo service docker restart`
+
+    v. Test that Docker can run successfully with `docker run hello-world`.
+    NB If it can't find it locally it will download the image. Regardless you should obtain the output below.
+    ![alt text](Docker_HelloWorldWorks.png)
+    
 Docker compose:
 Go to https://github.com/docker/compose/releases and copy the URL for the docker-compose-linux-x86_64 binary for its latest version.
 At the time of writing, the last available version is v2.2.3 and the URL for it is https://github.com/docker/compose/releases/download/v2.2.3/docker-compose-linux-x86_64
