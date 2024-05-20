@@ -43,6 +43,7 @@ viii. Run `gcloud init` from a terminal and follow the instructions.
 
 ix. Make sure that your project is selected with the command `gcloud config list`.
 This should produce the following inputs
+
     ```
     [core]
     account = marcusleiwe@gmail.com
