@@ -16,8 +16,6 @@ All that I've done is add in some screenshots for MacOS and tried to spend a bit
 
 *Before you do this make sure you create a GoogleCloud account. NB This is not the same as Colab etc. There are links in the guide above, and as of writing this there is still $300 USD worth of credits for free.*
 
-#### 2a. Installing google-cloud-sdk
-
 i. In your terminal navigate to the `google-cloud-sdk` and type `install.sh` to begin this process.
 
 ii. `Do you want to help improve the Google Cloud CLI (y/N)?` --> I chose y but it doesn't matter.
@@ -32,7 +30,7 @@ You can see what version you have by typing `python -V` into your terminal comma
 
 vi. Reload the .zshrc file to make sure you're in the right place. By typing the command out below
 
-`source ~/.zshrc`
+    `source ~/.zshrc`
 
 vii. type `gclou` and press tab. If it auto-completes to `gcloud` then you should have gcloud on your system.
 
@@ -45,12 +43,13 @@ viii. Run `gcloud init` from a terminal and follow the instructions.
 
 ix. Make sure that your project is selected with the command `gcloud config list`.
 This should produce the following inputs
-    ``[core]
+    [core]
     account = marcusleiwe@gmail.com
     disable_usage_reporting = False
     project = mlops-zoomcamp-423810
 
-    Your active configuration is: [default]``
+    Your active configuration is: [default]
+
 
 # Creating a VM instance
 From your project's dashboard, go to Cloud Compute > VM instance
