@@ -163,8 +163,8 @@ When you create an instance, it will be started automatically. You can skip to s
     ```
     Here I typed in the fingerprint obtained from above. It will close the connection and you will have to restart.
     Type `gcloud compute config-ssh`
-    You will then be prompted to enter your passphrase and once done you're in!!
-    [alt text](SuccessfulSSHconnection.png)
+    You will then be prompted to enter your passphrase and once done you're in!
+    ![alt text](SuccessfulSSHconnection.png)
 
 
 5. In VSCode, with the Remote SSH extension, if you run the command palette and look for Remote-SSH: Connect to Host (or alternatively you click on the Remote SSH icon on the bottom left corner and click on Connect to Host), your instance should now be listed. Select it to connect to it and work remotely.
