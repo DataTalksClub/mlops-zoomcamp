@@ -66,10 +66,6 @@ difference between using Jupyter with VS code and without
 
 More information [here](../cohorts/2024/02-experiment-tracking/homework.md).
 
-## Weights & Biases Workshop
-
-More information [here](../cohorts/2024/02-experiment-tracking/wandb.md)
-
 
 ## Notes
 
