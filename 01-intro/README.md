@@ -182,4 +182,5 @@ Did you take notes? Add them here:
 * [Module 1 Notes by Stephen Barrie](https://stephen137.github.io/posts/MLOps_Zoomcamp_Week_1/MLOps_Zoomcamp_Week_1.html)
 * [Module 1 Notes - MacOS + Pycharm by Hongfan (Amber)](https://github.com/Muhongfan/MLops/blob/main/01-intro/README.md)
 * [Module 1 Notes - MacOS + Pycharm by Hongfan (Amber)](https://github.com/Muhongfan/MLops/blob/main/01-intro/README.md)
+* [Module 1 Notes - 1.2 Video ec2 instance remote-ssh troubleshooting notes (thatwonguy)](https://github.com/thatwonguy/mlops-zoomcamp/blob/second/01-intro/README.md)
 * Send a PR, add your notes above this line
