@@ -1,50 +1,47 @@
 # 3. Orchestration and ML Pipelines
 
+## 3.0 Introduction: ML pipelines and Mage
 
-## 3.0 Intro to Orchestration and Mage
+- Why do we need ML operations?
+- How Mage helps MLOps
+- Mage setup
+- Example data pipeline
 
-* What is Mage
-* How to build a simple pipeline
-* How to run a pipeline
+## 3.1 Data preparation: ETL and feature engineering
 
-## 3.1 Data preparation pipelines
+- Ingest raw data
+- Prepare data for training
+- Build training sets
 
-* Data preparation pipeline
-* Ingest data
-* Prepare data
-* Build training sets
-* Version training sets
+## 3.2 Training: sklearn models and XGBoost
 
-## 3.2 Training pipeline
+- Training pipeline for sklearn models
+- Training pipeline for XGBoost
+- Tracking training metrics with experiments
 
-* Training pipeline
-* Setup experiment tracking
-* Split data
-* Train model
-* Improve model through hyperparameter tuning
-* Build more training pipelines for different types of models
+## 3.3 Observability: Monitoring and alerting
 
-## 3.3 Testing and monitoring
+- Dashboard for sklearn training pipeline health
+- Dashboard for XGBoost model explainability
+- Dashboard for model training performance
+- Alerts for successful pipeline runs and errors
 
-* Setup tests for models
-* Monitoring and alerting
-* Default charts
-* Custom dashboard
-* Email alerts
+## 3.4 Deploying: Infrastructure on AWS
 
-## 3.4 Deploying to production
-* CI/CD
-* Infra setup
-* Deploy
+- Containerization and Docker setup
+- Deploy to AWS using Terraform
+- Automate development workflow with CI/CD
 
-## 3.5 Running in production
+## 3.5 Production: Running pipelines
 
-* Scheduling and triggering
-* API trigger
-* Trigger from a block
-* Automatic retraining
+- Automatic retraining pipeline
+- Online inference pipeline for real-time predictions
+
+# Code for entire project
+
+https://github.com/mage-ai/mlops.git
 
 # Notes previous editions
 
-* [2022 Prefect notes](../cohorts/2022/03-orchestration/README.md)
-* [2023 Prefect notes](../cohorts/2023/03-orchestration/prefect/README.md)
+- [2022 Prefect notes](../cohorts/2022/03-orchestration/README.md)
+- [2023 Prefect notes](../cohorts/2023/03-orchestration/prefect/README.md)
