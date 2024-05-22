@@ -64,7 +64,7 @@ What's the dimensionality of this matrix (number of columns)?
 
 Now let's use the feature matrix from the previous step to train a model. 
 
-* Train a plain linear regression model with default parameters 
+* Train a plain linear regression model with default parameters, where duration is the response variable
 * Calculate the RMSE of the model on the training data
 
 What's the RMSE on train?
