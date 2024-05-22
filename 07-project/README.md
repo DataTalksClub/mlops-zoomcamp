@@ -88,7 +88,7 @@ If you're not certain about some tools, ask in Slack.
 
 ### Datasets
 
-Refer to the provided [datasets](https://github.com/DataTalksClub/data-engineering-zoomcamp/blob/main/week_7_project/datasets.md) for possible selection.
+Refer to the provided [datasets](https://github.com/DataTalksClub/data-engineering-zoomcamp/blob/main/projects/datasets.md) for possible selection.
 
 ### Projects Gallery
 
