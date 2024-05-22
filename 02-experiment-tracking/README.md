@@ -47,6 +47,8 @@ difference between using Jupyter with VS code and without
   <img src="images/thumbnail-2-05.jpg">
 </a>
 
+> **Starting MLflow 2.9, model registry stages are deprecated.**
+Please use model version tags and aliases instead of stages. For example, instead of `transition_model_version_stage(name, version, stage)` use `set_registered_model_alias(name, alias, version)`. More details [here](https://github.com/mlflow/mlflow/issues/10336) and [here](https://mlflow.org/docs/latest/model-registry.html).
 
 ## 2.6 MLflow in practice
 
