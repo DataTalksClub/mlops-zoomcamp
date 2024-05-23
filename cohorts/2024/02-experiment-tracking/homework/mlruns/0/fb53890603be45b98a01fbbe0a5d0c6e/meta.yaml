@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/Admin/Documents/a_data_workspace/datatalks/mlops-zoomcamp/cohorts/2024/02-experiment-tracking/homework/mlruns/0/fb53890603be45b98a01fbbe0a5d0c6e/artifacts
+end_time: 1716414328010
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: fb53890603be45b98a01fbbe0a5d0c6e
+run_name: able-toad-242
+run_uuid: fb53890603be45b98a01fbbe0a5d0c6e
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1716414312052
+status: 3
+tags: []
+user_id: Admin

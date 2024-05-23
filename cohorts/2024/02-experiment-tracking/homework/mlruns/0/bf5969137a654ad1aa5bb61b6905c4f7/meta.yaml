@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/Admin/Documents/a_data_workspace/datatalks/mlops-zoomcamp/cohorts/2024/02-experiment-tracking/homework/mlruns/0/bf5969137a654ad1aa5bb61b6905c4f7/artifacts
+end_time: 1716413198646
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: bf5969137a654ad1aa5bb61b6905c4f7
+run_name: bouncy-colt-13
+run_uuid: bf5969137a654ad1aa5bb61b6905c4f7
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1716413180597
+status: 3
+tags: []
+user_id: Admin

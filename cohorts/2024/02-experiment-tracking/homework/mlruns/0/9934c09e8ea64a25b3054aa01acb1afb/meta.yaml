@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/Admin/Documents/a_data_workspace/datatalks/mlops-zoomcamp/cohorts/2024/02-experiment-tracking/homework/mlruns/0/9934c09e8ea64a25b3054aa01acb1afb/artifacts
+end_time: 1716471904316
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 9934c09e8ea64a25b3054aa01acb1afb
+run_name: kindly-donkey-318
+run_uuid: 9934c09e8ea64a25b3054aa01acb1afb
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1716471867441
+status: 3
+tags: []
+user_id: Admin

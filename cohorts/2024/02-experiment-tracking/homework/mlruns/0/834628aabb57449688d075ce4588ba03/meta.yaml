@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/Admin/Documents/a_data_workspace/datatalks/mlops-zoomcamp/cohorts/2024/02-experiment-tracking/homework/mlruns/0/834628aabb57449688d075ce4588ba03/artifacts
+end_time: 1716473883497
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 834628aabb57449688d075ce4588ba03
+run_name: respected-mule-689
+run_uuid: 834628aabb57449688d075ce4588ba03
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1716473865078
+status: 3
+tags: []
+user_id: Admin

@@ -6,9 +6,12 @@ import numpy as np
 from hyperopt import STATUS_OK, Trials, fmin, hp, tpe
 from hyperopt.pyll import scope
 from sklearn.ensemble import RandomForestRegressor
-from sklearn.metrics import mean_squared_error
+from sklearn.metrics import mean_squared_error, root_mean_squared_error
 
-mlflow.set_tracking_uri("http://127.0.0.1:5000")
+MLFLOW_TRACKING_URI = 'sqlite:///mlflow.db'
+
+#mlflow.set_tracking_uri("http://127.0.0.1:5000")
+mlflow.set_tracking_uri(MLFLOW_TRACKING_URI)
 mlflow.set_experiment("random-forest-hyperopt")
 
 
@@ -34,12 +37,15 @@ def run_optimization(data_path: str, num_trials: int):
     X_val, y_val = load_pickle(os.path.join(data_path, "val.pkl"))
 
     def objective(params):
-
-        rf = RandomForestRegressor(**params)
-        rf.fit(X_train, y_train)
-        y_pred = rf.predict(X_val)
-        rmse = mean_squared_error(y_val, y_pred, squared=False)
-
+        with mlflow.start_run():
+            mlflow.set_tag('model', 'Random Forest')
+            mlflow.log_param('parameters', params)
+            rf = RandomForestRegressor(**params)
+            rf.fit(X_train, y_train)
+            y_pred = rf.predict(X_val)
+            rmse = root_mean_squared_error(y_val, y_pred)
+            mlflow.log_metric('rmse validation set', rmse)
+            mlflow.sklearn.log_model(RandomForestRegressor, artifact_path='models_mlflow')
         return {'loss': rmse, 'status': STATUS_OK}
 
     search_space = {
