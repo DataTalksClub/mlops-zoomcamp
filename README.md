@@ -96,16 +96,11 @@ To make discussions in Slack more organized:
 
 [More details](02-experiment-tracking)
 
-[**Weights and biases workshop**](cohorts/2023/02-experiment-tracking/wandb.md) 
-
 
 ### [Module 3: Orchestration and ML Pipelines](03-orchestration)
 
 * Workflow orchestration
-* Prefect 2.0
-* Turning a notebook into a pipeline
-* Deployment of Prefect flow
-* Homework
+* Mage
 
 [More details](03-orchestration)
 
@@ -153,7 +148,7 @@ To make discussions in Slack more organized:
 ## Instructors
 
 - Cristian Martinez
-- Jeff Hale 
+- Tommy Dang
 - Alexey Grigorev
 - Emeli Dral
 - Sejal Vaidya
@@ -172,7 +167,7 @@ To make discussions in Slack more organized:
 If you haven't used Flask or Docker
 
 * Check [Module 5](https://github.com/alexeygrigorev/mlbookcamp-code/tree/master/course-zoomcamp/05-deployment) from ML Zoomcamp
-* The [section about Docker](https://github.com/DataTalksClub/data-engineering-zoomcamp/tree/main/week_1_basics_n_setup/2_docker_sql) from Data Engineering Zoomcamp could also be useful
+* The [section about Docker](https://github.com/DataTalksClub/data-engineering-zoomcamp/tree/main/01-docker-terraform/2_docker_sql) from Data Engineering Zoomcamp could also be useful
 
 If you have no previous experience with ML
 
@@ -190,20 +185,6 @@ If you want to make sure you don't miss anything:
 * Register in [our Slack](https://datatalks.club/slack.html) and join the `#course-mlops-zoomcamp` channel
 * Subscribe to [our YouTube channel](https://youtube.com/c/datatalksclub)
 
-**Is it going to be live?**
-
-No and yes. There will be two parts:
-
-* Lectures: Pre-recorded, you can watch them when it's convenient for you. 
-* Office hours: Live on Mondays (17:00 CET), but recorded, so you can watch later.
-
-
-**I just joined. Can I still get a certificate?**
-
-* To get a certificate, you need to complete a project
-* There will be two attempts to do a project
-* First: in July, second: in August
-* If you manage to finish all the materials till August, and successfully finish the project, you'll get the certificate
 
 
 ## Supporters and partners
