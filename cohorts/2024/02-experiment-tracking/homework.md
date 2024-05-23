@@ -25,7 +25,7 @@ Download the data for January, February and March 2023 in parquet format from [h
 Use the script `preprocess_data.py` located in the folder [`homework`](homework) to preprocess the data.
 
 The script will:
-
+ 
 * load the data from the folder `<TAXI_DATA_FOLDER>` (the folder where you have downloaded the data),
 * fit a `DictVectorizer` on the training set (January 2023 data),
 * save the preprocessed datasets and the `DictVectorizer` to disk.

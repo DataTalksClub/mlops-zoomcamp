@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/Admin/Documents/a_data_workspace/datatalks/mlops-zoomcamp/cohorts/2024/02-experiment-tracking/homework/mlruns/0/84100bc448294f859643fb0e716e04c3/artifacts
+end_time: 1716411861724
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 84100bc448294f859643fb0e716e04c3
+run_name: gentle-lynx-587
+run_uuid: 84100bc448294f859643fb0e716e04c3
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1716411861690
+status: 4
+tags: []
+user_id: Admin

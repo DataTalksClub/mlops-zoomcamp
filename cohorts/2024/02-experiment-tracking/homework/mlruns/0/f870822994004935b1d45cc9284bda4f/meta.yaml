@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/Admin/Documents/a_data_workspace/datatalks/mlops-zoomcamp/cohorts/2024/02-experiment-tracking/homework/mlruns/0/f870822994004935b1d45cc9284bda4f/artifacts
+end_time: 1716474043280
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: f870822994004935b1d45cc9284bda4f
+run_name: abundant-ox-832
+run_uuid: f870822994004935b1d45cc9284bda4f
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1716474026765
+status: 3
+tags: []
+user_id: Admin

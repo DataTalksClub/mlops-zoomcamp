@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/Admin/Documents/a_data_workspace/datatalks/mlops-zoomcamp/cohorts/2024/02-experiment-tracking/homework/mlruns/0/e1852607ad9d4f6e93ca675583414f29/artifacts
+end_time: 1716412280191
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: e1852607ad9d4f6e93ca675583414f29
+run_name: welcoming-worm-37
+run_uuid: e1852607ad9d4f6e93ca675583414f29
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1716412261122
+status: 3
+tags: []
+user_id: Admin
