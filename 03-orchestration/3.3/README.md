@@ -1,5 +1,9 @@
 ## 3.3 Observability: Monitoring and alerting
 
+<a href="https://youtube.com/playlist?list=PLBpweK9KQBJ4xXFZV1vrcWT4QHpd7qLza&si=njGbWD8mc3lumR1r">
+  <img src="https://github.com/mage-ai/assets/blob/main/mlops/3-observe.png?raw=true">
+</a>
+
 ## 1. Pipeline health monitoring
 
 1. [sklearn training pipeline health](https://youtu.be/jwte-x3VwFE)
