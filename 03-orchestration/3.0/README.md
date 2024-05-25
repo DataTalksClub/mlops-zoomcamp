@@ -1,22 +1,22 @@
 # 3.0 Introduction: ML pipelines and Mage
 
-## What is MLOps
+# What is MLOps
 
 > Operationalizing ML models involves moving them from development to production to drive business value.
 
-### 1. Preparing the model for deployment involves optimizing performance, ensuring it handles real-world data, and packaging it for integration into existing systems.
+## 1. Preparing the model for deployment involves optimizing performance, ensuring it handles real-world data, and packaging it for integration into existing systems.
 
 ![](https://github.com/mage-ai/assets/blob/main/mlops/0-prepare2.png?raw=true)
 
-### 2. Deploying the model involves moving it from development to production, making it accessible to users and applications.
+## 2. Deploying the model involves moving it from development to production, making it accessible to users and applications.
 
 ![](https://github.com/mage-ai/assets/blob/main/mlops/0-deploy.png?raw=true)
 
-### 3. Once deployed, models must be continuously monitored for accuracy and reliability, and may need retraining on new data and updates to maintain effectiveness.
+## 3. Once deployed, models must be continuously monitored for accuracy and reliability, and may need retraining on new data and updates to maintain effectiveness.
 
 ![](https://github.com/mage-ai/assets/blob/main/mlops/0-retrain.png?raw=true)
 
-### 4. The operationalized model must be integrated into existing workflows, applications, and decision-making processes to drive business impact.
+## 4. The operationalized model must be integrated into existing workflows, applications, and decision-making processes to drive business impact.
 
 ![](https://github.com/mage-ai/assets/blob/main/mlops/0-ops.png?raw=true)
 
@@ -26,27 +26,27 @@
 
 ---
 
-## Why we need to operationalize ML
+# Why we need to operationalize ML
 
-### Productivity
+## 1. Productivity
 
 MLOps fosters collaboration between data scientists, ML engineers, and DevOps teams by providing a unified environment for experiment tracking, feature engineering, model management, and deployment. This breaks down silos and accelerates the entire machine learning lifecycle.
 
 ![](https://github.com/mage-ai/assets/blob/main/mlops/0-collaboration.png?raw=true)
 
-### Reliability
+## 2. Reliability
 
 MLOps ensures high-quality, reliable models in production through clean datasets, proper testing, validation, CI/CD practices, monitoring, and governance.
 
 ![](https://github.com/mage-ai/assets/blob/main/mlops/0-reliability.png?raw=true)
 
-### Reproducibility
+## 3. Reproducibility
 
 MLOps enables reproducibility and compliance by versioning datasets, code, and models, providing transparency and auditability to ensure adherence to policies and regulations.
 
 ![](https://github.com/mage-ai/assets/blob/main/mlops/0-reproduce.png?raw=true)
 
-### Time-to-value
+## 4. Time-to-value
 
 MLOps streamlines the ML lifecycle, enabling organizations to successfully deploy more projects to production and derive tangible business value and ROI from AI/ML investments at scale.
 
