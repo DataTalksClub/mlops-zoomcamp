@@ -1,6 +1,6 @@
 # 3.1 Data preparation: ETL and feature engineering
 
-<a href="https://youtu.be/7hKrQmoARD8?si=Fb3DlL6quDN3dx5e">
+<a href="https://youtube.com/playlist?list=PLBpweK9KQBJ5rtIbCikq_FCQhqgkvY3rt&si=S17dKrYkgM2EL5d4">
   <img src="https://github.com/mage-ai/assets/blob/main/mlops/1-data.png?raw=true">
 </a>
 
