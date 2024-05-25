@@ -28,10 +28,11 @@ def train_and_log_model(data_path, params):
     X_test, y_test = load_pickle(os.path.join(data_path, "test.pkl"))
 
     with mlflow.start_run():
+        new_params = {}
         for param in RF_PARAMS:
-            params[param] = int(params[param])
+            new_params[param] = int(params[param])
 
-        rf = RandomForestRegressor(**params)
+        rf = RandomForestRegressor(**new_params)
         rf.fit(X_train, y_train)
 
         # Evaluate model on the validation and test sets
