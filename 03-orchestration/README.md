@@ -39,7 +39,7 @@
 
 1. [Developer documentation](https://docs.mage.ai/introduction/overview)
 1. [AI chat bot](https://mageai.slack.com/archives/C05NYC4DADT)
-1. Chat with the Mage team [directly](https://mage.ai/chat)
+1. Live chat with the [Mage team directly](https://mage.ai/chat)
 
 # Notes previous editions
 
