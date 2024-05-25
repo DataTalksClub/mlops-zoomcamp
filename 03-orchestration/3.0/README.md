@@ -45,7 +45,11 @@ Mage simplifies MLOps by providing a unified platform for data pipelining, model
 
 ## Example data pipeline
 
-[Example data pipeline](https://github.com/mage-ai/assets/blob/main/mlops/0-prepare.png?raw=true)(https://youtu.be/7hKrQmoARD8)
+<a href="https://youtu.be/7hKrQmoARD8">
+  <img src="https://github.com/mage-ai/assets/blob/main/mlops/0-prepare.png?raw=true">
+</a>
+
+> [Click image play video](https://youtu.be/7hKrQmoARD8)
 
 If you haven’t setup your project yet, please refer to the [quickstart guide](../README.md#Quickstart) or follow these steps:
 
