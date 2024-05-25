@@ -10,7 +10,7 @@
 
 1. [Setup new project](https://youtu.be/7hKrQmoARD8)
 1. [Utility helper functions](https://youtu.be/FBh3P19lXj4)
-1. [TBD][Ingest data block]()
+1. [Ingest data block](https://youtu.be/Ttfkry1QQD4)
 
 ### Code
 
