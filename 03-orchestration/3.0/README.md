@@ -4,10 +4,21 @@
 
 Operationalizing ML models involves moving them from development to production to drive business value.
 
-1. Preparing the model for deployment involves optimizing performance, ensuring it handles real-world data, and packaging it for integration into existing systems.
-2. Deploying the model involves moving it from development to production, making it accessible to users and applications.
-3. Once deployed, models must be continuously monitored for accuracy and reliability, and may need retraining on new data and updates to maintain effectiveness.
-4. The operationalized model must be integrated into existing workflows, applications, and decision-making processes to drive business impact.
+### Preparing the model for deployment involves optimizing performance, ensuring it handles real-world data, and packaging it for integration into existing systems.
+
+![](https://github.com/mage-ai/assets/blob/main/mlops/0-prepare2.png?raw=true)
+
+### Deploying the model involves moving it from development to production, making it accessible to users and applications.
+
+![](https://github.com/mage-ai/assets/blob/main/mlops/0-deploy.png?raw=true)
+
+### Once deployed, models must be continuously monitored for accuracy and reliability, and may need retraining on new data and updates to maintain effectiveness.
+
+![](https://github.com/mage-ai/assets/blob/main/mlops/0-retrain.png?raw=true)
+
+### The operationalized model must be integrated into existing workflows, applications, and decision-making processes to drive business impact.
+
+![](https://github.com/mage-ai/assets/blob/main/mlops/0-ops.png?raw=true)
 
 Effective operationalization enables organizations to move beyond experimentation and drive tangible value from ML at scale, powering intelligent applications that personalize the customer experience and creates real business value.
 
