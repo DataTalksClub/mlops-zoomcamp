@@ -62,13 +62,13 @@ Mage offers features to build, run, and manage data pipelines for data transform
 
 ![](https://github.com/mage-ai/assets/blob/main/mlops/0-mage-data.png?raw=true)
 
-## 1. Training and deployment
+## 2. Training and deployment
 
 Mage helps prepare data, train machine learning models, and deploy them with accessible API endpoints.
 
 ![](https://github.com/mage-ai/assets/blob/main/mlops/0-mage-training.png?raw=true)
 
-## 1. Standardize complex processes
+## 3. Standardize complex processes
 
 Mage simplifies MLOps by providing a unified platform for data pipelining, model development, deployment, versioning, CI/CD, and maintenance, allowing developers to focus on model creation while improving efficiency and collaboration.
 
