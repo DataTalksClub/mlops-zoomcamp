@@ -42,13 +42,13 @@ MLOps ensures high-quality, reliable models in production through clean datasets
 
 MLOps enables reproducibility and compliance by versioning datasets, code, and models, providing transparency and auditability to ensure adherence to policies and regulations.
 
-![]()
+![](https://github.com/mage-ai/assets/blob/main/mlops/reproduce.png?raw=true)
 
 ### Time-to-value
 
 MLOps streamlines the ML lifecycle, enabling organizations to successfully deploy more projects to production and derive tangible business value and ROI from AI/ML investments at scale.
 
-![]()
+![](https://github.com/mage-ai/assets/blob/main/mlops/0-value.png?raw=true)
 
 ## How Mage helps MLOps
 
