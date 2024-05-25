@@ -45,7 +45,32 @@ Mage simplifies MLOps by providing a unified platform for data pipelining, model
 
 ## Example data pipeline
 
-If you haven’t setup your project yet, please refer to the quickstart guide at the root of module 3.
+[Example data pipeline](https://github.com/mage-ai/assets/blob/main/mlops/0-prepare.png?raw=true)(https://youtu.be/7hKrQmoARD8)
+
+If you haven’t setup your project yet, please refer to the [quickstart guide](../README.md#Quickstart) or follow these steps:
+
+1. Clone the following respository containing the complete code for this module:
+
+    ```
+    git clone https://github.com/mage-ai/mlops.git
+    ```
+
+1. Change directory into the cloned repo:
+
+    ```
+    cd mlops
+    ```
+
+1. Launch Mage and the database service (PostgreSQL):
+
+    ```
+    ./scripts/start.sh
+    ```
+
+1. The subproject that contains all the pipelines and code is named
+   [`unit_3_observability`](https://github.com/mage-ai/mlops/tree/master/mlops/unit_3_observability)
+
+### Start using Mage
 
 1. Open [`http://localhost:6789`](http://localhost:6789) in your browser.
 
