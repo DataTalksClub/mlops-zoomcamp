@@ -54,21 +54,23 @@ MLOps streamlines the ML lifecycle, enabling organizations to successfully deplo
 
 ---
 
-## How Mage helps MLOps
+# How Mage helps MLOps
 
-### Data preparation
+## 1. Data preparation
 
 Mage offers features to build, run, and manage data pipelines for data transformation and integration, including pipeline orchestration, notebook environments, data integrations, and streaming pipelines for real-time data.
 
-### Training and deployment
+## 1. Training and deployment
 
 Mage helps prepare data, train machine learning models, and deploy them with accessible API endpoints.
 
-### Standardize complex processes
+## 1. Standardize complex processes
 
 Mage simplifies MLOps by providing a unified platform for data pipelining, model development, deployment, versioning, CI/CD, and maintenance, allowing developers to focus on model creation while improving efficiency and collaboration.
 
-## Example data pipeline
+---
+
+# Example data pipeline
 
 <a href="https://youtu.be/7hKrQmoARD8">
   <img src="https://github.com/mage-ai/assets/blob/main/mlops/0-prepare.png?raw=true">
@@ -99,7 +101,7 @@ If you haven’t setup your project yet, please refer to the [quickstart guide](
 1. The subproject that contains all the pipelines and code is named
    [`unit_3_observability`](https://github.com/mage-ai/mlops/tree/master/mlops/unit_3_observability)
 
-### Run example pipeline
+## Run example pipeline
 
 1. Open [`http://localhost:6789`](http://localhost:6789) in your browser.
 
