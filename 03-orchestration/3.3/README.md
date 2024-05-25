@@ -14,6 +14,8 @@
 
 ### Code
 
+-   [`custom/dashboard_data_source.py`](https://github.com/mage-ai/mlops/blob/master/mlops/unit_3_observability/custom/dashboard_data_source.py):
+    this is used to produce the output needed to generate the SHAP values and chart them.
 -   [SHAP values](https://github.com/mage-ai/mlops/blob/master/mlops/unit_3_observability/charts/shap_values.py)
 -   [SHAP values bar chart](https://github.com/mage-ai/mlops/blob/master/mlops/unit_3_observability/charts/shap_values_bar.py)
 -   [SHAP values force plot](https://github.com/mage-ai/mlops/blob/master/mlops/unit_3_observability/charts/shap_values_force_chart.py)

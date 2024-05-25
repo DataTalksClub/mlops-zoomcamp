@@ -13,7 +13,10 @@
 
 ### Code
 
--   [`sklearn.py`](https://github.com/mage-ai/mlops/blob/master/mlops/utils/models/sklearn.py)
+-   [`utils/models/sklearn.py`](https://github.com/mage-ai/mlops/blob/master/mlops/utils/models/sklearn.py)
+-   [`custom/load_models.py` block](https://github.com/mage-ai/mlops/blob/master/mlops/unit_3_observability/custom/load_models.py): load sklearn models dynamically
+-   [`transformers/hyperparameter_tuning/sklearn.py`](https://github.com/mage-ai/mlops/blob/master/mlops/unit_3_observability/transformers/hyperparameter_tuning/sklearn.py)
+-   [`data_exporters/sklearn.py`](https://github.com/mage-ai/mlops/blob/master/mlops/unit_3_observability/data_exporters/sklearn.py)
 -   [`hyperparameters/shared.py`](https://github.com/mage-ai/mlops/blob/master/mlops/utils/hyperparameters/shared.py)
 
 ---
@@ -26,7 +29,9 @@
 
 ### Code
 
--   [`xgboost.py`](https://github.com/mage-ai/mlops/blob/master/mlops/utils/models/xgboost.py)
+-   [`utils/models/xgboost.py`](https://github.com/mage-ai/mlops/blob/master/mlops/utils/models/xgboost.py)
+-   [`transformers/hyperparameter_tuning/xgboost.py`](https://github.com/mage-ai/mlops/blob/master/mlops/unit_3_observability/transformers/hyperparameter_tuning/xgboost.py)
+-   [`data_exporters/xgboost.py`](https://github.com/mage-ai/mlops/blob/master/mlops/unit_3_observability/data_exporters/xgboost.py)
 -   [`hyperparameters/shared.py`](https://github.com/mage-ai/mlops/blob/master/mlops/utils/hyperparameters/shared.py)
 
 ---
