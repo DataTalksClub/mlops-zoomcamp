@@ -74,7 +74,7 @@ If you haven’t setup your project yet, please refer to the [quickstart guide](
 1. The subproject that contains all the pipelines and code is named
    [`unit_3_observability`](https://github.com/mage-ai/mlops/tree/master/mlops/unit_3_observability)
 
-### Start using Mage
+### Run example pipeline
 
 1. Open [`http://localhost:6789`](http://localhost:6789) in your browser.
 
@@ -84,8 +84,7 @@ If you haven’t setup your project yet, please refer to the [quickstart guide](
 1. Click on the pipeline named **`example_pipeline`**.
 1. Click on the button labeled **`Run @once`**.
 
-[Code for example data pipeline](https://github.com/mage-ai/mlops/tree/master/mlops/unit_0_setup)
+## Resources
 
-## The definitive end-to-end machine learning (ML lifecycle) guide and tutorial for data engineers
-
-Read more about ML and MLOps [here](https://mageai.notion.site/The-definitive-end-to-end-machine-learning-ML-lifecycle-guide-and-tutorial-for-data-engineers-ea24db5e562044c29d7227a67e70fd56?pvs=4).
+1. [Code for example data pipeline](https://github.com/mage-ai/mlops/tree/master/mlops/unit_0_setup)
+1. [The definitive end-to-end machine learning (ML lifecycle) guide and tutorial for data engineers](https://mageai.notion.site/The-definitive-end-to-end-machine-learning-ML-lifecycle-guide-and-tutorial-for-data-engineers-ea24db5e562044c29d7227a67e70fd56?pvs=4).
