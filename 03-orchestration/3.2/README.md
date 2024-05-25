@@ -9,7 +9,6 @@
 ### Videos
 
 1. [Reusable training set](https://youtu.be/CbHaZcq_uGo)
-1. [Add training set to sklearn training pipeline](https://youtu.be/CbHaZcq_uGo)
 1. [Load models](https://youtu.be/zsMHFq2C978)
 1. [Utility helper functions for loading models](https://youtu.be/fZnxDhtPxYo)
 1. [Hyperparameter tuning](https://youtu.be/zfBB4KoZ7TM)

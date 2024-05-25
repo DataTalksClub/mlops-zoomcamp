@@ -1,5 +1,9 @@
 # 3.4 Triggering: Inference and retraining
 
+<a href="https://youtube.com/playlist?list=PLBpweK9KQBJ6p7GL1rVCOqe4_gcW9F87b&si=Xjl48us0zD8MNqka">
+  <img src="https://github.com/mage-ai/assets/blob/main/mlops/4-predict.png?raw=true">
+</a>
+
 ## 1. Retraining pipeline
 
 ### Videos
@@ -20,7 +24,6 @@
 ### Videos
 
 1. [Make a prediction](https://youtu.be/KZaS2oG9NDc)
-1. [XGBoost model as a reusable data product](https://youtu.be/KZaS2oG9NDc)
 1. [Build pipeline](https://youtu.be/mytcFbH_ooY)
 1. [Model inference playground part 1](https://youtu.be/JI0dhR7Bnhk)
 1. [Model inference playground part 2](https://youtu.be/v2ls-gBBRac)
