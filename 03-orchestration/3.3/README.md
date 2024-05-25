@@ -14,6 +14,7 @@
 
 ### Videos
 
+1. [Customize layout](https://youtu.be/Skr-WnxiQ8I)
 1. [XGBoost explainability dashboard](https://youtu.be/BvGZTl-UUQY)
 
 ### Code
@@ -30,6 +31,7 @@
 
 ### Videos
 
+1. [Overview dashboard for entire project](https://youtu.be/ScFZPSaOWK4)
 1. [RMSE and MSE using time series chart](https://youtu.be/6kqHoxAL0DY)
 1. [RMSE distribution using a histogram](https://youtu.be/GQMgCzI-Qrg)
 1. [Training runs by model using bar chart](https://youtu.be/q4Quk6GeVRk)

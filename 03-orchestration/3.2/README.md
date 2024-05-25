@@ -28,6 +28,7 @@
 
 ### Videos
 
+1. [Hyperparameter tuning](https://youtu.be/K_Z2Lm1Cyu4)
 1. [Train XGBoost model](https://youtu.be/Y2B-ivm7Mug)
 
 ### Code
