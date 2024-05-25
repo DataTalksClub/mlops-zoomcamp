@@ -2,7 +2,7 @@
 
 ## What is MLOps
 
-Operationalizing ML models involves moving them from development to production to drive business value.
+> Operationalizing ML models involves moving them from development to production to drive business value.
 
 ### 1. Preparing the model for deployment involves optimizing performance, ensuring it handles real-world data, and packaging it for integration into existing systems.
 
@@ -22,7 +22,9 @@ Operationalizing ML models involves moving them from development to production t
 
 ---
 
-Effective operationalization enables organizations to move beyond experimentation and drive tangible value from ML at scale, powering intelligent applications that personalize the customer experience and creates real business value.
+> Effective operationalization enables organizations to move beyond experimentation and drive tangible value from ML at scale, powering intelligent applications that personalize the customer experience and creates real business value.
+
+---
 
 ## Why we need to operationalize ML
 
@@ -42,13 +44,15 @@ MLOps ensures high-quality, reliable models in production through clean datasets
 
 MLOps enables reproducibility and compliance by versioning datasets, code, and models, providing transparency and auditability to ensure adherence to policies and regulations.
 
-![](https://github.com/mage-ai/assets/blob/main/mlops/reproduce.png?raw=true)
+![](https://github.com/mage-ai/assets/blob/main/mlops/0-reproduce.png?raw=true)
 
 ### Time-to-value
 
 MLOps streamlines the ML lifecycle, enabling organizations to successfully deploy more projects to production and derive tangible business value and ROI from AI/ML investments at scale.
 
 ![](https://github.com/mage-ai/assets/blob/main/mlops/0-value.png?raw=true)
+
+---
 
 ## How Mage helps MLOps
 
