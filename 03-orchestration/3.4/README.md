@@ -10,6 +10,8 @@
 ### Code
 
 -   [`detect_new_data.py`](https://github.com/mage-ai/mlops/blob/master/mlops/unit_3_observability/sensors/detect_new_data.py)
+-   [`custom/retrain/sklearn.py` block](https://github.com/mage-ai/mlops/blob/master/mlops/unit_3_observability/custom/retrain/sklearn.py): trigger training pipeline for sklearn models
+-   [`custom/retrain/xgboost.py` block](https://github.com/mage-ai/mlops/blob/master/mlops/unit_3_observability/custom/retrain/xgboost.py): trigger training pipeline for XGBoost model
 
 ---
 
