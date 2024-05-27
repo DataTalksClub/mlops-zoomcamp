@@ -4,27 +4,29 @@
 
 > Operationalizing ML models involves moving them from development to production to drive business value.
 
-## 1. Preparing the model for deployment involves optimizing performance, ensuring it handles real-world data, and packaging it for integration into existing systems.
+## Step 1
 
-![](https://github.com/mage-ai/assets/blob/main/mlops/0-prepare2.png?raw=true)
+Preparing the model for deployment involves optimizing performance, ensuring it handles real-world data, and packaging it for integration into existing systems.
 
-## 2. Deploying the model involves moving it from development to production, making it accessible to users and applications.
 
-![](https://github.com/mage-ai/assets/blob/main/mlops/0-deploy.png?raw=true)
+## Step 2
 
-## 3. Once deployed, models must be continuously monitored for accuracy and reliability, and may need retraining on new data and updates to maintain effectiveness.
+Deploying the model involves moving it from development to production, making it accessible to users and applications.
 
-![](https://github.com/mage-ai/assets/blob/main/mlops/0-retrain.png?raw=true)
 
-## 4. The operationalized model must be integrated into existing workflows, applications, and decision-making processes to drive business impact.
+## Step 3
 
-![](https://github.com/mage-ai/assets/blob/main/mlops/0-ops.png?raw=true)
+Once deployed, models must be continuously monitored for accuracy and reliability, and may need retraining on new data and updates to maintain effectiveness.
 
----
+
+## Step 4
+
+The operationalized model must be integrated into existing workflows, applications, and decision-making processes to drive business impact.
+
+
 
 > Effective operationalization enables organizations to move beyond experimentation and drive tangible value from ML at scale, powering intelligent applications that personalize the customer experience and creates real business value.
 
----
 
 # Why we need to operationalize ML
 
@@ -32,27 +34,22 @@
 
 MLOps fosters collaboration between data scientists, ML engineers, and DevOps teams by providing a unified environment for experiment tracking, feature engineering, model management, and deployment. This breaks down silos and accelerates the entire machine learning lifecycle.
 
-![](https://github.com/mage-ai/assets/blob/main/mlops/0-collaboration.png?raw=true)
 
 ## 2. Reliability
 
 MLOps ensures high-quality, reliable models in production through clean datasets, proper testing, validation, CI/CD practices, monitoring, and governance.
 
-![](https://github.com/mage-ai/assets/blob/main/mlops/0-reliability.png?raw=true)
 
 ## 3. Reproducibility
 
 MLOps enables reproducibility and compliance by versioning datasets, code, and models, providing transparency and auditability to ensure adherence to policies and regulations.
 
-![](https://github.com/mage-ai/assets/blob/main/mlops/0-reproduce.png?raw=true)
 
 ## 4. Time-to-value
 
 MLOps streamlines the ML lifecycle, enabling organizations to successfully deploy more projects to production and derive tangible business value and ROI from AI/ML investments at scale.
 
-![](https://github.com/mage-ai/assets/blob/main/mlops/0-value.png?raw=true)
 
----
 
 # How Mage helps MLOps
 
@@ -60,27 +57,21 @@ MLOps streamlines the ML lifecycle, enabling organizations to successfully deplo
 
 Mage offers features to build, run, and manage data pipelines for data transformation and integration, including pipeline orchestration, notebook environments, data integrations, and streaming pipelines for real-time data.
 
-![](https://github.com/mage-ai/assets/blob/main/mlops/0-mage-data.png?raw=true)
 
 ## 2. Training and deployment
 
 Mage helps prepare data, train machine learning models, and deploy them with accessible API endpoints.
 
-![](https://github.com/mage-ai/assets/blob/main/mlops/0-mage-training.png?raw=true)
 
 ## 3. Standardize complex processes
 
 Mage simplifies MLOps by providing a unified platform for data pipelining, model development, deployment, versioning, CI/CD, and maintenance, allowing developers to focus on model creation while improving efficiency and collaboration.
 
-![](https://github.com/mage-ai/assets/blob/main/mlops/0-mage-standard.png?raw=true)
 
 ---
 
 # Example data pipeline
 
-<a href="https://youtu.be/7hKrQmoARD8">
-  <img src="https://github.com/mage-ai/assets/blob/main/mlops/0-prepare.png?raw=true">
-</a>
 
 > [Click image play video](https://youtu.be/7hKrQmoARD8)
 
@@ -88,20 +79,25 @@ If you haven’t setup your project yet, please refer to the [quickstart guide](
 
 1. Clone the following respository containing the complete code for this module:
 
-    ```
+    ```bash
     git clone https://github.com/mage-ai/mlops.git
-    ```
-
-1. Change directory into the cloned repo:
-
-    ```
     cd mlops
     ```
 
 1. Launch Mage and the database service (PostgreSQL):
 
-    ```
+    ```bash
     ./scripts/start.sh
+    ```
+
+    If don't have bash in your enviroment, modify the following command and run it:
+
+    ```bash
+    PROJECT_NAME=mlops \
+        MAGE_CODE_PATH=/home/src \
+        SMTP_EMAIL=$SMTP_EMAIL \
+        SMTP_PASSWORD=$SMTP_PASSWORD \
+        docker compose up
     ```
 
 1. The subproject that contains all the pipelines and code is named

@@ -1,8 +1,5 @@
 # 3.5 Deploying: Running operations in production
 
-<a href="https://youtube.com/playlist?list=PLBpweK9KQBJ6GP52gYToOlJdgZmVc4B9p&si=NqYpxdFdK4a5RgvS">
-  <img src="https://github.com/mage-ai/assets/blob/main/mlops/5-deploy.png?raw=true">
-</a>
 
 ## 1. Permissions
 

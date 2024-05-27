@@ -1,8 +1,5 @@
 # 3.4 Triggering: Inference and retraining
 
-<a href="https://youtube.com/playlist?list=PLBpweK9KQBJ6p7GL1rVCOqe4_gcW9F87b&si=Xjl48us0zD8MNqka">
-  <img src="https://github.com/mage-ai/assets/blob/main/mlops/4-predict.png?raw=true">
-</a>
 
 ## 1. Retraining pipeline
 

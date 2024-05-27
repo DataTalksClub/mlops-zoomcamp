@@ -1,9 +1,5 @@
 # 3.1 Data preparation: ETL and feature engineering
 
-<a href="https://youtube.com/playlist?list=PLBpweK9KQBJ5rtIbCikq_FCQhqgkvY3rt&si=S17dKrYkgM2EL5d4">
-  <img src="https://github.com/mage-ai/assets/blob/main/mlops/1-data.png?raw=true">
-</a>
-
 ## 1. Ingest raw data
 
 ### Videos

@@ -1,8 +1,5 @@
 # 3.2 Training: sklearn models and XGBoost
 
-<a href="https://youtube.com/playlist?list=PLBpweK9KQBJ7TYPZQPSjooJBuP53qQFBi&si=uMKnZTBGNrhN_0UQ">
-  <img src="https://github.com/mage-ai/assets/blob/main/mlops/2-training.png?raw=true">
-</a>
 
 ## 1. Training pipeline for sklearn models
 
