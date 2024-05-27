@@ -180,4 +180,8 @@ Did you take notes? Add them here:
 * [What is MLOps? - Storytime by Pathik Ghugare](https://github.com/pathikg/MLOps-Zoomcamp-DataTalks/blob/main/week-01-introduction/MLOps-Introduction.md)
 * [Module 1 Notes by Stephen Barrie](https://stephen137.github.io/posts/MLOps_Zoomcamp_Week_1/MLOps_Zoomcamp_Week_1.html)
 * [Module 1 Notes - MacOS + Pycharm by Hongfan (Amber)](https://github.com/Muhongfan/MLops/blob/main/01-intro/README.md)
+* [Comprehensive guide to MLOps: Theory & Concepts for Beginners by Nithish Prabhu](https://ntp3105.github.io/Comprehensive-MLOps/Week-1/Introduction%20to%20MLOps.html)
+* [Module 1 Notes -Video 1.2 Env Prep Ec2 troubleshooting notes for remote-ssh vscode to ec2](https://github.com/thatwonguy/mlops-zoomcamp/blob/personal/01-intro/README.md)
+* [Ch1 notes by Marcus](https://github.com/mleiwe/mlops-zoomcamp/blob/Ch1_Marcus/cohorts/2024/01-intro/Ch1_Notes.md)
+  * [GCP setup instructions](https://github.com/mleiwe/mlops-zoomcamp/blob/Ch1_Marcus/cohorts/2024/01-intro/GoogleCloudSetUpNotes.md)
 * Send a PR, add your notes above this line

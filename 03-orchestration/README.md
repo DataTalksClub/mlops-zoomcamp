@@ -1,47 +1,47 @@
 # 3. Orchestration and ML Pipelines
 
-## 3.0 Introduction: ML pipelines and Mage
+## [3.0 Introduction: ML pipelines and Mage](3.0/README.md)
 
-- Why do we need ML operations?
-- How Mage helps MLOps
-- Mage setup
-- Example data pipeline
+## [3.1 Data preparation: ETL and feature engineering](3.1/README.md)
 
-## 3.1 Data preparation: ETL and feature engineering
+## [3.2 Training: sklearn models and XGBoost](3.2/README.md)
 
-- Ingest raw data
-- Prepare data for training
-- Build training sets
+## [3.3 Observability: Monitoring and alerting](3.3/README.md)
 
-## 3.2 Training: sklearn models and XGBoost
+## [3.4 Triggering: Inference and retraining](3.4/README.md)
 
-- Training pipeline for sklearn models
-- Training pipeline for XGBoost
-- Tracking training metrics with experiments
+## [3.5 Deploying: Running operations in production](3.5/README.md)
 
-## 3.3 Observability: Monitoring and alerting
+## Quickstart
 
-- Dashboard for sklearn training pipeline health
-- Dashboard for XGBoost model explainability
-- Dashboard for model training performance
-- Alerts for successful pipeline runs and errors
+1. Clone the following respository containing the complete code for this module:
 
-## 3.4 Deploying: Infrastructure on AWS
+    ```
+    git clone https://github.com/mage-ai/mlops.git
+    ```
 
-- Containerization and Docker setup
-- Deploy to AWS using Terraform
-- Automate development workflow with CI/CD
+1. Change directory into the cloned repo:
 
-## 3.5 Production: Running pipelines
+    ```
+    cd mlops
+    ```
 
-- Automatic retraining pipeline
-- Online inference pipeline for real-time predictions
+1. Launch Mage and the database service (PostgreSQL):
 
-# Code for entire project
+    ```
+    ./scripts/start.sh
+    ```
 
-https://github.com/mage-ai/mlops.git
+1. The subproject that contains all the pipelines and code is named
+   [`unit_3_observability`](https://github.com/mage-ai/mlops/tree/master/mlops/unit_3_observability)
+
+## Need help?
+
+1. [Developer documentation](https://docs.mage.ai/introduction/overview)
+1. [AI chat bot](https://mageai.slack.com/archives/C05NYC4DADT)
+1. Live chat with the [Mage team directly](https://mage.ai/chat)
 
 # Notes previous editions
 
-- [2022 Prefect notes](../cohorts/2022/03-orchestration/README.md)
-- [2023 Prefect notes](../cohorts/2023/03-orchestration/prefect/README.md)
+-   [2022 Prefect notes](../cohorts/2022/03-orchestration/README.md)
+-   [2023 Prefect notes](../cohorts/2023/03-orchestration/prefect/README.md)
