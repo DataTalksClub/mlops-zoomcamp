@@ -99,6 +99,8 @@ If you haven’t setup your project yet, please refer to the [quickstart guide](
         SMTP_PASSWORD=$SMTP_PASSWORD \
         docker compose up
     ```
+    It is ok if you get this warning, you can ignore it  
+     `The "PYTHONPATH" variable is not set. Defaulting to a blank string.`
 
 1. The subproject that contains all the pipelines and code is named
    [`unit_3_observability`](https://github.com/mage-ai/mlops/tree/master/mlops/unit_3_observability)
