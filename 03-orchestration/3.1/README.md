@@ -1,23 +1,45 @@
 # 3.1 Data preparation: ETL and feature engineering
 
-## 1. Ingest raw data
+# Ingestion
 
-### Videos
+## 3.1.1 Creating a new project
 
-1. [Setup new project](https://youtu.be/7hKrQmoARD8)
-1. [Utility helper functions](https://youtu.be/FBh3P19lXj4)
-1. [Ingest data block](https://youtu.be/Ttfkry1QQD4)
+TODO: describe the context
 
-### Code
+[Video](https://youtu.be/7hKrQmoARD8)
 
--   [`cleaning.py`](https://github.com/mage-ai/mlops/blob/master/mlops/utils/data_preparation/cleaning.py)
--   [`feature_selector.py`](https://github.com/mage-ai/mlops/blob/master/mlops/utils/data_preparation/feature_selector.py)
--   [`splitters.py`](https://github.com/mage-ai/mlops/blob/master/mlops/utils/data_preparation/splitters.py)
--   [`ingest.py`](https://github.com/mage-ai/mlops/blob/master/mlops/unit_3_observability/data_loaders/ingest.py)
+Opening a text editor:
 
----
+* Go to the command center (At the top)
+* Type "text editor"
 
-## 2. Prepare data for training
+## 3.1.2 Data preparation - Ingestion
+
+TODO: describe the context
+
+[Video](https://youtu.be/Ttfkry1QQD4)
+
+Code: 
+- [`ingest.py`](https://github.com/mage-ai/mlops/blob/master/mlops/unit_3_observability/data_loaders/ingest.py)
+
+
+## 3.1.3 Utility helper functions
+
+TODO: describe the context
+
+[Video](https://youtu.be/FBh3P19lXj4)
+
+
+Code
+
+- [`cleaning.py`](https://github.com/mage-ai/mlops/blob/master/mlops/utils/data_preparation/cleaning.py)
+- [`feature_selector.py`](https://github.com/mage-ai/mlops/blob/master/mlops/utils/data_preparation/feature_selector.py)
+- [`splitters.py`](https://github.com/mage-ai/mlops/blob/master/mlops/utils/data_preparation/splitters.py)
+
+
+
+
+## 2. Data Preparation
 
 ### Videos
 
