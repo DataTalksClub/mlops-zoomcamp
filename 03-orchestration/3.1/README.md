@@ -17,7 +17,7 @@ Opening a text editor:
 
 TODO: describe the context
 
-[Video](https://youtu.be/Ttfkry1QQD4)
+[Video](https://youtu.be/1lSOdTpoRug)
 
 Code: 
 - [`ingest.py`](https://github.com/mage-ai/mlops/blob/master/mlops/unit_3_observability/data_loaders/ingest.py)
