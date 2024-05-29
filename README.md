@@ -189,7 +189,7 @@ If you want to make sure you don't miss anything:
 
 ## Supporters and partners
 
-Thanks to the course sponsors for making it possible to create this course
+Thanks to the course sponsors for making it possible to run this course
 
 <p align="center">
   <a href="https://mage.ai/">
