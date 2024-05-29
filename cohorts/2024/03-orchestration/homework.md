@@ -32,10 +32,10 @@ In this block, we will read the March 2023 Yellow taxi trips data.
 
 How many records did we load? 
 
-- 3003766
-- 3203766
-- 3403766
-- 3603766
+- 3,003,766
+- 3,203,766
+- 3,403,766
+- 3,603,766
 
 ## Question 4. Data preparation
 
@@ -64,10 +64,10 @@ Let's adjust it and apply to the data we loaded in question 3.
 What's the size of the result? 
 
 
-- 2903766
-- 3103766
-- 3316216 
-- 3503766
+- 2,903,766
+- 3,103,766
+- 3,316,216 
+- 3,503,766
 
 ## Question 5. Train a model
 
@@ -126,13 +126,37 @@ And add it to the docker-compose.yaml:
       - "5000:5000"
     volumes:
       - "${PWD}/mlflow:/home/mlflow/"
+    networks:
+      - app-network
 ```
 
-We should already have `mlflow==2.12.1` in requirements.txt in the mage project we created for the module.
+Note that `app-network` is the same network as for mage and postgre containers.
+If you use a different compose file, adjust it.
 
-If you're starting from scratch, add it to your requirements.
+We should already have `mlflow==2.12.1` in requirements.txt in the mage project we created for the module. If you're starting from scratch, add it to your requirements.
+
+Next, start the compose again and create a data exporter block.
+
+In the block, we
+
+* Log the model (linear regression)
+* Save and log the artifact (dict vectorizer)
+
+If you used the suggested docker-compose snippet, mlflow should be accessible at `http://mlflow:5000`.
+
+Find the logged model, and find MLModel file. What's the size of the model? (`model_size_bytes` field):
+
+* 14,534
+* 9,534
+* 4,534
+* 1,534
 
 
+
+## Submit the results
+
+* Submit your results here: https://courses.datatalks.club/mlops-zoomcamp-2024/homework/hw3
+* If your answer doesn't match options exactly, select the closest one
 
 
 
