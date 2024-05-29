@@ -151,6 +151,7 @@ Find the logged model, and find MLModel file. What's the size of the model? (`mo
 * 4,534
 * 1,534
 
+> Note: typically we do two last steps in one code block 
 
 
 ## Submit the results
