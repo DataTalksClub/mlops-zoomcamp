@@ -12,6 +12,8 @@
 
 ## [3.5 Deploying: Running operations in production](3.5/README.md)
 
+## [3.6 Homework](../cohorts/2024/03-orchestration/homework.md).
+
 ## Quickstart
 
 1. Clone the following respository containing the complete code for this module:
