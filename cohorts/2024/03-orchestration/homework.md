@@ -48,6 +48,9 @@ This is what we used (adjusted for yellow dataset):
 def read_dataframe(filename):
     df = pd.read_parquet(filename)
 
+    df.tpep_dropoff_datetime = pd.to_datetime(df.tpep_dropoff_datetime)
+    df.tpep_pickup_datetime = pd.to_datetime(df.tpep_pickup_datetime)
+
     df['duration'] = df.tpep_dropoff_datetime - df.tpep_pickup_datetime
     df.duration = df.duration.dt.total_seconds() / 60
 
