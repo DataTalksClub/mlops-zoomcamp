@@ -87,4 +87,6 @@ Did you take notes? Add them here:
 * [Notes of ML-flow by Jaime Cabrera-Salcedo](https://github.com/jaimeh94/MLOps-Zoomcamp/tree/main/02-experiment-tracking)
 * [Experiment tracking with MLflow by Hongfan (Amber)](https://github.com/Muhongfan/MLops/blob/main/02-experiment-tracking/README.md)
 * [Running MLflow with Docker and on Minikube](https://open.substack.com/pub/asfandqazi/p/mlflow-on-minikube?r=2o17tf&utm_campaign=post&utm_medium=web)
+* [Experiemnt Tracking and Mlflow by Annaliese Tech](https://github.com/AnnalieseTech/MLOPS_ZOOMCAMP/blob/main/02_EXPERIMENT_TRACKING/EXPERIMENT_TRACKING_NOTES.md)
+* [Adding Hyperparameter Tuning to Your Notebook with MLflow and Hyperopt by Annaliese Tech](https://github.com/AnnalieseTech/MLOPS_ZOOMCAMP/blob/main/02_EXPERIMENT_TRACKING/Hyperparameter-Tuning.md)
 * Send a PR, add your notes above this line
