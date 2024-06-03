@@ -50,7 +50,7 @@ How many files were saved to `OUTPUT_FOLDER`?
 
 We will train a `RandomForestRegressor` (from Scikit-Learn) on the taxi dataset.
 
-We have prepared the training script `train.py` for this exercise, which can be also found in the folder `homework`. 
+We have prepared the training script `train.py` for this exercise, which can be also found in the folder [`homework`](homework). 
 
 The script will:
 
@@ -138,5 +138,4 @@ What is the test RMSE of the best model?
 ## Submit the results
 
 * Submit your results here: https://courses.datatalks.club/mlops-zoomcamp-2024/homework/hw2
-* You can submit your solution multiple times. In this case, only the last submission will be used
 * If your answer doesn't match options exactly, select the closest one
