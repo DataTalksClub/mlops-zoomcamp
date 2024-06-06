@@ -23,7 +23,7 @@ Instead of groaning when you see a 10,000+ line long script. Having utility func
 By having separate utility functions, it becomes much easier to write unit tests.
 
 ### Re-use
-Often utility functions can be re-used in other projects. Having them stored as a utility function rather than nested in each script. For example, when in academia in had a utility function to produce a custom boxplot with all the individual points overlaid. This ensured that for all my published papers my figures would look the same.
+Often utility functions can be re-used in other projects. Having them stored as a utility function rather than nested in each script. For example, when in academia I had a utility function to produce a custom boxplot with all the individual points overlaid. This ensured that for all my published papers my figures would look the same.
 
 ## Best Practices
 ### Naming Conventions
