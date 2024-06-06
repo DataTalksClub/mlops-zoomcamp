@@ -1,5 +1,28 @@
 # 3.0 Introduction: ML pipelines and Mage
 
+## 3.0.1 ML Pipelines
+
+<a href="https://www.youtube.com/watch?v=uAR4BhVCNbI&list=PL3MmuxUbc_hIUISrluw_A7wDSmfOhErJK">
+  <img src="https://markdown-videos-api.jorgenkh.no/youtube/uAR4BhVCNbI">
+</a>
+
+
+
+## 3.0.2 Running Mage
+
+In Codespaces
+
+<a href="https://www.youtube.com/watch?v=6tvgEZsDmrw&list=PL3MmuxUbc_hIUISrluw_A7wDSmfOhErJK">
+  <img src="https://markdown-videos-api.jorgenkh.no/youtube/6tvgEZsDmrw">
+</a>
+
+On Windows with Docker-Compose
+
+<a href="https://www.youtube.com/watch?v=27GDodBA4ls&list=PL3MmuxUbc_hIUISrluw_A7wDSmfOhErJK">
+  <img src="https://markdown-videos-api.jorgenkh.no/youtube/27GDodBA4ls">
+</a>
+
+
 # What is MLOps
 
 > Operationalizing ML models involves moving them from development to production to drive business value.
