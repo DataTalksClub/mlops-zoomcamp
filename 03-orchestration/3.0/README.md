@@ -93,12 +93,7 @@ Mage simplifies MLOps by providing a unified platform for data pipelining, model
 
 ---
 
-# Example data pipeline
-
-
-> [Click image play video](https://youtu.be/7hKrQmoARD8)
-
-If you haven’t setup your project yet, please refer to the [quickstart guide](../README.md#Quickstart) or follow these steps:
+# Example data pipeline: Quick Start
 
 1. Clone the following respository containing the complete code for this module:
 
