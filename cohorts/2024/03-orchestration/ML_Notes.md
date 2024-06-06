@@ -525,8 +525,171 @@ def test_validation_set(
 
 
 ```
-
 ## 3.2 Training: sklearn models and XGBoost
+### 3.2.1 Training: GDP training set
+Before heading onto building a training pipeline. First we should create a **G**lobal **D**ata **P**roduct (GDP).
+
+A GDP is usable across all the training pipelines. This saves time as we do not need to generate the data everytime, but only when the data is updated.
+
+To save time and memory we can set a fixed about of time to store the data (e.g. 600 seconds), and we can also specify only to store the outputs of a single block (e.g. the exporter block).
+
+To do this if you navigate back to the main page, select the global data product option from the ribbon on the left hand side. And from there you can select the options that you need.
+![Creating a Global Data Product](Images/CreateGlobalDataProduct.gif)
+
+### 3.2.2 Training: Sklearn training GDP
+First create an sklearn training pipeline. Then add the data in using the GDP. This is a standalone block in the pipeline, so you can add this in in the same manner as any other block in the pipeline.
+![Inserting a GDP](Images/InsertGDP.png)
+
+Once inserted the block should appear on the tree pane to the right. No code will be necessary, and if the data is present then the pipeline will not need to run.
+
+### 3.2.3 Training: Load Models
+Here this is where things may get complicated. We need to create a dynamic block where different models can be used.
+
+First write in the function to get all the models from sklearn
+```
+from typing import Dict, List, Tuple
+
+if 'custom' not in globals():
+    from mage_ai.data_preparation.decorators import custom
+
+@custom
+def models(*args, **kwargs) -> Tuple[List[str], List[Dict[str,str]]]:
+    """
+    args: comma separated strings for each sklearn model
+        linear_model.Lasso
+        linear_model.LinearRegression
+        svm.LinearSVR
+        ensemble.ExtraTreesRegressor
+        ensemble.GradientBoostingRegressor
+        ensemble.RandomForestRegressor
+    Returns:
+        child_data and child_metadata
+    """
+    model_names: str = kwargs.get(
+        'models', 'linear_model.LinearRegression, linear_model.Lasso'
+    )
+    child_data: list[str] = [
+        model_name.strip() for model_name in model_names.split(',')
+    ]
+    child_metadata: List[Dict] = [
+        dict(block_uuid=model_name.split('.')[-1]) for model_name in child_data
+    ]
+
+    return child_data, child_metadata
+```
+
+Then you can set the block as dynamic, by clicking on the option with three dots and selecting the option `Set block as dynamic`. This will mean that a block will be created for each model we are testing and I believe they can run in parallel. 
+
+![How to set your block as dynamic](Images/SetBlockDynamic.png)
+
+For more on dynamic blocks you can read the [documentation](https://docs.mage.ai/design/blocks/dynamic-blocks). 
+
+Essentially a dynamic block will return a list of two dictionaries (e.g. `List[List[Dict]]`)
+* The first item in the list is a list of the dictionaries. These will contain the data that will be passed to its downstream blocks. The number of items in this list of dictionaries will correspond to how many downstream blocks get created at run time.
+* The second item contains the metadata for each downstream block. The metadata is used to uniquely identify and create each downstream block. At the moment only one key is necessary `block_uuid` and this value is used in combination with the downstream block's original UUID to construct a unique UUID across all dynamic blocks.
+
+NB You can also create markdown blocks within your pipeline to help explain things. This follows the standard markdown notations.
+
+### 3.2.4 Training: Load models utility
+First break the connection between the GDP and the model block by right-clicking in the link in the tree pane and selecting `Remove connection`. This means that `load_models` block no longer depends on the training set.
+
+![Breaking Connections between blocks](Images/BreakConnection.png)
+
+If you run this block at this point 2 models should appear as the default (`LinearRegression` and `Lasso`).
+
+From here the next part is to perform the hyperparameter tuning. Obviously at this point each model will require different hyperparameters to set up and so we will need to set up a utils script that will store all the various parameters that will need tuning. 
+
+NB As these will be useful beyond this specific pipeline it is best practive to put it in a `utils/hyperparameters/` folder one level higher than the sklearn training pipeline. We will also use hyperopt to search the hyperparameter space more efficiently, below is a partial code snippet to give you a flavour.
+
+```
+from typing import Callable, Dict, List, Tuple, Union
+
+from hyperopt import hp, tpe
+from hyperopt.pyll import scope
+from sklearn.ensemble import (
+    ExtraTreesRegressor,
+    GradientBoostingRegressor,
+    RandomForestRegressor,
+)
+from sklearn.linear_model import Lasso, LinearRegression
+from sklearn.svm import LinearSVR
+from xgboost import Booster
+
+
+def build_hyperparameters_space(
+    model_class: Callable[
+        ...,
+        Union[
+            ExtraTreesRegressor,
+            GradientBoostingRegressor,
+            Lasso,
+            LinearRegression,
+            LinearSVR,
+            RandomForestRegressor,
+            Booster,
+        ],
+    ],
+    random_state: int = 42,
+    **kwargs,
+) -> Tuple[Dict, Dict[str, List]]:
+    params = {}
+    choices = {}
+
+    if LinearSVR is model_class:
+        params = dict(
+            epsilon=hp.uniform('epsilon', 0.0, 1.0),
+            C=hp.loguniform(
+                'C', -7, 3
+            ),  # This would give you a range of values between e^-7 and e^3
+            max_iter=scope.int(hp.quniform('max_iter', 1000, 5000, 100)),
+        )
+
+### Code Abridged ###
+
+    if LinearRegression is model_class:
+        choices['fit_intercept'] = [True, False]
+
+    if Booster is model_class:
+        params = dict(
+            # Controls the fraction of features (columns) that will be randomly sampled for each tree.
+            colsample_bytree=hp.uniform('colsample_bytree', 0.5, 1.0),
+            # Minimum loss reduction required to make a further partition on a leaf node of the tree.
+            gamma=hp.uniform('gamma', 0.1, 1.0),
+            learning_rate=hp.loguniform('learning_rate', -3, 0),
+            # Maximum depth of a tree.
+            max_depth=scope.int(hp.quniform('max_depth', 4, 100, 1)),
+            min_child_weight=hp.loguniform('min_child_weight', -1, 3),
+            # Number of gradient boosted trees. Equivalent to number of boosting rounds.
+            # n_estimators=hp.choice('n_estimators', range(100, 1000))
+            num_boost_round=hp.quniform('num_boost_round', 500, 1000, 10),
+            objective='reg:squarederror',
+            # Preferred over seed.
+            random_state=random_state,
+            # L1 regularization term on weights (xgb’s alpha).
+            reg_alpha=hp.loguniform('reg_alpha', -5, -1),
+            # L2 regularization term on weights (xgb’s lambda).
+            reg_lambda=hp.loguniform('reg_lambda', -6, -1),
+            # Fraction of samples to be used for each tree.
+            subsample=hp.uniform('subsample', 0.1, 1.0),
+        )
+
+    for key, value in choices.items():
+        params[key] = hp.choice(key, value)
+
+    if kwargs:
+        for key, value in kwargs.items():
+            if value is not None:
+                kwargs[key] = value
+
+    return params, choices
+```
+We will also need to store a function to run sklearn specifc models (and also XGB in the future). I will store these in a separate utils folder called [`models`](/Users/marcusleiwe/Documents/GitHubRepos/mlops-zoomcamp/cohorts/2024/03-orchestration/Practice/mlops/mlops/utils/models). Click through the link to see more details.
+
+Briefly, it will instantiate the model, set up the hyperparameter optimisation, and also train the model with several functions in the `sklean.py` script. 
+
+### 3.2.5 Training: Hyperparameters
+Going ahead, we can now create the Hyperparameters training block
+
 ## 3.3 Observability: Monitoring and Alerting
 ## 3.4 Triggering: Inference and Retraining
 ## 3.5 Deploying: RUnning Operations in Production

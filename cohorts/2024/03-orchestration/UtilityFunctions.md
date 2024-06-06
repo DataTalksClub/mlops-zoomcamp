@@ -1,4 +1,4 @@
-# What are Utility Functions
+# Utility Functions, Why and How to use them Effectively in a Project
 A utility function in Python is a **small, self-contained piece of code that performs a specific task**. It's called a "utility" because it's a helpful tool that makes a certain task easier to perform. These functions are not meant to be standalone, but rather to be used in conjunction with other code.
 
 ## Why use utility functions
@@ -58,28 +58,64 @@ This is primarily useful for personal or project-specific finctions that aren't 
 #### Stick to English
 Unless your entire team speaks and operates in a different language *(and will remain doing so in the future)* stick to using English. This will make your code accessible to more people in the future. Especially if someone else is using it, or god-forbid, debugging it,  in the future.
 
-### Docstrings
+### Write Docstrings
 Nearly everyone who does programming hates writing documentation. It is often done at the end of a project and you've forgotten what things do. Don't be that person!
 
 For short simple trivial functions there's no need but otherwise write the docstring once you've complteted the function or as you go along. Make sure to describe the inputs, and outputs alongside what the function does.
 
 VSCode has extensions such as [autodocstring](https://marketplace.visualstudio.com/items?itemName=njpwerner.autodocstring) for free which can help you as you go along. Paid options such as [GitHub Copilot](https://docs.github.com/en/copilot) are also able to do this.
 
-### File structures
+### Standardise File structures
 Keep your code organised and easy to navigate for others. The most common approach is to create a folder for `utils`, and separate file(s) to create utilities and helper functions that can be grouped together.
 
 Additionally create a `__init__.py` file in the `utils` directory. An `__init__.py` file instructs Python to treat this directory as a python package. [GeeksForGeeks](https://www.geeksforgeeks.org/what-is-__init__-py-file-in-python/) have quite a nice description for how `__init__.py` files work.
 
-For a working example I was creating a data loading and processing pipeline for an MLOps course. 
+### Unit test your functions
+Always test your functions, either by providing `unittests`, or by using `assert`. Dataquest have a good succinct guide [here](https://www.dataquest.io/blog/unit-tests-python/) which I recommend reading.
 
-########### TO DO ############
+## An Example
+For a working example I was creating a data loading model training pipeline for an MLOps course. Where I often had to perform a complex set of functions. I this case I constructed a utils folder with additional subfolders to further subdivide my functions (just remember to place the `__init__.py` each time). It looked similar to the structure below.
 
-Provide an example
+```
+mlops_course
+|── data_prep
+|── training
+|── evaluation
+|── utils
+    |── __init__.py
+    |── analytics
+        |── __init__.py
+        |── data.py
+    |── data_prep
+        |── __init__.py
+        |── cleaning.py
+        |── encoders.py
+        |── feature_engineering.py
+        |── feature_selector.py
+        |── splitters.py
+    |── hyperparameters
+        |── __init__.py
+        |── shared.py
+    |── models
+        |── __init__.py
+        |── sklearn.py
+        |── xgboost.py
+```
 
-##############################
-### Test functions
+From here whenever I needed to access a particular utility function I can simply call in another script in the project. Say for example I want to dictionary vectorise my categorical features I simply import my `vectorise_features` function from my encoders.py utility file.
+
+```
+from mlops_course.utils.data_prep.encoders import vectorise_features
+
+df_train, df_val = load_data()
+X_train, X_val, dv = vectorise_features(df_train, df_val)
+```
+
+## Final Thoughts
+As a self-trained coder, and particularly one who came from an academic MATLAB background I've always learnt as I've gone along which less help and guides that are now available in the python community. This meant making tons of mistakes, and having a very weighty and disorganised code base which didn't help when others needed to use my code. While I'm sure I've improved, I'm sure there are mistakes or other best practices for utility functions that I've missed. If that's the case do let me know. To be honest writing these down helps me in clarifying my thoughts and structures.
 
 ## Resources
-* [autodocstring](https://marketplace.visualstudio.com/items?itemName=njpwerner.autodocstring)
+* [autodocstring fo VS Code](https://marketplace.visualstudio.com/items?itemName=njpwerner.autodocstring)
 * [GitHub Co-pilot Documentation](https://docs.github.com/en/copilot)
 * [GeeksForGeeks - What is __Init__.Py File in Python?](https://www.geeksforgeeks.org/what-is-__init__-py-file-in-python/)
+* [Dataquest - Unit Tests in Python](https://www.dataquest.io/blog/unit-tests-python/)
