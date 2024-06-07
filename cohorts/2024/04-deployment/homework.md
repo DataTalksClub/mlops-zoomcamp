@@ -107,13 +107,13 @@ COPY [ "model2.bin", "model.bin" ]
 
 Note: you don't need to run it. We have already done it.
 
-It is pushed it to [`svizor/zoomcamp-model:mlops-3.10.0-slim`](https://hub.docker.com/layers/svizor/zoomcamp-model/mlops-3.10.0-slim/images/sha256-595bf690875f5b9075550b61c609be10f05e6915609ef4ea4ce9797116c99eff?context=repo),
+It is pushed it to [`agrigorev/zoomcamp-model:mlops-2024-3.10.13-slim`](https://hub.docker.com/layers/agrigorev/zoomcamp-model/mlops-2024-3.10.13-slim/images/sha256-f54535b73a8c3ef91967d5588de57d4e251b22addcbbfb6e71304a91c1c7027f?context=repo),
 which you need to use as your base image.
 
 That is, your Dockerfile should start with:
 
 ```docker
-FROM svizor/zoomcamp-model:mlops-3.10.0-slim
+FROM agrigorev/zoomcamp-model:mlops-2024-3.10.13-slim
 
 # do stuff here
 ```
