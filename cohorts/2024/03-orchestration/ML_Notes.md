@@ -534,7 +534,14 @@ A GDP is usable across all the training pipelines. This saves time as we do not 
 To save time and memory we can set a fixed about of time to store the data (e.g. 600 seconds), and we can also specify only to store the outputs of a single block (e.g. the exporter block).
 
 To do this if you navigate back to the main page, select the global data product option from the ribbon on the left hand side. And from there you can select the options that you need.
+
 ![Creating a Global Data Product](Images/CreateGlobalDataProduct.gif)
+
+**Two main points to be aware of** 
+* As of now you cannot use GDPs across different projects but you can have multiple pipelines in a project. So structure things this way.
+* There isn't a way to remove GDPs through the UI. You have to manually remove them from the `.yaml` file associated with that GDP. This is easy to do through the text editor. See screenshot below.
+
+![How to delete a Global Data Product](Images/DeleteGDP.png)
 
 ### 3.2.2 Training: Sklearn training GDP
 First create an sklearn training pipeline. Then add the data in using the GDP. This is a standalone block in the pipeline, so you can add this in in the same manner as any other block in the pipeline.
@@ -688,8 +695,219 @@ We will also need to store a function to run sklearn specifc models (and also XG
 Briefly, it will instantiate the model, set up the hyperparameter optimisation, and also train the model with several functions in the `sklean.py` script. 
 
 ### 3.2.5 Training: Hyperparameters
-Going ahead, we can now create the Hyperparameters training block
+Going ahead, we can now create the Hyperparameters training block (All Blocks --> Transformer --> Base Template). Then make sure its connected to both the GDP and the dynamic block. To do this hold down a click to connect the blocks, such as below.
+
+![How to make new connections](Images/MakeConnections.gif)
+
+As a point of warning be careful about the order of the data being inputted into this block. To check, you can go to the top of the code block and view which order they come in. See the red rectangle highlighted in the screenshot below.
+
+![View Connection Order](Images/ViewConnectionOrder.png)
+
+Our initial training block is here,
+`training_set` is our GDP from the data_preparation pipeline
+`load_models` is the list of model classes
+
+```
+from typing import Callable, Dict, Tuple, Union
+
+from pandas import Series
+from scipy.sparse._csr import csr_matrix
+from sklearn.base import BaseEstimator
+
+from mlops.utils.models.sklearn import load_class, tune_hyperparameters
+
+if 'transformer' not in globals():
+    from mage_ai.data_preparation.decorators import transformer
+
+
+@transformer
+def hyperparameter_tuning(
+    training_set: Dict[str, Union[Series, csr_matrix]],
+    model_class_name: str,
+    *args,
+    **kwargs,
+) -> Tuple[
+    Dict[str, Union[bool, float, int, str]],
+    csr_matrix,
+    Series,
+    Callable[..., BaseEstimator],
+]:
+    X, X_train, X_val, y, y_train, y_val, _ = training_set['build']
+
+    model_class = load_class(model_class_name)
+
+    hyperparameters = tune_hyperparameters(
+        model_class,
+        X_train = X_train,
+        y_train = y_train,
+        X_val = X_val,
+        y_val = y_val,
+        max_evaluations = kwargs.get('max_evaluations'),
+        random_state = kwargs.get('random_state')
+    )
+
+    return hyperparameters, X, y, dict(cls=model_class, name=model_class_name)
+```
+The outputs will be a tuple for each model, where the hyperparameters are a dictionary, X is a csr_matrix, y is a pd.Series, and there is a dictionary for the model used
+
+NB I've set the `max_evaluations` at 50, and `random_state` to 42, setting these as global variables to ensure consistency.
+
+When you hit run you see the the runs and the outputs. 
+![Hyperparameter Outputs](Images/HyperparameterOutputs.png) 
+Each child should have four outputs in its tuple as described above. The next step will be to carry out training on the full data set.
+
+### 3.2.6 Training: Sklearn
+To train the final model, we're going to use the full dataset (i.e. train and val) plus and also train each model.
+
+```
+from typing import Callable, Dict, Tuple, Union
+
+from pandas import Series
+from scipy.sparse._csr import csr_matrix
+from sklearn.base import BaseEstimator
+
+from mlops.utils.models.sklearn import load_class, train_model
+
+if 'data_exporter' not in globals():
+    from mage_ai.data_preparation.decorators import data_exporter
+
+
+@data_exporter
+def train(
+    settings: Tuple[
+        Dict[str, Union[bool, float, int, str]],
+        csr_matrix,
+        Series,
+        Dict[str, Union[Callable[..., BaseEstimator], str]],
+    ],
+    **kwargs,
+) -> Tuple[BaseEstimator, Dict[str, str]]:
+    hyperparameters, X, y, model_info = settings
+    print(model_info)
+    model_class = model_info['cls']
+    model = model_class(**hyperparameters)
+    model.fit(X, y)
+
+    return model, model_info
+```
+This is produces all the outputs required. However there is still an issue where not all outputs will be visible in the output section of the block.... Unless you go through to the triggers tab, then back to the edit pipeline section then you should see all four outputs. This has been documented by [Ella in the MLOps Zoomcamp slack channel](https://datatalks-club.slack.com/archives/C02R98X7DS9/p1717570478678679?thread_ts=1717568352.984309&cid=C02R98X7DS9).
+
+### 3.2.7 Training: XGBoost Hyperparameters
+This will be created in a separate pipeline as the only similarity to the sklearn pipeline is the GDP.
+![Creating a new XGBoost Pipeline](Images/CreateNewPipeline.png)
+
+Sync up to the same [Global Data Product](#-3.2.2-Training:-Sklearn-training-GDP) as in the sklearn training pipeline.
+
+#### Add in Utilities
+
+Now we need to set up the hyperparameter tuning block (Transformer block)
+
+##### Editing `/utils/hyperparameters/shared.py`
+Set up the required utility functions to eastablish which hyperparameters you are going to tune.
+Specifically we will need to edit the `shared.py` function to also include XGBoost
+
+Include the Booster class from the XGBoost module
+```
+from xgboost import Booster
+```
+Then you can define the parameter space for your booster.
+```
+    if Booster is model_class:
+        params = dict(
+            # Controls the fraction of features (columns) that will be randomly sampled for each tree.
+            colsample_bytree=hp.uniform('colsample_bytree', 0.5, 1.0),
+            # Minimum loss reduction required to make a further partition on a leaf node of the tree.
+            gamma=hp.uniform('gamma', 0.1, 1.0),
+            learning_rate=hp.loguniform('learning_rate', -3, 0),
+            # Maximum depth of a tree.
+            max_depth=scope.int(hp.quniform('max_depth', 4, 100, 1)),
+            min_child_weight=hp.loguniform('min_child_weight', -1, 3),
+            # Number of gradient boosted trees. Equivalent to number of boosting rounds.
+            # n_estimators=hp.choice('n_estimators', range(100, 1000))
+            num_boost_round=hp.quniform('num_boost_round', 500, 1000, 10),
+            objective='reg:squarederror',
+            # Preferred over seed.
+            random_state=random_state,
+            # L1 regularization term on weights (xgb’s alpha).
+            reg_alpha=hp.loguniform('reg_alpha', -5, -1),
+            # L2 regularization term on weights (xgb’s lambda).
+            reg_lambda=hp.loguniform('reg_lambda', -6, -1),
+            # Fraction of samples to be used for each tree.
+            subsample=hp.uniform('subsample', 0.1, 1.0),
+        )
+```
+##### Create the XGBoost model function with `xgboost.py`
+Create a new file called `xgboost.py` (Via Text Editor)
+Store in `./utils/models/` 
+
+This will tune the model based on the hyperparameters etc. You can see the full script [here](Practice/mlops/mlops/utils/models/xgboost.py).
+
+#### Set up Experiment Tracking with MLFlow
+This can be set up by extracting the information for MLFlow from the callback section of the `tune_hyperparameters` function in the `xgboost.py` file
+```
+        if callback:
+            callback(
+                hyperparameters=params,
+                metrics=metrics,
+                model=model,
+                predictions=predictions,
+            )
+```
+So here while xgboost is training each model will return the hyperparameters, metrics, model_type, and the predictions.
+
+You can also set global variables for variables such as `max_evaluations` and `early_stopping_rounds`. I set it to 3, and 3 respectively for this initially, but suggest larger values when actually training.
+
+### 3.2.8 Training: XGB trained
+Finally we want to run the model on the whole data. This will be similar to the sklearn block before.
+
+New Exporter block (base template)
+Name: xgboost
+
+Pass the training set down to the new block. In this iteration the training_set should be the first input.
+
+![Sync up GDP with XGBoost](Images/ConnectFullModel.gif)
+
+We can then just create the code block below
+```
+from typing import Dict, Tuple, Union
+from pandas import Series
+from scipy.sparse._csr import csr_matrix
+from xgboost import Booster
+
+#Util Functions
+from mlops.utils.models.xgboost import build_data, fit_model
+
+if 'data_exporter' not in globals():
+    from mage_ai.data_preparation.decorators import data_exporter
+
+
+@data_exporter
+def train(
+    training_set: Dict[str, Union[Series, csr_matrix]],
+    settings: Tuple[
+        Dict[str, Union[bool, float, int, str]],
+        csr_matrix,
+        Series
+    ],
+    **kwargs,
+) -> Tuple[Booster, csr_matrix, Series]:
+    hyperparameters, X, y = settings
+
+    #Test raining is a model with low max depth so the the output renders a reasonably sized plot tree
+    if kwargs.get('max_depth'):
+        hyperparameters['max_depth'] = int(kwargs.get('max_depth'))
+    
+    model = fit_model(
+        build_data(X,y),
+        hyperparameters,
+        verbose_eval = kwargs.get('verbose_eval', 100),
+    )
+
+    #DictVecotrizer for online inference
+    vectorizer = training_set['build'][6]
+    return model, vectorizer
+```
 
 ## 3.3 Observability: Monitoring and Alerting
 ## 3.4 Triggering: Inference and Retraining
-## 3.5 Deploying: RUnning Operations in Production
+## 3.5 Deploying: Running Operations in Production
