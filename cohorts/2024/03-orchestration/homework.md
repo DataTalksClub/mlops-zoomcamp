@@ -45,9 +45,7 @@ Let's use the same logic for preparing the data we used previously. We will need
 This is what we used (adjusted for yellow dataset):
 
 ```python
-def read_dataframe(filename):
-    df = pd.read_parquet(filename)
-
+def transform(df, *args, **kwargs):
     df.tpep_dropoff_datetime = pd.to_datetime(df.tpep_dropoff_datetime)
     df.tpep_pickup_datetime = pd.to_datetime(df.tpep_pickup_datetime)
 
