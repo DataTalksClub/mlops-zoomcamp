@@ -909,5 +909,164 @@ def train(
 ```
 
 ## 3.3 Observability: Monitoring and Alerting
+So the great thing about Mage is that you can also monitor your training pipelines and so detect and key changes in your models performance. Some key examples are: detecting model drift, identifying data issues, tracking performance metrics, optimising resource utilisation, facilitate collaboration.
+
+A really good piece on this comes from [aporia](https://www.aporia.com/learn/data-science/importance-of-monitoring-production-models-for-ml-teams/). Definitely recomment this as a good insight.
+
+With Mage there is a pre-allocated place for dashboards, so the first thing to do is create plots for each pipeline. NB there are pipelines for each dashboard coupled with an overall dashboard for the whole project. But first lets just create a dashboard for the sklearn pipeline.
+
+### 3.3.1 Obervability: sklearn-training pipeline
+This is fairly straight forward. From the pipeline menu select the pipeline you're interested in and then navigate to the dashboard. If you haven't already created one you can choose from preset charts that are already created or you can create custom charts by following the relatively simple UI.
+
+### 3.3.2 Observability: XGBoost pt1
+When can create blocks to display custom data we want to display in our dashboard plots too. This is an example using the XGBoost pipleline.
+
+1. Create a custom python block
+2. Make a connection to the hyperparameter tuning block too
+![alt text](Images/SyncDashboardData.png)
+
+3. Enter the following code
+```
+from typing import Dict, Tuple, Union
+
+from pandas import Series
+from scipy.sparse import csr_matrix
+from sklearn.base import BaseEstimator
+from xgboost import Booster
+
+if 'custom' not in globals():
+    from mage_ai.data_preparation.decorators import custom
+
+
+@custom
+def source(
+    training_results: Tuple[Booster, BaseEstimator],
+    settings: Tuple[
+        Dict[str, Union[bool, float, int, str]],
+        csr_matrix,
+        Series,
+    ],
+    **kwargs,
+) -> Tuple[Booster, csr_matrix, csr_matrix]:
+    model, _ = training_results
+    _, X_train, y_train = settings
+
+    return model, X_train, y_train
+```
+The model information as well as the X and y data from the training set will be returned. We can now use these values to make some custom charts for out xgboost dashboard. Make sure to run the block
+
+4. Navigate to the dashboard and select "+ Create New Chart" on the top right. You'll then be prompted to enter in values. The thing to select here is "Block data output" then you just need to specify the pipeline and the block and you should be good to go. You can type in the code to make the plots that you want on the right hand side in the section called `Custom code`. Once entered. You'll see a sample output in the main pane. The chart can be re-sized once you're back to the dashboard. Just remember to click save changes to produce your chart.
+
+![Create Custom SHAP bar plot](Images/CreateCustomSHAPcode.png)
+
+Here's some demo plotting code
+```
+import base64
+import io
+from typing import Tuple
+
+import matplotlib.pyplot as plt
+import numpy as np
+import shap
+from pandas import Series
+from scipy.sparse._csr import csr_matrix
+from xgboost import Booster
+
+
+@render(render_type='jpeg')
+def create_visualization(inputs: Tuple[Booster, csr_matrix, Series], **kwargs):
+    model, X, _ = inputs
+    
+    # Random sampling - for example, 10% of the data
+    sample_indices = np.random.choice(X.shape[0], size=int(X.shape[0] * 0.1), replace=False)
+    X_sampled = X[sample_indices]
+    X_sampled = X[:1]
+
+    # Now, use X_sampled instead of X for SHAP analysis
+    explainer = shap.TreeExplainer(model)
+    shap_values = explainer.shap_values(X_sampled)
+    shap.summary_plot(shap_values, X_sampled)
+
+    my_stringIObytes = io.BytesIO()
+    plt.savefig(my_stringIObytes, format='jpg')
+    my_stringIObytes.seek(0)
+    my_base64_jpgData = base64.b64encode(my_stringIObytes.read()).decode()
+
+    plt.close()
+
+    return my_base64_jpgData
+```
+### 3.3.3 Observability: XGBoost pt2
+You can then adjust the sizes etc. on the dashboard and play around to extract the best options
+For example, in the plot below we have several ways of interpreting the SHAP values associated with our XGBoost model.
+
+![Example xgb dashboard](Images/Dashboard_xgb.png)
+
+Some tips from my experience. 
+* The drag and drop ways of moving plots/charts around is a bit counter-intutitative for me personally. If you want a plot to be placed next to another plot, *hover it over the plot* don't place it alongside as it will not move.
+* When building out your plots, consider your aspect ratio. The default settings here are to export this as .jpgs. So you can end up with really stretchy charts if you aren't careful. I believe it is possible to use other image formats but I haven't done enough digging around to give an example and tell you how to do it. 
+
+# 3.3.4 Observability: Overview
+So now we want to create an overview for the entire project. To do this navigate to the overview section. This can either be done through the command center or by using the left hand side ribbon.
+
+From here we can plot whatever we want from across the different pipelines.
+
+In this example we will create a custom RMSE plot to compare the sklearn models with the XGBoost ones.
+
+1. Create a utils function to pull the data from our MLflow database.
+This is stored in `utils/analytics/data.py` as the function `load_data`.
+ In this case we perform a SQL query to pull in the data we want into a pandas dataframe.
+
+2. Use this function to create our plot 
+```
+from mlops.utils.analytics.data import load_data
+
+# https://docs.mage.ai/visualizations/dashboards
+
+@data_source
+def data(*args, **kwargs):
+    return load_data()
+```
+NB From the inbuilt code that Tommy provided there is a bug which returns the error
+`Cannot case DatetimeArray to dtype float 63`
+
+There is a fix in the [MLOps Zoomcamp slack channel](https://datatalks-club.slack.com/archives/C02R98X7DS9/p1717554505035399). Essentially you need to reconfigure the datetime values by dividing by 1,000.
+
+You then should get something similar to the plot below once you've saved your changes
+
+![alt text](Images/Dashboard_MetricsRMSE.png)
+
+##### 3.3.5 Observability: Time Series Bar
+Just do exactly the same as before and now you can place the plots alongside each other
+
+![RMSE Dashboard Overview](Images/Dashboard_RMSE_Overview.png)
+
+NB If you want to do this remember to set up tracking for the sklearn pipeline. I didn't do it in these notes so I had to go back and recreate it.
+
+NB If you want to change these plot formats, e.g. tooltips, x-axis, etc. you can recode them in javascript in the chart display settings on the left hand side.
+
+For example to change the number of decimal points shown on the x axis edit the function of the `X axis label format` in the following manner.
+
+```
+function format(value, index, values) {
+    return value.toFixed(2)
+}
+```
+The remaining plots are fairly self explanatory. I won't talk about them but you can click and explore away.
+
+### 3.3.9 Observability
+While the dashboard is great. You cannot be monitoring it at all times. Instead what might be a good idea is to set up alerts once you've gone below or above a particular threshold
+
+To set up alerts you need to go to the project's root folder and access the metadata settings. This is the `metadata.yaml` file. Basically you need to add a `notification_cofig` section. Mage has documentation on it [here](https://docs.mage.ai/integrations/observability/alerting-email).
+
+From the docs it seems as if you can set up alerts through: email, opsgenie, slack, teams, discord, and telegram.
+
+However instead of hard coding this, you can simply use google to set up app passwords. The step by step guide is [here](https://support.google.com/mail/answer/185833?hl=en).
+
+### 3.3.10 Observability: Email
+NB You also need to set this up per project too. So I'll try and document it here for the data loading pipeline
+
+Didn't work I will try something else for now and come back to it
+
 ## 3.4 Triggering: Inference and Retraining
 ## 3.5 Deploying: Running Operations in Production
