@@ -15,7 +15,9 @@ Opening a text editor:
 
 ## 3.1.2 Data preparation - Ingestion
 
-TODO: describe the context
+The project `unit_1_data_preparation` now has an empty pipeline, and it can be developed further using blocks. The first one we'll create is an ingestion block, which uses Python code to download the parquet files from January to March of the green taxi datasets and concatenate them. Done that, generate a series of graphs and charts useful for data profiling.
+
+* **Note**: If the time chart isn't displayed, insert the following snippet `df['lpep_pickup_datetime_cleaned'] = df['lpep_pickup_datetime'].astype(np.int64) // 10**9` just above the `dfs.append(df)` line in `ingest.py`
 
 [Video](https://youtu.be/1lSOdTpoRug)
 
