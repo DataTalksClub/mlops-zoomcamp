@@ -132,6 +132,7 @@ for May 2023?
 * 14.24
 * 21.19
 
+
 ## Bonus: upload the result to the cloud (Not graded)
 
 Just printing the mean duration inside the docker image 
@@ -140,6 +141,13 @@ file, we upload it to the cloud storage.
 
 Modify your code to upload the parquet file to S3/GCS/etc.
 
+
+## Bonus: Use Mage for batch inference
+
+Here we didn't use any orchestration. In practice we usually do.
+
+* Split the code into logical code blocks
+* Use Mage to orchestrate the execution
 
 ## Publishing the image to dockerhub
 
@@ -153,8 +161,10 @@ docker login --username USERNAME
 docker push agrigorev/zoomcamp-model:mlops-2024-3.10.13-slim
 ```
 
+This is just for your reference, you don't need to do it.
+
 
 ## Submit the results
 
-* Submit your results here: TBA
+* Submit your results here: https://courses.datatalks.club/mlops-zoomcamp-2024/homework/hw4
 * It's possible that your answers won't match exactly. If it's the case, select the closest one.
