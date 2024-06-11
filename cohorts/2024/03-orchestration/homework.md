@@ -1,5 +1,7 @@
 ## Homework
 
+Solution: https://www.loom.com/share/802c8c0b843a4d3bbd9dbea240c3593a
+
 The goal of this homework is to create a simple training pipeline, use mlflow to track experiments and register best model, but use Mage for it.
 
 We'll use [the same NYC taxi dataset](https://www1.nyc.gov/site/tlc/about/tlc-trip-record-data.page), the **Yellow** taxi data for March, 2023. 
