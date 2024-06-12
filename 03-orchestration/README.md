@@ -28,3 +28,6 @@ See the [Unit 3.0](https://github.com/DataTalksClub/mlops-zoomcamp/blob/main/03-
 
 -   [2022 Prefect notes](../cohorts/2022/03-orchestration/README.md)
 -   [2023 Prefect notes](../cohorts/2023/03-orchestration/prefect/README.md)
+
+# Participants Notes
+* [Marcus' Notes for Ch3](https://github.com/mleiwe/mlops-zoomcamp/blob/Ch3_ML_Notes/cohorts/2024/03-orchestration/ML_Notes.md)
