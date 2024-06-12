@@ -86,10 +86,10 @@ You do however need to make sure the docker daemon is running. (In plain English
 3. Navigate to the pipeline option (2nd option on the left hand side) and select the pipeline names `example pipeline`.
 4. Click on the button labelled `Run @once`. This will run the pipeline.
 
-![How to run the example pipeline](Images/MageExamplePipeline_pt1.gif.crdownload)
+![How to run the example pipeline](Images/MageExamplePipeline_pt1.gif)
 
 Once the run is complete (should take <1 minute) you can then  view the log, and further details for that run of the pipeline.
-![Viewing the results](Images/MageExamplePipeline_pt2.gif.crdownload)
+![Viewing the results](Images/MageExamplePipeline_pt2.gif)
 
 NB a file titled `titanic_clean.csv` should have appeared in your `mlops` folder.
 
