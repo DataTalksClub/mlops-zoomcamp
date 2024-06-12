@@ -4,7 +4,7 @@
 
 ## 3.1.1 Creating a new project
 
-TODO: describe the context
+In order to create a new project, firstly, you need to right-click on a folder in Text editor, and choose `New Mage project`. Secondly, you need to open `Settings` and click on `Register project`.
 
 [Video](https://youtu.be/7hKrQmoARD8)
 
@@ -27,7 +27,7 @@ Code:
 
 ## 3.1.3 Utility helper functions
 
-TODO: describe the context
+Utility functions are already created in the `utils` folder. They will be then imported into the transformer block.
 
 [Video](https://youtu.be/FBh3P19lXj4)
 
@@ -47,6 +47,14 @@ Code
 
 1. [Data preparation block](https://youtu.be/TcTMVn3BxeY)
 1. [Visualize prepared data](https://youtu.be/j0Hfaoc5wRY)
+
+
+To see the correct histogram, change last two lines of the default code to:
+```python
+col = 'trip_distance'
+x = df_1[df_1[col] <= 20][col]
+```
+
 
 ### Code
 
