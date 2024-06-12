@@ -225,7 +225,7 @@ However, be warned I found the whole experience to be rather buggy.
 
 ### 3.1.3 Data Preparation: Utilities
 Creating utility functions:
-For a description of utility functions see [What are utility functions in Python](cohorts/2024/03-orchestration/UtilityFunctions.md)
+For a description of utility functions see [Utility Functions: Why and How to Use Them Effectively in a Project](https://medium.com/@theworldsagainstme/utility-functions-why-and-how-to-use-them-effectively-in-a-project-be9c7d89f129)
 
 1. In the text editor create a file/new folder
 If you need to create a new folder as well you can simply enter the file path as the filename. e.g. `utils/data_preparation/cleaning.py` for our cleaning utility functions.
@@ -1069,4 +1069,221 @@ NB You also need to set this up per project too. So I'll try and document it her
 Didn't work I will try something else for now and come back to it
 
 ## 3.4 Triggering: Inference and Retraining
+### 3.4.1 Triggering: Retraining a pipeline
+Setting up triggers to run pipelines is key to fully automate the processes. 
+
+#### Create Sensor block
+First, in a new pipeline create a sensor block to detect when a certain event has happened.
+```
+import json
+import os
+import requests
+
+from mage_ai.settings.repo import get_repo_path
+
+if 'sensor' not in globals():
+    from mage_ai.data_preparation.decorators import sensor
+
+
+@sensor
+def check_for_new_data(*args, **kwargs) -> bool:
+    path = os.path.join(get_repo_path(), '.cache', 'data_tracker')
+    os.makedirs(os.path.dirname(path), exist_ok=True)
+    
+    data_tracker_prev = {}
+    if os.path.exists(path):
+        with open(path, 'r') as f:
+            data_tracker_prev = json.load(f)
+
+    data_tracker = requests.get('https://hub.docker.com/v2/repositories/mageai/mageai').json() #This is an arbitrary API call. You can change this to some new data later.
+    with open(path, 'w') as f:
+        f.write(json.dumps(data_tracker))
+
+    count_prev = data_tracker_prev.get('pull_count')
+    count = data_tracker.get('pull_count')
+    
+    print(f'Previous count: {count_prev}')
+    print(f'Current count:  {count}')
+
+    should_train = count_prev is None or count > count_prev
+    if should_train:
+        print('Retraining models...')
+    else:
+        print('Not enough new data to retrain models.')
+    
+    return should_train
+```
+E.g. Create a sensor to detect when new data has arrived, essentially the output will be a boolean on whether you should re-train or not. In the example above the `data_tracker` is a contrived example that should be changed to match your new dataset.
+
+#### Create Trigger Block
+Second create a custom block, that will trigger another pipeline. This custom block will trigger an API call to run a pipeline. Below is the example block to trigger the sklearn pipeline. The xgboost one is fairly similar
+
+```
+from mage_ai.orchestration.triggers.api import trigger_pipeline
+
+if 'custom' not in globals():
+    from mage_ai.data_preparation.decorators import custom
+
+
+@custom
+def retrain(*args, **kwargs):
+    models = [
+        'linear_model.Lasso',
+        'linear_model.LinearRegression',
+        'svm.LinearSVR',
+        'ensemble.ExtraTreesRegressor',
+        'ensemble.GradientBoostingRegressor',
+        'ensemble.RandomForestRegressor',
+    ]
+
+    trigger_pipeline(
+        'sklearn_training', #This is the name of the pipeline you want to run
+        check_status=True,
+        error_on_failure=True,
+        schedule_name='Automatic retraining for sklearn models',
+        verbose=True,
+    )
+
+```
+NB If you want to run more than one pipeline you can create multiple blocks that recieve input from the same sensor block. Just make sure that they are both connected to the same block. The tree layout should look like below.
+
+![Triggers recieving input from the same sensor](Images/VisualTriggerLayour.png)
+
+### 3.4.2 Triggering: Configuring the trigger
+Now in the the trigger section of your sensor pipeline you can set a regular trigger to run, and configure sensors etc. The UI is fairly explanatory so it should be easy enough to navigate. I do want to emphasise that you can also save the trigger as code so it is easy to version control too.
+
+![Save Tigger Configs as a .yaml file](Images/Triggers.yaml.png)
+
+### 3.4.3 Triggering: Predict
+Now we want to create a new pipeline that will produce the prediction. This can also be done through Flask, etc. But essentially you can create a single custom-code block pipeline which will load in the model and predict the value based on the inputs. NB You can create default inputs that will run if you haven't put any values in as well
+
+```
+from typing import Dict, List, Tuple, Union
+
+from sklearn.feature_extraction import DictVectorizer
+from xgboost import Booster
+
+from mlops.utils.data_preparation.feature_engineering import combine_features
+from mlops.utils.models.xgboost import build_data
+
+if 'custom' not in globals():
+    from mage_ai.data_preparation.decorators import custom
+
+DEFAULT_INPUTS = [
+    {
+        # target = "duration": 11.5
+        'DOLocationID': 239,
+        'PULocationID': 236,
+        'trip_distance': 1.98,
+    },
+    {
+        # target = "duration" 20.8666666667
+        'DOLocationID': '170',
+        'PULocationID': '65',
+        'trip_distance': 6.54,
+    },
+]
+
+
+@custom
+def predict(
+    model_settings: Dict[str, Tuple[Booster, DictVectorizer]],
+    **kwargs,
+) -> List[float]:
+    inputs: List[Dict[str, Union[float, int]]] = kwargs.get('inputs', DEFAULT_INPUTS)
+    inputs = combine_features(inputs)
+
+    DOLocationID = kwargs.get('DOLocationID')
+    PULocationID = kwargs.get('PULocationID')
+    trip_distance = kwargs.get('trip_distance')
+
+    if DOLocationID is not None or PULocationID is not None or trip_distance is not None:
+        inputs = [
+            {
+                'DOLocationID': DOLocationID,
+                'PULocationID': PULocationID,
+                'trip_distance': trip_distance,
+            },
+        ]
+    
+    model, vectorizer = model_settings['xgboost'] #Load in the xgboost model
+    vectors = vectorizer.transform(inputs)
+
+    predictions = model.predict(build_data(vectors))
+
+    for idx, input_feature in enumerate(inputs):
+        print(f'Prediction of duration using these features: {predictions[idx]}')
+        for key, value in inputs[idx].items():
+            print(f'\t{key}: {value}')
+
+    return predictions.tolist()
+```
+### 3.4.4 Triggering: Global Data Product
+Here the aim is to create a Global Data Product that contains the model and the vectoriser so it doesn't need to be created each time.
+Here are the example settings to create a GDP for the XGB model
+
+`UUID`: XGBoost
+`Object type`: Pipeline
+`Object UUID`: xgboost_training
+**Outdated after**
+`seconds`: 86400 #Number of days in seconds
+
+**Block data to output**
+xgboost - Partitions:1
+
+Then just hook up the GDP to the predict block and you should be good to go.
+
+### 3.4.5 Triggering: Inference Notebook
+To check this is running, now you can just run both the GDP and and predict blocks and it should run. If the GDP is not active then this may take some time to train the model etc.
+
+### 3.4.6 Triggering: Interactions
+Using the "no-code" UI you can layer interactions on your prediction pipeline. These are online inferences without doing the API call part.
+![How to start block interactions](Images/BlockInteractions.png)
+
+Here each interaction can be layered on top of the block. In other words create a "run" for specifically that block. 
+
+![alt text](Images/InteractionsBlock_Settings.png)
+
+### 3.4.7 Triggering Interactions Run
+Here as well as providing a label and description (), you can also specify the type and range of the values to insert into your block. This will help non-technical people in your team play with the values. To set up the interactions, click on the `Interactions` tab on the ribbon (see screenshot below). Once all the values have been entered just click the `play` icon as usual to run the block, the output should be printed as usual
+
+![Predict Demo](Images/PredictDemo.gif)
+
+### 3.4.8 Triggering API
+We can also set up API triggers to to expose the block function and call the model.
+To do this create new trigger for the pipeline
+
+`Trigger Type`: API
+
+**Settings**
+`Trigger Name` : Real-time prediction
+`Trigger Description`: Online inference endpoint
+
+**Endpoint**
+This is a URL to which you can make a POST request
+There is an option to "Show alternate endpoint to pass token in headers". If you turn the switch on you can also call it as a header.
+
+**Payload**
+This is the information that the pipeline will recieve in/
+
+**Sample cURL command**
+This explains how to run it as a [cURL](https://developer.ibm.com/articles/what-is-curl-command/) command
+
+**Tags**
+Tagging for easier identification.
+
+Then save the trigger, and enable it, if you wish. NB You can also save it to code.
+
+If you go to the runs log you can see how many times it has been run.
+
 ## 3.5 Deploying: Running Operations in Production
+There is a step by step guide for [how to deploy the pipeline in AWS](https://github.com/mage-ai/mlops/tree/master/mlops/unit_3_observability/pipelines/deploying_to_production). If you clone the mlops repo on their mlops repo its `unit_3_observability/Pipelines/deploying_to_production`.
+
+There's also [step by step documentation](https://docs.mage.ai/production/deploying-to-cloud/gcp/setup) for how to deploy on GCP on their website too.
+
+Generally for AWS...
+1. Destroy the current terraform, and build the new one (this might take some time).
+2. There should be a URL load balancer address that will show base mage being deployed for now
+3. Then to establish your model/code in a CI/CD pipeline. You need to first establish some policies. There are helper functions built in to help with this.
+4. Git push your code to the server URL. NB this should create a GitHub Actions Workflow YAML file. You need to add your access key and ID to the repository secrets.
+5. If you need to change the code. Once you have save the changes. Commit it then push it to the origin (usually, you send this as a PR etc. before committing it).
