@@ -46,5 +46,5 @@
 -   [2022 Prefect notes](../cohorts/2022/03-orchestration/README.md)
 -   [2023 Prefect notes](../cohorts/2023/03-orchestration/prefect/README.md)
 
-# Participant Notes from 2024
+# Participant Notes
 * [Marcus' Notes for Chapter 3](https://github.com/mleiwe/mlops-zoomcamp/blob/Ch3_ML_Notes/cohorts/2024/03-orchestration/ML_Notes.md)
