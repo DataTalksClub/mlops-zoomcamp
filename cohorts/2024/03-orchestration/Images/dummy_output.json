@@ -1,0 +1,4241 @@
+{
+    "document_id": 1,
+    "file_name": "WhatsApp Image 2024-03-26 at 11.52.22_5316eaa6.jpg",
+    "boxes": [
+        {
+            "bbox": [
+                569,
+                174,
+                32,
+                26
+            ],
+            "characters": "र्",
+            "orientation": 0,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                562,
+                368,
+                38,
+                23
+            ],
+            "characters": "र्ृ",
+            "orientation": 0,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                317,
+                81,
+                59,
+                28
+            ],
+            "characters": "र्र्र्र्र्",
+            "orientation": 0,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                474,
+                107,
+                30,
+                23
+            ],
+            "characters": "र्र्र्र्",
+            "orientation": 0,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                865,
+                90,
+                61,
+                27
+            ],
+            "characters": "र्ष",
+            "orientation": 0,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                980,
+                276,
+                40,
+                26
+            ],
+            "characters": "ऋ्त्",
+            "orientation": 0,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                504,
+                268,
+                69,
+                27
+            ],
+            "characters": "क्ष््",
+            "orientation": 0,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                891,
+                595,
+                41,
+                27
+            ],
+            "characters": "क्रक्",
+            "orientation": 0,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                631,
+                21,
+                26,
+                21
+            ],
+            "characters": "र््",
+            "orientation": 0,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                441,
+                366,
+                49,
+                27
+            ],
+            "characters": "फ्र्",
+            "orientation": 0,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                614,
+                1158,
+                48,
+                29
+            ],
+            "characters": "र्",
+            "orientation": 0,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                856,
+                1412,
+                44,
+                27
+            ],
+            "characters": "र्",
+            "orientation": 0,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                916,
+                338,
+                37,
+                28
+            ],
+            "characters": "क््",
+            "orientation": 0,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                934,
+                597,
+                35,
+                24
+            ],
+            "characters": "त््प",
+            "orientation": 0,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                817,
+                1413,
+                39,
+                28
+            ],
+            "characters": "र्",
+            "orientation": 0,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                606,
+                271,
+                31,
+                28
+            ],
+            "characters": "क्ष्प",
+            "orientation": 0,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                330,
+                906,
+                47,
+                26
+            ],
+            "characters": "र्प",
+            "orientation": 0,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                927,
+                91,
+                42,
+                25
+            ],
+            "characters": "र्र्र्प",
+            "orientation": 0,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                897,
+                902,
+                31,
+                24
+            ],
+            "characters": "क्त्ष",
+            "orientation": 0,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                365,
+                294,
+                48,
+                30
+            ],
+            "characters": "र्ष",
+            "orientation": 0,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                254,
+                296,
+                47,
+                26
+            ],
+            "characters": "र्ष",
+            "orientation": 0,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                933,
+                274,
+                39,
+                26
+            ],
+            "characters": "स्ष्ष",
+            "orientation": 0,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                558,
+                79,
+                36,
+                25
+            ],
+            "characters": "रर्र्",
+            "orientation": 0,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                1001,
+                432,
+                31,
+                29
+            ],
+            "characters": "ऋ््र्",
+            "orientation": 0,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                773,
+                1014,
+                45,
+                23
+            ],
+            "characters": "त्",
+            "orientation": 0,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                885,
+                275,
+                47,
+                26
+            ],
+            "characters": "क्म्",
+            "orientation": 0,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                466,
+                297,
+                59,
+                28
+            ],
+            "characters": "ऋ्",
+            "orientation": 0,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                973,
+                595,
+                49,
+                26
+            ],
+            "characters": "स््ष्ष",
+            "orientation": 0,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                310,
+                294,
+                47,
+                28
+            ],
+            "characters": "र्",
+            "orientation": 0,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                853,
+                152,
+                53,
+                30
+            ],
+            "characters": "अ्क्त्",
+            "orientation": 0,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                600,
+                239,
+                58,
+                29
+            ],
+            "characters": "क्ष्",
+            "orientation": 0,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                251,
+                996,
+                33,
+                31
+            ],
+            "characters": "र्",
+            "orientation": 0,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                814,
+                25,
+                43,
+                24
+            ],
+            "characters": "र्र्र्",
+            "orientation": 0,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                394,
+                233,
+                54,
+                30
+            ],
+            "characters": "र्",
+            "orientation": 0,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                333,
+                364,
+                53,
+                27
+            ],
+            "characters": "र्",
+            "orientation": 0,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                300,
+                1380,
+                67,
+                32
+            ],
+            "characters": "फ्",
+            "orientation": 0,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                251,
+                364,
+                42,
+                27
+            ],
+            "characters": "र्",
+            "orientation": 0,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                300,
+                596,
+                31,
+                25
+            ],
+            "characters": "त्",
+            "orientation": 0,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                308,
+                399,
+                43,
+                30
+            ],
+            "characters": "र्ृ",
+            "orientation": 0,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                990,
+                219,
+                32,
+                26
+            ],
+            "characters": "त््",
+            "orientation": 0,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                318,
+                111,
+                36,
+                22
+            ],
+            "characters": "रर्र्",
+            "orientation": 0,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                868,
+                466,
+                50,
+                24
+            ],
+            "characters": "स्म्क्",
+            "orientation": 0,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                964,
+                433,
+                34,
+                27
+            ],
+            "characters": "फ्र्प",
+            "orientation": 0,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                1012,
+                932,
+                28,
+                22
+            ],
+            "characters": "व्स्क्",
+            "orientation": 0,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                380,
+                594,
+                44,
+                28
+            ],
+            "characters": "रर्",
+            "orientation": 0,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                602,
+                369,
+                73,
+                27
+            ],
+            "characters": "क्ृद",
+            "orientation": 0,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                975,
+                89,
+                46,
+                25
+            ],
+            "characters": "फ्",
+            "orientation": 0,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                996,
+                369,
+                33,
+                24
+            ],
+            "characters": "ऋ््र््",
+            "orientation": 0,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                616,
+                546,
+                72,
+                30
+            ],
+            "characters": "क्र्रर्",
+            "orientation": 0,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                642,
+                310,
+                55,
+                26
+            ],
+            "characters": "ऋ्ृ्र्",
+            "orientation": 0,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                586,
+                861,
+                38,
+                28
+            ],
+            "characters": "क्",
+            "orientation": 0,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                499,
+                1487,
+                40,
+                25
+            ],
+            "characters": "र्््ू",
+            "orientation": 0,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                636,
+                466,
+                46,
+                24
+            ],
+            "characters": "फ्ष",
+            "orientation": 0,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                256,
+                672,
+                33,
+                26
+            ],
+            "characters": "त्र्",
+            "orientation": 0,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                432,
+                78,
+                33,
+                28
+            ],
+            "characters": "रर्",
+            "orientation": 0,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                332,
+                594,
+                41,
+                28
+            ],
+            "characters": "त्र्",
+            "orientation": 0,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                594,
+                77,
+                59,
+                27
+            ],
+            "characters": "र्र्र्",
+            "orientation": 0,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                287,
+                798,
+                42,
+                25
+            ],
+            "characters": "ऋ्",
+            "orientation": 0,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                654,
+                176,
+                33,
+                30
+            ],
+            "characters": "र्र्र्",
+            "orientation": 0,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                875,
+                339,
+                36,
+                27
+            ],
+            "characters": "स्क्",
+            "orientation": 0,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                737,
+                311,
+                49,
+                27
+            ],
+            "characters": "स््प",
+            "orientation": 0,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                387,
+                266,
+                73,
+                25
+            ],
+            "characters": "र्र्",
+            "orientation": 0,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                993,
+                340,
+                34,
+                26
+            ],
+            "characters": "त्पपव्",
+            "orientation": 0,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                721,
+                370,
+                36,
+                27
+            ],
+            "characters": "र्",
+            "orientation": 0,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                859,
+                1157,
+                49,
+                30
+            ],
+            "characters": "ऋ्प्",
+            "orientation": 0,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                596,
+                407,
+                83,
+                25
+            ],
+            "characters": "प्ृ्प्क्ृ्ठ",
+            "orientation": 0,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                695,
+                1412,
+                48,
+                31
+            ],
+            "characters": "फ्र्",
+            "orientation": 0,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                441,
+                798,
+                32,
+                25
+            ],
+            "characters": "त्",
+            "orientation": 0,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                643,
+                1412,
+                46,
+                32
+            ],
+            "characters": "र्",
+            "orientation": 0,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                250,
+                958,
+                33,
+                27
+            ],
+            "characters": "त््र",
+            "orientation": 0,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                999,
+                1040,
+                44,
+                27
+            ],
+            "characters": "क्त्",
+            "orientation": 0,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                419,
+                107,
+                54,
+                24
+            ],
+            "characters": "र्र्र्र्",
+            "orientation": 0,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                354,
+                398,
+                31,
+                31
+            ],
+            "characters": "त्प्",
+            "orientation": 0,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                507,
+                77,
+                45,
+                27
+            ],
+            "characters": "र्र्र्र",
+            "orientation": 0,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                769,
+                150,
+                39,
+                26
+            ],
+            "characters": "र्र््",
+            "orientation": 0,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                391,
+                1518,
+                61,
+                29
+            ],
+            "characters": "र्",
+            "orientation": 0,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                258,
+                1411,
+                61,
+                31
+            ],
+            "characters": "र्",
+            "orientation": 0,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                893,
+                958,
+                30,
+                24
+            ],
+            "characters": "क्त्र",
+            "orientation": 0,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                600,
+                1411,
+                37,
+                33
+            ],
+            "characters": "र्",
+            "orientation": 0,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                663,
+                1157,
+                50,
+                29
+            ],
+            "characters": "र्",
+            "orientation": 0,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                873,
+                120,
+                36,
+                26
+            ],
+            "characters": "क्ष्त्ष",
+            "orientation": 0,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                587,
+                793,
+                45,
+                30
+            ],
+            "characters": "क््प",
+            "orientation": 0,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                198,
+                577,
+                26,
+                52
+            ],
+            "characters": "प्प़्",
+            "orientation": 90,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                383,
+                905,
+                32,
+                25
+            ],
+            "characters": "र््",
+            "orientation": 0,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                739,
+                465,
+                36,
+                24
+            ],
+            "characters": "स्",
+            "orientation": 0,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                918,
+                403,
+                27,
+                28
+            ],
+            "characters": "र्",
+            "orientation": 90,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                300,
+                364,
+                32,
+                26
+            ],
+            "characters": "र्र्",
+            "orientation": 0,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                709,
+                1520,
+                46,
+                26
+            ],
+            "characters": "र्",
+            "orientation": 0,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                852,
+                594,
+                34,
+                27
+            ],
+            "characters": "र्क्प",
+            "orientation": 0,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                323,
+                1412,
+                66,
+                31
+            ],
+            "characters": "र्",
+            "orientation": 0,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                872,
+                795,
+                41,
+                31
+            ],
+            "characters": "क्ष्ष्",
+            "orientation": 0,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                789,
+                310,
+                46,
+                27
+            ],
+            "characters": "स्र्ा",
+            "orientation": 0,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                770,
+                180,
+                33,
+                26
+            ],
+            "characters": "र्",
+            "orientation": 0,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                394,
+                365,
+                43,
+                26
+            ],
+            "characters": "र्र्",
+            "orientation": 0,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                917,
+                155,
+                45,
+                27
+            ],
+            "characters": "क्त्त्",
+            "orientation": 0,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                822,
+                1013,
+                30,
+                25
+            ],
+            "characters": "क्प्क्",
+            "orientation": 0,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                940,
+                932,
+                30,
+                22
+            ],
+            "characters": "क्ृत्",
+            "orientation": 0,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                770,
+                931,
+                78,
+                24
+            ],
+            "characters": "क््क्प्क्ृठ",
+            "orientation": 0,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                486,
+                1379,
+                63,
+                32
+            ],
+            "characters": "फ्प",
+            "orientation": 0,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                681,
+                370,
+                37,
+                26
+            ],
+            "characters": "फ्",
+            "orientation": 0,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                774,
+                1067,
+                47,
+                22
+            ],
+            "characters": "क्र्",
+            "orientation": 0,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                826,
+                898,
+                39,
+                26
+            ],
+            "characters": "फ्क््ष",
+            "orientation": 0,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                251,
+                793,
+                29,
+                30
+            ],
+            "characters": "त्र्र्र्",
+            "orientation": 90,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                729,
+                149,
+                29,
+                23
+            ],
+            "characters": "र््",
+            "orientation": 0,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                682,
+                271,
+                48,
+                29
+            ],
+            "characters": "र्क्",
+            "orientation": 0,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                590,
+                465,
+                41,
+                24
+            ],
+            "characters": "र्",
+            "orientation": 0,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                899,
+                1014,
+                23,
+                24
+            ],
+            "characters": "त्र्",
+            "orientation": 90,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                533,
+                298,
+                43,
+                29
+            ],
+            "characters": "र्",
+            "orientation": 0,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                354,
+                110,
+                22,
+                24
+            ],
+            "characters": "र्र्",
+            "orientation": 90,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                861,
+                435,
+                27,
+                24
+            ],
+            "characters": "ऋ्क्ृ",
+            "orientation": 0,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                918,
+                368,
+                35,
+                23
+            ],
+            "characters": "र्",
+            "orientation": 0,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                642,
+                271,
+                36,
+                29
+            ],
+            "characters": "ऋ््ृ",
+            "orientation": 0,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                699,
+                338,
+                64,
+                31
+            ],
+            "characters": "क््",
+            "orientation": 0,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                773,
+                957,
+                33,
+                25
+            ],
+            "characters": "त््ू्ष्",
+            "orientation": 0,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                788,
+                405,
+                60,
+                27
+            ],
+            "characters": "क्ज्र्पप",
+            "orientation": 0,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                879,
+                985,
+                64,
+                23
+            ],
+            "characters": "फ्षक्ष्रष",
+            "orientation": 0,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                380,
+                78,
+                46,
+                29
+            ],
+            "characters": "र्र्र्र्",
+            "orientation": 0,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                520,
+                464,
+                65,
+                28
+            ],
+            "characters": "फ्",
+            "orientation": 0,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                731,
+                274,
+                34,
+                29
+            ],
+            "characters": "र्र््",
+            "orientation": 0,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                879,
+                370,
+                20,
+                25
+            ],
+            "characters": "स््र्ू",
+            "orientation": 90,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                552,
+                433,
+                65,
+                30
+            ],
+            "characters": "फ्त्",
+            "orientation": 0,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                254,
+                705,
+                33,
+                24
+            ],
+            "characters": "ए्",
+            "orientation": 0,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                1016,
+                983,
+                27,
+                25
+            ],
+            "characters": "क्र्",
+            "orientation": 0,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                385,
+                109,
+                32,
+                22
+            ],
+            "characters": "र्र्र्र््",
+            "orientation": 0,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                549,
+                1380,
+                27,
+                29
+            ],
+            "characters": "त्ू",
+            "orientation": 90,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                758,
+                87,
+                39,
+                24
+            ],
+            "characters": "र्र्",
+            "orientation": 0,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                832,
+                369,
+                46,
+                29
+            ],
+            "characters": "फ्त्",
+            "orientation": 0,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                747,
+                1411,
+                64,
+                35
+            ],
+            "characters": "र्प्प",
+            "orientation": 0,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                719,
+                1160,
+                54,
+                26
+            ],
+            "characters": "क्र्ष्",
+            "orientation": 0,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                926,
+                901,
+                38,
+                25
+            ],
+            "characters": "क्र्प",
+            "orientation": 0,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                759,
+                369,
+                38,
+                26
+            ],
+            "characters": "फ्र्ष",
+            "orientation": 0,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                827,
+                90,
+                36,
+                22
+            ],
+            "characters": "रर््",
+            "orientation": 0,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                810,
+                151,
+                45,
+                26
+            ],
+            "characters": "र्र्णठ",
+            "orientation": 0,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                686,
+                465,
+                53,
+                25
+            ],
+            "characters": "फ्",
+            "orientation": 0,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                463,
+                78,
+                41,
+                27
+            ],
+            "characters": "रर्र्र",
+            "orientation": 0,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                241,
+                1080,
+                46,
+                25
+            ],
+            "characters": "र्",
+            "orientation": 0,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                814,
+                465,
+                30,
+                25
+            ],
+            "characters": "र्",
+            "orientation": 0,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                413,
+                1383,
+                68,
+                29
+            ],
+            "characters": "फ््र",
+            "orientation": 0,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                184,
+                1036,
+                24,
+                38
+            ],
+            "characters": "र्प",
+            "orientation": 90,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                258,
+                212,
+                40,
+                22
+            ],
+            "characters": "र्",
+            "orientation": 0,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                422,
+                295,
+                42,
+                27
+            ],
+            "characters": "र्",
+            "orientation": 0,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                493,
+                402,
+                40,
+                28
+            ],
+            "characters": "र्प्",
+            "orientation": 0,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                797,
+                368,
+                31,
+                26
+            ],
+            "characters": "क्",
+            "orientation": 0,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                787,
+                1486,
+                42,
+                25
+            ],
+            "characters": "र्र्",
+            "orientation": 0,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                247,
+                735,
+                48,
+                28
+            ],
+            "characters": "र्",
+            "orientation": 0,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                349,
+                431,
+                32,
+                27
+            ],
+            "characters": "ऋ्र्",
+            "orientation": 0,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                689,
+                546,
+                70,
+                30
+            ],
+            "characters": "क्ष्",
+            "orientation": 0,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                256,
+                1485,
+                57,
+                28
+            ],
+            "characters": "र्र्र्र्प",
+            "orientation": 0,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                255,
+                632,
+                34,
+                25
+            ],
+            "characters": "त्",
+            "orientation": 0,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                404,
+                1341,
+                51,
+                31
+            ],
+            "characters": "र्",
+            "orientation": 0,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                255,
+                267,
+                51,
+                23
+            ],
+            "characters": "र्र्र्",
+            "orientation": 0,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                863,
+                1486,
+                48,
+                26
+            ],
+            "characters": "र्प्",
+            "orientation": 0,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                418,
+                906,
+                59,
+                26
+            ],
+            "characters": "फ्",
+            "orientation": 0,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                257,
+                1380,
+                38,
+                31
+            ],
+            "characters": "र्प",
+            "orientation": 0,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                257,
+                1522,
+                50,
+                27
+            ],
+            "characters": "र्र्",
+            "orientation": 0,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                957,
+                368,
+                35,
+                25
+            ],
+            "characters": "र्््",
+            "orientation": 0,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                356,
+                1519,
+                30,
+                29
+            ],
+            "characters": "ए्",
+            "orientation": 0,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                959,
+                339,
+                33,
+                28
+            ],
+            "characters": "र्र्र्",
+            "orientation": 0,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                854,
+                405,
+                59,
+                27
+            ],
+            "characters": "क्््प",
+            "orientation": 0,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                527,
+                367,
+                30,
+                23
+            ],
+            "characters": "र्र्",
+            "orientation": 0,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                952,
+                405,
+                40,
+                27
+            ],
+            "characters": "र्र्",
+            "orientation": 0,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                894,
+                433,
+                67,
+                30
+            ],
+            "characters": "कक्त््त",
+            "orientation": 0,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                487,
+                465,
+                36,
+                25
+            ],
+            "characters": "प््",
+            "orientation": 0,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                977,
+                118,
+                44,
+                29
+            ],
+            "characters": "ए्",
+            "orientation": 0,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                913,
+                1156,
+                50,
+                31
+            ],
+            "characters": "ऋ्",
+            "orientation": 0,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                515,
+                333,
+                47,
+                30
+            ],
+            "characters": "र्त्",
+            "orientation": 0,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                679,
+                895,
+                29,
+                21
+            ],
+            "characters": "र्र्",
+            "orientation": 0,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                374,
+                331,
+                49,
+                29
+            ],
+            "characters": "र्प्प",
+            "orientation": 0,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                986,
+                185,
+                35,
+                24
+            ],
+            "characters": "ए्््",
+            "orientation": 0,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                458,
+                238,
+                18,
+                24
+            ],
+            "characters": "र्ू",
+            "orientation": 90,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                507,
+                171,
+                54,
+                30
+            ],
+            "characters": "प्र्प्",
+            "orientation": 0,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                512,
+                433,
+                35,
+                27
+            ],
+            "characters": "र्प््",
+            "orientation": 0,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                994,
+                406,
+                36,
+                25
+            ],
+            "characters": "व्च्",
+            "orientation": 0,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                313,
+                1519,
+                40,
+                29
+            ],
+            "characters": "र्र््",
+            "orientation": 0,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                682,
+                405,
+                56,
+                27
+            ],
+            "characters": "फर्र्",
+            "orientation": 0,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                248,
+                1040,
+                33,
+                28
+            ],
+            "characters": "ए्",
+            "orientation": 0,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                805,
+                182,
+                28,
+                25
+            ],
+            "characters": "ऋ््",
+            "orientation": 0,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                582,
+                1161,
+                27,
+                25
+            ],
+            "characters": "फ्",
+            "orientation": 0,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                863,
+                898,
+                30,
+                25
+            ],
+            "characters": "क्क्",
+            "orientation": 0,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                848,
+                797,
+                23,
+                26
+            ],
+            "characters": "रर्ूज",
+            "orientation": 90,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                465,
+                268,
+                34,
+                25
+            ],
+            "characters": "त्र",
+            "orientation": 0,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                750,
+                435,
+                35,
+                25
+            ],
+            "characters": "र्र्",
+            "orientation": 0,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                460,
+                431,
+                44,
+                29
+            ],
+            "characters": "र्",
+            "orientation": 0,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                250,
+                397,
+                51,
+                31
+            ],
+            "characters": "प््",
+            "orientation": 0,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                393,
+                398,
+                94,
+                33
+            ],
+            "characters": "प्",
+            "orientation": 0,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                845,
+                275,
+                34,
+                25
+            ],
+            "characters": "श््रत्",
+            "orientation": 0,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                371,
+                1164,
+                57,
+                25
+            ],
+            "characters": "र्",
+            "orientation": 0,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                991,
+                312,
+                34,
+                22
+            ],
+            "characters": "स्पव्",
+            "orientation": 0,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                770,
+                984,
+                50,
+                24
+            ],
+            "characters": "क्र्ष्",
+            "orientation": 0,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                251,
+                430,
+                30,
+                27
+            ],
+            "characters": "र्",
+            "orientation": 0,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                538,
+                403,
+                43,
+                29
+            ],
+            "characters": "त््प्त्",
+            "orientation": 0,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                624,
+                589,
+                46,
+                22
+            ],
+            "characters": "र्ू",
+            "orientation": 0,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                922,
+                463,
+                52,
+                29
+            ],
+            "characters": "क्र्",
+            "orientation": 0,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                808,
+                957,
+                41,
+                26
+            ],
+            "characters": "क्प्प्",
+            "orientation": 0,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                712,
+                213,
+                23,
+                25
+            ],
+            "characters": "र्र्ज",
+            "orientation": 90,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                201,
+                421,
+                23,
+                27
+            ],
+            "characters": "ऋ्",
+            "orientation": 90,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                969,
+                154,
+                52,
+                26
+            ],
+            "characters": "र्त्",
+            "orientation": 0,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                1000,
+                1015,
+                42,
+                23
+            ],
+            "characters": "र्र्क्ञ",
+            "orientation": 0,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                727,
+                857,
+                72,
+                34
+            ],
+            "characters": "क्क्",
+            "orientation": 0,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                578,
+                269,
+                27,
+                26
+            ],
+            "characters": "ऋ्त्र्",
+            "orientation": 0,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                233,
+                1344,
+                74,
+                28
+            ],
+            "characters": "र्र्प",
+            "orientation": 0,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                912,
+                118,
+                56,
+                29
+            ],
+            "characters": "स््",
+            "orientation": 0,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                713,
+                895,
+                39,
+                24
+            ],
+            "characters": "र्",
+            "orientation": 0,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                623,
+                433,
+                59,
+                30
+            ],
+            "characters": "क्क्",
+            "orientation": 0,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                770,
+                274,
+                39,
+                28
+            ],
+            "characters": "ऋ््",
+            "orientation": 0,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                656,
+                81,
+                33,
+                25
+            ],
+            "characters": "रर्र्र्",
+            "orientation": 0,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                706,
+                310,
+                25,
+                28
+            ],
+            "characters": "त्र्",
+            "orientation": 90,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                978,
+                932,
+                33,
+                21
+            ],
+            "characters": "ऋ्क्क्",
+            "orientation": 0,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                686,
+                433,
+                59,
+                29
+            ],
+            "characters": "फ्ष",
+            "orientation": 0,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                168,
+                420,
+                24,
+                30
+            ],
+            "characters": "ऋ्र्",
+            "orientation": 90,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                114,
+                944,
+                24,
+                52
+            ],
+            "characters": "र्प्र्प",
+            "orientation": 90,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                394,
+                465,
+                31,
+                24
+            ],
+            "characters": "प्",
+            "orientation": 0,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                781,
+                463,
+                27,
+                26
+            ],
+            "characters": "र््",
+            "orientation": 0,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                772,
+                339,
+                40,
+                30
+            ],
+            "characters": "स्प",
+            "orientation": 0,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                133,
+                420,
+                23,
+                28
+            ],
+            "characters": "ऋ््",
+            "orientation": 90,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                985,
+                985,
+                30,
+                24
+            ],
+            "characters": "क्ष्",
+            "orientation": 0,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                852,
+                1014,
+                42,
+                25
+            ],
+            "characters": "क्रन्र्",
+            "orientation": 0,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                692,
+                795,
+                27,
+                26
+            ],
+            "characters": "क्र्र्",
+            "orientation": 0,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                967,
+                898,
+                46,
+                26
+            ],
+            "characters": "क्त्क्ष",
+            "orientation": 0,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                768,
+                895,
+                55,
+                29
+            ],
+            "characters": "र्र्",
+            "orientation": 0,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                855,
+                958,
+                29,
+                22
+            ],
+            "characters": "त्क्",
+            "orientation": 0,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                530,
+                548,
+                84,
+                29
+            ],
+            "characters": "क्म्",
+            "orientation": 0,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                285,
+                430,
+                64,
+                32
+            ],
+            "characters": "र््",
+            "orientation": 0,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                257,
+                1451,
+                40,
+                26
+            ],
+            "characters": "र्",
+            "orientation": 0,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                931,
+                1015,
+                31,
+                22
+            ],
+            "characters": "क्र्र्",
+            "orientation": 0,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                816,
+                53,
+                32,
+                25
+            ],
+            "characters": "र्र्",
+            "orientation": 0,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                608,
+                37,
+                70,
+                30
+            ],
+            "characters": "र्र्",
+            "orientation": 0,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                308,
+                1163,
+                60,
+                26
+            ],
+            "characters": "र्",
+            "orientation": 0,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                627,
+                856,
+                91,
+                34
+            ],
+            "characters": "क्क्फृ्",
+            "orientation": 0,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                949,
+                985,
+                35,
+                23
+            ],
+            "characters": "फर्ू्",
+            "orientation": 0,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                743,
+                408,
+                45,
+                25
+            ],
+            "characters": "द््र्",
+            "orientation": 0,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                845,
+                464,
+                22,
+                27
+            ],
+            "characters": "र्",
+            "orientation": 90,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                968,
+                1161,
+                54,
+                26
+            ],
+            "characters": "र्",
+            "orientation": 0,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                585,
+                303,
+                50,
+                25
+            ],
+            "characters": "कत््",
+            "orientation": 0,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                308,
+                1343,
+                91,
+                29
+            ],
+            "characters": "र्र्",
+            "orientation": 0,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                775,
+                1041,
+                35,
+                25
+            ],
+            "characters": "क्ृ्",
+            "orientation": 0,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                818,
+                339,
+                43,
+                30
+            ],
+            "characters": "ऋ््",
+            "orientation": 0,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                164,
+                577,
+                30,
+                54
+            ],
+            "characters": "र्रप्",
+            "orientation": 90,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                818,
+                1041,
+                38,
+                26
+            ],
+            "characters": "क्््",
+            "orientation": 0,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                568,
+                893,
+                61,
+                28
+            ],
+            "characters": "स्ष",
+            "orientation": 0,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                192,
+                101,
+                27,
+                38
+            ],
+            "characters": "र्र्",
+            "orientation": 90,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                790,
+                432,
+                68,
+                29
+            ],
+            "characters": "क्फ्",
+            "orientation": 0,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                269,
+                596,
+                25,
+                24
+            ],
+            "characters": "त््",
+            "orientation": 0,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                373,
+                1382,
+                38,
+                30
+            ],
+            "characters": "र्",
+            "orientation": 0,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                622,
+                173,
+                29,
+                31
+            ],
+            "characters": "ऋ्र््",
+            "orientation": 90,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                1012,
+                897,
+                28,
+                26
+            ],
+            "characters": "स्््",
+            "orientation": 0,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                856,
+                53,
+                87,
+                29
+            ],
+            "characters": "रर्रर्",
+            "orientation": 0,
+            "handwritten": true
+        },
+        {
+            "bbox": [
+                797,
+                87,
+                22,
+                25
+            ],
+            "characters": "ए्",
+            "orientation": 90,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                954,
+                218,
+                35,
+                27
+            ],
+            "characters": "त्र्र्प",
+            "orientation": 0,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                668,
+                588,
+                46,
+                24
+            ],
+            "characters": "र्र्ष्ू",
+            "orientation": 0,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                127,
+                579,
+                28,
+                49
+            ],
+            "characters": "र्ण््",
+            "orientation": 90,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                150,
+                871,
+                27,
+                62
+            ],
+            "characters": "र््",
+            "orientation": 90,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                327,
+                205,
+                25,
+                24
+            ],
+            "characters": "ए्",
+            "orientation": 0,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                317,
+                1485,
+                80,
+                28
+            ],
+            "characters": "र्र्",
+            "orientation": 0,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                835,
+                1483,
+                28,
+                28
+            ],
+            "characters": "ए्",
+            "orientation": 0,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                605,
+                515,
+                77,
+                33
+            ],
+            "characters": "क्ष्",
+            "orientation": 0,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                860,
+                1041,
+                28,
+                25
+            ],
+            "characters": "च्र्",
+            "orientation": 0,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                969,
+                1044,
+                26,
+                22
+            ],
+            "characters": "क्द्",
+            "orientation": 0,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                148,
+                941,
+                27,
+                51
+            ],
+            "characters": "रर्",
+            "orientation": 90,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                541,
+                589,
+                30,
+                21
+            ],
+            "characters": "र्र्ू",
+            "orientation": 0,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                733,
+                86,
+                23,
+                23
+            ],
+            "characters": "रर्",
+            "orientation": 0,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                923,
+                186,
+                59,
+                24
+            ],
+            "characters": "क्",
+            "orientation": 0,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                486,
+                332,
+                28,
+                28
+            ],
+            "characters": "ऋ्र्",
+            "orientation": 0,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                496,
+                857,
+                86,
+                33
+            ],
+            "characters": "क्र्ष",
+            "orientation": 0,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                721,
+                797,
+                30,
+                26
+            ],
+            "characters": "क्रर्",
+            "orientation": 0,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                879,
+                217,
+                70,
+                29
+            ],
+            "characters": "स्च्",
+            "orientation": 0,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                808,
+                274,
+                26,
+                27
+            ],
+            "characters": "र््",
+            "orientation": 90,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                827,
+                983,
+                26,
+                23
+            ],
+            "characters": "क्",
+            "orientation": 0,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                775,
+                1100,
+                50,
+                26
+            ],
+            "characters": "ऋ््",
+            "orientation": 0,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                169,
+                325,
+                31,
+                76
+            ],
+            "characters": "फ्र्र्प्प",
+            "orientation": 90,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                832,
+                1162,
+                28,
+                24
+            ],
+            "characters": "र््",
+            "orientation": 0,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                496,
+                366,
+                27,
+                25
+            ],
+            "characters": "र्",
+            "orientation": 0,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                929,
+                1041,
+                31,
+                26
+            ],
+            "characters": "त्र्र्र्",
+            "orientation": 0,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                112,
+                1036,
+                24,
+                36
+            ],
+            "characters": "र्र््",
+            "orientation": 90,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                305,
+                205,
+                19,
+                24
+            ],
+            "characters": "र्",
+            "orientation": 90,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                906,
+                1411,
+                37,
+                28
+            ],
+            "characters": "र््",
+            "orientation": 0,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                258,
+                111,
+                53,
+                28
+            ],
+            "characters": "रर्",
+            "orientation": 0,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                565,
+                1415,
+                33,
+                28
+            ],
+            "characters": "र्र्",
+            "orientation": 0,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                254,
+                238,
+                66,
+                26
+            ],
+            "characters": "प्",
+            "orientation": 0,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                582,
+                1378,
+                40,
+                32
+            ],
+            "characters": "ए्",
+            "orientation": 0,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                186,
+                970,
+                25,
+                25
+            ],
+            "characters": "ए््",
+            "orientation": 0,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                707,
+                1486,
+                77,
+                26
+            ],
+            "characters": "क्र्र्",
+            "orientation": 0,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                508,
+                106,
+                27,
+                22
+            ],
+            "characters": "र््",
+            "orientation": 0,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                387,
+                429,
+                31,
+                30
+            ],
+            "characters": "ऋ्",
+            "orientation": 0,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                431,
+                464,
+                27,
+                24
+            ],
+            "characters": "र्",
+            "orientation": 0,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                958,
+                51,
+                43,
+                32
+            ],
+            "characters": "स्त्",
+            "orientation": 0,
+            "handwritten": true
+        },
+        {
+            "bbox": [
+                250,
+                463,
+                56,
+                26
+            ],
+            "characters": "र्प",
+            "orientation": 0,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                969,
+                1014,
+                27,
+                25
+            ],
+            "characters": "त्र्र्र्र्र",
+            "orientation": 0,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                233,
+                1383,
+                18,
+                27
+            ],
+            "characters": "र्",
+            "orientation": 90,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                187,
+                941,
+                23,
+                33
+            ],
+            "characters": "ए्र्",
+            "orientation": 90,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                144,
+                1040,
+                27,
+                34
+            ],
+            "characters": "र्््",
+            "orientation": 90,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                635,
+                893,
+                43,
+                23
+            ],
+            "characters": "स्ष",
+            "orientation": 0,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                898,
+                184,
+                27,
+                27
+            ],
+            "characters": "अपत्",
+            "orientation": 0,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                853,
+                931,
+                31,
+                24
+            ],
+            "characters": "क््रर",
+            "orientation": 0,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                803,
+                1376,
+                43,
+                35
+            ],
+            "characters": "र्",
+            "orientation": 0,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                111,
+                1147,
+                22,
+                25
+            ],
+            "characters": "रर्र्र्",
+            "orientation": 90,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                233,
+                1414,
+                20,
+                28
+            ],
+            "characters": "र्र",
+            "orientation": 90,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                844,
+                309,
+                32,
+                24
+            ],
+            "characters": "त्र्र्रठ",
+            "orientation": 0,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                144,
+                1147,
+                26,
+                26
+            ],
+            "characters": "र्र्",
+            "orientation": 0,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                598,
+                175,
+                20,
+                28
+            ],
+            "characters": "उ््",
+            "orientation": 90,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                424,
+                432,
+                34,
+                27
+            ],
+            "characters": "र्",
+            "orientation": 0,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                762,
+                1518,
+                25,
+                27
+            ],
+            "characters": "र्र्",
+            "orientation": 90,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                317,
+                138,
+                51,
+                30
+            ],
+            "characters": "र्र्ू",
+            "orientation": 0,
+            "handwritten": true
+        },
+        {
+            "bbox": [
+                881,
+                19,
+                42,
+                30
+            ],
+            "characters": "र्",
+            "orientation": 0,
+            "handwritten": true
+        },
+        {
+            "bbox": [
+                326,
+                237,
+                53,
+                21
+            ],
+            "characters": "र्",
+            "orientation": 0,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                230,
+                1523,
+                21,
+                24
+            ],
+            "characters": "र्",
+            "orientation": 90,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                188,
+                870,
+                24,
+                64
+            ],
+            "characters": "रप्प्र्",
+            "orientation": 90,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                116,
+                870,
+                26,
+                62
+            ],
+            "characters": "रप्र्प्र्",
+            "orientation": 90,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                577,
+                588,
+                39,
+                23
+            ],
+            "characters": "र्र्ू",
+            "orientation": 0,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                926,
+                956,
+                45,
+                26
+            ],
+            "characters": "स्त्र्",
+            "orientation": 0,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                112,
+                1073,
+                24,
+                36
+            ],
+            "characters": "रर्र्प",
+            "orientation": 90,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                154,
+                1005,
+                27,
+                30
+            ],
+            "characters": "र्",
+            "orientation": 90,
+            "handwritten": true
+        },
+        {
+            "bbox": [
+                459,
+                466,
+                21,
+                23
+            ],
+            "characters": "र्र्",
+            "orientation": 90,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                856,
+                985,
+                22,
+                22
+            ],
+            "characters": "ऋ््",
+            "orientation": 0,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                690,
+                169,
+                69,
+                35
+            ],
+            "characters": "र््ष",
+            "orientation": 0,
+            "handwritten": true
+        },
+        {
+            "bbox": [
+                896,
+                1041,
+                29,
+                25
+            ],
+            "characters": "त्प्त्",
+            "orientation": 0,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                258,
+                149,
+                26,
+                24
+            ],
+            "characters": "रर्",
+            "orientation": 0,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                890,
+                931,
+                36,
+                22
+            ],
+            "characters": "क्र्क्ृ्ष",
+            "orientation": 0,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                232,
+                1485,
+                19,
+                27
+            ],
+            "characters": "द्",
+            "orientation": 90,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                901,
+                368,
+                15,
+                25
+            ],
+            "characters": "र्",
+            "orientation": 90,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                209,
+                481,
+                31,
+                87
+            ],
+            "characters": "स्र्",
+            "orientation": 90,
+            "handwritten": true
+        },
+        {
+            "bbox": [
+                1024,
+                47,
+                54,
+                24
+            ],
+            "characters": "र्त",
+            "orientation": 0,
+            "handwritten": true
+        },
+        {
+            "bbox": [
+                182,
+                1144,
+                25,
+                32
+            ],
+            "characters": "रर््",
+            "orientation": 90,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                864,
+                183,
+                30,
+                26
+            ],
+            "characters": "र्््",
+            "orientation": 0,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                691,
+                177,
+                26,
+                28
+            ],
+            "characters": "ए््",
+            "orientation": 90,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                312,
+                464,
+                73,
+                29
+            ],
+            "characters": "ए्प्ष",
+            "orientation": 0,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                882,
+                301,
+                84,
+                35
+            ],
+            "characters": "श्व््",
+            "orientation": 0,
+            "handwritten": true
+        },
+        {
+            "bbox": [
+                605,
+                335,
+                59,
+                34
+            ],
+            "characters": "ख्त्",
+            "orientation": 0,
+            "handwritten": true
+        },
+        {
+            "bbox": [
+                826,
+                179,
+                53,
+                31
+            ],
+            "characters": "स्र्",
+            "orientation": 0,
+            "handwritten": true
+        },
+        {
+            "bbox": [
+                400,
+                1488,
+                20,
+                26
+            ],
+            "characters": "र्र",
+            "orientation": 90,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                552,
+                102,
+                83,
+                30
+            ],
+            "characters": "र्ू",
+            "orientation": 0,
+            "handwritten": true
+        },
+        {
+            "bbox": [
+                990,
+                955,
+                50,
+                27
+            ],
+            "characters": "क्क्",
+            "orientation": 0,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                145,
+                1074,
+                26,
+                36
+            ],
+            "characters": "र्र्र््",
+            "orientation": 90,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                289,
+                327,
+                55,
+                33
+            ],
+            "characters": "स्र्",
+            "orientation": 0,
+            "handwritten": true
+        },
+        {
+            "bbox": [
+                171,
+                495,
+                30,
+                74
+            ],
+            "characters": "र््",
+            "orientation": 90,
+            "handwritten": true
+        },
+        {
+            "bbox": [
+                199,
+                698,
+                34,
+                110
+            ],
+            "characters": "र्",
+            "orientation": 90,
+            "handwritten": true
+        },
+        {
+            "bbox": [
+                522,
+                201,
+                84,
+                34
+            ],
+            "characters": "स्",
+            "orientation": 0,
+            "handwritten": true
+        },
+        {
+            "bbox": [
+                179,
+                1471,
+                41,
+                83
+            ],
+            "characters": "र्",
+            "orientation": 90,
+            "handwritten": true
+        },
+        {
+            "bbox": [
+                853,
+                24,
+                19,
+                25
+            ],
+            "characters": "र्",
+            "orientation": 90,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                847,
+                119,
+                26,
+                26
+            ],
+            "characters": "र्र्",
+            "orientation": 0,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                183,
+                1075,
+                26,
+                37
+            ],
+            "characters": "रर्प",
+            "orientation": 90,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                382,
+                191,
+                113,
+                40
+            ],
+            "characters": "र्",
+            "orientation": 0,
+            "handwritten": true
+        },
+        {
+            "bbox": [
+                428,
+                1208,
+                27,
+                24
+            ],
+            "characters": "त््",
+            "orientation": 0,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                486,
+                234,
+                110,
+                32
+            ],
+            "characters": "स््",
+            "orientation": 0,
+            "handwritten": true
+        },
+        {
+            "bbox": [
+                431,
+                329,
+                53,
+                33
+            ],
+            "characters": "ऋ््",
+            "orientation": 0,
+            "handwritten": true
+        },
+        {
+            "bbox": [
+                161,
+                694,
+                35,
+                96
+            ],
+            "characters": "र््",
+            "orientation": 90,
+            "handwritten": true
+        },
+        {
+            "bbox": [
+                640,
+                103,
+                109,
+                32
+            ],
+            "characters": "र्ू",
+            "orientation": 0,
+            "handwritten": true
+        },
+        {
+            "bbox": [
+                977,
+                1211,
+                25,
+                25
+            ],
+            "characters": "त्र्",
+            "orientation": 0,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                597,
+                610,
+                45,
+                21
+            ],
+            "characters": "क्र्पत्",
+            "orientation": 0,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                88,
+                1440,
+                85,
+                137
+            ],
+            "characters": "र्",
+            "orientation": 90,
+            "handwritten": true
+        },
+        {
+            "bbox": [
+                739,
+                209,
+                142,
+                34
+            ],
+            "characters": "स्व््व्त",
+            "orientation": 0,
+            "handwritten": true
+        },
+        {
+            "bbox": [
+                144,
+                1112,
+                30,
+                37
+            ],
+            "characters": "र्",
+            "orientation": 90,
+            "handwritten": true
+        },
+        {
+            "bbox": [
+                180,
+                1366,
+                38,
+                103
+            ],
+            "characters": "र्",
+            "orientation": 90,
+            "handwritten": true
+        },
+        {
+            "bbox": [
+                753,
+                611,
+                48,
+                22
+            ],
+            "characters": "र्ू",
+            "orientation": 0,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                324,
+                257,
+                49,
+                33
+            ],
+            "characters": "र्््",
+            "orientation": 0,
+            "handwritten": true
+        },
+        {
+            "bbox": [
+                712,
+                85,
+                17,
+                22
+            ],
+            "characters": "र्र्",
+            "orientation": 90,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                535,
+                134,
+                76,
+                37
+            ],
+            "characters": "स्र््",
+            "orientation": 0,
+            "handwritten": true
+        },
+        {
+            "bbox": [
+                141,
+                1353,
+                31,
+                71
+            ],
+            "characters": "र्र्",
+            "orientation": 90,
+            "handwritten": true
+        },
+        {
+            "bbox": [
+                699,
+                917,
+                33,
+                22
+            ],
+            "characters": "र्क््",
+            "orientation": 0,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                340,
+                167,
+                102,
+                31
+            ],
+            "characters": "र्र्ू",
+            "orientation": 0,
+            "handwritten": true
+        },
+        {
+            "bbox": [
+                652,
+                611,
+                57,
+                21
+            ],
+            "characters": "र्त्",
+            "orientation": 0,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                141,
+                1196,
+                35,
+                99
+            ],
+            "characters": "र्र्",
+            "orientation": 90,
+            "handwritten": true
+        },
+        {
+            "bbox": [
+                765,
+                112,
+                75,
+                30
+            ],
+            "characters": "र्र्र्र्",
+            "orientation": 0,
+            "handwritten": true
+        },
+        {
+            "bbox": [
+                651,
+                916,
+                42,
+                23
+            ],
+            "characters": "क्र",
+            "orientation": 0,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                459,
+                608,
+                47,
+                24
+            ],
+            "characters": "र्",
+            "orientation": 0,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                390,
+                134,
+                114,
+                35
+            ],
+            "characters": "र्र्",
+            "orientation": 0,
+            "handwritten": true
+        },
+        {
+            "bbox": [
+                178,
+                1193,
+                46,
+                154
+            ],
+            "characters": "र्र्र्र्",
+            "orientation": 90,
+            "handwritten": true
+        },
+        {
+            "bbox": [
+                527,
+                609,
+                49,
+                23
+            ],
+            "characters": "त्ण््",
+            "orientation": 0,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                608,
+                1211,
+                24,
+                25
+            ],
+            "characters": "ए्प",
+            "orientation": 90,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                182,
+                1108,
+                31,
+                42
+            ],
+            "characters": "र्ू्र",
+            "orientation": 90,
+            "handwritten": true
+        },
+        {
+            "bbox": [
+                971,
+                957,
+                15,
+                24
+            ],
+            "characters": "ऋ््",
+            "orientation": 90,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                925,
+                933,
+                14,
+                21
+            ],
+            "characters": "च््र्",
+            "orientation": 90,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                727,
+                1212,
+                26,
+                24
+            ],
+            "characters": "त्र्प्र्र",
+            "orientation": 0,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                293,
+                1208,
+                24,
+                25
+            ],
+            "characters": "र्र्र्",
+            "orientation": 90,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                664,
+                238,
+                100,
+                34
+            ],
+            "characters": "च्त््",
+            "orientation": 0,
+            "handwritten": true
+        },
+        {
+            "bbox": [
+                777,
+                241,
+                99,
+                31
+            ],
+            "characters": "स््द",
+            "orientation": 0,
+            "handwritten": true
+        },
+        {
+            "bbox": [
+                882,
+                239,
+                90,
+                31
+            ],
+            "characters": "स्््व",
+            "orientation": 0,
+            "handwritten": true
+        },
+        {
+            "bbox": [
+                986,
+                244,
+                55,
+                27
+            ],
+            "characters": "क््द्त्",
+            "orientation": 0,
+            "handwritten": true
+        },
+        {
+            "bbox": [
+                1054,
+                239,
+                25,
+                34
+            ],
+            "characters": "ज",
+            "orientation": 90,
+            "handwritten": true
+        },
+        {
+            "bbox": [
+                977,
+                467,
+                11,
+                24
+            ],
+            "characters": "ऋ",
+            "orientation": 90,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                690,
+                80,
+                21,
+                24
+            ],
+            "characters": "र्र्",
+            "orientation": 90,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                189,
+                237,
+                22,
+                40
+            ],
+            "characters": "र्र्र्",
+            "orientation": 90,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                185,
+                993,
+                25,
+                42
+            ],
+            "characters": "ऋ्",
+            "orientation": 90,
+            "handwritten": true
+        },
+        {
+            "bbox": [
+                859,
+                1211,
+                25,
+                22
+            ],
+            "characters": "त्र",
+            "orientation": 0,
+            "handwritten": false
+        },
+        {
+            "bbox": [
+                588,
+                918,
+                20,
+                20
+            ],
+            "characters": "क्र्ू्",
+            "orientation": 0,
+            "handwritten": false
+        }
+    ]
+}
