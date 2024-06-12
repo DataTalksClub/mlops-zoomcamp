@@ -48,33 +48,18 @@
 [See code here](batch/)
 
 
-## 4.6 MLOps Zoomcamp 4.6 - Batch: Scheduling batch scoring jobs with Prefect
+## 4.6 MLOps Zoomcamp 4.6 - Batch scoring with Mage
 
-The unit 4.6 consists of multiple videos:
+No video - you already know how to do it:
 
-* [4.6.1 - Package Manager](https://www.youtube.com/watch?v=DmWgkNA6i-w)
-* [4.6.2 - Original FIle walkthrough](https://www.youtube.com/watch?v=2FUfbMqMEgg)
-* [4.6.3 - Modifying score.py](https://www.youtube.com/watch?v=NWeTQEGufiI)
-* [4.6.4 - Showing AWS Console](https://www.youtube.com/watch?v=fTQ3uqrGdrE)
-* [4.6.5 - Running the file](https://www.youtube.com/watch?v=s4a-tU-t2XU)
-* [4.6.6 - Create the project](https://www.youtube.com/watch?v=gdYM_-WShIU)
-* [4.6.7 - Creating deployment](https://www.youtube.com/watch?v=vp3VbmAIv_Y)
-* [4.6.8 - Backfilling update](https://www.youtube.com/watch?v=E42C1uyRiFA)
-* [4.6.9 - Running on a functioning work pool](https://www.youtube.com/watch?v=K-FDw3HBcE4)
-* [4.6.10 - Adding schedule](https://www.youtube.com/watch?v=0WpR3ZUINpA )
-* [4.6.11 - Overview Wrap up](https://www.youtube.com/watch?v=C5mM8Jkt2jI)
+* Connect to MLFlow
+* Create a transformation block
+* Get the model from the registry, apply it
 
 
-[Old Video (2022 Edition)](https://www.youtube.com/watch?v=ekT_JW213Tc)
+## Homework
 
-## 4.7 Choosing the right way of deployment
-
-COMING SOON
-
-
-## 4.8 Homework
-
-More information [here](../cohorts/2023/04-deployment/homework.md).
+More information [here](../cohorts/2024/04-deployment/homework.md).
 
 
 ## Notes

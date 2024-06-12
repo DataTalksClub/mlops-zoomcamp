@@ -12,28 +12,11 @@
 
 ## [3.5 Deploying: Running operations in production](3.5/README.md)
 
+## [3.6 Homework](../cohorts/2024/03-orchestration/homework.md).
+
 ## Quickstart
 
-1. Clone the following respository containing the complete code for this module:
-
-    ```
-    git clone https://github.com/mage-ai/mlops.git
-    ```
-
-1. Change directory into the cloned repo:
-
-    ```
-    cd mlops
-    ```
-
-1. Launch Mage and the database service (PostgreSQL):
-
-    ```
-    ./scripts/start.sh
-    ```
-
-1. The subproject that contains all the pipelines and code is named
-   [`unit_3_observability`](https://github.com/mage-ai/mlops/tree/master/mlops/unit_3_observability)
+See the [Unit 3.0](https://github.com/DataTalksClub/mlops-zoomcamp/blob/main/03-orchestration/3.0/README.md) for a Quick Start guide
 
 ## Need help?
 

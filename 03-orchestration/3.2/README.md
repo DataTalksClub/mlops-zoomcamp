@@ -5,7 +5,8 @@
 
 ### Videos
 
-1. [Reusable training set](https://youtu.be/CbHaZcq_uGo)
+1. [GDP training set](https://youtu.be/KP68DuJnk4Q?si=tVHWYLCpZ2RpwuNh)
+1. [Sklearn training GDP](https://youtu.be/CbHaZcq_uGo)
 1. [Load models](https://youtu.be/zsMHFq2C978)
 1. [Utility helper functions for loading models](https://youtu.be/fZnxDhtPxYo)
 1. [Hyperparameter tuning](https://youtu.be/zfBB4KoZ7TM)

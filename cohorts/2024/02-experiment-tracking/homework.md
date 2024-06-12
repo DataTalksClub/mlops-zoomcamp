@@ -50,7 +50,7 @@ How many files were saved to `OUTPUT_FOLDER`?
 
 We will train a `RandomForestRegressor` (from Scikit-Learn) on the taxi dataset.
 
-We have prepared the training script `train.py` for this exercise, which can be also found in the folder `homework`. 
+We have prepared the training script `train.py` for this exercise, which can be also found in the folder [`homework`](homework). 
 
 The script will:
 

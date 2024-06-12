@@ -52,6 +52,8 @@
   <img src="https://markdown-videos-api.jorgenkh.no/youtube/fytrmPbcLhI">
 </a>
 
+> Note: in this video we use Prefect (07:33-11:21). Feel free to skip this part. Also note that Prefect
+is not officially supported in the 2024 edition of the course.
 
 
 ## 5.8 Save Grafana Dashboard
