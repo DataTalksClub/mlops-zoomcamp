@@ -29,6 +29,7 @@ See the [Unit 3.0](https://github.com/DataTalksClub/mlops-zoomcamp/blob/main/03-
 
 Did you take notes? Add them here:
 
+* [Marcus' Notes for Ch3](https://github.com/mleiwe/mlops-zoomcamp/blob/Ch3_ML_Notes/cohorts/2024/03-orchestration/ML_Notes.md)
 * Send a PR, add your notes above this line
 
 ### Notes previous editions
