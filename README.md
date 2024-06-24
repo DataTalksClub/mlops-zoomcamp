@@ -72,6 +72,8 @@ To make discussions in Slack more organized:
 
 ## Syllabus
 
+We encourage [Learning in Public](learning-in-public.md)
+
 ### [Module 1: Introduction](01-intro)
 
 * What is MLOps
