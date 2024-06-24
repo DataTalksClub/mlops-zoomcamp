@@ -52,4 +52,4 @@ Where to place a dashboard config file?
 
 ## Submit the results
 
-* Submit your answers here: TBA
+* Submit your answers here: https://courses.datatalks.club/mlops-zoomcamp-2024/homework/hw5
