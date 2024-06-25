@@ -9,7 +9,7 @@ You'll find the starter code in the [homework](homework/) directory.
 
 ## Q1. Refactoring
 
-Before we can start converting our code with tests, we need to 
+Before we can start covering our code with tests, we need to 
 refactor it. We'll start by getting rid of all the global variables. 
 
 * Let's create a function `main` with two parameters: `year` and
