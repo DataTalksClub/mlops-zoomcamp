@@ -4,6 +4,8 @@ In this homework, we'll deploy the ride duration model in batch mode. Like in ho
 
 You'll find the starter code in the [homework](homework) directory.
 
+Solution: [homework_solution/](homework_solution/)
+
 
 ## Q1. Notebook
 
