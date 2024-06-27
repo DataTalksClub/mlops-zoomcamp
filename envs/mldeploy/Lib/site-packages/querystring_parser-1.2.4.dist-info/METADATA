@@ -1,0 +1,19 @@
+Metadata-Version: 2.1
+Name: querystring-parser
+Version: 1.2.4
+Summary: QueryString parser for Python/Django that correctly handles nested dictionaries
+Home-page: https://github.com/bernii/querystring-parser
+Author: bernii
+Author-email: berni@extensa.pl
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Development Status :: 6 - Mature
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Requires-Dist: six
+
+UNKNOWN
+
+

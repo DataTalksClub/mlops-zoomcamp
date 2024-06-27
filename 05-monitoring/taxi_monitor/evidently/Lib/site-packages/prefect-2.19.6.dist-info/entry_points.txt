@@ -1,0 +1,6 @@
+[console_scripts]
+prefect = prefect.cli:app
+
+[mkdocs.plugins]
+render_swagger = prefect.utilities.render_swagger:SwaggerPlugin
+

@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/798789816903281295/af7f082e65694fe3b7bc12de1465332a/artifacts
+end_time: 1716839167599
+entry_point_name: ''
+experiment_id: '798789816903281295'
+lifecycle_stage: active
+run_id: af7f082e65694fe3b7bc12de1465332a
+run_name: awesome-dog-485
+run_uuid: af7f082e65694fe3b7bc12de1465332a
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1716839167553
+status: 4
+tags: []
+user_id: ArunGanesan

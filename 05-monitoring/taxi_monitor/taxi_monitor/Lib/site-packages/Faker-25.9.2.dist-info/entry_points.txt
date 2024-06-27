@@ -1,0 +1,5 @@
+[console_scripts]
+faker = faker.cli:execute_from_command_line
+
+[pytest11]
+faker = faker.contrib.pytest.plugin

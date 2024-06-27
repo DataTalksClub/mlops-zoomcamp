@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/798789816903281295/a4f7c37a5f0e4140952f43155f50f8b4/artifacts
+end_time: 1716839851692
+entry_point_name: ''
+experiment_id: '798789816903281295'
+lifecycle_stage: active
+run_id: a4f7c37a5f0e4140952f43155f50f8b4
+run_name: melodic-shrew-966
+run_uuid: a4f7c37a5f0e4140952f43155f50f8b4
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1716839851645
+status: 4
+tags: []
+user_id: ArunGanesan

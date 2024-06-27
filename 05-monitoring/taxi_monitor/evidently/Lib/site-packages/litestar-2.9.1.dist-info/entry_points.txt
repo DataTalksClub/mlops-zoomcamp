@@ -1,0 +1,2 @@
+[console_scripts]
+litestar = litestar.__main__:run_cli

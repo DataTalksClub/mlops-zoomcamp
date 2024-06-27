@@ -1,0 +1,2 @@
+[prefect.collections]
+prefect_aws = prefect_aws

@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/798789816903281295/4da2a4d83115404f880c957766fa29ee/artifacts
+end_time: 1716839109308
+entry_point_name: ''
+experiment_id: '798789816903281295'
+lifecycle_stage: active
+run_id: 4da2a4d83115404f880c957766fa29ee
+run_name: indecisive-shoat-562
+run_uuid: 4da2a4d83115404f880c957766fa29ee
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1716839109258
+status: 4
+tags: []
+user_id: ArunGanesan

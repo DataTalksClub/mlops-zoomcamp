@@ -1,0 +1,144 @@
+{
+  "id": "0ca2f0c8-52f6-415c-bc77-d69303c7e9bd",
+  "name": "New Project",
+  "description": "Test project using Adult dataset.",
+  "dashboard": {
+    "name": "New Project",
+    "panels": [
+      {
+        "type": "evidently.ui.dashboards.reports.DashboardPanelCounter",
+        "id": "31313376-d98a-4fdf-a023-bc5ea50b0d91",
+        "title": "Census Income Dataset (Adult)",
+        "filter": {
+          "metadata_values": {},
+          "tag_values": [],
+          "include_test_suites": false
+        },
+        "size": 2,
+        "agg": "none",
+        "value": null,
+        "text": null
+      },
+      {
+        "type": "evidently.ui.dashboards.reports.DashboardPanelCounter",
+        "id": "fddea44e-dc07-4c79-ab65-03ab6e204ba7",
+        "title": "Model Calls",
+        "filter": {
+          "metadata_values": {},
+          "tag_values": [],
+          "include_test_suites": false
+        },
+        "size": 1,
+        "agg": "sum",
+        "value": {
+          "field_path": "current.number_of_rows",
+          "metric_id": "DatasetMissingValuesMetric",
+          "metric_fingerprint": null,
+          "metric_args": {},
+          "legend": "count"
+        },
+        "text": "count"
+      },
+      {
+        "type": "evidently.ui.dashboards.reports.DashboardPanelCounter",
+        "id": "e4caff0c-5d92-414e-97af-67ec1f347b9c",
+        "title": "Share of Drifted Features",
+        "filter": {
+          "metadata_values": {},
+          "tag_values": [],
+          "include_test_suites": false
+        },
+        "size": 1,
+        "agg": "last",
+        "value": {
+          "field_path": "share_of_drifted_columns",
+          "metric_id": "DatasetDriftMetric",
+          "metric_fingerprint": null,
+          "metric_args": {},
+          "legend": "share"
+        },
+        "text": "share"
+      },
+      {
+        "type": "evidently.ui.dashboards.reports.DashboardPanelPlot",
+        "id": "07cb26a6-8dcb-4578-9228-e9bf830b58ef",
+        "title": "Dataset Quality",
+        "filter": {
+          "metadata_values": {},
+          "tag_values": [],
+          "include_test_suites": false
+        },
+        "size": 2,
+        "values": [
+          {
+            "field_path": "share_of_drifted_columns",
+            "metric_id": "DatasetDriftMetric",
+            "metric_fingerprint": null,
+            "metric_args": {},
+            "legend": "Drift Share"
+          },
+          {
+            "field_path": "current.share_of_missing_values",
+            "metric_id": "DatasetMissingValuesMetric",
+            "metric_fingerprint": null,
+            "metric_args": {},
+            "legend": "Missing Values Share"
+          }
+        ],
+        "plot_type": "line"
+      },
+      {
+        "type": "evidently.ui.dashboards.reports.DashboardPanelPlot",
+        "id": "738fa7b9-56f3-480f-8428-d63974fa7ca9",
+        "title": "Age: Wasserstein drift distance",
+        "filter": {
+          "metadata_values": {},
+          "tag_values": [],
+          "include_test_suites": false
+        },
+        "size": 1,
+        "values": [
+          {
+            "field_path": "drift_score",
+            "metric_id": "ColumnDriftMetric",
+            "metric_fingerprint": null,
+            "metric_args": {
+              "column_name.name": "age"
+            },
+            "legend": "Drift Score"
+          }
+        ],
+        "plot_type": "bar"
+      },
+      {
+        "type": "evidently.ui.dashboards.reports.DashboardPanelPlot",
+        "id": "b8158e53-6d1a-4c25-ae47-29444227cde1",
+        "title": "Education-num: Wasserstein drift distance",
+        "filter": {
+          "metadata_values": {},
+          "tag_values": [],
+          "include_test_suites": false
+        },
+        "size": 1,
+        "values": [
+          {
+            "field_path": "drift_score",
+            "metric_id": "ColumnDriftMetric",
+            "metric_fingerprint": null,
+            "metric_args": {
+              "column_name.name": "education-num"
+            },
+            "legend": "Drift Score"
+          }
+        ],
+        "plot_type": "bar"
+      }
+    ],
+    "tabs": [],
+    "tab_id_to_panel_ids": {}
+  },
+  "team_id": null,
+  "date_from": null,
+  "date_to": null,
+  "created_at": "2024-06-26T08:46:56.618448"
+}

@@ -1,0 +1,2 @@
+class LifespanNotSupported(Exception):
+    pass

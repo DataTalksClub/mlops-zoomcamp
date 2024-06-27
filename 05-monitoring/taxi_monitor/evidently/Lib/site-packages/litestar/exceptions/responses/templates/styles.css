@@ -1,0 +1,121 @@
+:root {
+  --code-background-color: #f5f5f5;
+  --code-background-color-dark: #b8b8b8;
+  --code-color: #1d2534;
+  --code-color-light: #546996;
+  --code-font-family: Consolas, monospace;
+  --header-color: #303b55;
+  --warn-color: hsl(356, 92%, 60%);
+  --text-font-family: -apple-system, BlinkMacSystemFont, Helvetica, Arial,
+    sans-serif;
+}
+
+html {
+  font-size: 20px;
+}
+
+body {
+  font-family: var(--text-font-family);
+  font-size: 0.8rem;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  color: var(--header-color);
+}
+
+h4 {
+  font-size: 1rem;
+}
+
+h3 {
+  font-size: 1.35rem;
+}
+
+h2 {
+  font-size: 1.83rem;
+}
+
+h3 span,
+h4 span {
+  color: var(--warn-color);
+}
+
+.frame {
+  background-color: var(--code-background-color);
+  border-radius: 0.2rem;
+  margin-bottom: 20px;
+}
+
+.frame-name {
+  border-bottom: 1px solid var(--code-color-light);
+  padding: 10px 16px;
+}
+
+.frame.collapsed .frame-name {
+  border-bottom: none;
+}
+
+.frame-name span {
+  font-weight: 700;
+}
+
+span.expander {
+  display: inline-block;
+  margin-right: 10px;
+  cursor: pointer;
+  transition: transform 0.33s ease-in-out;
+}
+
+.frame.collapsed span.expander {
+  transform: rotate(-90deg);
+}
+
+.frame-name span.breakable {
+  word-break: break-all;
+}
+
+.code-snippet-wrapper {
+  height: auto;
+  overflow-y: hidden;
+  transition: height 0.33s ease-in-out;
+}
+
+.frame.collapsed .code-snippet-wrapper {
+  height: 0;
+}
+
+.code-snippet {
+  margin: 10px 16px;
+  border-spacing: 0 0;
+  color: var(--code-color);
+  font-family: var(--code-font-family);
+  font-size: 0.68rem;
+}
+
+.code-snippet td {
+  padding: 0;
+  text-align: left;
+}
+
+td.line_no {
+  color: var(--code-color-light);
+  min-width: 4ch;
+  padding-right: 20px;
+  text-align: right;
+  user-select: none;
+}
+
+td.code_line {
+  width: 99%;
+}
+
+tr.executed-line {
+  background-color: var(--code-background-color-dark);
+}
+
+.cause-wrapper {
+  margin-top: 50px;
+}

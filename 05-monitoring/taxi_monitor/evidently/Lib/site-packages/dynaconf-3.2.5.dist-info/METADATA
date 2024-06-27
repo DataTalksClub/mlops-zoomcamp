@@ -1,0 +1,204 @@
+Metadata-Version: 2.1
+Name: dynaconf
+Version: 3.2.5
+Summary: The dynamic configurator for your Python Project
+Home-page: https://github.com/dynaconf/dynaconf
+Author: Bruno Rocha
+Author-email: rochacbruno@gmail.com
+License: MIT
+Platform: any
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Framework :: Django
+Classifier: Framework :: Flask
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Natural Language :: English
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Topic :: Utilities
+Classifier: Topic :: Software Development :: Libraries
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+License-File: LICENSE
+License-File: vendor_licenses/box-LICENSE.txt
+License-File: vendor_licenses/click-LICENSE.rst
+License-File: vendor_licenses/licenses.sh
+License-File: vendor_licenses/python-dotenv-LICENSE.txt
+License-File: vendor_licenses/ruamel.yaml-LICENSE.txt
+License-File: vendor_licenses/toml-LICENSE.txt
+License-File: vendor_licenses/tomli-LICENSE.txt
+License-File: vendor_licenses/vendor_versions.txt
+Provides-Extra: all
+Requires-Dist: redis ; extra == 'all'
+Requires-Dist: ruamel.yaml ; extra == 'all'
+Requires-Dist: configobj ; extra == 'all'
+Requires-Dist: hvac ; extra == 'all'
+Provides-Extra: configobj
+Requires-Dist: configobj ; extra == 'configobj'
+Provides-Extra: ini
+Requires-Dist: configobj ; extra == 'ini'
+Provides-Extra: redis
+Requires-Dist: redis ; extra == 'redis'
+Provides-Extra: test
+Requires-Dist: pytest ; extra == 'test'
+Requires-Dist: pytest-cov ; extra == 'test'
+Requires-Dist: pytest-xdist ; extra == 'test'
+Requires-Dist: pytest-mock ; extra == 'test'
+Requires-Dist: radon ; extra == 'test'
+Requires-Dist: flask >=0.12 ; extra == 'test'
+Requires-Dist: django ; extra == 'test'
+Requires-Dist: python-dotenv ; extra == 'test'
+Requires-Dist: toml ; extra == 'test'
+Requires-Dist: redis ; extra == 'test'
+Requires-Dist: hvac >=1.1.0 ; extra == 'test'
+Requires-Dist: configobj ; extra == 'test'
+Provides-Extra: toml
+Requires-Dist: toml ; extra == 'toml'
+Provides-Extra: vault
+Requires-Dist: hvac ; extra == 'vault'
+Provides-Extra: yaml
+Requires-Dist: ruamel.yaml ; extra == 'yaml'
+
+<!-- [![Dynaconf](docs/img/logo_400.svg?sanitize=true)](http://dynaconf.com) -->
+
+<p align="center"><img src="/art/header.png?v2" alt="dynaconf. new logo"></p>
+
+> **dynaconf** - Configuration Management for Python.
+
+[![MIT License](https://img.shields.io/badge/license-MIT-007EC7.svg?style=flat-square)](/LICENSE) [![PyPI](https://img.shields.io/pypi/v/dynaconf.svg)](https://pypi.python.org/pypi/dynaconf) [![PyPI](https://img.shields.io/pypi/pyversions/dynaconf.svg)]() ![PyPI - Downloads](https://img.shields.io/pypi/dm/dynaconf.svg?label=pip%20installs&logo=python) [![CI](https://github.com/dynaconf/dynaconf/actions/workflows/main.yml/badge.svg)](https://github.com/dynaconf/dynaconf/actions/workflows/main.yml) [![codecov](https://codecov.io/gh/dynaconf/dynaconf/branch/master/graph/badge.svg)](https://codecov.io/gh/dynaconf/dynaconf) [![Codacy Badge](https://app.codacy.com/project/badge/Grade/3fb2de98464442f99a7663181803b400)](https://www.codacy.com/gh/dynaconf/dynaconf/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=dynaconf/dynaconf&amp;utm_campaign=Badge_Grade)  ![GitHub stars](https://img.shields.io/github/stars/dynaconf/dynaconf.svg) ![GitHub Release Date](https://img.shields.io/github/release-date/dynaconf/dynaconf.svg) ![GitHub commits since latest release](https://img.shields.io/github/commits-since/dynaconf/dynaconf/latest.svg) ![GitHub last commit](https://img.shields.io/github/last-commit/dynaconf/dynaconf.svg) [![Code Style Black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/ambv/black/)
+
+![GitHub issues](https://img.shields.io/github/issues/dynaconf/dynaconf.svg) [![User Forum](https://img.shields.io/badge/users-forum-blue.svg?logo=googlechat)](https://github.com/dynaconf/dynaconf/discussions) [![Join the chat at https://gitter.im/dynaconf/dev](https://badges.gitter.im/dynaconf/dev.svg)](https://gitter.im/dynaconf/dev?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge) [![ Matrix](https://img.shields.io/badge/dev-room-blue.svg?logo=matrix)](https://matrix.to/#/#dynaconf:matrix.org)
+
+## Features
+
+- Inspired by the [12-factor application guide](https://12factor.net/config)
+- Settings management (default values, validation, parsing, templating)
+- Protection of sensitive information (passwords/tokens)
+- Multiple file formats `toml|yaml|json|ini|py` and also customizable loaders.
+- Full support for environment variables to override existing settings (dotenv support included).
+- Optional layered system for multi environments `[default, development, testing, production]`
+- Built-in support for Hashicorp Vault and Redis as settings and secrets storage.
+- Built-in extensions for **Django** and **Flask** web frameworks.
+- CLI for common operations such as `init, list, write, validate, export`.
+- full docs on https://dynaconf.com
+
+### Install
+
+```bash
+$ pip install dynaconf
+```
+
+#### Initialize Dynaconf on project root directory
+
+```plain
+$ cd path/to/your/project/
+
+$ dynaconf init -f toml
+
+⚙️  Configuring your Dynaconf environment
+------------------------------------------
+🐍 The file `config.py` was generated.
+
+🎛️  settings.toml created to hold your settings.
+
+🔑 .secrets.toml created to hold your secrets.
+
+🙈 the .secrets.* is also included in `.gitignore`
+  beware to not push your secrets to a public repo.
+
+🎉 Dynaconf is configured! read more on https://dynaconf.com
+```
+
+> **TIP:** You can select `toml|yaml|json|ini|py` on `dynaconf init -f <fileformat>`  **toml** is the default and also the most recommended format for configuration.
+
+#### Dynaconf init creates the following files
+
+```plain
+.
+├── config.py       # This is from where you import your settings object (required)
+├── .secrets.toml   # This is to hold sensitive data like passwords and tokens (optional)
+└── settings.toml   # This is to hold your application settings (optional)
+```
+
+On the file `config.py` Dynaconf init generates the following boilerpate
+
+```py
+from dynaconf import Dynaconf
+
+settings = Dynaconf(
+    envvar_prefix="DYNACONF",  # export envvars with `export DYNACONF_FOO=bar`.
+    settings_files=['settings.yaml', '.secrets.yaml'],  # Load files in the given order.
+)
+```
+
+> **TIP:** You can create the files yourself instead of using the `init` command as shown above and you can give any name you want instead of the default `config.py` (the file must be in your importable python path) - See more options that you can pass to `Dynaconf` class initializer on https://dynaconf.com
+
+
+#### Using Dynaconf
+
+Put your settings on `settings.{toml|yaml|ini|json|py}`
+
+```toml
+username = "admin"
+port = 5555
+database = {name='mydb', schema='main'}
+```
+
+Put sensitive information on `.secrets.{toml|yaml|ini|json|py}`
+
+```toml
+password = "secret123"
+```
+
+> **IMPORTANT:** `dynaconf init` command puts the `.secrets.*` in your `.gitignore` to avoid it to be exposed on public repos but it is your responsibility to keep it safe in your local environment, also the recommendation for production environments is to use the built-in support for Hashicorp Vault service for password and tokens.
+
+
+Optionally you can now use environment variables to override values per execution or per environment.
+
+```bash
+# override `port` from settings.toml file and automatically casts as `int` value.
+export DYNACONF_PORT=9900
+```
+
+
+On your code import the `settings` object
+
+```py
+from path.to.project.config import settings
+
+# Reading the settings
+
+settings.username == "admin"  # dot notation with multi nesting support
+settings.PORT == 9900  # case insensitive
+settings['password'] == "secret123"  # dict like access
+settings.get("nonexisting", "default value")  # Default values just like a dict
+settings.databases.name == "mydb"  # Nested key traversing
+settings['databases.schema'] == "main"  # Nested key traversing
+```
+
+## More
+
+- Settings Schema Validation
+- Custom Settings Loaders
+- Vault Services
+- Template substitutions
+- etc...
+
+There is a lot more you can do, **read the docs:** http://dynaconf.com
+
+## Contribute
+
+Main discussions happens on [Discussions Tab](https://github.com/dynaconf/dynaconf/discussions) learn more about how to get involved on [CONTRIBUTING.md guide](CONTRIBUTING.md)
+
+## More
+
+If you are looking for something similar to Dynaconf to use in your Rust projects: https://github.com/rubik/hydroconf
+
+And a special thanks to [Caneco](https://twitter.com/caneco) for the logo.

@@ -1,0 +1,3 @@
+[console_scripts]
+griffe = griffe.cli:main
+

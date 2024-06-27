@@ -1,0 +1,14 @@
+[console_scripts]
+mlflow = mlflow.cli:cli
+
+[mlflow.app]
+basic-auth = mlflow.server.auth:create_app
+
+[mlflow.app.client]
+basic-auth = mlflow.server.auth.client:AuthServiceClient
+
+[mlflow.deployments]
+databricks = mlflow.deployments.databricks
+http = mlflow.deployments.mlflow
+https = mlflow.deployments.mlflow
+openai = mlflow.deployments.openai

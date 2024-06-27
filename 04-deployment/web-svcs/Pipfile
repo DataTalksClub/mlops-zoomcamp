@@ -1,0 +1,24 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+scikit-learn = "==1.5.0"
+flask = "*"
+gunicorn = "*"
+waitress = "*"
+mlflow = "==2.14.1"
+boto3 = "*"
+cloudpickle = "==3.0.0"
+numpy = "==1.26.4"
+packaging = "==24.1"
+psutil = "==6.0.0"
+pyyaml = "==6.0.1"
+scipy = "==1.13.1"
+
+[dev-packages]
+requests = "*"
+
+[requires]
+python_version = "3.10"

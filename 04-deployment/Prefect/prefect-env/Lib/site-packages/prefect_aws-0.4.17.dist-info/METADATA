@@ -1,0 +1,75 @@
+Metadata-Version: 2.1
+Name: prefect-aws
+Version: 0.4.17
+Summary: Prefect integrations for interacting with Amazon Web Services.
+Author-email: "Prefect Technologies, Inc." <help@prefect.io>
+License: Apache License 2.0
+Project-URL: Homepage, https://github.com/PrefectHQ/prefect/tree/main/src/integrations/prefect-aws
+Keywords: prefect
+Classifier: Natural Language :: English
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: System Administrators
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Topic :: Software Development :: Libraries
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: boto3 >=1.24.53
+Requires-Dist: botocore >=1.27.53
+Requires-Dist: mypy-boto3-s3 >=1.24.94
+Requires-Dist: mypy-boto3-secretsmanager >=1.26.49
+Requires-Dist: prefect <3.0.0,>=2.16.4
+Requires-Dist: pyparsing >=3.1.1
+Requires-Dist: tenacity >=8.0.0
+Provides-Extra: dev
+Requires-Dist: black ; extra == 'dev'
+Requires-Dist: boto3-stubs >=1.24.39 ; extra == 'dev'
+Requires-Dist: coverage ; extra == 'dev'
+Requires-Dist: flake8 ; extra == 'dev'
+Requires-Dist: interrogate ; extra == 'dev'
+Requires-Dist: isort ; extra == 'dev'
+Requires-Dist: mkdocs ; extra == 'dev'
+Requires-Dist: mkdocs-gen-files ; extra == 'dev'
+Requires-Dist: mkdocs-material ; extra == 'dev'
+Requires-Dist: mkdocstrings-python-legacy ; extra == 'dev'
+Requires-Dist: moto <4.2.5,>=3.1.16 ; extra == 'dev'
+Requires-Dist: mypy ; extra == 'dev'
+Requires-Dist: pillow ; extra == 'dev'
+Requires-Dist: pre-commit ; extra == 'dev'
+Requires-Dist: pytest ; extra == 'dev'
+Requires-Dist: pytest-asyncio !=0.22.0,<0.23.0,>=0.18.2 ; extra == 'dev'
+Requires-Dist: pytest-cov ; extra == 'dev'
+Requires-Dist: pytest-xdist ; extra == 'dev'
+Requires-Dist: types-boto3 >=1.0.2 ; extra == 'dev'
+Requires-Dist: mock ; (python_version < "3.8") and extra == 'dev'
+
+# `prefect-aws`
+
+<p align="center">
+    <a href="https://pypi.python.org/pypi/prefect-aws/" alt="PyPI version">
+        <img alt="PyPI" src="https://img.shields.io/pypi/v/prefect-aws?color=26272B&labelColor=090422"></a>
+    <a href="https://pepy.tech/badge/prefect-aws/" alt="Downloads">
+        <img src="https://img.shields.io/pypi/dm/prefect-aws?color=26272B&labelColor=090422" /></a>
+</p>
+
+## Welcome!
+
+`prefect-aws` makes it easy to leverage the capabilities of AWS in your flows, featuring support for ECS, S3, Secrets Manager, and Batch.
+
+### Installation
+
+To start using `prefect-aws`:
+
+```bash
+pip install prefect-aws
+```
+
+### Contributing
+
+Thanks for thinking about chipping in! Check out this [step-by-step guide](https://prefecthq.github.io/prefect-aws/#installation) on how to get started.

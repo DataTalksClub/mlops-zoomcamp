@@ -1,0 +1,88 @@
+Metadata-Version: 2.1
+Name: pytzdata
+Version: 2020.1
+Summary: The Olson timezone database for Python.
+Home-page: https://github.com/sdispater/pytzdata
+License: MIT
+Author: Sébastien Eustace
+Author-email: sebastien@eustace.io
+Requires-Python: >=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Project-URL: Repository, https://github.com/sdispater/pytzdata
+Description-Content-Type: text/x-rst
+
+Pytzdata
+########
+
+.. image:: https://travis-ci.org/sdispater/pytzdata.png
+   :alt: Pytzdata Build status
+   :target: https://travis-ci.org/sdispater/pytzdata
+
+The Olson timezone database for Python.
+
+Supports Python **2.7+** and **3.5+**.
+
+
+Installation
+============
+
+    pip install pytzdata
+
+
+Usage
+=====
+
+You can access the content of a specific timezone file by using the `tz_file()` function:
+
+.. code-block:: python
+
+    from pytzdata import tz_file
+
+    with tz_file('Europe/Paris') as f:
+        # Do something with the file
+
+If you just want to know the path to a specific timezone file, you may use the `tz_path()` function:
+
+.. code-block:: python
+
+    from pytzdata import tz_path
+
+    tz_path('Europe/Paris')
+
+By default, ``pytzdata`` will use the bundled timezone database, however you can set
+a custom directory that holds the timezone files using the ``set_directory`` function:
+
+.. code-block:: python
+
+    import pytzdata
+
+    pytzdata.set_directory('/custom/zoneinfo')
+
+You can also set the ``PYTZDATA_TZDATADIR`` environment variable to set a custom directory.
+
+
+Release
+=======
+
+To make a new release just follow these steps:
+
+- ``make data``
+- Update version numbers in ``pytzdata/version.py`` and ``tests/test_version.py``
+- ``make tox``
+
+
+Resources
+=========
+
+* `Issue Tracker <https://github.com/sdispater/pytzdata/issues>`_
+

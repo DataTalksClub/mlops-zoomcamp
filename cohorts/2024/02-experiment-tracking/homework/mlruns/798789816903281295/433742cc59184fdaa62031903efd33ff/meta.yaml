@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/798789816903281295/433742cc59184fdaa62031903efd33ff/artifacts
+end_time: 1716837701737
+entry_point_name: ''
+experiment_id: '798789816903281295'
+lifecycle_stage: active
+run_id: 433742cc59184fdaa62031903efd33ff
+run_name: sneaky-whale-628
+run_uuid: 433742cc59184fdaa62031903efd33ff
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1716837701688
+status: 4
+tags: []
+user_id: ArunGanesan

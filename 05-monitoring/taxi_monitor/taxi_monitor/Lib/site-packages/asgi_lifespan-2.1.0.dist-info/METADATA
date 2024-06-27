@@ -1,0 +1,357 @@
+Metadata-Version: 2.1
+Name: asgi-lifespan
+Version: 2.1.0
+Summary: Programmatic startup/shutdown of ASGI apps.
+Author-email: Florimond Manca <florimond.manca@protonmail.com>
+License: MIT
+Project-URL: Homepage, https://github.com/florimondmanca/asgi-lifespan
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Developers
+Classifier: Framework :: AsyncIO
+Classifier: Framework :: Trio
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: sniffio
+
+# asgi-lifespan
+
+[![Build Status](https://dev.azure.com/florimondmanca/public/_apis/build/status/florimondmanca.asgi-lifespan?branchName=master)](https://dev.azure.com/florimondmanca/public/_build?definitionId=12)
+[![Coverage](https://codecov.io/gh/florimondmanca/asgi-lifespan/branch/master/graph/badge.svg)](https://codecov.io/gh/florimondmanca/asgi-lifespan)
+[![Package version](https://badge.fury.io/py/asgi-lifespan.svg)](https://pypi.org/project/asgi-lifespan)
+
+Programmatically send startup/shutdown [lifespan](https://asgi.readthedocs.io/en/latest/specs/lifespan.html) events into [ASGI](https://asgi.readthedocs.io) applications. When used in combination with an ASGI-capable HTTP client such as [HTTPX](https://www.python-httpx.org), this allows mocking or testing ASGI applications without having to spin up an ASGI server.
+
+## Features
+
+- Send lifespan events to an ASGI app using `LifespanManager`.
+- Support for [`asyncio`](https://docs.python.org/3/library/asyncio) and [`trio`](https://trio.readthedocs.io).
+- Fully type-annotated.
+- 100% test coverage.
+
+## Installation
+
+```bash
+pip install 'asgi-lifespan==2.*'
+```
+
+## Usage
+
+`asgi-lifespan` provides a `LifespanManager` to programmatically send ASGI lifespan events into an ASGI app. This can be used to programmatically startup/shutdown an ASGI app without having to spin up an ASGI server.
+
+`LifespanManager` can run on either `asyncio` or `trio`, and will auto-detect the async library in use.
+
+### Basic usage
+
+```python
+# example.py
+from contextlib import asynccontextmanager
+from asgi_lifespan import LifespanManager
+from starlette.applications import Starlette
+
+# Example lifespan-capable ASGI app. Any ASGI app that supports
+# the lifespan protocol will do, e.g. FastAPI, Quart, Responder, ...
+
+@asynccontextmanager
+async def lifespan(app):
+    print("Starting up!")
+    yield
+    print("Shutting down!")
+
+app = Starlette(lifespan=lifespan)
+
+async def main():
+    async with LifespanManager(app) as manager:
+        print("We're in!")
+
+# On asyncio:
+import asyncio; asyncio.run(main())
+
+# On trio:
+# import trio; trio.run(main)
+```
+
+Output:
+
+```console
+$ python example.py
+Starting up!
+We're in!
+Shutting down!
+```
+
+### Sending lifespan events for testing
+
+The example below demonstrates how to use `asgi-lifespan` in conjunction with [HTTPX](https://www.python-httpx.org) and `pytest` in order to send test requests into an ASGI app.
+
+- Install dependencies:
+
+```
+pip install asgi-lifespan httpx starlette pytest pytest-asyncio
+```
+
+- Test script:
+
+```python
+# test_app.py
+from contextlib import asynccontextmanager
+import httpx
+import pytest
+import pytest_asyncio
+from asgi_lifespan import LifespanManager
+from starlette.applications import Starlette
+from starlette.responses import PlainTextResponse
+from starlette.routing import Route
+
+
+@pytest_asyncio.fixture
+async def app():
+    @asynccontextmanager
+    async def lifespan(app):
+        print("Starting up")
+        yield
+        print("Shutting down")
+
+    async def home(request):
+        return PlainTextResponse("Hello, world!")
+
+    app = Starlette(
+        routes=[Route("/", home)],
+        lifespan=lifespan,
+    )
+
+    async with LifespanManager(app) as manager:
+        print("We're in!")
+        yield manager.app
+
+
+@pytest_asyncio.fixture
+async def client(app):
+    async with httpx.AsyncClient(app=app, base_url="http://app.io") as client:
+        print("Client is ready")
+        yield client
+
+
+@pytest.mark.asyncio
+async def test_home(client):
+    print("Testing")
+    response = await client.get("/")
+    assert response.status_code == 200
+    assert response.text == "Hello, world!"
+    print("OK")
+```
+
+- Run the test suite:
+
+```console
+$ pytest -s test_app.py
+======================= test session starts =======================
+
+test_app.py Starting up
+We're in!
+Client is ready
+Testing
+OK
+.Shutting down
+
+======================= 1 passed in 0.88s =======================
+```
+
+### Accessing state
+
+`LifespanManager` provisions a [lifespan state](https://asgi.readthedocs.io/en/latest/specs/lifespan.html#lifespan-state) which persists data from the lifespan cycle for use in request/response handling.
+
+For your app to be aware of it, be sure to use `manager.app` instead of the `app` itself when inside the context manager.
+
+For example if using HTTPX as an async test client:
+
+```python
+async with LifespanManager(app) as manager:
+    async with httpx.AsyncClient(app=manager.app) as client:
+        ...
+```
+
+## API Reference
+
+### `LifespanManager`
+
+```python
+def __init__(
+    self,
+    app: Callable,
+    startup_timeout: Optional[float] = 5,
+    shutdown_timeout: Optional[float] = 5,
+)
+```
+
+An [asynchronous context manager](https://docs.python.org/3/reference/datamodel.html#async-context-managers) that starts up an ASGI app on enter and shuts it down on exit.
+
+More precisely:
+
+- On enter, start a `lifespan` request to `app` in the background, then send the `lifespan.startup` event and wait for the application to send `lifespan.startup.complete`.
+- On exit, send the `lifespan.shutdown` event and wait for the application to send `lifespan.shutdown.complete`.
+- If an exception occurs during startup, shutdown, or in the body of the `async with` block, it bubbles up and no shutdown is performed.
+
+**Example**
+
+```python
+async with LifespanManager(app) as manager:
+    # 'app' was started up.
+    ...
+
+# 'app' was shut down.
+```
+
+**Parameters**
+
+- `app` (`Callable`): an ASGI application.
+- `startup_timeout` (`Optional[float]`, defaults to 5): maximum number of seconds to wait for the application to startup. Use `None` for no timeout.
+- `shutdown_timeout` (`Optional[float]`, defaults to 5): maximum number of seconds to wait for the application to shutdown. Use `None` for no timeout.
+
+**Yields**
+
+- `manager` (`LifespanManager`): the `LifespanManager` itself. In case you use [lifespan state](https://asgi.readthedocs.io/en/latest/specs/lifespan.html#lifespan-state), use `async with LifespanManager(app) as manager: ...` then access `manager.app` to get a reference to the state-aware app.
+
+**Raises**
+
+- `LifespanNotSupported`: if the application does not seem to support the lifespan protocol. Based on the rationale that if the app supported the lifespan protocol then it would successfully receive the `lifespan.startup` ASGI event, unsupported lifespan protocol is detected in two situations:
+  - The application called `send()` before calling `receive()` for the first time.
+  - The application raised an exception during startup before making its first call to `receive()`. For example, this may be because the application failed on a statement such as `assert scope["type"] == "http"`.
+- `TimeoutError`: if startup or shutdown timed out.
+- `Exception`: any exception raised by the application (during startup, shutdown, or within the `async with` body) that does not indicate it does not support the lifespan protocol.
+
+## License
+
+MIT
+
+# Changelog
+
+All notable changes to this project will be documented in this file.
+
+The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
+
+## 2.1.0 - 2023-03-28
+
+### Added
+
+- Add support for lifespan state. (Pull #59)
+
+## 2.0.0 - 2022-11-11
+
+### Removed
+
+- Drop support for Python 3.6. (Pull #55)
+
+### Added
+
+- Add official support for Python 3.11. (Pull #55)
+- Add official support for Python 3.9 and 3.10. (Pull #46 - Thanks @euri10)
+
+### Fixed
+
+- Ensure compatibility with mypy 0.990+, which made `no_implicit_optional` the default. (Pull #53 - Thanks @AllSeeingEyeTolledEweSew)
+
+## 1.0.1 - 2020-06-08
+
+### Fixed
+
+- Update development status to `5 - Production/Stable`. (Pull #32)
+
+## 1.0.0 - 2020-02-02
+
+### Removed
+
+- Drop `Lifespan` and `LifespanMiddleware`. Please use Starlette's built-in lifespan capabilities instead. (Pull #27)
+
+### Fixed
+
+- Use `sniffio` for auto-detecting the async environment. (Pull #28)
+- Enforce 100% test coverage on CI. (Pull #29)
+
+### Changed
+
+- Enforce importing from the top-level package by switching to private internal modules. (Pull #26)
+
+## 0.6.0 - 2019-11-29
+
+### Changed
+
+- Move `Lifespan` to the `lifespan` module. (Pull #21)
+- Refactor `LifespanManager` to drop dependency on `asynccontextmanager` on 3.6. (Pull #20)
+
+## 0.5.0 - 2019-11-29
+
+- Enter Beta development status.
+
+### Removed
+
+- Remove `curio` support. (Pull #18)
+
+### Added
+
+- Ship binary distributions (wheels) alongside source distributions.
+
+### Changed
+
+- Use custom concurrency backends instead of `anyio` for asyncio and trio support. (Pull #18)
+
+## 0.4.2 - 2019-10-06
+
+### Fixed
+
+- Ensure `py.typed` is bundled with the package so that type checkers can detect type annotations. (Pull #16)
+
+## 0.4.1 - 2019-09-29
+
+### Fixed
+
+- Improve error handling in `LifespanManager` (Pull #11):
+  - Exceptions raised in the context manager body or during shutdown are now properly propagated.
+  - Unsupported lifespan is now also detected when the app calls `send()` before calling having called `receive()` at least once.
+
+## 0.4.0 - 2019-09-29
+
+- Enter Alpha development status.
+
+## 0.3.1 - 2019-09-29
+
+### Added
+
+- Add configurable timeouts to `LifespanManager`. (Pull #10)
+
+## 0.3.0 - 2019-09-29
+
+### Added
+
+- Add `LifespanManager` for sending lifespan events into an ASGI app. (Pull #5)
+
+## 0.2.0 - 2019-09-28
+
+### Added
+
+- Add `LifespanMiddleware`, an ASGI middleware to add lifespan support to an ASGI app. (Pull #9)
+
+## 0.1.0 - 2019-09-28
+
+### Added
+
+- Add `Lifespan`, an ASGI app implementing the lifespan protocol with event handler registration support. (Pull #7)
+
+## 0.0.2 - 2019-09-28
+
+### Fixed
+
+- Installation from PyPI used to fail due to missing `MANIFEST.in`.
+
+## 0.0.1 - 2019-09-28
+
+### Added
+
+- Empty package.

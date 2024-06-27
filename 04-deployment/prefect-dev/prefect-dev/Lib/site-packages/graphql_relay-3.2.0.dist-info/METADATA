@@ -1,0 +1,308 @@
+Metadata-Version: 2.1
+Name: graphql-relay
+Version: 3.2.0
+Summary: Relay library for graphql-core
+Home-page: https://github.com/graphql-python/graphql-relay-py
+Author: Syrus Akbary
+Author-email: me@syrusakbary.com
+License: MIT
+Keywords: graphql relay api
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Libraries
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: Implementation :: PyPy
+Requires-Python: >=3.6,<4
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: graphql-core (<3.3,>=3.2)
+Requires-Dist: typing-extensions (<5,>=4.1) ; python_version < "3.8"
+
+# Relay Library for GraphQL Python
+
+GraphQL-relay-py is the [Relay](https://relay.dev/) library for
+[GraphQL-core](https://github.com/graphql-python/graphql-core).
+
+It allows the easy creation of Relay-compliant servers using GraphQL-core.
+
+GraphQL-Relay-Py is a Python port of
+[graphql-relay-js](https://github.com/graphql/graphql-relay-js),
+while GraphQL-Core is a Python port of
+[GraphQL.js](https://github.com/graphql/graphql-js),
+the reference implementation of GraphQL for JavaScript.
+
+Since version 3, GraphQL-Relay-Py and GraphQL-Core support Python 3.6 and above only.
+For older versions of Python, you can use version 2 of these libraries.
+
+[![PyPI version](https://badge.fury.io/py/graphql-relay.svg)](https://badge.fury.io/py/graphql-relay)
+![Test Status](https://github.com/graphql-python/graphql-relay-py/actions/workflows/test.yml/badge.svg)
+![Lint Status](https://github.com/graphql-python/graphql-relay-py/actions/workflows/lint.yml/badge.svg)
+[![Dependency Updates](https://pyup.io/repos/github/graphql-python/graphql-relay-py/shield.svg)](https://pyup.io/repos/github/graphql-python/graphql-relay-py/)
+[![Python 3 Status](https://pyup.io/repos/github/graphql-python/graphql-relay-py/python-3-shield.svg)](https://pyup.io/repos/github/graphql-python/graphql-relay-py/)
+[![Code Style](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/ambv/black)
+
+## Getting Started
+
+A basic understanding of GraphQL and of the GraphQL Python implementation is needed
+to provide context for this library.
+
+An overview of GraphQL in general is available in the
+[README](https://github.com/graphql-python/graphql-core/blob/master/README.md) for the
+[Specification for GraphQL](https://github.com/graphql-python/graphql-core).
+
+This library is designed to work with the
+the [GraphQL-Core](https://github.com/graphql-python/graphql-core)
+Python reference implementation of a GraphQL server.
+
+An overview of the functionality that a Relay-compliant GraphQL server should provide
+is in the [GraphQL Relay Specification](https://facebook.github.io/relay/docs/graphql-relay-specification.html)
+on the [Relay website](https://facebook.github.io/relay/).
+That overview describes a simple set of examples that exist
+as [tests](tests) in this repository.
+A good way to get started with this repository is to walk through that documentation
+and the corresponding tests in this library together.
+
+## Using Relay Library for GraphQL Python (graphql-core)
+
+Install Relay Library for GraphQL Python
+
+```sh
+pip install graphql-core
+pip install graphql-relay
+```
+
+When building a schema for [GraphQL](https://github.com/graphql-python/graphql-core),
+the provided library functions can be used to simplify the creation of Relay patterns.
+
+All the functions that are explained in the following sections must be
+imported from the top level of the `graphql_relay` package, like this:
+```python
+from graphql_relay import connection_definitions
+```
+
+### Connections
+
+Helper functions are provided for both building the GraphQL types
+for connections and for implementing the `resolve` method for fields
+returning those types.
+
+ - `connection_args` returns the arguments that fields should provide when
+they return a connection type that supports bidirectional pagination.
+ - `forward_connection_args` returns the arguments that fields should provide when
+they return a connection type that only supports forward pagination.
+ - `backward_connection_args` returns the arguments that fields should provide when
+they return a connection type that only supports backward pagination.
+ - `connection_definitions` returns a `connection_type` and its associated
+`edgeType`, given a name and a node type.
+ - `connection_from_array` is a helper method that takes an array and the
+arguments from `connection_args`, does pagination and filtering, and returns
+an object in the shape expected by a `connection_type`'s `resolve` function.
+ - `cursor_for_object_in_connection` is a helper method that takes an array and a
+member object, and returns a cursor for use in the mutation payload.
+ - `offset_to_cursor` takes the index of a member object in an array
+ and returns an opaque cursor for use in the mutation payload.
+ - `cursor_to_offset` takes an opaque cursor (created with `offset_to_cursor`)
+and returns the corresponding array index.
+
+An example usage of these methods from the [test schema](tests/star_wars_schema.py):
+
+```python
+ship_edge, ship_connection = connection_definitions(ship_type, "Ship")
+
+faction_type = GraphQLObjectType(
+    name="Faction",
+    description="A faction in the Star Wars saga",
+    fields=lambda: {
+        "id": global_id_field("Faction"),
+        "name": GraphQLField(GraphQLString, description="The name of the faction."),
+        "ships": GraphQLField(
+            ship_connection,
+            description="The ships used by the faction.",
+            args=connection_args,
+            resolve=lambda faction, _info, **args: connection_from_array(
+                [get_ship(ship) for ship in faction.ships], args
+            ),
+        ),
+    },
+    interfaces=[node_interface],
+)
+```
+
+This shows adding a `ships` field to the `Faction` object that is a connection.
+It uses `connection_definitions(ship_type, "Ship")` to create the connection
+type, adds `connection_args` as arguments on this function, and then implements
+the resolver function by passing the array of ships and the arguments to
+`connection_from_array`.
+
+### Object Identification
+
+Helper functions are provided for both building the GraphQL types
+for nodes and for implementing global IDs around local IDs.
+
+ - `node_definitions` returns the `Node` interface that objects can implement,
+    and returns the `node` root field to include on the query type.
+    To implement this, it takes a function to resolve an ID to an object,
+    and to determine the type of a given object.
+ - `to_global_id` takes a type name and an ID specific to that type name,
+    and returns a "global ID" that is unique among all types.
+ - `from_global_id` takes the "global ID" created by `to_global_id`, and
+    returns the type name and ID used to create it.
+ - `global_id_field` creates the configuration for an `id` field on a node.
+ - `plural_identifying_root_field` creates a field that accepts a list of
+    non-ID identifiers (like a username) and maps then to their corresponding
+    objects.
+
+An example usage of these methods from the [test schema](tests/star_wars_schema.py):
+
+```python
+def get_node(global_id, _info):
+    type_, id_ = from_global_id(global_id)
+    if type_ == "Faction":
+        return get_faction(id_)
+    if type_ == "Ship":
+        return get_ship(id_)
+    return None  # pragma: no cover
+
+def get_node_type(obj, _info, _type):
+    if isinstance(obj, Faction):
+        return faction_type.name
+    return ship_type.name
+
+node_interface, node_field = node_definitions(get_node, get_node_type)[:2]
+
+faction_type = GraphQLObjectType(
+    name="Faction",
+    description="A faction in the Star Wars saga",
+    fields=lambda: {
+        "id": global_id_field("Faction"),
+        "name": GraphQLField(GraphQLString, description="The name of the faction."),
+        "ships": GraphQLField(
+            ship_connection,
+            description="The ships used by the faction.",
+            args=connection_args,
+            resolve=lambda faction, _info, **args: connection_from_array(
+                [get_ship(ship) for ship in faction.ships], args
+            ),
+        ),
+    },
+    interfaces=[node_interface],
+)
+
+query_type = GraphQLObjectType(
+    name="Query",
+    fields=lambda: {
+        "rebels": GraphQLField(faction_type, resolve=lambda _obj, _info: get_rebels()),
+        "empire": GraphQLField(faction_type, resolve=lambda _obj, _info: get_empire()),
+        "node": node_field,
+    },
+)
+```
+
+This uses `node_definitions` to construct the `Node` interface and the `node`
+field; it uses `from_global_id` to resolve the IDs passed in the implementation
+of the function mapping ID to object. It then uses the `global_id_field` method to
+create the `id` field on `Faction`, which also ensures implements the
+`node_interface`. Finally, it adds the `node` field to the query type, using the
+`node_field` returned by `node_definitions`.
+
+### Mutations
+
+A helper function is provided for building mutations with
+single inputs and client mutation IDs.
+
+ - `mutation_with_client_mutation_id` takes a name, input fields, output fields,
+and a mutation method to map from the input fields to the output fields,
+performing the mutation along the way. It then creates and returns a field
+configuration that can be used as a top-level field on the mutation type.
+
+An example usage of these methods from the [test schema](tests/star_wars_schema.py):
+
+```python
+class IntroduceShipMutation:
+
+    def __init__(self, shipId, factionId, clientMutationId=None):
+        self.shipId = shipId
+        self.factionId = factionId
+        self.clientMutationId = clientMutationId
+
+def mutate_and_get_payload(_info, shipName, factionId, **_input):
+    new_ship = create_ship(shipName, factionId)
+    return IntroduceShipMutation(shipId=new_ship.id, factionId=factionId)
+
+ship_mutation = mutation_with_client_mutation_id(
+    "IntroduceShip",
+    input_fields={
+        "shipName": GraphQLInputField(GraphQLNonNull(GraphQLString)),
+        "factionId": GraphQLInputField(GraphQLNonNull(GraphQLID)),
+    },
+    output_fields={
+        "ship": GraphQLField(
+            ship_type, resolve=lambda payload, _info: get_ship(payload.shipId)
+        ),
+        "faction": GraphQLField(
+            faction_type, resolve=lambda payload, _info: get_faction(payload.factionId)
+        ),
+    },
+    mutate_and_get_payload=mutate_and_get_payload,
+)
+
+mutation_type = GraphQLObjectType(
+    "Mutation", fields=lambda: {"introduceShip": ship_mutation}
+)
+```
+
+This code creates a mutation named `IntroduceShip`, which takes a faction
+ID and a ship name as input. It outputs the `Faction` and the `Ship` in
+question. `mutate_and_get_payload` then gets each input field as keyword
+parameter, performs the mutation by constructing the new ship, then returns
+an object that will be resolved by the output fields.
+
+Our mutation type then creates the `introduceShip` field using the return
+value of `mutation_with_client_mutation_id`.
+
+## Contributing
+
+After cloning this repository from GitHub,
+we recommend using [Poetry](https://poetry.eustace.io/)
+to create a test environment. With poetry installed,
+you do this with the following command:
+
+```sh
+poetry install
+```
+
+You can then run the complete test suite like this:
+
+```sh
+poetry run pytest
+```
+
+In order to run only a part of the tests with increased verbosity,
+you can add pytest options, like this:
+
+```sh
+poetry run pytest tests/node -vv
+```
+
+In order to check the code style with flake8, use this:
+
+```sh
+poetry run flake8
+```
+
+Use the `tox` command to run the test suite with different
+Python versions and perform all additional source code checks.
+You can also restrict tox to an individual environment, like this:
+
+```sh
+poetry run tox -e py39
+```
+
+

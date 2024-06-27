@@ -1,0 +1,59 @@
+###
+### A complete description of a Prefect Deployment for flow 'ride-duration-prediction'
+###
+name: duration-pred
+description: null
+version: 6eac318244008739c6a37d62a3f2ef24
+# The work queue that will handle this deployment's runs
+work_queue_name: default
+work_pool_name: local-work
+tags: []
+parameters: {}
+schedule: null
+schedules: []
+is_schedule_active: null
+infra_overrides: {}
+infrastructure:
+  type: process
+  env: {}
+  labels: {}
+  name: null
+  command: null
+  stream_output: true
+  working_dir: null
+  block_type_slug: process
+  _block_type_slug: process
+
+###
+### DO NOT EDIT BELOW THIS LINE
+###
+flow_name: ride-duration-prediction
+manifest_path: null
+storage: null
+path: C:\Users\ArunGanesan\mlops-zoomcamp-garun\04-deployment\prefect
+entrypoint: score.py:ride_duration_prediction
+parameter_openapi_schema:
+  title: Parameters
+  type: object
+  properties:
+    taxi_type:
+      position: 0
+      title: taxi_type
+      type: string
+    run_id:
+      position: 1
+      title: run_id
+      type: string
+    run_date:
+      default: null
+      format: date-time
+      position: 2
+      title: run_date
+      type: string
+  required:
+  - taxi_type
+  - run_id
+  definitions: null
+timestamp: '2024-06-25T00:07:24.774194+00:00'
+triggers: []
+enforce_parameter_schema: null

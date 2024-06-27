@@ -1,0 +1,266 @@
+Metadata-Version: 2.1
+Name: prefect
+Version: 2.19.6
+Summary: Workflow orchestration and management.
+Home-page: https://www.prefect.io
+Author: Prefect Technologies, Inc.
+Author-email: help@prefect.io
+License: UNKNOWN
+Project-URL: Changelog, https://github.com/PrefectHQ/prefect/blob/main/RELEASE-NOTES.md
+Project-URL: Documentation, https://docs.prefect.io
+Project-URL: Source, https://github.com/PrefectHQ/prefect
+Project-URL: Tracker, https://github.com/PrefectHQ/prefect/issues
+Platform: UNKNOWN
+Classifier: Natural Language :: English
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: System Administrators
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Topic :: Software Development :: Libraries
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+Requires-Dist: aiosqlite >=0.17.0
+Requires-Dist: alembic <2.0.0,>=1.7.5
+Requires-Dist: apprise <2.0.0,>=1.1.0
+Requires-Dist: asyncpg >=0.23
+Requires-Dist: click <8.2,>=8.0
+Requires-Dist: cryptography >=36.0.1
+Requires-Dist: dateparser <2.0.0,>=1.1.1
+Requires-Dist: docker >=4.0
+Requires-Dist: graphviz >=0.20.1
+Requires-Dist: griffe >=0.20.0
+Requires-Dist: jinja2 <4.0.0,>=3.0.0
+Requires-Dist: jinja2-humanize-extension >=0.4.0
+Requires-Dist: humanize >=4.9.0
+Requires-Dist: kubernetes <30.0.0,>=24.2.0
+Requires-Dist: pytz <2025,>=2021.1
+Requires-Dist: readchar <5.0.0,>=4.0.0
+Requires-Dist: sqlalchemy[asyncio] !=1.4.33,<3.0.0,>=1.4.22
+Requires-Dist: typer !=0.12.2,<0.13.0,>=0.12.0
+Requires-Dist: anyio <4.0.0,>=3.7.1
+Requires-Dist: asgi-lifespan <3.0,>=1.0
+Requires-Dist: cachetools <6.0,>=5.3
+Requires-Dist: cloudpickle <4.0,>=2.0
+Requires-Dist: coolname <3.0.0,>=1.0.4
+Requires-Dist: croniter <3.0.0,>=1.0.12
+Requires-Dist: fsspec >=2022.5.0
+Requires-Dist: httpcore <2.0.0,>=1.0.5
+Requires-Dist: httpx[http2] !=0.23.2,>=0.23
+Requires-Dist: importlib-resources <6.2.0,>=6.1.3
+Requires-Dist: jsonpatch <2.0,>=1.32
+Requires-Dist: jsonschema <5.0.0,>=4.0.0
+Requires-Dist: orjson <4.0,>=3.7
+Requires-Dist: packaging <24.3,>=21.3
+Requires-Dist: pathspec >=0.8.0
+Requires-Dist: pydantic[email] !=2.0.0,!=2.0.1,!=2.1.0,<3.0.0,>=1.10.0
+Requires-Dist: pydantic-core <3.0.0,>=2.12.0
+Requires-Dist: python-dateutil <3.0.0,>=2.8.2
+Requires-Dist: python-slugify <9.0,>=5.0
+Requires-Dist: pyyaml <7.0.0,>=5.4.1
+Requires-Dist: rfc3339-validator <0.2.0,>=0.1.4
+Requires-Dist: rich <14.0,>=11.0
+Requires-Dist: ruamel.yaml >=0.17.0
+Requires-Dist: sniffio <2.0.0,>=1.3.0
+Requires-Dist: toml >=0.10.0
+Requires-Dist: typing-extensions <5.0.0,>=4.5.0
+Requires-Dist: ujson <6.0.0,>=5.8.0
+Requires-Dist: uvicorn <0.29.0,>=0.14.0
+Requires-Dist: websockets <13.0,>=10.4
+Requires-Dist: itsdangerous
+Requires-Dist: python-multipart >=0.0.7
+Requires-Dist: importlib-metadata >=4.4 ; python_version < "3.10"
+Requires-Dist: pendulum <3.0 ; python_version < "3.12"
+Requires-Dist: pendulum <4,>=3.0.0 ; python_version >= "3.12"
+Provides-Extra: aws
+Requires-Dist: prefect-aws ; extra == 'aws'
+Provides-Extra: azure
+Requires-Dist: prefect-azure ; extra == 'azure'
+Provides-Extra: bitbucket
+Requires-Dist: prefect-bitbucket ; extra == 'bitbucket'
+Provides-Extra: dask
+Requires-Dist: prefect-dask ; extra == 'dask'
+Provides-Extra: databricks
+Requires-Dist: prefect-databricks ; extra == 'databricks'
+Provides-Extra: dbt
+Requires-Dist: prefect-dbt ; extra == 'dbt'
+Provides-Extra: dev
+Requires-Dist: ruff ; extra == 'dev'
+Requires-Dist: cairosvg ; extra == 'dev'
+Requires-Dist: codespell >=2.2.6 ; extra == 'dev'
+Requires-Dist: ddtrace ; extra == 'dev'
+Requires-Dist: jinja2 ; extra == 'dev'
+Requires-Dist: mkdocs ; extra == 'dev'
+Requires-Dist: mkdocs-gen-files ; extra == 'dev'
+Requires-Dist: mkdocs-material ; extra == 'dev'
+Requires-Dist: mkdocstrings-python ; extra == 'dev'
+Requires-Dist: mike ; extra == 'dev'
+Requires-Dist: moto >=5 ; extra == 'dev'
+Requires-Dist: mypy >=1.9.0 ; extra == 'dev'
+Requires-Dist: numpy ; extra == 'dev'
+Requires-Dist: pillow ; extra == 'dev'
+Requires-Dist: pre-commit ; extra == 'dev'
+Requires-Dist: pluggy >=1.4.0 ; extra == 'dev'
+Requires-Dist: pytest <8,>7 ; extra == 'dev'
+Requires-Dist: pytest-asyncio !=0.22.0,<0.23.0,>=0.18.2 ; extra == 'dev'
+Requires-Dist: pytest-cov ; extra == 'dev'
+Requires-Dist: pytest-benchmark ; extra == 'dev'
+Requires-Dist: pytest-env ; extra == 'dev'
+Requires-Dist: pytest-flakefinder ; extra == 'dev'
+Requires-Dist: pytest-timeout ; extra == 'dev'
+Requires-Dist: pytest-xdist <3.4.0 ; extra == 'dev'
+Requires-Dist: pytkdocs >=0.14.2 ; extra == 'dev'
+Requires-Dist: pyyaml ; extra == 'dev'
+Requires-Dist: requests <2.32.0 ; extra == 'dev'
+Requires-Dist: vermin ; extra == 'dev'
+Requires-Dist: virtualenv ; extra == 'dev'
+Requires-Dist: watchfiles ; extra == 'dev'
+Requires-Dist: respx ; extra == 'dev'
+Requires-Dist: types-cachetools ; extra == 'dev'
+Requires-Dist: types-PyYAML ; extra == 'dev'
+Requires-Dist: mock ; (python_version < "3.8") and extra == 'dev'
+Requires-Dist: setuptools !=60.9.0 ; (python_version < "3.8") and extra == 'dev'
+Requires-Dist: ipython ==8.12.* ; (python_version == "3.8") and extra == 'dev'
+Requires-Dist: ipython ; (python_version > "3.8") and extra == 'dev'
+Provides-Extra: docker
+Requires-Dist: prefect-docker ; extra == 'docker'
+Provides-Extra: email
+Requires-Dist: prefect-email ; extra == 'email'
+Provides-Extra: gcp
+Requires-Dist: prefect-gcp ; extra == 'gcp'
+Provides-Extra: github
+Requires-Dist: prefect-github ; extra == 'github'
+Provides-Extra: gitlab
+Requires-Dist: prefect-gitlab ; extra == 'gitlab'
+Provides-Extra: kubernetes
+Requires-Dist: prefect-kubernetes ; extra == 'kubernetes'
+Provides-Extra: ray
+Requires-Dist: prefect-ray ; extra == 'ray'
+Provides-Extra: shell
+Requires-Dist: prefect-shell ; extra == 'shell'
+Provides-Extra: slack
+Requires-Dist: prefect-slack ; extra == 'slack'
+Provides-Extra: snowflake
+Requires-Dist: prefect-snowflake ; extra == 'snowflake'
+Provides-Extra: sqlalchemy
+Requires-Dist: prefect-sqlalchemy ; extra == 'sqlalchemy'
+
+<p align="center"><img src="https://github.com/PrefectHQ/prefect/assets/3407835/c654cbc6-63e8-4ada-a92a-efd2f8f24b85" width=1000></p>
+
+<p align="center">
+    <a href="https://pypi.python.org/pypi/prefect/" alt="PyPI version">
+        <img alt="PyPI" src="https://img.shields.io/pypi/v/prefect?color=0052FF&labelColor=090422"></a>
+    <a href="https://github.com/prefecthq/prefect/" alt="Stars">
+        <img src="https://img.shields.io/github/stars/prefecthq/prefect?color=0052FF&labelColor=090422" /></a>
+    <a href="https://pepy.tech/badge/prefect/" alt="Downloads">
+        <img src="https://img.shields.io/pypi/dm/prefect?color=0052FF&labelColor=090422" /></a>
+    <a href="https://github.com/prefecthq/prefect/pulse" alt="Activity">
+        <img src="https://img.shields.io/github/commit-activity/m/prefecthq/prefect?color=0052FF&labelColor=090422" /></a>
+    <br>
+    <a href="https://prefect.io/slack" alt="Slack">
+        <img src="https://img.shields.io/badge/slack-join_community-red.svg?color=0052FF&labelColor=090422&logo=slack" /></a>
+    <a href="https://discourse.prefect.io/" alt="Discourse">
+        <img src="https://img.shields.io/badge/discourse-browse_forum-red.svg?color=0052FF&labelColor=090422&logo=discourse" /></a>
+    <a href="https://www.youtube.com/c/PrefectIO/" alt="YouTube">
+        <img src="https://img.shields.io/badge/youtube-watch_videos-red.svg?color=0052FF&labelColor=090422&logo=youtube" /></a>
+</p>
+
+# Prefect
+
+Prefect is an orchestration and observability platform for building, observing, and triaging workflows. 
+It's the simplest way to transform Python code into an interactive workflow application.
+
+Prefect allows you to expose your workflows through an API so teams dependent on you can programmatically access your pipelines, business logic, and more.
+Prefect also allows you to standardize workflow development and deployment across your organization.
+
+With Prefect, you can build resilient, dynamic workflows that react to the world around them and recover from unexpected changes.
+With just a few decorators, Prefect supercharges your code with features like automatic retries, distributed execution, scheduling, caching, and much more.
+
+Every activity is tracked and can be monitored with a self-hosted [Prefect server](https://docs.prefect.io/latest/guides/host/) instance or managed [Prefect Cloud](https://www.prefect.io/cloud-vs-oss?utm_source=oss&utm_medium=oss&utm_campaign=oss_gh_repo&utm_term=none&utm_content=none) dashboard.
+
+## Getting started
+
+Prefect requires Python 3.8 or later. To [install Prefect](https://docs.prefect.io/getting-started/installation/), run the following command:
+
+```bash
+pip install prefect
+```
+
+Then create and run a Python file that uses Prefect `flow` and `task` decorators to orchestrate and observe your workflow - in this case, a simple script that fetches the number of GitHub stars from a repository:
+
+```python
+from prefect import flow, task
+from typing import List
+import httpx
+
+
+@task(log_prints=True)
+def get_stars(repo: str):
+    url = f"https://api.github.com/repos/{repo}"
+    count = httpx.get(url).json()["stargazers_count"]
+    print(f"{repo} has {count} stars!")
+
+
+@flow(name="GitHub Stars")
+def github_stars(repos: List[str]):
+    for repo in repos:
+        get_stars(repo)
+
+
+# run the flow!
+if __name__=="__main__":
+    github_stars(["PrefectHQ/Prefect"])
+```
+
+Fire up the Prefect UI to see what happened:
+
+```bash
+prefect server start
+```
+
+![Prefect UI dashboard](/docs/img/ui/cloud-dashboard.png)
+
+To run your workflow on a schedule, turn it into a deployment and schedule it to run every minute by changing the last line of your script to the following:
+
+```python
+    github_stars.serve(name="first-deployment", cron="* * * * *")
+```
+
+You now have a server running locally that is looking for scheduled deployments!
+Additionally you can run your workflow manually from the UI or CLI - and if you're using Prefect Cloud, you can even run deployments in response to [events](https://docs.prefect.io/latest/concepts/automations/).
+
+## Prefect Cloud
+
+Stop worrying about your workflows.
+Prefect Cloud allows you to centrally deploy, monitor, and manage the data workflows you support. With managed orchestration, automations, and webhooks, all backed by enterprise-class security, build production-ready code quickly and reliably.
+
+Read more about Prefect Cloud [here](https://www.prefect.io/cloud-vs-oss?utm_source=oss&utm_medium=oss&utm_campaign=oss_gh_repo&utm_term=none&utm_content=none) or sign up to [try it for yourself](https://app.prefect.cloud?utm_source=oss&utm_medium=oss&utm_campaign=oss_gh_repo&utm_term=none&utm_content=none).
+
+![Prefect Automations](/docs/img/ui/automations.png)
+
+## prefect-client
+
+If your use case is geared towards communicating with Prefect Cloud or a remote Prefect server, check out our 
+[prefect-client](https://pypi.org/project/prefect-client/). It was designed to be a lighter-weight option for accessing 
+client-side functionality in the Prefect SDK and is ideal for use in ephemeral execution environments.
+
+## Next steps
+
+There's lots more you can do to orchestrate and observe your workflows with Prefect!
+Start with our [friendly tutorial](https://docs.prefect.io/tutorials) or explore the [core concepts of Prefect workflows](https://docs.prefect.io/concepts/).
+
+## Join the community
+
+Prefect is made possible by the fastest growing community of thousands of friendly data engineers. Join us in building a new kind of workflow system. The [Prefect Slack community](https://prefect.io/slack) is a fantastic place to learn more about Prefect, ask questions, or get help with workflow design. All community forums, including code contributions, issue discussions, and slack messages are subject to our [Code of Conduct](https://discourse.prefect.io/faq).
+
+## Contribute
+
+See our [documentation on contributing to Prefect](https://docs.prefect.io/contributing/overview/).
+
+Thanks for being part of the mission to build a new kind of workflow system and, of course, **happy engineering!**
+
+

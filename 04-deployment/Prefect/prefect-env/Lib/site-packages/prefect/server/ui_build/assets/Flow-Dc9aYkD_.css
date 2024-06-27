@@ -1,0 +1,1 @@
+.flow-stats{display:flex;width:100%;flex-direction:column;align-items:center;gap:1rem}.flow-stats__cards{display:grid;width:100%;gap:1.25rem}@media (min-width: 640px){.flow-stats__cards{grid-template-columns:repeat(2,minmax(0,1fr))}}

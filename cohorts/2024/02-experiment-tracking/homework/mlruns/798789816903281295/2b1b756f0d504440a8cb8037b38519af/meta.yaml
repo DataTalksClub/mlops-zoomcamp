@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/798789816903281295/2b1b756f0d504440a8cb8037b38519af/artifacts
+end_time: 1716840629413
+entry_point_name: ''
+experiment_id: '798789816903281295'
+lifecycle_stage: active
+run_id: 2b1b756f0d504440a8cb8037b38519af
+run_name: fun-ape-147
+run_uuid: 2b1b756f0d504440a8cb8037b38519af
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1716840607362
+status: 3
+tags: []
+user_id: ArunGanesan

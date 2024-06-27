@@ -1,0 +1,135 @@
+Metadata-Version: 2.1
+Name: iterative-telemetry
+Version: 0.0.8
+Summary: Common library for sending telemetry
+Home-page: https://github.com/iterative/telemetry-python
+Maintainer-email: support@dvc.org
+License: Apache-2.0
+Platform: any
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Development Status :: 4 - Beta
+Requires-Python: >=3.8
+Description-Content-Type: text/x-rst
+License-File: LICENSE
+Requires-Dist: requests
+Requires-Dist: appdirs
+Requires-Dist: filelock
+Requires-Dist: distro
+Provides-Extra: dev
+Requires-Dist: pytest (==7.2.0) ; extra == 'dev'
+Requires-Dist: pytest-sugar (==0.9.5) ; extra == 'dev'
+Requires-Dist: pytest-cov (==3.0.0) ; extra == 'dev'
+Requires-Dist: pytest-mock (==3.8.2) ; extra == 'dev'
+Requires-Dist: pylint (==2.15.0) ; extra == 'dev'
+Requires-Dist: mypy (==0.971) ; extra == 'dev'
+Requires-Dist: types-requests ; extra == 'dev'
+Provides-Extra: tests
+Requires-Dist: pytest (==7.2.0) ; extra == 'tests'
+Requires-Dist: pytest-sugar (==0.9.5) ; extra == 'tests'
+Requires-Dist: pytest-cov (==3.0.0) ; extra == 'tests'
+Requires-Dist: pytest-mock (==3.8.2) ; extra == 'tests'
+Requires-Dist: pylint (==2.15.0) ; extra == 'tests'
+Requires-Dist: mypy (==0.971) ; extra == 'tests'
+Requires-Dist: types-requests ; extra == 'tests'
+
+Iterative Telemetry
+===================
+
+|PyPI| |Status| |Python Version| |License|
+
+|Tests| |Codecov| |pre-commit| |Black|
+
+.. |PyPI| image:: https://img.shields.io/pypi/v/iterative-telemetry.svg
+   :target: https://pypi.org/project/iterative-telemetry/
+   :alt: PyPI
+.. |Status| image:: https://img.shields.io/pypi/status/iterative-telemetry.svg
+   :target: https://pypi.org/project/iterative-telemetry/
+   :alt: Status
+.. |Python Version| image:: https://img.shields.io/pypi/pyversions/iterative-telemetry
+   :target: https://pypi.org/project/iterative-telemetry
+   :alt: Python Version
+.. |License| image:: https://img.shields.io/pypi/l/iterative-telemetry
+   :target: https://opensource.org/licenses/Apache-2.0
+   :alt: License
+.. |Tests| image:: https://github.com/iterative/iterative-telemetry/workflows/Tests/badge.svg
+   :target: https://github.com/iterative/iterative-telemetry/actions?workflow=Tests
+   :alt: Tests
+.. |Codecov| image:: https://codecov.io/gh/iterative/iterative-telemetry/branch/main/graph/badge.svg
+   :target: https://app.codecov.io/gh/iterative/iterative-telemetry
+   :alt: Codecov
+.. |pre-commit| image:: https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit&logoColor=white
+   :target: https://github.com/pre-commit/pre-commit
+   :alt: pre-commit
+.. |Black| image:: https://img.shields.io/badge/code%20style-black-000000.svg
+   :target: https://github.com/psf/black
+   :alt: Black
+
+
+Features
+--------
+
+* can be disabled in all tools by setting `ITERATIVE_DO_NOT_TRACK=1` env var
+* single anonymised `user_id` across all `iterative` projects
+* collects minimal amount of anonymised data. For example:
+
+.. code:: python
+
+    {
+        "tool_name": "dvc",
+        "tool_version": "2.14.0",
+        "user_id": "e798d2e2-8941-4f24-a868-3adcbf6467df",
+        "os_name": "mac",
+        "os_version": "12.3",
+    }
+
+Requirements
+------------
+
+* TODO
+
+
+Installation
+------------
+
+You can install *Iterative Telemetry* via pip_ from PyPI_:
+
+.. code:: console
+
+   $ pip install iterative-telemetry
+
+
+Usage
+-----
+
+
+Contributing
+------------
+
+Contributions are very welcome.
+To learn more, see the `Contributor Guide`_.
+
+
+License
+-------
+
+Distributed under the terms of the `Apache 2.0 license`_,
+*Iterative Telemetry* is free and open source software.
+
+
+Issues
+------
+
+If you encounter any problems,
+please `file an issue`_ along with a detailed description.
+
+
+.. _Apache 2.0 license: https://opensource.org/licenses/Apache-2.0
+.. _PyPI: https://pypi.org/
+.. _file an issue: https://github.com/iterative/iterative-telemetry/issues
+.. _pip: https://pip.pypa.io/
+.. github-only
+.. _Contributor Guide: CONTRIBUTING.rst

@@ -1,0 +1,102 @@
+{
+  "id": "4503625e-2fb9-4a32-8204-57065cfef3a8",
+  "name": "Demo project - Adult",
+  "description": "A toy demo project using Adult dataset. Showcases TestSuite panels",
+  "dashboard": {
+    "name": "Demo project - Adult",
+    "panels": [
+      {
+        "type": "evidently.ui.dashboards.test_suites.DashboardPanelTestSuite",
+        "id": "e1d10ae5-0c64-4527-b416-0c505b1c92de",
+        "title": "Column Drift tests for key features: aggregated",
+        "filter": {
+          "metadata_values": {},
+          "tag_values": [],
+          "include_test_suites": true
+        },
+        "size": 1,
+        "test_filters": [
+          {
+            "test_id": "TestColumnDrift",
+            "test_fingerprint": null,
+            "test_args": {
+              "column_name.name": "hours-per-week"
+            }
+          },
+          {
+            "test_id": "TestColumnDrift",
+            "test_fingerprint": null,
+            "test_args": {
+              "column_name.name": "capital-gain"
+            }
+          }
+        ],
+        "panel_type": "aggregate",
+        "time_agg": "1D"
+      },
+      {
+        "type": "evidently.ui.dashboards.test_suites.DashboardPanelTestSuite",
+        "id": "4e2534fe-41b7-4220-97a2-8d2800a5655a",
+        "title": "All tests: aggregated",
+        "filter": {
+          "metadata_values": {},
+          "tag_values": [],
+          "include_test_suites": true
+        },
+        "size": 1,
+        "test_filters": [],
+        "panel_type": "aggregate",
+        "time_agg": "1D"
+      },
+      {
+        "type": "evidently.ui.dashboards.test_suites.DashboardPanelTestSuite",
+        "id": "70dcf60c-e5b6-47a8-810a-785c422f250c",
+        "title": "Column Drift tests for key features: detailed",
+        "filter": {
+          "metadata_values": {},
+          "tag_values": [],
+          "include_test_suites": true
+        },
+        "size": 1,
+        "test_filters": [
+          {
+            "test_id": "TestColumnDrift",
+            "test_fingerprint": null,
+            "test_args": {
+              "column_name.name": "hours-per-week"
+            }
+          },
+          {
+            "test_id": "TestColumnDrift",
+            "test_fingerprint": null,
+            "test_args": {
+              "column_name.name": "capital-gain"
+            }
+          }
+        ],
+        "panel_type": "detailed",
+        "time_agg": "1D"
+      },
+      {
+        "type": "evidently.ui.dashboards.test_suites.DashboardPanelTestSuite",
+        "id": "c3853e36-91fc-4f1d-8ec7-781b99aa9581",
+        "title": "All tests: detailed",
+        "filter": {
+          "metadata_values": {},
+          "tag_values": [],
+          "include_test_suites": true
+        },
+        "size": 1,
+        "test_filters": [],
+        "panel_type": "detailed",
+        "time_agg": "1D"
+      }
+    ],
+    "tabs": [],
+    "tab_id_to_panel_ids": {}
+  },
+  "team_id": null,
+  "date_from": null,
+  "date_to": null,
+  "created_at": "2024-06-26T08:30:14.667087"
+}

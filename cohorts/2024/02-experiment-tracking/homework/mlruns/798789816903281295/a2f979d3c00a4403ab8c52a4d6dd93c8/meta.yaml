@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/798789816903281295/a2f979d3c00a4403ab8c52a4d6dd93c8/artifacts
+end_time: 1716840317000
+entry_point_name: ''
+experiment_id: '798789816903281295'
+lifecycle_stage: active
+run_id: a2f979d3c00a4403ab8c52a4d6dd93c8
+run_name: illustrious-bird-203
+run_uuid: a2f979d3c00a4403ab8c52a4d6dd93c8
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1716840316947
+status: 4
+tags: []
+user_id: ArunGanesan

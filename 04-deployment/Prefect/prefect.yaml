@@ -1,0 +1,44 @@
+# Welcome to your prefect.yaml file! You can use this file for storing and managing
+# configuration for deploying your flows. We recommend committing this file to source
+# control along with your flow code.
+
+# Generic metadata about this project
+name: prefect
+prefect-version: 2.19.6
+
+# build section allows you to manage and build docker images
+build:
+
+# push section allows you to manage if and how this project is uploaded to remote locations
+push:
+
+# pull section allows you to provide instructions for cloning this project in remote locations
+pull:
+- prefect.deployments.steps.git_clone:
+    repository: https://github.com/arungansi/mlops-zoomcamp-arun/tree/main/04-deployment.git
+    branch: Prefect
+
+# the deployments section allows you to provide configuration for deploying flows
+deployments:
+- name: duration-pred
+  version:
+  tags: []
+  description:
+  entrypoint: score.py:ride_duration_prediction
+  parameters: {}
+  work_pool:
+    name: local-work
+    work_queue_name:
+    job_variables: {}
+  schedules: []
+- name: duration-pred-aws
+  version:
+  tags: []
+  description:
+  entrypoint: score.py:ride_duration_prediction
+  parameters: {}
+  work_pool:
+    name: aws-work-s3
+    work_queue_name:
+    job_variables: {}
+  schedules: []

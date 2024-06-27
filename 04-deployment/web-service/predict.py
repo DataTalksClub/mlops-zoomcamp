@@ -2,7 +2,7 @@ import pickle
 
 from flask import Flask, request, jsonify
 
-with open('lin_reg.bin', 'rb') as f_in:
+with open('../../01-intro/models/lin_reg.bin', 'rb') as f_in:
     (dv, model) = pickle.load(f_in)
 
 

@@ -1,0 +1,15 @@
+artifact_uri: file:///c:/Users/ArunGanesan/mlops-zoomcamp-garun/02-experiment-tracking/running-mlflow-examples/mlruns/787509004695272910/2b6bf94d5400470fa97493ae7dc5c899/artifacts
+end_time: 1716767814108
+entry_point_name: ''
+experiment_id: '787509004695272910'
+lifecycle_stage: active
+run_id: 2b6bf94d5400470fa97493ae7dc5c899
+run_name: gifted-doe-43
+run_uuid: 2b6bf94d5400470fa97493ae7dc5c899
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1716767802778
+status: 3
+tags: []
+user_id: ArunGanesan

@@ -1,0 +1,60 @@
+# Welcome to your prefect.yaml file! You can use this file for storing and managing
+# configuration for deploying your flows. We recommend committing this file to source
+# control along with your flow code.
+
+# Generic metadata about this project
+name: prefect-dev
+prefect-version: 2.19.6
+
+# build section allows you to manage and build docker images
+build:
+
+# push section allows you to manage if and how this project is uploaded to remote locations
+push:
+
+# pull section allows you to provide instructions for cloning this project in remote locations
+pull:
+- prefect.deployments.steps.set_working_directory:
+    #directory: C:\Users\ArunGanesan\mlops-zoomcamp-garun\04-deployment\prefect-dev
+    directory: ./
+
+# the deployments section allows you to provide configuration for deploying flows
+deployments:
+- name:
+  version:
+  tags: []
+  description:
+  schedule: {}
+  flow_name:
+  entrypoint:
+  parameters: {}
+  work_pool:
+    name:
+    work_queue_name:
+    job_variables: {}
+- name: duration-pred-test
+  version:
+  tags: []
+  description:
+  entrypoint: score.py:ride_duration_prediction
+  parameters: {}
+  work_pool:
+    name: local-work
+    work_queue_name:
+    job_variables: {}
+  schedules:
+  - interval: 60.0
+    anchor_date: '2024-06-25T04:34:59.366551+00:00'
+    timezone: UTC
+    active: true
+- name: duration-pred-stage
+  version:
+  tags: []
+  description:
+  entrypoint: score.py:ride_duration_prediction
+  parameters: {}
+  work_pool:
+    name: local-work
+    work_queue_name:
+    job_variables: {}
+  schedules: []

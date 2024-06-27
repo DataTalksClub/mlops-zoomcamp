@@ -1,0 +1,9 @@
+digest: 7edda543
+name: dataset
+profile: '{"features_shape": [62574, 5702], "features_size": 356796948, "features_nbytes":
+  2854375584}'
+schema: '{"mlflow_tensorspec": {"features": "[{\"type\": \"tensor\", \"tensor-spec\":
+  {\"dtype\": \"float64\", \"shape\": [-1, 5702]}}]", "targets": null}}'
+source: '{"tags": {"mlflow.user": "ArunGanesan", "mlflow.source.name": "c:\\Users\\ArunGanesan\\mlops-zoomcamp-garun\\cohorts\\2024\\02-experiment-tracking\\homework\\train.py",
+  "mlflow.source.type": "LOCAL", "mlflow.source.git.commit": "c6cacd60d343455896a4b1c5958fb45900e7fe73"}}'
+source_type: code
