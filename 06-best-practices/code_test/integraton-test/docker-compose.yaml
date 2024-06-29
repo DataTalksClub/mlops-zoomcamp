@@ -1,0 +1,21 @@
+services:
+  backend:
+    image: ${LOCAL_IMAGE_NAME}
+    ports:
+      - "8080:8080"
+    environment:
+      - PREDICTIONS_STREAM_NAME=${PREDICTIONS_STREAM_NAME}
+      - RUN_ID=Test123
+      - AWS_DEFAULT_REGION=eu-west-1
+      - MODEL_LOCATION=/app/model
+      - KINESIS_ENDPOINT_URL=http://kinesis:4566/
+      - AWS_ACCESS_KEY_ID=abc
+      - AWS_SECRET_ACCESS_KEY=xyz
+    volumes:
+      - "./model:/app/model"
+  kinesis:
+    image: localstack/localstack
+    ports:
+      - "4566:4566"
+    environment:
+      - SERVICES=kinesis

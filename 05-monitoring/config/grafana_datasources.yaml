@@ -8,9 +8,9 @@ datasources:
     type: postgres
     access: proxy
     url: db.:5432
-    database: taxi_monitoring
+    database: test
     user: postgres
     secureJsonData:
-      password: 'example'
+      password: 'ArunGansi@123'
     jsonData:
       sslmode: 'disable'
