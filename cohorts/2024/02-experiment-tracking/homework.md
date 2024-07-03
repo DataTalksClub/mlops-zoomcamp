@@ -14,6 +14,7 @@ Once you installed the package, run the command `mlflow --version` and check the
 
 What's the version that you have?
 
+**Answer:** 2.14.1
 
 
 ## Q2. Download and preprocess the data
@@ -33,7 +34,7 @@ The script will:
 Your task is to download the datasets and then execute this command:
 
 ```
-python preprocess_data.py --raw_data_path <TAXI_DATA_FOLDER> --dest_path ./output
+python preprocess_data.py --raw_data_path C:\Users\arun_prasath\workspace\courses\mlops-zoomcamp\data --dest_path ./output
 ```
 
 Tip: go to `02-experiment-tracking/homework/` folder before executing the command and change the value of `<TAXI_DATA_FOLDER>` to the location where you saved the data.
@@ -45,6 +46,7 @@ How many files were saved to `OUTPUT_FOLDER`?
 * 4
 * 7
 
+**Anser:** 4
 
 ## Q3. Train a model with autolog
 
@@ -71,6 +73,7 @@ What is the value of the `min_samples_split` parameter:
 * 8
 * 10
 
+**Answer:** 2
 
 ## Q4. Launch the tracking server locally
 
@@ -90,6 +93,7 @@ In addition to `backend-store-uri`, what else do you need to pass to properly co
 * `artifacts-only`
 * `artifacts-destination`
 
+**Answer:** `default-artifact-root`
 
 ## Q5. Tune model hyperparameters
 
@@ -114,6 +118,7 @@ What's the best validation RMSE that you got?
 * 5.818
 * 6.336
 
+**Answer:** 5.370
 
 ## Q6. Promote the best model to the model registry
 
@@ -134,6 +139,7 @@ What is the test RMSE of the best model?
 * 6.061
 * 6.568
 
+**Answer:** 5.567
 
 ## Submit the results
 

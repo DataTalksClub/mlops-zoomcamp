@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/arun_prasath/workspace/courses/mlops-zoomcamp/cohorts/2024/02-experiment-tracking/homework/mlruns/0/0f183613c083429fb51a7bd17b00ace6/artifacts
+end_time: 1720008776408
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 0f183613c083429fb51a7bd17b00ace6
+run_name: intrigued-lark-855
+run_uuid: 0f183613c083429fb51a7bd17b00ace6
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1720008743701
+status: 3
+tags: []
+user_id: arun_prasath

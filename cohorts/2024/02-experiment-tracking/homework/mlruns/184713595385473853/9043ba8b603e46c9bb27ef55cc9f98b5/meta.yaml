@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/184713595385473853/9043ba8b603e46c9bb27ef55cc9f98b5/artifacts
+end_time: 1720010416921
+entry_point_name: ''
+experiment_id: '184713595385473853'
+lifecycle_stage: active
+run_id: 9043ba8b603e46c9bb27ef55cc9f98b5
+run_name: tasteful-crow-66
+run_uuid: 9043ba8b603e46c9bb27ef55cc9f98b5
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1720010388454
+status: 3
+tags: []
+user_id: arun_prasath
