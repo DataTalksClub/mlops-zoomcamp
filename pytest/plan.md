@@ -77,4 +77,5 @@ $pwd/integration-test/run.sh
 #install pre-commit checks
 pipenv install --dev pre-commit
 
-
+#see the log of the previous commit
+git log 
