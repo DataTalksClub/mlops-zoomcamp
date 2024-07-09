@@ -36,3 +36,24 @@ pipenv install --dev black
 ## libary for sorting import of libraries
 pipenv install --dev isort
 
+
+## black will replace single quotes with double quotes
+## investigat black on the current folder. Don't write the files back, just output a diff to indicate what changes Black would've made. 
+black --diff .
+
+black --diff . | less
+
+# apply the changes of formatting using black
+black .
+
+#get the modified git repository fies
+git status
+
+#add the modified git repository files to master from the current working directory
+git add .
+
+#commit the changes to the master branch
+git commit -m "comments on commit"
+
+
+
