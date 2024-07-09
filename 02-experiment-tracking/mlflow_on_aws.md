@@ -62,6 +62,7 @@ Take note of the following information:
 
 Once the DB instance is created, go to the RDS console, select the new db and under "Connectivity & security" select the VPC security group. Modify the security group by adding a new inbound rule that allows postgreSQL connections on the port 5432 from the security group of the EC2 instance. This way, the server will be able to connect to the postgres database.
 
+Note that the database name might be set to "postgres" by default.
 <img src="images/postgresql_inbound_rule.png" width=400/>
 
 5. Connect to the EC2 instance and launch the tracking server.

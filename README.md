@@ -72,6 +72,8 @@ To make discussions in Slack more organized:
 
 ## Syllabus
 
+We encourage [Learning in Public](learning-in-public.md)
+
 ### [Module 1: Introduction](01-intro)
 
 * What is MLOps
@@ -189,7 +191,7 @@ If you want to make sure you don't miss anything:
 
 ## Supporters and partners
 
-Thanks to the course sponsors for making it possible to create this course
+Thanks to the course sponsors for making it possible to run this course
 
 <p align="center">
   <a href="https://mage.ai/">

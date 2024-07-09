@@ -1,0 +1,4 @@
+[MESSAGE CONTROL]
+
+disable=missing-function-docstring,
+        missing-final-newline

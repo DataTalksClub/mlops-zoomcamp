@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 #version: '3.9'
+=======
+#version: '3.7'
+>>>>>>> e288ced533af0dff4b27b7431b22c6ca74c535b7
 
 volumes: 
   grafana_data: {}

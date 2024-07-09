@@ -39,7 +39,7 @@ Record example
         "DOLocationID": 205,
         "trip_distance": 3.66
     }, 
-    "ride_id": 123
+    "ride_id": 156
 }
 ```
 
@@ -51,11 +51,11 @@ aws kinesis put-record \
     --partition-key 1 \
     --data '{
         "ride": {
-            "PULocationID": 130,
-            "DOLocationID": 205,
-            "trip_distance": 3.66
+            "PULocationID": 256,
+            "DOLocationID": 256,
+            "trip_distance": 256
         }, 
-        "ride_id": 156
+        "ride_id": 256
     }'
 ```
 
@@ -101,7 +101,7 @@ SHARD_ITERATOR=$(aws kinesis \
 
 RESULT=$(aws kinesis get-records --shard-iterator $SHARD_ITERATOR)
 
-echo ${RESULT} | jq -r '.Records[0].Data' | base64 --decode
+echo ${RESULT} | jq -r '.Records[0].Data' | base64 -di --decode | jq
 ``` 
 
 
@@ -109,7 +109,7 @@ echo ${RESULT} | jq -r '.Records[0].Data' | base64 --decode
 
 ```bash
 export PREDICTIONS_STREAM_NAME="ride_predictions"
-export RUN_ID="e1efc53e9bd149078b0c12aeaa6365df"
+export RUN_ID="9129b1c2b1ce401e9ab1d1d94a19249b"
 export TEST_RUN="True"
 
 python test.py
@@ -118,7 +118,7 @@ python test.py
 ### Putting everything to Docker
 
 ```bash
-docker build -t stream-model-duration:v1 .
+docker build -t streaming-model-duration:v1 .
 
 docker run -it --rm \
     -p 8080:8080 \
@@ -139,7 +139,15 @@ URL for testing:
 
 To use AWS CLI, you may need to set the env variables:
 
+https://docs.aws.amazon.com/cli/v1/userguide/cli-configure-envvars.html
+
+
 ```bash
+
+export AWS_DEFAULT_REGION="eu-north-1"
+export AWS_ACCESS_KEY_ID=AKIAQ764F4YNBHPE2AUS
+export AWS_SECRET_ACCESS_KEY=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
+
 docker run -it --rm \
     -p 8080:8080 \
     -e PREDICTIONS_STREAM_NAME="ride_predictions" \
@@ -157,19 +165,35 @@ Alternatively, you can mount the `.aws` folder with your credentials to the `.aw
 docker run -it --rm \
     -p 8080:8080 \
     -e PREDICTIONS_STREAM_NAME="ride_predictions" \
-    -e RUN_ID="e1efc53e9bd149078b0c12aeaa6365df" \
+    -e RUN_ID="9129b1c2b1ce401e9ab1d1d94a19249b" \
     -e TEST_RUN="True" \
-    -v c:/Users/alexe/.aws:/root/.aws \
-    stream-model-duration:v1
+    -v c:/Users/arunganesan/.aws:/root/.aws \
+    streaming-model-duration:v1
 ```
 
 ### Publishing Docker images
 
-Creating an ECR repo
+Creating an ECR repo - Elastic container registry for hosting docker images
 
 ```bash
-aws ecr create-repository --repository-name duration-model
+aws ecr create-repository --repository-name duration-pred-model
 ```
+{
+    "repository": {
+        "repositoryArn": "arn:aws:ecr:eu-north-1:068644365850:repository/duration-model",
+        "registryId": "068644365850",
+        "repositoryName": "duration-model",
+        "repositoryUri": "068644365850.dkr.ecr.eu-north-1.amazonaws.com/duration-model",
+        "createdAt": 1720139341.551,
+        "imageTagMutability": "MUTABLE",
+        "imageScanningConfiguration": {
+            "scanOnPush": false
+        },
+        "encryptionConfiguration": {
+            "encryptionType": "AES256"
+        }
+    }
+}
 
 Logging in
 
@@ -180,11 +204,21 @@ $(aws ecr get-login --no-include-email)
 Pushing 
 
 ```bash
-REMOTE_URI="387546586013.dkr.ecr.eu-west-1.amazonaws.com/duration-model"
+REMOTE_URI="068644365850.dkr.ecr.eu-north-1.amazonaws.com/duration-pred-model2"
 REMOTE_TAG="v1"
 REMOTE_IMAGE=${REMOTE_URI}:${REMOTE_TAG}
 
-LOCAL_IMAGE="stream-model-duration:v1"
+LOCAL_IMAGE="streaming-model-duration:v1"
 docker tag ${LOCAL_IMAGE} ${REMOTE_IMAGE}
 docker push ${REMOTE_IMAGE}
 ```
+
+
+ip = base64.b64encode(b'{
+    "ride": {
+        "PULocationID": 130,
+        "DOLocationID": 205,
+        "trip_distance": 3.66
+    }, 
+    "ride_id": 156
+}')
