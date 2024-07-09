@@ -55,5 +55,26 @@ git add .
 #commit the changes to the master branch
 git commit -m "comments on commit"
 
+#push the changes to the master branch
+#use "git push" to publish your local commits
+git push 
+
+# analyze the changes proposed by isort to the current working directory
+isort --diff . | less
+
+# compare file from local branch to master branch
+git diff <filename>
+
+Order of application
+isort .
+black .
+pylint --recursive=y .
+pytest tests/
+$pwd/integration-test/run.sh
+
+
+# do a bunch of checks and balances on the pythong package before committing the same to git repository
+#install pre-commit checks
+pipenv install --dev pre-commit
 
 
