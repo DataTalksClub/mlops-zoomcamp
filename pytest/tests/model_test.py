@@ -55,7 +55,7 @@ class ModelMock:
 
 
 def test_predict():
-    model_mock = ModelMock(10.0)
+    model_mock = ModelMock(11.0)
     model_service = model.ModelService(model_mock)
 
     features = {
@@ -64,13 +64,13 @@ def test_predict():
     }
 
     actual_prediction = model_service.predict(features)
-    expected_prediction = 10.0
+    expected_prediction = 11.0
 
     assert actual_prediction == expected_prediction
 
 
 def test_lambda_handler():
-    model_mock = ModelMock(10.0)
+    model_mock = ModelMock(11.0)
     model_version = 'Test123'
     model_service = model.ModelService(model_mock, model_version)
 
@@ -93,7 +93,7 @@ def test_lambda_handler():
                 'model': 'ride_duration_prediction_model',
                 'version': model_version,
                 'prediction': {
-                    'ride_duration': 10.0,
+                    'ride_duration': 11.0,
                     'ride_id': 256,
                 },
             }
