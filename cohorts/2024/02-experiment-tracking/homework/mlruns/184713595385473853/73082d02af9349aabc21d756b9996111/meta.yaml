@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/184713595385473853/73082d02af9349aabc21d756b9996111/artifacts
+end_time: 1720588926572
+entry_point_name: ''
+experiment_id: '184713595385473853'
+lifecycle_stage: active
+run_id: 73082d02af9349aabc21d756b9996111
+run_name: abundant-sheep-332
+run_uuid: 73082d02af9349aabc21d756b9996111
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1720588866951
+status: 3
+tags: []
+user_id: arun_prasath

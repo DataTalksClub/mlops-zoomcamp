@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/arun_prasath/workspace/courses/mlops-zoomcamp/cohorts/2024/02-experiment-tracking/homework/mlruns/0/08d12de37c03466596d663eba8eef8e4/artifacts
+end_time: 1720588115506
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 08d12de37c03466596d663eba8eef8e4
+run_name: learned-cod-443
+run_uuid: 08d12de37c03466596d663eba8eef8e4
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1720588038778
+status: 3
+tags: []
+user_id: arun_prasath
