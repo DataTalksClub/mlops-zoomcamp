@@ -36,6 +36,6 @@
 * [Homework](06-best-practices/homework.md)
 
 
-[**Projects**](projects.md)
+[**Project**](project.md)
 
-* [More information](projects.md)
+* [More information](project.md)

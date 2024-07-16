@@ -34,6 +34,7 @@
   <img src="images/thumbnail-4-04.jpg">
 </a>
 
+Note: Since some of the steps in this video requires the use of AWS services which incur some cost on the user, it is optional to code along to this video. However, as material in Module 6 is based on the content of this video, we still highly recommended that you watch it.
 
 [See code here](streaming/)
 
