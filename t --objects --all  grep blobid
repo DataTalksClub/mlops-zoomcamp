@@ -1,0 +1,260 @@
+[33mcommit b666a2ff5ef836766e1ed706a12fda466362e7be[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m)[m
+Author: arungansi <52588829+arungansi@users.noreply.github.com>
+Date:   Tue Jul 9 10:13:37 2024 +0530
+
+    intial commit before precommit
+
+[33mcommit 548035c31762ceb08a90078a62f20be35b5b4f49[m
+Author: arungansi <52588829+arungansi@users.noreply.github.com>
+Date:   Tue Jul 9 10:08:33 2024 +0530
+
+    precommit checks
+
+[33mcommit 80f870d5629f5f669d80567b5fd4804ce28f503a[m
+Author: arungansi <52588829+arungansi@users.noreply.github.com>
+Date:   Tue Jul 9 09:25:42 2024 +0530
+
+    applied formatting using 'black'
+
+[33mcommit f2d32dd3bfc900f230be94ac530ae37e6ee65a5d[m
+Merge: ab485473 e288ced5
+Author: arungansi <52588829+arungansi@users.noreply.github.com>
+Date:   Tue Jul 9 09:02:57 2024 +0530
+
+    all best practices on testing, linting and formatting
+
+[33mcommit ab485473a1adf204e8148de36ede0a41289f4ac7[m
+Author: arungansi <52588829+arungansi@users.noreply.github.com>
+Date:   Sat Jun 29 07:24:34 2024 +0530
+
+    all changes 05-monitoring
+
+[33mcommit e288ced533af0dff4b27b7431b22c6ca74c535b7[m[33m ([m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: arun.gansi <arun.gansi@gmail.com>
+Date:   Fri Jun 28 21:34:03 2024 +0530
+
+    homework-5
+
+[33mcommit e1d8ba19035a0d2117817bea2f6f0eee04c63366[m
+Author: arungansi <52588829+arungansi@users.noreply.github.com>
+Date:   Thu Jun 27 05:41:29 2024 +0530
+
+    first upload
+
+[33mcommit 251b27fd21260c80e2634c4a1d5bfef39adb79ed[m[33m ([m[1;31mupstream/main[m[33m, [m[1;31mupstream/HEAD[m[33m)[m
+Author: Alexey Grigorev <alexeygrigorev@users.noreply.github.com>
+Date:   Wed Jun 26 19:16:04 2024 +0200
+
+    Update homework.md
+
+[33mcommit 93e1e4b8d565f1a5cf3e5cbda362bf411ec0fe99[m
+Author: Alexey Grigorev <alexeygrigorev@users.noreply.github.com>
+Date:   Wed Jun 26 19:15:27 2024 +0200
+
+    Rename starter.ipynb to solution.ipynb
+
+[33mcommit 7b6586194995589fa3938a671c261b4d31e2646d[m
+Author: Anton Petrov <gsenseless@users.noreply.github.com>
+Date:   Wed Jun 26 21:14:36 2024 +0400
+
+    more suitable wording (#322)
+
+[33mcommit 86eca167f204d52abefbc959c0ce8b00b2a560af[m
+Author: Alexey Grigorev <alexeygrigorev@users.noreply.github.com>
+Date:   Wed Jun 26 17:14:01 2024 +0000
+
+    hw4 solution
+
+[33mcommit 343c1ce2f596d0176a6f0105406101d7890f80cc[m
+Merge: 5b681a40 34031f99
+Author: Камалиев Тимур <kamaliev.t@1221systems.ru>
+Date:   Mon Jun 24 13:35:34 2024 +0300
+
+    Merge branch 'main' of https://github.com/DataTalksClub/mlops-zoomcamp
+
+[33mcommit 5b681a400d2ebf0518107ee42371890f9578c72e[m
+Author: Камалиев Тимур <kamaliev.t@1221systems.ru>
+Date:   Mon Jun 24 13:33:47 2024 +0300
+
+    Added module6 homework
+
+[33mcommit 34031f996ddf98e7c129390c924fa621444cb1bc[m
+Author: Alexey Grigorev <alexey.s.grigoriev@gmail.com>
+Date:   Mon Jun 24 10:18:21 2024 +0200
+
+    README.md
+
+[33mcommit 710f15f1470041eaffe7d5a19408a3ff4f89f773[m
+Merge: 024c06e6 f3df6c66
+Author: Alexey Grigorev <alexey.s.grigoriev@gmail.com>
+Date:   Mon Jun 24 10:17:30 2024 +0200
+
+    Merge branch 'main' of github.com:DataTalksClub/mlops-zoomcamp
+
+[33mcommit 024c06e67dfc55752e8df1371264d1820de470a7[m
+Author: Alexey Grigorev <alexey.s.grigoriev@gmail.com>
+Date:   Mon Jun 24 10:17:25 2024 +0200
+
+    cosmetic change
+
+[33mcommit a3dce1a95d8d4f86058b8f9c4a8fd8add44d72de[m
+Author: Alexey Grigorev <alexey.s.grigoriev@gmail.com>
+Date:   Mon Jun 24 10:16:52 2024 +0200
+
+    learning in public
+
+[33mcommit f3df6c6661a6fc8f23b882e1d477925bc547f7a3[m
+Author: anicolas91 <57721561+anicolas91@users.noreply.github.com>
+Date:   Sat Jun 22 12:11:28 2024 -0700
+
+    Update grafana_datasources.yaml (#318)
+    
+    updated yaml file so that the test db with the dummy_metrics table can be visible on grafana as per 5.4
+
+[33mcommit 81e79e36db847b2a59dfe711a489d115a5a39cdf[m
+Author: Marcus Leiwe <marcus@metacell.us>
+Date:   Sun Jun 23 03:11:00 2024 +0800
+
+    Notes updater (#320)
+    
+    * Update README.md
+    
+    * Adding in Week 4 notes
+
+[33mcommit acfcf226d73bbf8302b30016da29447ebf5d0c4a[m
+Author: Marcus Leiwe <marcus@metacell.us>
+Date:   Tue Jun 18 12:17:52 2024 +0800
+
+    Update README.md (#314)
+
+[33mcommit ba24fa28cefd11a4c0f1202c2cc258d6556e4e79[m
+Author: Anton Petrov <gsenseless@users.noreply.github.com>
+Date:   Tue Jun 18 08:17:17 2024 +0400
+
+    Update homework.md (#316)
+    
+    typo
+
+[33mcommit 4d42a75729f599e260b7d25ab4f6ed2ddffb2bd5[m
+Author: Alexey Grigorev <alexeygrigorev@users.noreply.github.com>
+Date:   Mon Jun 17 21:29:18 2024 +0200
+
+    Update homework.md
+
+[33mcommit 622e3b2e1adea5b4143f88ca64608c37feb9b5d0[m
+Author: Emeli Dral <emeli.dral@gmail.com>
+Date:   Thu Jun 13 19:21:37 2024 +0100
+
+    Updated 05-monitoring homework for cohort 2024 (#315)
+
+[33mcommit 6205cffcfce55d739ea09d1dc9772675f0a889c6[m
+Author: Khant Htoo Naing <61989337+Hokfu@users.noreply.github.com>
+Date:   Thu Jun 13 01:03:16 2024 +0700
+
+    Update notes (#312)
+
+[33mcommit d33feb98a7f47cdd94ec613b8b91fd195e07c066[m
+Author: Alexey Grigorev <alexeygrigorev@users.noreply.github.com>
+Date:   Wed Jun 12 20:02:58 2024 +0200
+
+    Update README.md
+
+[33mcommit 005e1b17b98aca6e696d987ea3cac9bf40b57ba5[m
+Author: Aleksander Sokolov <56077051+alex-sokolov2011@users.noreply.github.com>
+Date:   Wed Jun 12 20:35:11 2024 +0300
+
+    Update README.md (#311)
+
+[33mcommit a8ff63f58a32768a388ac6c2e1e0d366ea5c9cc7[m
+Author: Alexey Grigorev <alexeygrigorev@users.noreply.github.com>
+Date:   Tue Jun 11 07:26:23 2024 +0200
+
+    Update homework.md
+
+[33mcommit 89f94c8d1771f669269909a53c7f55a0330979c2[m
+Author: Alexey Grigorev <alexeygrigorev@users.noreply.github.com>
+Date:   Mon Jun 10 17:55:16 2024 +0200
+
+    Update homework.md
+
+[33mcommit 702f835f5ff46603ade5d18ca573bdf33e4e1b61[m
+Author: Kate <93825970+kattat13@users.noreply.github.com>
+Date:   Mon Jun 10 16:08:53 2024 +0200
+
+    updated README (#310)
+    
+    * updated README
+    
+    added missing 3.2.1 video link, changed title of the 3.2.2 video
+    
+    * Update README.md
+
+[33mcommit 627c0c0fdfbc0bbd78c240bcc70f3ad20e21dd6d[m
+Author: ellacharmed <ellacharmed@gmail.com>
+Date:   Mon Jun 10 22:08:21 2024 +0800
+
+    Update homework.md (#308)
+    
+    - Remove the `predict` term as we're not doing inference.
+    - Rewrote homework's goal.
+    - Corrected some typos.
+
+[33mcommit 56761cf17d63363a91c9535fdd3ea1b1dc10b174[m
+Author: SVizor42 <timurkamaliev@gmail.com>
+Date:   Sun Jun 9 23:19:08 2024 +0300
+
+    homework 2 solution
+
+[33mcommit aacb4a550d1c497f726614f4d2365afd288408a9[m
+Author: Alexey Grigorev <alexeygrigorev@users.noreply.github.com>
+Date:   Fri Jun 7 21:58:24 2024 +0200
+
+    Update README.md
+
+[33mcommit cd54f8e9e2b599c1e41c7168ac96ef125c22050d[m
+Author: Alexey Grigorev <alexeygrigorev@users.noreply.github.com>
+Date:   Fri Jun 7 19:55:47 2024 +0000
+
+    homework base image
+
+[33mcommit b34c43ad2469198ee9fcb92c79267c7bf56c1847[m
+Author: Alexey Grigorev <alexeygrigorev@users.noreply.github.com>
+Date:   Fri Jun 7 19:53:47 2024 +0000
+
+    homework 4
+
+[33mcommit 9ef7a7b295895c74380c12d8f5d6eb44a62e8ffa[m
+Author: Alexey Grigorev <alexeygrigorev@users.noreply.github.com>
+Date:   Fri Jun 7 13:15:08 2024 +0200
+
+    Update README.md
+
+[33mcommit 46281664de9c99867f2c46c6c996444ed1adb12e[m
+Author: mpg-data <101218767+mpg-data@users.noreply.github.com>
+Date:   Fri Jun 7 06:08:16 2024 -0500
+
+    Update README.md (#305)
+    
+    Add context for 3.1.2 Data preparation - Ingestion
+
+[33mcommit 93365a25a0745c2c74b6ad0c20352e8d7bdd9525[m
+Author: Nursultan Irgaliyev <nursultan.irgaliyev@gmail.com>
+Date:   Fri Jun 7 04:07:24 2024 -0700
+
+    Update scenario-3.ipynb (#306)
+
+[33mcommit 5a1dc1786f6415932e9c9220686d9a39d4cdac39[m
+Author: Alexey Grigorev <alexeygrigorev@users.noreply.github.com>
+Date:   Thu Jun 6 21:50:47 2024 +0200
+
+    Update README.md
+
+[33mcommit 866f4c45a381099c45accc2737bc60126941c55a[m
+Author: Alexey Grigorev <alexeygrigorev@users.noreply.github.com>
+Date:   Thu Jun 6 21:49:58 2024 +0200
+
+    Update README.md
+
+[33mcommit 5d6dab84a9e16d11fb77e68896f95324d314f6e3[m
+Author: Alexey Grigorev <alexeygrigorev@users.noreply.github.com>
+Date:   Mon J

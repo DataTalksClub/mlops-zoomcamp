@@ -22,7 +22,7 @@ pipenv install --dev pylint
 #run pylint on all the files and folders under the current working directory which has a .py extension
 pylint --recursive=y .
 
-select Linter in VSCode shift+ctrl+p 
+select Linter in VSCode shift+ctrl+p
 
 https://www.codeac.io/documentation/pylint-configuration.html
 
@@ -31,14 +31,14 @@ use .pylintrc file to configure which pylint warnings can be ignored
 you can use pyproject.toml to configure linting for your project instead of pylint
 
 ## library for formatting
-pipenv install --dev black 
+pipenv install --dev black
 
 ## libary for sorting import of libraries
 pipenv install --dev isort
 
 
 ## black will replace single quotes with double quotes
-## investigat black on the current folder. Don't write the files back, just output a diff to indicate what changes Black would've made. 
+## investigat black on the current folder. Don't write the files back, just output a diff to indicate what changes Black would've made.
 black --diff .
 
 black --diff . | less
@@ -57,7 +57,7 @@ git commit -m "comments on commit"
 
 #push the changes to the master branch
 #use "git push" to publish your local commits
-git push 
+git push
 
 # analyze the changes proposed by isort to the current working directory
 isort --diff . | less
@@ -78,4 +78,21 @@ $pwd/integration-test/run.sh
 pipenv install --dev pre-commit
 
 #see the log of the previous commit
-git log 
+git log
+
+# you can reset a folder as a non-git repository. this will make the current directiry as a normal folder and will not be tracked by git
+
+rm -rf .git
+#pre-commit hook will not work when you do the above.
+
+
+to make it  git repository again do the below
+#git init
+
+#get the folder and file details of the current directory
+ls -a
+
+#now install the pre-commit to apply the hooks to the pytest repository
+pre-commit install
+
+# install "make" package on windows
