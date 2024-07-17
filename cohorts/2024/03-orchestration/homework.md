@@ -114,7 +114,7 @@ EXPOSE 5000
 
 CMD [ \
     "mlflow", "server", \
-    "--backend-store-uri", "sqlite:///home/mlflow/mlflow.db", \
+    "--backend-store-uri", "sqlite:///home/mlflow_data/mlflow.db", \
     "--host", "0.0.0.0", \
     "--port", "5000" \
 ]
@@ -130,7 +130,7 @@ And add it to the docker-compose.yaml:
     ports:
       - "5000:5000"
     volumes:
-      - "${PWD}/mlflow:/home/mlflow/"
+      - "${PWD}/mlflow_data:/home/mlflow_data/"
     networks:
       - app-network
 ```
