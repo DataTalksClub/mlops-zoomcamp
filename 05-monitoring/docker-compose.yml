@@ -28,7 +28,7 @@ services:
       - front-tier  
 
   grafana:
-    image: grafana/grafana
+    image: grafana/grafana-enterprise
     user: "472"
     ports:
       - "3000:3000"
