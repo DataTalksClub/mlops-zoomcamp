@@ -24,6 +24,7 @@ But if you set up a VM in the previous module, you can keep using it
 and use the usual Jupyter from your browser. There's no significant
 difference between using Jupyter with VS code and without
 
+mlflow ui --backend-store-uri sqlite:///mlflow.db
 
 ## 2.3 Experiment tracking with MLflow
 
