@@ -23,9 +23,9 @@ Our MLOps Zoomcamp course
 
 ## Taking the course
 
-### 2024 Cohort
+### 2025 Cohort
 
-* **Start**: 13 May 2024 (Monday) at 17:00 CET
+* **Start**: May 2025
 * **Registration link**: https://airtable.com/shrCb8y6eTbPKwSTL
 * Subscribe to our [public Google Calendar](https://calendar.google.com/calendar/?cid=M3Jzbmg0ZDA2aHVsY2M1ZjcyNDJtODNyMTRAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ) (it works from Desktop only)
 
