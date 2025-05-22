@@ -60,7 +60,7 @@ No video - you already know how to do it:
 
 ## Homework
 
-More information [here](../cohorts/2024/04-deployment/homework.md).
+More information [here](../cohorts/2025/04-deployment/homework.md).
 
 
 ## Notes

@@ -68,7 +68,7 @@ Please use model version tags and aliases instead of stages. For example, instea
 
 ## 2.7 Homework
 
-More information [here](../cohorts/2024/02-experiment-tracking/homework.md).
+More information [here](../cohorts/2025/02-experiment-tracking/homework.md).
 
 
 ## Notes

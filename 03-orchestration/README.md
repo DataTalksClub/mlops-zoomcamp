@@ -6,6 +6,8 @@
   <img src="https://markdown-videos-api.jorgenkh.no/youtube/uAR4BhVCNbI">
 </a>
 
+## 3.2 Homework
+More information [here](../cohorts/2025/03-orchestration/homework.md).
 
 ### Notes previous editions
 
