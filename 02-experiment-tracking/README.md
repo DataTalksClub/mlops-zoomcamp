@@ -94,4 +94,5 @@ Did you take notes? Add them here:
 * [Adding Hyperparameter Tuning to Your Notebook with MLflow and Hyperopt by Annaliese Tech](https://github.com/AnnalieseTech/MLOPS_ZOOMCAMP/blob/main/02_EXPERIMENT_TRACKING/Hyperparameter-Tuning.md)
 * [MLFlow setup and Experiment Tracking by Hokfu](https://github.com/Hokfu/MLOps_Zoomcamp_Study/blob/main/02-experiment-tracking/README.md)
 * [2025 Cohort | Notes on MLflow & Hyperopt by Gabi Fonseca](https://github.com/fonsecagabriella/ml_ops/blob/main/02_experiment_tracking/__notes.md)
+* [Homework 2 Experiment and Tracking article by Srikanth Ganji](https://medium.com/@srikanth.unix07/mlops-zoomcamp-2025-homework-2-experiment-tracking-with-mlflow-4ea1ed783531)
 * Send a PR, add your notes above this line
