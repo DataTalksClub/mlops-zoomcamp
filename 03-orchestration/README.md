@@ -12,15 +12,13 @@
   <img src="https://markdown-videos-api.jorgenkh.no/youtube/3_Uu0rInxWI">
 </a>
 
-## 3.3 Using an Orchistrator
-
-There's no video for this unit, you can 
+## 3.3 Using an Orchestrator
 
 Now that we converted the notebook into a python script, we 
 can use an orchestrator to turn the script into a production
 pipeline.
 
-You can use ChatGPT to help you with this.
+There's no video for this unit, you can use ChatGPT to help you with this.
 
 ### Step 1: Choosing the Tool
 
