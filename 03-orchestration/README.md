@@ -123,4 +123,5 @@ When you run it, mlflow should be accessible at `http://mlflow:5000`.
 
 Did you take notes? Add them here:
 
+* [2025 Cohort | Running Airflow + MLflow using Docker by André Calatré](https://github.com/calatre/mlops-zoomcamp/tree/main/03-orchestration)
 * Send a PR, add your notes above this line
