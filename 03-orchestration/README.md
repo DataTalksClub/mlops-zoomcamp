@@ -122,5 +122,6 @@ When you run it, mlflow should be accessible at `http://mlflow:5000`.
 ### Notes 2025
 
 Did you take notes? Add them here:
-
+## 
+[Cohort 2025| Notes on Orchestration workflow for Mage by Nitin Gupta](https://github.com/niting9881/course-mlops-zoomcamp/blob/main/03-orchestration/README.MD)
 * Send a PR, add your notes above this line
