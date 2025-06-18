@@ -74,7 +74,7 @@ is not officially supported in the 2024 edition of the course.
 ## Homework
 
 
-More information [here](../cohorts/2025/05-monitoring/homework.md)
+More information [here](../cohorts/2024/05-monitoring/homework.md)
 
 
 ## Notes
@@ -90,11 +90,6 @@ Did you take notes? Add them here:
 
 
 # Monitoring example
-
-## Notes
-There were a massive update for Evidently since 0.7.0 version.
-
-To check working example with Evidently >= 0.7.0 go to `post-evidently-0.7` folder.
 
 ## Prerequisites
 

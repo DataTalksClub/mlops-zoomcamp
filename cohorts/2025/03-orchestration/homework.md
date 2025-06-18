@@ -1,6 +1,6 @@
 ## Homework
 
-The goal of this homework is to create a simple training pipeline, use mlflow to track experiments and register best model, but use Mage for it.
+The goal of this homework is to create a simple training pipeline, use mlflow to track experiments and register best model, and a modern data workflow orchestration tool such as Mage or Prefect or others as listed in the course material under '03-orchestration'.
 
 We'll use [the same NYC taxi dataset](https://www1.nyc.gov/site/tlc/about/tlc-trip-record-data.page), the **Yellow** taxi data for March, 2023. 
 
