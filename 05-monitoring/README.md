@@ -85,6 +85,7 @@ Did you take notes? Add them here:
 * [week 5: Monitoring notes Ayoub.B](https://github.com/ayoub-berdeddouch/mlops-journey/blob/main/monitoring-05.md)
 * [Week 5: 2023](https://github.com/dimzachar/mlops-zoomcamp/tree/master/notes/Week_5)
 * [Week5: Why we need to monitor models after deployment? by Hongfan (Amber)](https://github.com/Muhongfan/MLops/blob/main/05-monitoring/README.md)
+* [Cohort 2025|Study notes and FAQ by Nitin Gupta](https://github.com/niting9881/course-mlops-zoomcamp/blob/main/05-monitoring/README.md)
 * Send a PR, add your notes above this line
 
 
