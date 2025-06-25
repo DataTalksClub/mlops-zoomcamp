@@ -15,7 +15,7 @@
 We have already covered Terraform concepts at a deeper level in the [Data Engineering Zoomcamp](https://github.com/DataTalksClub/data-engineering-zoomcamp), and will not be repeating some of those basic concepts again. You can find the content here for your reference:
 
 **Notes**:
-* [Terraform Overview](https://github.com/DataTalksClub/data-engineering-zoomcamp/blob/main/week_1_basics_n_setup/1_terraform_gcp/1_terraform_overview.md)
+* [Terraform Overview](https://github.com/DataTalksClub/data-engineering-zoomcamp/blob/main/01-docker-terraform/1_terraform_gcp/1_terraform_overview.md)
 
 **Videos**:
 
@@ -45,9 +45,9 @@ We have already covered Terraform concepts at a deeper level in the [Data Engine
     * 18:08 recap
 
 In case you're using GCP instead of AWS, following is some setup material:
-* [Local Setup for Terraform and GCP](https://github.com/DataTalksClub/data-engineering-zoomcamp/tree/main/week_1_basics_n_setup/1_terraform_gcp)
-* [GCP Overview](https://github.com/DataTalksClub/data-engineering-zoomcamp/blob/main/week_1_basics_n_setup/1_terraform_gcp/2_gcp_overview.md)
-* [main.tf](https://github.com/DataTalksClub/data-engineering-zoomcamp/blob/main/week_1_basics_n_setup/1_terraform_gcp/terraform/main.tf)
+* [Local Setup for Terraform and GCP](https://github.com/DataTalksClub/data-engineering-zoomcamp/tree/main/01-docker-terraform/1_terraform_gcp)
+* [GCP Overview](https://github.com/DataTalksClub/data-engineering-zoomcamp/blob/main/01-docker-terraform/1_terraform_gcp/2_gcp_overview.md)
+* [main.tf](https://github.com/DataTalksClub/data-engineering-zoomcamp/blob/main/01-docker-terraform/1_terraform_gcp/terraform/terraform_basic/main.tf)
 
 #### References
 * Terraform with AWS: [Getting Started](https://learn.hashicorp.com/collections/terraform/aws-get-started) and [AWS provider library](https://registry.terraform.io/providers/hashicorp/aws/latest/docs)
