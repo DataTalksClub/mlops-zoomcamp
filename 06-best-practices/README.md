@@ -161,4 +161,5 @@ https://www.youtube.com/watch?v=jCNxqXCKh2s&list=PL3MmuxUbc_hIUISrluw_A7wDSmfOhE
 
 Did you take notes? Add them here:
 * [Week 6 Best Practices: 2023](https://github.com/dimzachar/mlops-zoomcamp/tree/master/notes/Week_6)
+* [Cohort 2025| Best Practices notes and FAQ by Nitin Gupta](https://github.com/niting9881/course-mlops-zoomcamp/blob/main/06-best-practices/README.md)
 * Send a PR, add your notes above this line
