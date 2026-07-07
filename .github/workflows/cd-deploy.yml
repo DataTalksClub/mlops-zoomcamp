@@ -32,13 +32,13 @@ jobs:
       - name: TF Apply
         id: tf-apply
         working-directory: '06-best-practices/code/infrastructure'
-        if: ${{ steps.tf-plan.outcome }} == 'success'
+        if: ${{ steps.tf-plan.outcome == 'success' }}
         run: |
           terraform apply -auto-approve -var-file=vars/prod.tfvars
-          echo "::set-output name=ecr_repo::$(terraform output ecr_repo | xargs)"
-          echo "::set-output name=predictions_stream_name::$(terraform output predictions_stream_name | xargs)"
-          echo "::set-output name=model_bucket::$(terraform output model_bucket | xargs)"
-          echo "::set-output name=lambda_function::$(terraform output lambda_function | xargs)"
+          echo "ecr_repo=$(terraform output -raw ecr_repo)" >> $GITHUB_OUTPUT
+          echo "predictions_stream_name=$(terraform output -raw predictions_stream_name)" >> $GITHUB_OUTPUT
+          echo "model_bucket=$(terraform output -raw model_bucket)" >> $GITHUB_OUTPUT
+          echo "lambda_function=$(terraform output -raw lambda_function)" >> $GITHUB_OUTPUT
 
       # Build-Push
       - name: Login to Amazon ECR
@@ -55,7 +55,7 @@ jobs:
         run: |
           docker build -t ${ECR_REGISTRY}/${ECR_REPOSITORY}:${IMAGE_TAG} .
           docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
-          echo "::set-output name=image_uri::$ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG"
+          echo "image_uri=$ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG" >> $GITHUB_OUTPUT
 
       # Deploy
       - name: Get model artifacts
@@ -73,7 +73,7 @@ jobs:
           export RUN_ID=$(aws s3api list-objects-v2 --bucket ${MODEL_BUCKET_DEV} \
           --query 'sort_by(Contents, &LastModified)[-1].Key' --output=text | cut -f2 -d/)
           aws s3 sync s3://${MODEL_BUCKET_DEV} s3://${MODEL_BUCKET_PROD}
-          echo "::set-output name=run_id::${RUN_ID}"
+          echo "run_id=${RUN_ID}" >> $GITHUB_OUTPUT
 
       - name: Update Lambda
         env:
