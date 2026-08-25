@@ -11,7 +11,7 @@ Master the fundamentals of MLOps, from training and experimentation to deploymen
 </p>
 
 <p align="center">
-<a href="https://airtable.com/shrCb8y6eTbPKwSTL"><img src="https://user-images.githubusercontent.com/875246/185755203-17945fd1-6b64-46f2-8377-1011dcb1a444.png" height="50" /></a>
+<a href="https://courses.datatalks.club/register/mlops-zoomcamp/"><img src="https://user-images.githubusercontent.com/875246/185755203-17945fd1-6b64-46f2-8377-1011dcb1a444.png" height="50" /></a>
 </p>
 
 <p align="center">
@@ -71,10 +71,10 @@ There are two ways to follow the course: live and self-paced.
 | Peer Review | ✅ Yes | ❌ No |
 | Certificate | ✅ Yes | ❌ No |
 | Cost | Free | Free |
-| Register | [Get updates](https://airtable.com/shrCb8y6eTbPKwSTL) | Just start learning! |
+| Register | [Get updates](https://courses.datatalks.club/register/mlops-zoomcamp/) | Just start learning! |
 
 > [!NOTE]
-> We don't plan to run a live cohort in 2026. The course is fully available for self-paced study now. [Register here](https://airtable.com/shrCb8y6eTbPKwSTL) to be notified if we run a live cohort again.
+> We don't plan to run a live cohort in 2026. The course is fully available for self-paced study now. [Register here](https://courses.datatalks.club/register/mlops-zoomcamp/) to be notified if we run a live cohort again.
 
 Self-paced steps:
 
