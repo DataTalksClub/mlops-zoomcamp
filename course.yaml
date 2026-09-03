@@ -1,0 +1,11 @@
+schema_version: 1
+content_id: ac773100-a202-4a42-8801-c9c1569a55fd
+slug: mlops-zoomcamp
+title: MLOps Zoomcamp
+description_path: SITE.md
+outcome: Learn practical aspects of productionizing ML services, from training and experimentation to deployment and monitoring.
+repository_url: https://github.com/DataTalksClub/mlops-zoomcamp
+docs_url: https://datatalks.club/docs/courses/mlops-zoomcamp/
+faq_url: https://datatalks.club/faq/mlops-zoomcamp.html
+hashtag: mlopszoomcamp
+published: true
