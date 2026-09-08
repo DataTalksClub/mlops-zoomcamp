@@ -10,6 +10,7 @@ content crops. The original source files remain unchanged.
 | Source | Teaching point | Score | Decision | Final asset |
 | --- | --- | ---: | --- | --- |
 | `AWS-stream-pipeline.png` (1760x1144) | The AWS stream-based ride-prediction flow: input Kinesis, CloudWatch trigger, Lambda, model artifacts in S3, container image in ECR, and output Kinesis. | 12/12 | `crop/replace` | `AWS-stream-pipeline-imagegen.png` |
+| `ci_cd_zoomcamp.png` (1870x1322) | The CI/CD relationship from a GitHub commit through tests and Terraform to AWS build, registry, Lambda, and deployment updates. | 12/12 | `crop/replace` | `ci_cd_zoomcamp-imagegen.png` |
 
 Scores are the six rubric criteria in order: instructional contribution,
 relevance, readability/focus, complementarity, durability, and caption/accessibility.
@@ -30,6 +31,22 @@ also replaced with meaningful descriptions.
   ECR; `Publish prediction events`; output Kinesis; all arrow directions and
   service relationships.
 - Original retained at `06-best-practices/AWS-stream-pipeline.png`.
+
+## CI/CD workflow
+
+- Source inspection: clean CI/CD architecture diagram; no face, webcam tile,
+  browser/Zoom chrome, cursor, watermark, or other capture overlay.
+- Preparation crop: deterministic `-trim` crop from the source to 1711x1280,
+  preserving the CI/CD sections, panel boundaries, and arrows.
+- First generated candidate was rejected because the bottom
+  `CI (Continuous Integration)` and `CD (Continuous Delivery)` labels were
+  clipped. A single targeted framing correction added bottom white margin;
+  the corrected candidate was accepted.
+- Checked invariants: GitHub commit trigger; Test Application; Define
+  Infrastructure; Build and Push, Deploy; unit/integration tests; Terraform;
+  `.tfstate`; AWS/Kinesis/CloudWatch/IAM/Lambda/S3/ECR components; AWS CLI;
+  Docker; all solid/dashed arrow relationships; complete bottom labels.
+- Original retained at `06-best-practices/ci_cd_zoomcamp.png`.
 
 ## Validation
 

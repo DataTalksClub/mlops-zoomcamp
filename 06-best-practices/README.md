@@ -102,7 +102,7 @@ Additional material on understanding Terraform concepts here: [Reference Materia
 ### CI/CD
 with GitHub Actions
 
-![image](ci_cd_zoomcamp.png)
+![CI/CD workflow from commit through testing, infrastructure, and deployment](ci_cd_zoomcamp-imagegen.png)
 
 #### Summary
 
