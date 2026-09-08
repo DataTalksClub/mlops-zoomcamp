@@ -6,6 +6,11 @@
   <img src="https://markdown-videos-api.jorgenkh.no/youtube/SQ0jBwd_3kk">
 </a>
 
+<figure>
+  <img src="images/illustrations/05-01-ml-monitoring-loop.png" alt="A deployed model sending data and predictions to monitoring, alerts, investigation, and feedback">
+  <figcaption>Monitoring turns production signals into alerts, investigation, and feedback for the next model iteration.</figcaption>
+</figure>
+
 
 
 ## 5.2 Environment setup
@@ -14,6 +19,11 @@
   <img src="https://markdown-videos-api.jorgenkh.no/youtube/yixA3C1xSxc">
 </a>
 
+<figure>
+  <img src="images/illustrations/05-02-monitoring-environment.png" alt="A local monitoring stack connecting a metrics worker, database, dashboard, and terminal">
+  <figcaption>A reproducible local stack connects metric calculation, durable storage, and dashboard inspection.</figcaption>
+</figure>
+
 
 
 ## 5.3 Prepare reference and model
@@ -21,6 +31,11 @@
 <a href="https://www.youtube.com/watch?v=IjNrkqMYQeQ&list=PL3MmuxUbc_hIUISrluw_A7wDSmfOhErJK">
   <img src="https://markdown-videos-api.jorgenkh.no/youtube/IjNrkqMYQeQ">
 </a>
+
+<figure>
+  <img src="images/illustrations/05-03-reference-model-preparation.png" alt="Historical data and a training notebook producing a reference dataset and baseline model">
+  <figcaption>Monitoring starts with a reference dataset and baseline model that future production batches can be compared against.</figcaption>
+</figure>
 
 
 
