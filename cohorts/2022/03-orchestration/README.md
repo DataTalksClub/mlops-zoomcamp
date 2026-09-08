@@ -6,33 +6,25 @@
 
 ## 3.1 Negative engineering and workflow orchestration
 
-<a href="https://www.youtube.com/watch?v=eKzCjNXoCTc&list=PL3MmuxUbc_hIUISrluw_A7wDSmfOhErJK">
-  <img src="images/thumbnail-3-01.jpg">
-</a>
+[Watch the video](https://www.youtube.com/watch?v=eKzCjNXoCTc&list=PL3MmuxUbc_hIUISrluw_A7wDSmfOhErJK)
 
 
 
 ## 3.2 Introduction to Prefect 2.0
 
-<a href="https://www.youtube.com/watch?v=Yb6NJwI7bXw&list=PL3MmuxUbc_hIUISrluw_A7wDSmfOhErJK">
-  <img src="images/thumbnail-3-02.jpg">
-</a>
+[Watch the video](https://www.youtube.com/watch?v=Yb6NJwI7bXw&list=PL3MmuxUbc_hIUISrluw_A7wDSmfOhErJK)
 
 
 
 ## 3.3 First Prefect flow and basics
 
-<a href="https://www.youtube.com/watch?v=MCFpURG506w&list=PL3MmuxUbc_hIUISrluw_A7wDSmfOhErJK">
-  <img src="images/thumbnail-3-03.jpg">
-</a>
+[Watch the video](https://www.youtube.com/watch?v=MCFpURG506w&list=PL3MmuxUbc_hIUISrluw_A7wDSmfOhErJK)
 
 
 
 ## 3.4 Remote Prefect Orion deployment
 
-<a href="https://www.youtube.com/watch?v=ComkSIAB0k4&list=PL3MmuxUbc_hIUISrluw_A7wDSmfOhErJK">
-  <img src="images/thumbnail-3-04.jpg">
-</a>
+[Watch the video](https://www.youtube.com/watch?v=ComkSIAB0k4&list=PL3MmuxUbc_hIUISrluw_A7wDSmfOhErJK)
 
 
 
@@ -58,9 +50,7 @@ deployment = Deployment.build_from_flow(
 deployment.apply()
 ```
 
-<a href="https://www.youtube.com/watch?v=xw9JfaWPPps&list=PL3MmuxUbc_hIUISrluw_A7wDSmfOhErJK">
-  <img src="images/thumbnail-3-05.jpg">
-</a>
+[Watch the video](https://www.youtube.com/watch?v=xw9JfaWPPps&list=PL3MmuxUbc_hIUISrluw_A7wDSmfOhErJK)
 
 Links:
 
@@ -69,9 +59,7 @@ Links:
 
 ## 3.6 MLOps Zoomcamp 3.6 - (Optional) Work queues and agents
 
-<a href="https://www.youtube.com/watch?v=oDSf0ThKsso&list=PL3MmuxUbc_hIUISrluw_A7wDSmfOhErJK">
-  <img src="images/thumbnail-3-06.jpg">
-</a>
+[Watch the video](https://www.youtube.com/watch?v=oDSf0ThKsso&list=PL3MmuxUbc_hIUISrluw_A7wDSmfOhErJK)
 
 
 ## 3.7 Homework

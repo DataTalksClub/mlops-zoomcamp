@@ -2,9 +2,7 @@
 
 ## 5.1 Monitoring for ML-based services
 
-<a href="https://www.youtube.com/watch?v=gMiT11Bp05A&list=PL3MmuxUbc_hIUISrluw_A7wDSmfOhErJK">
-  <img src="images/thumbnail-5-01.jpg">
-</a>
+[Watch the monitoring introduction](https://www.youtube.com/watch?v=gMiT11Bp05A&list=PL3MmuxUbc_hIUISrluw_A7wDSmfOhErJK)
 
 
 [Slides](https://drive.google.com/file/d/1wcMU75ZcNNJie4ELjsKPkITIL93wHykt/view?usp=sharing)
@@ -12,33 +10,25 @@
 
 ## 5.2 Setting up the environment
 
-<a href="https://www.youtube.com/watch?v=VkkpVXW53bo&list=PL3MmuxUbc_hIUISrluw_A7wDSmfOhErJK">
-  <img src="images/thumbnail-5-02.jpg">
-</a>
+[Watch the monitoring environment setup](https://www.youtube.com/watch?v=VkkpVXW53bo&list=PL3MmuxUbc_hIUISrluw_A7wDSmfOhErJK)
 
 
 
 ## 5.3 Creating a prediction service and simulating traffic
 
-<a href="https://www.youtube.com/watch?v=umQ3Mo5G1o8&list=PL3MmuxUbc_hIUISrluw_A7wDSmfOhErJK">
-  <img src="images/thumbnail-5-03.jpg">
-</a>
+[Watch the prediction service and traffic simulation video](https://www.youtube.com/watch?v=umQ3Mo5G1o8&list=PL3MmuxUbc_hIUISrluw_A7wDSmfOhErJK)
 
 
 
 ## 5.4 Realtime monitoring walktrough (Prometheus, Evidently, Grafana)
 
-<a href="https://www.youtube.com/watch?v=r_m4VFEJ8yY&list=PL3MmuxUbc_hIUISrluw_A7wDSmfOhErJK">
-  <img src="images/thumbnail-5-04.jpg">
-</a>
+[Watch the realtime monitoring walkthrough](https://www.youtube.com/watch?v=r_m4VFEJ8yY&list=PL3MmuxUbc_hIUISrluw_A7wDSmfOhErJK)
 
 
 
 ## 5.5 Batch monitoring walktrough (Prefect, MongoDB, Evidently)
 
-<a href="https://www.youtube.com/watch?v=KefdYuue_FE&list=PL3MmuxUbc_hIUISrluw_A7wDSmfOhErJK">
-  <img src="images/thumbnail-5-05.jpg">
-</a>
+[Watch the batch monitoring walkthrough](https://www.youtube.com/watch?v=KefdYuue_FE&list=PL3MmuxUbc_hIUISrluw_A7wDSmfOhErJK)
 
 
 
