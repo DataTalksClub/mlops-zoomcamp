@@ -6,11 +6,21 @@
   <img src="https://markdown-videos-api.jorgenkh.no/youtube/uAR4BhVCNbI">
 </a>
 
+<figure>
+  <img src="images/illustrations/03-01-ml-pipeline.png" alt="A directed workflow from raw data through preparation, features, training, evaluation, and a model artifact">
+  <figcaption>An ML pipeline makes the dependencies between preparation, training, evaluation, and packaging explicit.</figcaption>
+</figure>
+
 ## 3.2 Turning the Notebook into a Python Script
 
 <a href="https://www.youtube.com/watch?v=3_Uu0rInxWI&list=PL3MmuxUbc_hIUISrluw_A7wDSmfOhErJK">
   <img src="https://markdown-videos-api.jorgenkh.no/youtube/3_Uu0rInxWI">
 </a>
+
+<figure>
+  <img src="images/illustrations/03-02-notebook-to-script.png" alt="A scattered notebook transformed into modular code tiles and a repeatable terminal workflow">
+  <figcaption>Moving from a notebook to a script turns exploration into a repeatable training entry point.</figcaption>
+</figure>
 
 ## 3.3 Using an Orchestrator
 
@@ -19,6 +29,11 @@ can use an orchestrator to turn the script into a production
 pipeline.
 
 There's no video for this unit, but you can use ChatGPT to help you with this.
+
+<figure>
+  <img src="images/illustrations/03-03-orchestrated-workflow.png" alt="A scheduler controlling dependent ML tasks with parameter, backfill, and deployment signals">
+  <figcaption>An orchestrator schedules dependent tasks, accepts parameters, supports backfills, and can run the workflow in production.</figcaption>
+</figure>
 
 ### Step 1: Choosing the Tool
 
@@ -67,6 +82,11 @@ You can also rely on ChatGPT or similar tools. They are very helpful.
 ## 3.4 Homework
 
 More information [here](../cohorts/2025/03-orchestration/homework.md).
+
+<figure>
+  <img src="../images/homework-checklist.png" alt="A practical assignment checklist connecting code practice to a completed project package">
+  <figcaption>Homework turns pipeline concepts into a small, reviewable practice deliverable.</figcaption>
+</figure>
 
 
 ## Resources
