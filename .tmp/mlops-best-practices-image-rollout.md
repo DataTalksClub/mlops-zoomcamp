@@ -53,3 +53,8 @@ also replaced with meaningful descriptions.
 - Every owned Markdown image reference resolves.
 - `git diff --check` passes.
 - No disposable crop or rejected generation is referenced by the lesson.
+- Final generated assets are `AWS-stream-pipeline-imagegen.png` (1575x998)
+  and `ci_cd_zoomcamp-imagegen.png` (1533x1026).
+- Both original source assets remain in place for rollback and provenance.
+- Disposable source crops and rejected generations were kept under `.tmp`
+  during review and are removed after this report is committed.
