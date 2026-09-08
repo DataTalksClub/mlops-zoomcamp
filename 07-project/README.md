@@ -101,7 +101,7 @@ Refer to the provided [datasets](https://github.com/DataTalksClub/data-engineeri
 
 Explore a collection of projects completed by members of our community. The projects cover a wide range of topics and utilize different tools and techniques. Feel free to delve into any project and see how others have tackled real-world problems with data, structured their code, and presented their findings. It's a great resource to learn and get ideas for your own projects.
 
-[![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://datatalksclub-projects.streamlit.app/)
+<!-- The external Streamlit badge was removed during the visual audit because it was a decorative UI badge, not instructional content. -->
 
 ### MLOps Zoomcamp 2023
 
