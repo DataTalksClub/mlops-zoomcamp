@@ -83,6 +83,11 @@ Please use model version tags and aliases instead of stages. For example, instea
   <img src="images/thumbnail-2-06.jpg">
 </a>
 
+<figure>
+  <img src="images/illustrations/02-06-mlflow-in-practice.png" alt="A training workspace sending a run through tracking, registry, and a serving endpoint in a repeatable loop">
+  <figcaption>In practice, a tracked training run can flow through comparison and registration before serving.</figcaption>
+</figure>
+
 
 ## 2.7 MLflow: benefits, limitations and alternatives
 
@@ -90,10 +95,20 @@ Please use model version tags and aliases instead of stages. For example, instea
   <img src="images/thumbnail-2-07.jpg">
 </a>
 
+<figure>
+  <img src="images/illustrations/02-07-benefits-limitations-alternatives.png" alt="A tracking hub balanced against tradeoffs and surrounded by interchangeable tool modules">
+  <figcaption>Tool choice balances the benefits of a tracking hub against its limitations and available alternatives.</figcaption>
+</figure>
+
 
 ## 2.7 Homework
 
 More information [here](../cohorts/2025/02-experiment-tracking/homework.md).
+
+<figure>
+  <img src="../images/homework-checklist.png" alt="A practical assignment checklist connecting code practice to a completed project package">
+  <figcaption>Homework turns experiment-tracking concepts into a small, reviewable practice deliverable.</figcaption>
+</figure>
 
 
 ## Notes
