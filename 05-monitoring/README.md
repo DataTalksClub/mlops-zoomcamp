@@ -82,6 +82,11 @@
   <img src="https://markdown-videos-api.jorgenkh.no/youtube/fytrmPbcLhI">
 </a>
 
+<figure>
+  <img src="images/illustrations/05-07-data-quality-monitoring.png" alt="A data batch passing schema and distribution checks with clean data continuing and failed checks raising an alert">
+  <figcaption>Data-quality monitoring gates production batches with schema, missingness, range, and distribution checks.</figcaption>
+</figure>
+
 > Note: in this video we use Prefect (07:33-11:21). Feel free to skip this part. Also note that Prefect
 is not officially supported in the 2024 edition of the course.
 
@@ -92,6 +97,11 @@ is not officially supported in the 2024 edition of the course.
   <img src="https://markdown-videos-api.jorgenkh.no/youtube/-c4iumyZMyw">
 </a>
 
+<figure>
+  <img src="images/illustrations/05-08-save-dashboard.png" alt="Dashboard panels being saved as a reusable stored dashboard artifact with a reload loop">
+  <figcaption>Saving a dashboard preserves the monitoring view so it can be loaded and reused later.</figcaption>
+</figure>
+
 
 
 ## 5.9 Debugging with test suites and reports
@@ -99,6 +109,11 @@ is not officially supported in the 2024 edition of the course.
 <a href="https://www.youtube.com/watch?v=sNSk3ojISh8&list=PL3MmuxUbc_hIUISrluw_A7wDSmfOhErJK">
   <img src="https://markdown-videos-api.jorgenkh.no/youtube/sNSk3ojISh8">
 </a>
+
+<figure>
+  <img src="images/illustrations/05-09-debugging-tests-reports.png" alt="Reference and current batches passing through a test suite to pass or fail findings and a detailed debugging report">
+  <figcaption>Test suites turn monitoring failures into a report that supports targeted debugging.</figcaption>
+</figure>
 
 
 ## Homework
