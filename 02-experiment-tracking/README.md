@@ -56,6 +56,11 @@ difference between using Jupyter with VS code and without
   <img src="images/thumbnail-2-04.jpg">
 </a>
 
+<figure>
+  <img src="images/illustrations/02-04-model-management.png" alt="A versioned model package connected to its data, code, metadata, and release shelf">
+  <figcaption>Model management preserves lineage and organizes model artifacts across reviewable versions.</figcaption>
+</figure>
+
 
 
 ## 2.5 Model registry
@@ -63,6 +68,11 @@ difference between using Jupyter with VS code and without
 <a href="https://www.youtube.com/watch?v=TKHU7HAvGH8&list=PL3MmuxUbc_hIUISrluw_A7wDSmfOhErJK">
   <img src="images/thumbnail-2-05.jpg">
 </a>
+
+<figure>
+  <img src="images/illustrations/02-05-model-registry.png" alt="Candidate model packages passing through a registry gate to a selected serving version with rollback">
+  <figcaption>A registry controls promotion to serving and keeps an earlier version available for rollback.</figcaption>
+</figure>
 
 > **Starting MLflow 2.9, model registry stages are deprecated.**
 Please use model version tags and aliases instead of stages. For example, instead of `transition_model_version_stage(name, version, stage)` use `set_registered_model_alias(name, alias, version)`. More details [here](https://github.com/mlflow/mlflow/issues/10336) and [here](https://mlflow.org/docs/latest/model-registry.html).
