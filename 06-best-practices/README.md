@@ -45,7 +45,7 @@ More information [here](../cohorts/2025/06-best-practices/homework.md).
 ### Infrastructure-as-Code
 with Terraform 
 
-![AWS stream-based ride-prediction pipeline on AWS](AWS-stream-pipeline.png)
+![AWS stream-based ride-prediction pipeline on AWS](AWS-stream-pipeline-redrawn.png)
 
 #### Summary
 * Setting up a stream-based pipeline infrastructure in AWS, using Terraform
@@ -90,7 +90,7 @@ Additional material on understanding Terraform concepts here: [Reference Materia
 ### CI/CD
 with GitHub Actions
 
-![CI/CD workflow from commit through testing, infrastructure, and deployment](ci_cd_zoomcamp.png)
+![CI/CD workflow from commit through testing, infrastructure, and deployment](ci_cd_zoomcamp-redrawn.png)
 
 #### Summary
 
