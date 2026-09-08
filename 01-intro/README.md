@@ -26,7 +26,7 @@ OR
 for setting up your local environment. 
 
 <a href="https://www.youtube.com/watch?v=IXSiYkP23zo&list=PL3MmuxUbc_hIUISrluw_A7wDSmfOhErJK">
-  <img src="images/thumbnail-1-02.jpg">
+  <img src="images/thumbnail-1-02-imagegen.png">
 </a>
 
 
