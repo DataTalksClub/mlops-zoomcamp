@@ -9,27 +9,27 @@ This tutorials explains how to configure a remote tracking server on AWS. We wil
 For this, you can select one of the instance types that are free tier eligible. For example, we will select an Amazon Linux OS (`Amazon Linux 2 AMI (HVM) - Kernel 5.10, SSD Volume Type`) and a `t2.micro` instance type, which are free tier eligible. 
 
 
-<img src="images/ec2_os.png" width=400/>
+<img src="images/ec2_os.png" />
 
-<img src="images/ec2_instance_type.png" width=400/>
+<img src="images/ec2_instance_type.png" />
 
 You'll also need to create a new key pair so later you can connect to the new instance using SSH. Click on "Create new key pair" and complete the details like in the image below:
 
-<img src="images/key_pair.png" width=400/>
+<img src="images/key_pair.png" />
 
 Select the new key pair and then click on "Launch Instance".
 
-<img src="images/select_key_pair.png" width=400/>
+<img src="images/select_key_pair.png" />
 
 Finally, you have to edit the security group so the EC2 instance accepts SSH (port 22) and HTTP connections (port 5000):
 
-<img src="images/security_group.png" width=400/>
+<img src="images/security_group.png" />
 
 3. Create an s3 bucket to be used as the artifact store.
 
 Go to s3 and click on "Create bucket". Fill in the bucket name as in the image below and let all the other configurations with their default values.
 
-<img src="images/s3_bucket.png" width=400/>
+<img src="images/s3_bucket.png" />
 
 Note: s3 bucket names must be unique across all AWS account in all the AWS Regions within a partition, that means that once a bucket is created, the name of that bucket cannot be used by another AWS account within the same region. If you get an error saying that the bucket name was already taken you can fix it easily by just changing the name to something like `mlflow-artifacts-remote-2` or another name.
 
@@ -37,19 +37,19 @@ Note: s3 bucket names must be unique across all AWS account in all the AWS Regio
 
 Go to the RDS Console and click on "Create database". Make sure to select "PostgreSQL" engine type and the "Free tier" template.
 
-<img src="images/postgresql.png" width=400/>
+<img src="images/postgresql.png" />
 
 Select a name for your DB instance, set the master username as "mlflow" and tick the option "Auto generate a password" so Amazon RDS generate a password automatically.
 
-<img src="images/db_settings.png" width=400/>
+<img src="images/db_settings.png" />
 
 Finally, on the section "Additional configuration" specify a database name so RDS automatically creates an initial database for you.
 
-<img src="images/db_configuration.png" width=400/>
+<img src="images/db_configuration.png" />
 
 After clicking on "launch database" you will be able to check the newly generated password, but take into account that the automatically generated password will be shown only once!
 
-<img src="images/db_password.png" width=400/>
+<img src="images/db_password.png" />
 
 You can use the default values for all the other configurations.
 
@@ -63,7 +63,7 @@ Take note of the following information:
 Once the DB instance is created, go to the RDS console, select the new db and under "Connectivity & security" select the VPC security group. Modify the security group by adding a new inbound rule that allows postgreSQL connections on the port 5432 from the security group of the EC2 instance. This way, the server will be able to connect to the postgres database.
 
 Note that the database name might be set to "postgres" by default.
-<img src="images/postgresql_inbound_rule.png" width=400/>
+<img src="images/postgresql_inbound_rule.png" />
 
 5. Connect to the EC2 instance and launch the tracking server.
 
