@@ -1,7 +1,7 @@
 ## Course Project
 
 <a href="https://www.loom.com/share/8f99d25893de4fb8aaa95c0395c740b6">
-  <img src="images/thumbnail-7-1.jpg">
+  <img src="images/thumbnail-7-1-imagegen.png">
 </a>
 
 ### Objective
@@ -112,5 +112,4 @@ Explore a collection of projects completed by members of our community. The proj
 ### MLOps Zoomcamp 2022
 
 * [2022 Projects](../cohorts/2022/07-project)
-
 
