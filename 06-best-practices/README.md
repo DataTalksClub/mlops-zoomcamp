@@ -57,7 +57,7 @@ More information [here](../cohorts/2025/06-best-practices/homework.md).
 ### Infrastructure-as-Code
 with Terraform 
 
-![image](AWS-stream-pipeline.png)
+![AWS stream-based ride-prediction pipeline on AWS](AWS-stream-pipeline-imagegen.png)
 
 #### Summary
 * Setting up a stream-based pipeline infrastructure in AWS, using Terraform
