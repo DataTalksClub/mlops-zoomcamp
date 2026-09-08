@@ -45,6 +45,11 @@
   <img src="https://markdown-videos-api.jorgenkh.no/youtube/kP3lzh_HfWY">
 </a>
 
+<figure>
+  <img src="images/illustrations/05-04-evidently-metrics.png" alt="Reference and current datasets compared to produce distribution, gauge, and performance metrics">
+  <figcaption>Metrics calculation compares a reference with a current batch and emits drift, quality, and performance signals.</figcaption>
+</figure>
+
 
 ## 5.5 Evidently Monitoring Dashboard
 
@@ -52,12 +57,22 @@
   <img src="https://markdown-videos-api.jorgenkh.no/youtube/zjvYhDPzFlY">
 </a>
 
+<figure>
+  <img src="images/illustrations/05-05-monitoring-dashboard.png" alt="A monitoring dashboard showing trends, a gauge, distribution comparison, and alert status from stored metrics">
+  <figcaption>A dashboard turns stored monitoring metrics into trends, comparisons, and actionable status signals.</figcaption>
+</figure>
+
 
 ## 5.6 Dummy monitoring
 
 <a href="https://www.youtube.com/watch?v=s3G4PMsOMOA&list=PL3MmuxUbc_hIUISrluw_A7wDSmfOhErJK">
   <img src="https://markdown-videos-api.jorgenkh.no/youtube/s3G4PMsOMOA">
 </a>
+
+<figure>
+  <img src="images/illustrations/05-06-dummy-monitoring.png" alt="Synthetic batches repeating through a monitoring test harness, metric store, and checked dashboard signal">
+  <figcaption>Dummy monitoring safely exercises the metric pipeline with repeatable synthetic batches.</figcaption>
+</figure>
 
 
 
