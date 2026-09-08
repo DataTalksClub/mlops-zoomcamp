@@ -49,6 +49,11 @@
   <img src="images/thumbnail-4-04.jpg">
 </a>
 
+<figure>
+  <img src="images/illustrations/04-04-streaming-kinesis-lambda.png" alt="Ride events flowing through a trigger into a serverless model function and out as prediction events">
+  <figcaption>Streaming deployment reacts to incoming events, scores them in a serverless function, and publishes predictions.</figcaption>
+</figure>
+
 Note: Since some of the steps in this video requires the use of AWS services which incur some cost on the user, it is optional to code along to this video. However, as material in Module 6 is based on the content of this video, we still highly recommended that you watch it.
 
 [See code here](streaming/)
@@ -59,6 +64,11 @@ Note: Since some of the steps in this video requires the use of AWS services whi
 <a href="https://www.youtube.com/watch?v=18Lbaaeigek&list=PL3MmuxUbc_hIUISrluw_A7wDSmfOhErJK">
   <img src="images/thumbnail-4-05.jpg">
 </a>
+
+<figure>
+  <img src="images/illustrations/04-05-batch-scoring-script.png" alt="A scheduled data batch and model artifact entering a scoring script and producing an output table">
+  <figcaption>Batch scoring processes a complete data partition with a model and writes the resulting predictions for later use.</figcaption>
+</figure>
 
 
 [See code here](batch/)
@@ -72,10 +82,20 @@ No video - you already know how to do it:
 * Create a transformation block
 * Get the model from the registry, apply it
 
+<figure>
+  <img src="images/illustrations/04-06-mage-batch-workflow.png" alt="A scheduled block workflow combining data, a model, transformation, scoring, and a prediction dataset">
+  <figcaption>A block-based batch workflow can schedule transformation and model application as repeatable steps.</figcaption>
+</figure>
+
 
 ## Homework
 
 More information [here](../cohorts/2025/04-deployment/homework.md).
+
+<figure>
+  <img src="../images/homework-checklist.png" alt="A practical assignment checklist connecting code practice to a completed project package">
+  <figcaption>Homework turns deployment concepts into a small, reviewable practice deliverable.</figcaption>
+</figure>
 
 
 ## Notes
