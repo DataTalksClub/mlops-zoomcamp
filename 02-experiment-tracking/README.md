@@ -12,6 +12,11 @@
   <img src="images/thumbnail-2-01.jpg">
 </a>
 
+<figure>
+  <img src="images/illustrations/02-01-experiment-tracking.png" alt="Several parallel ML experiments flowing into a comparison board with one result highlighted">
+  <figcaption>Experiment tracking makes parallel trials comparable by preserving their settings and outcomes.</figcaption>
+</figure>
+
 
 
 ## 2.2 Getting started with MLflow
@@ -19,6 +24,11 @@
 <a href="https://www.youtube.com/watch?v=cESCQE9J3ZE&list=PL3MmuxUbc_hIUISrluw_A7wDSmfOhErJK">
   <img src="images/thumbnail-2-02.jpg">
 </a>
+
+<figure>
+  <img src="images/illustrations/02-02-mlflow-getting-started.png" alt="A code workspace sending run information to a tracking server, database, and artifact store">
+  <figcaption>A first tracking setup connects the training code to a server for metrics and durable artifacts.</figcaption>
+</figure>
 
 Note: in the videos, Cristian uses Jupyter in VS code and runs everything locally
 
@@ -32,6 +42,11 @@ difference between using Jupyter with VS code and without
 <a href="https://www.youtube.com/watch?v=iaJz-T7VWec&list=PL3MmuxUbc_hIUISrluw_A7wDSmfOhErJK">
   <img src="images/thumbnail-2-03.jpg">
 </a>
+
+<figure>
+  <img src="images/illustrations/02-03-mlflow-experiment-tracking.png" alt="A training run recording parameters, metrics, and a model artifact for later comparison">
+  <figcaption>Each run records the ingredients, measurements, and resulting model artifact needed for reproducible comparison.</figcaption>
+</figure>
 
 
 
