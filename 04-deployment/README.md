@@ -6,6 +6,11 @@
   <img src="images/thumbnail-4-01.jpg">
 </a>
 
+<figure>
+  <img src="images/illustrations/04-01-three-deployment-modes.png" alt="Three parallel deployment lanes for offline batches, online requests, and event-driven streams">
+  <figcaption>Models can serve scheduled batches, direct online requests, or continuous event streams.</figcaption>
+</figure>
+
 
 
 ## 4.2 Web-services: Deploying models with Flask and Docker
@@ -13,6 +18,11 @@
 <a href="https://www.youtube.com/watch?v=D7wfMAdgdF8&list=PL3MmuxUbc_hIUISrluw_A7wDSmfOhErJK">
   <img src="images/thumbnail-4-02.jpg">
 </a>
+
+<figure>
+  <img src="images/illustrations/04-02-flask-docker-service.png" alt="A client request entering a containerized API, passing through a model, and returning a prediction">
+  <figcaption>A Flask service packages the model inside a container and exposes a repeatable request/response boundary.</figcaption>
+</figure>
 
 
 [See code here](web-service/)
@@ -23,6 +33,11 @@
 <a href="https://www.youtube.com/watch?v=aewOpHSCkqI&list=PL3MmuxUbc_hIUISrluw_A7wDSmfOhErJK">
   <img src="images/thumbnail-4-03.jpg">
 </a>
+
+<figure>
+  <img src="images/illustrations/04-03-registry-model-serving.png" alt="A serving endpoint loading a selected model package from a registry and artifact store before answering a request">
+  <figcaption>A deployed service can load a governed model version from the registry instead of bundling it permanently.</figcaption>
+</figure>
 
 
 [See code here](web-service-mlflow/)
