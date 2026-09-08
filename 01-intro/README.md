@@ -117,7 +117,7 @@ Links:
 ## 1.5 MLOps maturity model
 
 <a href="https://www.youtube.com/watch?v=XwTH8BDGzYk&list=PL3MmuxUbc_hIUISrluw_A7wDSmfOhErJK">
-  <img src="images/thumbnail-1-05.jpg">
+  <img src="images/thumbnail-1-05-imagegen.png">
 </a>
 
 Links: 
