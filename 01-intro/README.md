@@ -4,9 +4,7 @@ Instructor: Alexey Grigorev
 
 ## 1.1 Introduction
 
-<a href="https://www.youtube.com/watch?v=s0uaFZSzwfI&list=PL3MmuxUbc_hIUISrluw_A7wDSmfOhErJK">
-  <img src="images/thumbnail-1-01.jpg">
-</a>
+[Watch the lesson video](https://www.youtube.com/watch?v=s0uaFZSzwfI&list=PL3MmuxUbc_hIUISrluw_A7wDSmfOhErJK)
 
 <figure>
   <img src="images/illustrations/01-01-mlops-lifecycle.png" alt="A loop showing data, model training, deployment, monitoring, and feedback in the MLOps lifecycle">
@@ -18,9 +16,7 @@ Instructor: Alexey Grigorev
 ## 1.2 Environment preparation
 
 ### 1.2.1 GitHub Codespaces
-<a href="https://www.youtube.com/watch?v=MzcmWXYxi2s&list=PL3MmuxUbc_hIUISrluw_A7wDSmfOhErJK&index=2">
-  <img src="images/thumbnail-1-02-1-imagegen.png" />
-</a>
+[Watch the GitHub Codespaces video](https://www.youtube.com/watch?v=MzcmWXYxi2s&list=PL3MmuxUbc_hIUISrluw_A7wDSmfOhErJK&index=2)
 
 <figure>
   <img src="images/illustrations/01-02-01-cloud-workspace.png" alt="A cloud development workspace linked to a source repository, terminal, container, and laptop">
@@ -35,9 +31,7 @@ OR
 **Note**: You don't have to rent an instance in the cloud. You can follow the same instructions 
 for setting up your local environment. 
 
-<a href="https://www.youtube.com/watch?v=IXSiYkP23zo&list=PL3MmuxUbc_hIUISrluw_A7wDSmfOhErJK">
-  <img src="images/thumbnail-1-02-imagegen.png">
-</a>
+[Watch the AWS VM video](https://www.youtube.com/watch?v=IXSiYkP23zo&list=PL3MmuxUbc_hIUISrluw_A7wDSmfOhErJK)
 
 <figure>
   <img src="images/illustrations/01-02-02-aws-vm-setup.png" alt="A secure remote virtual machine connected to a terminal, storage, network shield, and compute chip">
@@ -112,9 +106,7 @@ chmod 400 name-of-your-private-key-file.pem
 Here's a [video](https://www.youtube.com/watch?v=r94QjpX9vSE&list=PL3MmuxUbc_hIUISrluw_A7wDSmfOhErJK) that explains how to 
 read parquet data.
 
-<a href="https://www.youtube.com/watch?v=iRunifGSHFc&list=PL3MmuxUbc_hIUISrluw_A7wDSmfOhErJK">
-  <img src="images/thumbnail-1-03.jpg">
-</a>
+[Watch the training video](https://www.youtube.com/watch?v=iRunifGSHFc&list=PL3MmuxUbc_hIUISrluw_A7wDSmfOhErJK)
 
 <figure>
   <img src="images/illustrations/01-03-ride-duration-training.png" alt="Taxi trip records flowing through feature preparation and model training to a predicted duration">
@@ -128,9 +120,7 @@ Links:
 
 ## 1.4 Course overview
 
-<a href="https://www.youtube.com/watch?v=teP9KWkP6SM&list=PL3MmuxUbc_hIUISrluw_A7wDSmfOhErJK">
-  <img src="images/thumbnail-1-04-imagegen.png">
-</a>
+[Watch the course overview video](https://www.youtube.com/watch?v=teP9KWkP6SM&list=PL3MmuxUbc_hIUISrluw_A7wDSmfOhErJK)
 
 <figure>
   <img src="images/illustrations/01-04-course-overview.png" alt="A rising roadmap of connected milestones for foundations, experiments, pipelines, deployment, monitoring, practices, and a project">
@@ -141,9 +131,7 @@ Links:
 
 ## 1.5 MLOps maturity model
 
-<a href="https://www.youtube.com/watch?v=XwTH8BDGzYk&list=PL3MmuxUbc_hIUISrluw_A7wDSmfOhErJK">
-  <img src="images/thumbnail-1-05-imagegen.png">
-</a>
+[Watch the maturity model video](https://www.youtube.com/watch?v=XwTH8BDGzYk&list=PL3MmuxUbc_hIUISrluw_A7wDSmfOhErJK)
 
 <figure>
   <img src="images/illustrations/01-05-mlops-maturity-model.png" alt="A four-step staircase rising from manual notebook work to automated monitored ML operations">

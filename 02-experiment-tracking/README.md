@@ -8,9 +8,7 @@
 
 ## 2.1 Experiment tracking intro
 
-<a href="https://www.youtube.com/watch?v=MiA7LQin9c8&list=PL3MmuxUbc_hIUISrluw_A7wDSmfOhErJK">
-  <img src="images/thumbnail-2-01.jpg">
-</a>
+[Watch the experiment tracking introduction](https://www.youtube.com/watch?v=MiA7LQin9c8&list=PL3MmuxUbc_hIUISrluw_A7wDSmfOhErJK)
 
 <figure>
   <img src="images/illustrations/02-01-experiment-tracking.png" alt="Several parallel ML experiments flowing into a comparison board with one result highlighted">
@@ -21,9 +19,7 @@
 
 ## 2.2 Getting started with MLflow
 
-<a href="https://www.youtube.com/watch?v=cESCQE9J3ZE&list=PL3MmuxUbc_hIUISrluw_A7wDSmfOhErJK">
-  <img src="images/thumbnail-2-02.jpg">
-</a>
+[Watch the MLflow getting started video](https://www.youtube.com/watch?v=cESCQE9J3ZE&list=PL3MmuxUbc_hIUISrluw_A7wDSmfOhErJK)
 
 <figure>
   <img src="images/illustrations/02-02-mlflow-getting-started.png" alt="A code workspace sending run information to a tracking server, database, and artifact store">
@@ -39,9 +35,7 @@ difference between using Jupyter with VS code and without
 
 ## 2.3 Experiment tracking with MLflow
 
-<a href="https://www.youtube.com/watch?v=iaJz-T7VWec&list=PL3MmuxUbc_hIUISrluw_A7wDSmfOhErJK">
-  <img src="images/thumbnail-2-03.jpg">
-</a>
+[Watch the MLflow experiment tracking video](https://www.youtube.com/watch?v=iaJz-T7VWec&list=PL3MmuxUbc_hIUISrluw_A7wDSmfOhErJK)
 
 <figure>
   <img src="images/illustrations/02-03-mlflow-experiment-tracking.png" alt="A training run recording parameters, metrics, and a model artifact for later comparison">
@@ -52,9 +46,7 @@ difference between using Jupyter with VS code and without
 
 ## 2.4 Model management
 
-<a href="https://www.youtube.com/watch?v=OVUPIX88q88&list=PL3MmuxUbc_hIUISrluw_A7wDSmfOhErJK">
-  <img src="images/thumbnail-2-04.jpg">
-</a>
+[Watch the model management video](https://www.youtube.com/watch?v=OVUPIX88q88&list=PL3MmuxUbc_hIUISrluw_A7wDSmfOhErJK)
 
 <figure>
   <img src="images/illustrations/02-04-model-management.png" alt="A versioned model package connected to its data, code, metadata, and release shelf">
@@ -65,9 +57,7 @@ difference between using Jupyter with VS code and without
 
 ## 2.5 Model registry
 
-<a href="https://www.youtube.com/watch?v=TKHU7HAvGH8&list=PL3MmuxUbc_hIUISrluw_A7wDSmfOhErJK">
-  <img src="images/thumbnail-2-05.jpg">
-</a>
+[Watch the model registry video](https://www.youtube.com/watch?v=TKHU7HAvGH8&list=PL3MmuxUbc_hIUISrluw_A7wDSmfOhErJK)
 
 <figure>
   <img src="images/illustrations/02-05-model-registry.png" alt="Candidate model packages passing through a registry gate to a selected serving version with rollback">
@@ -79,9 +69,7 @@ Please use model version tags and aliases instead of stages. For example, instea
 
 ## 2.6 MLflow in practice
 
-<a href="https://www.youtube.com/watch?v=1ykg4YmbFVA&list=PL3MmuxUbc_hIUISrluw_A7wDSmfOhErJK">
-  <img src="images/thumbnail-2-06.jpg">
-</a>
+[Watch the MLflow in practice video](https://www.youtube.com/watch?v=1ykg4YmbFVA&list=PL3MmuxUbc_hIUISrluw_A7wDSmfOhErJK)
 
 <figure>
   <img src="images/illustrations/02-06-mlflow-in-practice.png" alt="A training workspace sending a run through tracking, registry, and a serving endpoint in a repeatable loop">
@@ -91,9 +79,7 @@ Please use model version tags and aliases instead of stages. For example, instea
 
 ## 2.7 MLflow: benefits, limitations and alternatives
 
-<a href="https://www.youtube.com/watch?v=Lugy1JPsBRY&list=PL3MmuxUbc_hIUISrluw_A7wDSmfOhErJK">
-  <img src="images/thumbnail-2-07.jpg">
-</a>
+[Watch the MLflow alternatives video](https://www.youtube.com/watch?v=Lugy1JPsBRY&list=PL3MmuxUbc_hIUISrluw_A7wDSmfOhErJK)
 
 <figure>
   <img src="images/illustrations/02-07-benefits-limitations-alternatives.png" alt="A tracking hub balanced against tradeoffs and surrounded by interchangeable tool modules">

@@ -2,9 +2,7 @@
 
 ## 5.1 Intro to ML monitoring
 
-<a href="https://www.youtube.com/watch?v=SQ0jBwd_3kk&list=PL3MmuxUbc_hIUISrluw_A7wDSmfOhErJK">
-  <img src="https://markdown-videos-api.jorgenkh.no/youtube/SQ0jBwd_3kk">
-</a>
+[Watch the monitoring introduction](https://www.youtube.com/watch?v=SQ0jBwd_3kk&list=PL3MmuxUbc_hIUISrluw_A7wDSmfOhErJK)
 
 <figure>
   <img src="images/illustrations/05-01-ml-monitoring-loop.png" alt="A deployed model sending data and predictions to monitoring, alerts, investigation, and feedback">
@@ -15,9 +13,7 @@
 
 ## 5.2 Environment setup
 
-<a href="https://www.youtube.com/watch?v=yixA3C1xSxc&list=PL3MmuxUbc_hIUISrluw_A7wDSmfOhErJK">
-  <img src="https://markdown-videos-api.jorgenkh.no/youtube/yixA3C1xSxc">
-</a>
+[Watch the monitoring environment setup](https://www.youtube.com/watch?v=yixA3C1xSxc&list=PL3MmuxUbc_hIUISrluw_A7wDSmfOhErJK)
 
 <figure>
   <img src="images/illustrations/05-02-monitoring-environment.png" alt="A local monitoring stack connecting a metrics worker, database, dashboard, and terminal">
@@ -28,9 +24,7 @@
 
 ## 5.3 Prepare reference and model
 
-<a href="https://www.youtube.com/watch?v=IjNrkqMYQeQ&list=PL3MmuxUbc_hIUISrluw_A7wDSmfOhErJK">
-  <img src="https://markdown-videos-api.jorgenkh.no/youtube/IjNrkqMYQeQ">
-</a>
+[Watch the reference and model preparation video](https://www.youtube.com/watch?v=IjNrkqMYQeQ&list=PL3MmuxUbc_hIUISrluw_A7wDSmfOhErJK)
 
 <figure>
   <img src="images/illustrations/05-03-reference-model-preparation.png" alt="Historical data and a training notebook producing a reference dataset and baseline model">
@@ -41,9 +35,7 @@
 
 ## 5.4 Evidently metrics calculation
 
-<a href="https://www.youtube.com/watch?v=kP3lzh_HfWY&list=PL3MmuxUbc_hIUISrluw_A7wDSmfOhErJK">
-  <img src="https://markdown-videos-api.jorgenkh.no/youtube/kP3lzh_HfWY">
-</a>
+[Watch the Evidently metrics video](https://www.youtube.com/watch?v=kP3lzh_HfWY&list=PL3MmuxUbc_hIUISrluw_A7wDSmfOhErJK)
 
 <figure>
   <img src="images/illustrations/05-04-evidently-metrics.png" alt="Reference and current datasets compared to produce distribution, gauge, and performance metrics">
@@ -53,9 +45,7 @@
 
 ## 5.5 Evidently Monitoring Dashboard
 
-<a href="https://www.youtube.com/watch?v=zjvYhDPzFlY&list=PL3MmuxUbc_hIUISrluw_A7wDSmfOhErJK">
-  <img src="https://markdown-videos-api.jorgenkh.no/youtube/zjvYhDPzFlY">
-</a>
+[Watch the Evidently dashboard video](https://www.youtube.com/watch?v=zjvYhDPzFlY&list=PL3MmuxUbc_hIUISrluw_A7wDSmfOhErJK)
 
 <figure>
   <img src="images/illustrations/05-05-monitoring-dashboard.png" alt="A monitoring dashboard showing trends, a gauge, distribution comparison, and alert status from stored metrics">
@@ -65,9 +55,7 @@
 
 ## 5.6 Dummy monitoring
 
-<a href="https://www.youtube.com/watch?v=s3G4PMsOMOA&list=PL3MmuxUbc_hIUISrluw_A7wDSmfOhErJK">
-  <img src="https://markdown-videos-api.jorgenkh.no/youtube/s3G4PMsOMOA">
-</a>
+[Watch the dummy monitoring video](https://www.youtube.com/watch?v=s3G4PMsOMOA&list=PL3MmuxUbc_hIUISrluw_A7wDSmfOhErJK)
 
 <figure>
   <img src="images/illustrations/05-06-dummy-monitoring.png" alt="Synthetic batches repeating through a monitoring test harness, metric store, and checked dashboard signal">
@@ -78,9 +66,7 @@
 
 ## 5.7 Data quality monitoring
 
-<a href="https://www.youtube.com/watch?v=fytrmPbcLhI&list=PL3MmuxUbc_hIUISrluw_A7wDSmfOhErJK">
-  <img src="https://markdown-videos-api.jorgenkh.no/youtube/fytrmPbcLhI">
-</a>
+[Watch the data quality monitoring video](https://www.youtube.com/watch?v=fytrmPbcLhI&list=PL3MmuxUbc_hIUISrluw_A7wDSmfOhErJK)
 
 <figure>
   <img src="images/illustrations/05-07-data-quality-monitoring.png" alt="A data batch passing schema and distribution checks with clean data continuing and failed checks raising an alert">
@@ -93,9 +79,7 @@ is not officially supported in the 2024 edition of the course.
 
 ## 5.8 Save Grafana Dashboard
 
-<a href="https://www.youtube.com/watch?v=-c4iumyZMyw&list=PL3MmuxUbc_hIUISrluw_A7wDSmfOhErJK">
-  <img src="https://markdown-videos-api.jorgenkh.no/youtube/-c4iumyZMyw">
-</a>
+[Watch the dashboard saving video](https://www.youtube.com/watch?v=-c4iumyZMyw&list=PL3MmuxUbc_hIUISrluw_A7wDSmfOhErJK)
 
 <figure>
   <img src="images/illustrations/05-08-save-dashboard.png" alt="Dashboard panels being saved as a reusable stored dashboard artifact with a reload loop">
@@ -106,9 +90,7 @@ is not officially supported in the 2024 edition of the course.
 
 ## 5.9 Debugging with test suites and reports
 
-<a href="https://www.youtube.com/watch?v=sNSk3ojISh8&list=PL3MmuxUbc_hIUISrluw_A7wDSmfOhErJK">
-  <img src="https://markdown-videos-api.jorgenkh.no/youtube/sNSk3ojISh8">
-</a>
+[Watch the debugging and reports video](https://www.youtube.com/watch?v=sNSk3ojISh8&list=PL3MmuxUbc_hIUISrluw_A7wDSmfOhErJK)
 
 <figure>
   <img src="images/illustrations/05-09-debugging-tests-reports.png" alt="Reference and current batches passing through a test suite to pass or fail findings and a detailed debugging report">

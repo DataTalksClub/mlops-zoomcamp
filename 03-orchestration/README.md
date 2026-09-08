@@ -2,9 +2,7 @@
 
 ## 3.1 Introduction to ML Pipelines
 
-<a href="https://www.youtube.com/watch?v=uAR4BhVCNbI&list=PL3MmuxUbc_hIUISrluw_A7wDSmfOhErJK">
-  <img src="https://markdown-videos-api.jorgenkh.no/youtube/uAR4BhVCNbI">
-</a>
+[Watch the ML pipelines video](https://www.youtube.com/watch?v=uAR4BhVCNbI&list=PL3MmuxUbc_hIUISrluw_A7wDSmfOhErJK)
 
 <figure>
   <img src="images/illustrations/03-01-ml-pipeline.png" alt="A directed workflow from raw data through preparation, features, training, evaluation, and a model artifact">
@@ -13,9 +11,7 @@
 
 ## 3.2 Turning the Notebook into a Python Script
 
-<a href="https://www.youtube.com/watch?v=3_Uu0rInxWI&list=PL3MmuxUbc_hIUISrluw_A7wDSmfOhErJK">
-  <img src="https://markdown-videos-api.jorgenkh.no/youtube/3_Uu0rInxWI">
-</a>
+[Watch the notebook-to-script video](https://www.youtube.com/watch?v=3_Uu0rInxWI&list=PL3MmuxUbc_hIUISrluw_A7wDSmfOhErJK)
 
 <figure>
   <img src="images/illustrations/03-02-notebook-to-script.png" alt="A scattered notebook transformed into modular code tiles and a repeatable terminal workflow">

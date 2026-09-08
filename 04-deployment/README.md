@@ -2,9 +2,7 @@
 
 ## 4.1 Three ways of deploying a model
 
-<a href="https://www.youtube.com/watch?v=JMGe4yIoBRA&list=PL3MmuxUbc_hIUISrluw_A7wDSmfOhErJK">
-  <img src="images/thumbnail-4-01.jpg">
-</a>
+[Watch the deployment modes video](https://www.youtube.com/watch?v=JMGe4yIoBRA&list=PL3MmuxUbc_hIUISrluw_A7wDSmfOhErJK)
 
 <figure>
   <img src="images/illustrations/04-01-three-deployment-modes.png" alt="Three parallel deployment lanes for offline batches, online requests, and event-driven streams">
@@ -15,9 +13,7 @@
 
 ## 4.2 Web-services: Deploying models with Flask and Docker
 
-<a href="https://www.youtube.com/watch?v=D7wfMAdgdF8&list=PL3MmuxUbc_hIUISrluw_A7wDSmfOhErJK">
-  <img src="images/thumbnail-4-02.jpg">
-</a>
+[Watch the Flask service video](https://www.youtube.com/watch?v=D7wfMAdgdF8&list=PL3MmuxUbc_hIUISrluw_A7wDSmfOhErJK)
 
 <figure>
   <img src="images/illustrations/04-02-flask-docker-service.png" alt="A client request entering a containerized API, passing through a model, and returning a prediction">
@@ -30,9 +26,7 @@
 
 ## 4.3 Web-services: Getting the models from the model registry (MLflow)
 
-<a href="https://www.youtube.com/watch?v=aewOpHSCkqI&list=PL3MmuxUbc_hIUISrluw_A7wDSmfOhErJK">
-  <img src="images/thumbnail-4-03.jpg">
-</a>
+[Watch the model serving video](https://www.youtube.com/watch?v=aewOpHSCkqI&list=PL3MmuxUbc_hIUISrluw_A7wDSmfOhErJK)
 
 <figure>
   <img src="images/illustrations/04-03-registry-model-serving.png" alt="A serving endpoint loading a selected model package from a registry and artifact store before answering a request">
@@ -45,9 +39,7 @@
 
 ## 4.4 (Optional) Streaming: Deploying models with Kinesis and Lambda 
 
-<a href="https://www.youtube.com/watch?v=TCqr9HNcrsI&list=PL3MmuxUbc_hIUISrluw_A7wDSmfOhErJK">
-  <img src="images/thumbnail-4-04.jpg">
-</a>
+[Watch the streaming deployment video](https://www.youtube.com/watch?v=TCqr9HNcrsI&list=PL3MmuxUbc_hIUISrluw_A7wDSmfOhErJK)
 
 <figure>
   <img src="images/illustrations/04-04-streaming-kinesis-lambda.png" alt="Ride events flowing through a trigger into a serverless model function and out as prediction events">
@@ -61,9 +53,7 @@ Note: Since some of the steps in this video requires the use of AWS services whi
 
 ## 4.5 Batch: Preparing a scoring script
 
-<a href="https://www.youtube.com/watch?v=18Lbaaeigek&list=PL3MmuxUbc_hIUISrluw_A7wDSmfOhErJK">
-  <img src="images/thumbnail-4-05.jpg">
-</a>
+[Watch the batch scoring video](https://www.youtube.com/watch?v=18Lbaaeigek&list=PL3MmuxUbc_hIUISrluw_A7wDSmfOhErJK)
 
 <figure>
   <img src="images/illustrations/04-05-batch-scoring-script.png" alt="A scheduled data batch and model artifact entering a scoring script and producing an output table">

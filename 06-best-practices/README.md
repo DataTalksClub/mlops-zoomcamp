@@ -6,44 +6,32 @@
 
 ### 6.1 Testing Python code with pytest
 
-<a href="https://www.youtube.com/watch?v=CJp1eFQP5nk&list=PL3MmuxUbc_hIUISrluw_A7wDSmfOhErJK">
-  <img src="images/thumbnail-6-1.jpg">
-</a>
+[Watch the pytest video](https://www.youtube.com/watch?v=CJp1eFQP5nk&list=PL3MmuxUbc_hIUISrluw_A7wDSmfOhErJK)
 
 
 ### 6.2 Integration tests with docker-compose
 
-<a href="https://www.youtube.com/watch?v=lBX0Gl7Z1ck&list=PL3MmuxUbc_hIUISrluw_A7wDSmfOhErJK">
-  <img src="images/thumbnail-6-2.jpg">
-</a>
+[Watch the docker-compose integration tests video](https://www.youtube.com/watch?v=lBX0Gl7Z1ck&list=PL3MmuxUbc_hIUISrluw_A7wDSmfOhErJK)
 
 
 ### 6.3 Testing cloud services with LocalStack
 
-<a href="https://www.youtube.com/watch?v=9yMO86SYvuI&list=PL3MmuxUbc_hIUISrluw_A7wDSmfOhErJK">
-  <img src="images/thumbnail-6-3.jpg">
-</a>
+[Watch the LocalStack video](https://www.youtube.com/watch?v=9yMO86SYvuI&list=PL3MmuxUbc_hIUISrluw_A7wDSmfOhErJK)
 
 
 ### 6.4 Code quality: linting and formatting
 
-<a href="https://www.youtube.com/watch?v=uImvWE-iSDQ&list=PL3MmuxUbc_hIUISrluw_A7wDSmfOhErJK">
-  <img src="images/thumbnail-6-4.jpg">
-</a>
+[Watch the linting and formatting video](https://www.youtube.com/watch?v=uImvWE-iSDQ&list=PL3MmuxUbc_hIUISrluw_A7wDSmfOhErJK)
 
 
 ### 6.5 Git pre-commit hooks
 
-<a href="https://www.youtube.com/watch?v=lmMZ7Axk2T8&list=PL3MmuxUbc_hIUISrluw_A7wDSmfOhErJK">
-  <img src="images/thumbnail-6-5.jpg">
-</a>
+[Watch the pre-commit hooks video](https://www.youtube.com/watch?v=lmMZ7Axk2T8&list=PL3MmuxUbc_hIUISrluw_A7wDSmfOhErJK)
 
 
 ### 6.6 Makefiles and make
 
-<a href="https://www.youtube.com/watch?v=F6DZdvbRZQQ&list=PL3MmuxUbc_hIUISrluw_A7wDSmfOhErJK">
-  <img src="images/thumbnail-6-6.jpg">
-</a>
+[Watch the Makefiles video](https://www.youtube.com/watch?v=F6DZdvbRZQQ&list=PL3MmuxUbc_hIUISrluw_A7wDSmfOhErJK)
 
 
 ### 6.7 Homework
@@ -57,7 +45,7 @@ More information [here](../cohorts/2025/06-best-practices/homework.md).
 ### Infrastructure-as-Code
 with Terraform 
 
-![AWS stream-based ride-prediction pipeline on AWS](AWS-stream-pipeline-imagegen.png)
+![AWS stream-based ride-prediction pipeline on AWS](AWS-stream-pipeline.png)
 
 #### Summary
 * Setting up a stream-based pipeline infrastructure in AWS, using Terraform
@@ -102,7 +90,7 @@ Additional material on understanding Terraform concepts here: [Reference Materia
 ### CI/CD
 with GitHub Actions
 
-![CI/CD workflow from commit through testing, infrastructure, and deployment](ci_cd_zoomcamp-imagegen.png)
+![CI/CD workflow from commit through testing, infrastructure, and deployment](ci_cd_zoomcamp.png)
 
 #### Summary
 
