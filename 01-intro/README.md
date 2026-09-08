@@ -8,6 +8,11 @@ Instructor: Alexey Grigorev
   <img src="images/thumbnail-1-01.jpg">
 </a>
 
+<figure>
+  <img src="images/illustrations/01-01-mlops-lifecycle.png" alt="A loop showing data, model training, deployment, monitoring, and feedback in the MLOps lifecycle">
+  <figcaption>The MLOps lifecycle connects data, training, deployment, and monitoring into a repeatable feedback loop.</figcaption>
+</figure>
+
 
 
 ## 1.2 Environment preparation
@@ -16,6 +21,11 @@ Instructor: Alexey Grigorev
 <a href="https://www.youtube.com/watch?v=MzcmWXYxi2s&list=PL3MmuxUbc_hIUISrluw_A7wDSmfOhErJK&index=2">
   <img src="images/thumbnail-1-02-1-imagegen.png" />
 </a>
+
+<figure>
+  <img src="images/illustrations/01-02-01-cloud-workspace.png" alt="A cloud development workspace linked to a source repository, terminal, container, and laptop">
+  <figcaption>Codespaces puts the course workspace in the cloud while keeping familiar repository, terminal, and container tools nearby.</figcaption>
+</figure>
 
 
 OR
@@ -28,6 +38,11 @@ for setting up your local environment.
 <a href="https://www.youtube.com/watch?v=IXSiYkP23zo&list=PL3MmuxUbc_hIUISrluw_A7wDSmfOhErJK">
   <img src="images/thumbnail-1-02-imagegen.png">
 </a>
+
+<figure>
+  <img src="images/illustrations/01-02-02-aws-vm-setup.png" alt="A secure remote virtual machine connected to a terminal, storage, network shield, and compute chip">
+  <figcaption>A VM-based setup combines remote compute, storage, terminal access, and a protected network boundary.</figcaption>
+</figure>
 
 
 Code:
@@ -101,6 +116,11 @@ read parquet data.
   <img src="images/thumbnail-1-03.jpg">
 </a>
 
+<figure>
+  <img src="images/illustrations/01-03-ride-duration-training.png" alt="Taxi trip records flowing through feature preparation and model training to a predicted duration">
+  <figcaption>The running example turns taxi trips into features, learns a relationship, and produces a duration prediction.</figcaption>
+</figure>
+
 Links:
 
 * [Notebook](duration-prediction.ipynb)
@@ -112,6 +132,11 @@ Links:
   <img src="images/thumbnail-1-04-imagegen.png">
 </a>
 
+<figure>
+  <img src="images/illustrations/01-04-course-overview.png" alt="A rising roadmap of connected milestones for foundations, experiments, pipelines, deployment, monitoring, practices, and a project">
+  <figcaption>The course roadmap moves from foundations through production practices to an end-to-end project.</figcaption>
+</figure>
+
 
 
 ## 1.5 MLOps maturity model
@@ -119,6 +144,11 @@ Links:
 <a href="https://www.youtube.com/watch?v=XwTH8BDGzYk&list=PL3MmuxUbc_hIUISrluw_A7wDSmfOhErJK">
   <img src="images/thumbnail-1-05-imagegen.png">
 </a>
+
+<figure>
+  <img src="images/illustrations/01-05-mlops-maturity-model.png" alt="A four-step staircase rising from manual notebook work to automated monitored ML operations">
+  <figcaption>Maturity increases as ML work becomes repeatable, automated, and observable.</figcaption>
+</figure>
 
 Links: 
 
@@ -129,6 +159,11 @@ Links:
 ## 1.6 Homework
 
 More information [here](../cohorts/2025/01-intro/homework.md).
+
+<figure>
+  <img src="../images/homework-checklist.png" alt="A practical assignment checklist connecting code practice to a completed project package">
+  <figcaption>Homework turns the module’s concepts into a small, reviewable practice deliverable.</figcaption>
+</figure>
 
 
 ## Notes
