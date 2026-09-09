@@ -51,6 +51,8 @@ After clicking on "launch database" you will be able to check the newly generate
 
 <img src="images/db_password.png" />
 
+The password value is intentionally redacted in this documentation image. In the AWS console, copy the generated password immediately and keep it private.
+
 You can use the default values for all the other configurations.
 
 Take note of the following information:
