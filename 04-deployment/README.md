@@ -23,6 +23,13 @@
 
 [See code here](web-service/)
 
+**Dockerizing tips**
+
+- Make sure you derive from the correct base image for your stack.
+- Copy the data into the image with `COPY` to a relative path — absolute paths inside the image are troublesome.
+- Use paths starting from `/app`, and do `WORKDIR /app` before executing any code.
+- Build and run: `docker build -t mlops-learn .` then `docker run -it --rm mlops-learn` (the tag name is arbitrary and carries no significance).
+
 
 ## 4.3 Web-services: Getting the models from the model registry (MLflow)
 

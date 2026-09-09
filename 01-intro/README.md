@@ -43,6 +43,11 @@ Code:
 
 Recommended development environment: Linux
 
+> **Tips**
+>
+> * To open notebooks in VS Code, install the Jupyter extension.
+> * If you can't access Jupyter running on the VM from your desktop, start it bound to all interfaces: `jupyter notebook --ip='*' --no-browser`. Alternatively run `jupyter notebook --generate-config` and set `ip = '*'` in the generated `~/.jupyter/jupyter_notebook_config.py`.
+
 ### Step 1: Download and install the Anaconda distribution of Python
 ```sh
 wget https://repo.anaconda.com/archive/Anaconda3-2022.05-Linux-x86_64.sh
