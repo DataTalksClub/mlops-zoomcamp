@@ -60,9 +60,9 @@ Share community notes and resources below.
 
 Previous-edition notes:
 
-- [2022 Prefect notes](../cohorts/2022/03-orchestration/README.md)
-- [2023 Prefect notes](../cohorts/2023/03-orchestration/prefect/README.md)
-- [2024 Mage notes](../cohorts/2024/03-orchestration/README.md)
+- [2022 Prefect notes](https://github.com/DataTalksClub/mlops-zoomcamp/tree/main/cohorts/2022/03-orchestration)
+- [2023 Prefect notes](https://github.com/DataTalksClub/mlops-zoomcamp/blob/main/cohorts/2023/03-orchestration/prefect/README.md)
+- [2024 Mage notes](https://github.com/DataTalksClub/mlops-zoomcamp/blob/main/cohorts/2024/03-orchestration/README.md)
 
 2025 notes:
 
