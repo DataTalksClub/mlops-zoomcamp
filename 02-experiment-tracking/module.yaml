@@ -1,0 +1,25 @@
+schema_version: 2
+content_id: 8cbccac5-2860-40ac-8e2b-5cb34bd7ae45
+title: "Module 2: Experiment Tracking and Model Management"
+units:
+  - content_id: 297c62fd-34e3-436e-8751-48c4c26dfc29
+    title: "Experiment Tracking Intro"
+    path: 01-experiment-tracking-intro.md
+  - content_id: 6033e75a-26de-40a8-8c26-1fcaf017b27b
+    title: "Getting Started with MLflow"
+    path: 02-mlflow-getting-started.md
+  - content_id: d250ae00-c792-434b-9e4f-221a840eb028
+    title: "Experiment Tracking with MLflow"
+    path: 03-experiment-tracking.md
+  - content_id: 8ab8c531-6d88-4502-acf1-5cd790d3f3fe
+    title: "Model Management"
+    path: 04-model-management.md
+  - content_id: 4d891f1f-c2b4-4d3b-b25b-a59da79090f4
+    title: "Model Registry"
+    path: 05-model-registry.md
+  - content_id: f068c566-6aa0-4608-a74d-5e7b7faadb41
+    title: "MLflow in Practice"
+    path: 06-mlflow-in-practice.md
+  - content_id: a9ee9c92-5b56-4e1f-88a8-5e0b35259d97
+    title: "MLflow: Benefits, Limitations and Alternatives"
+    path: 07-mlflow-alternatives.md
