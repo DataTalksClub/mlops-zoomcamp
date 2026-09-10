@@ -1,0 +1,25 @@
+schema_version: 2
+content_id: 4c9f2ebf-9a32-4f21-8c31-23d4f5fd6b9d
+title: "Module 1: Introduction"
+units:
+  - content_id: 4310f368-0ef2-48ca-85e5-59eb4767214b
+    title: "Introduction"
+    path: 01-introduction.md
+  - content_id: 76749148-e3dc-4a24-9900-0c0ef2496832
+    title: "GitHub Codespaces"
+    path: 02-codespaces.md
+  - content_id: ce672a26-2af1-455e-901a-eb388bee5ba8
+    title: "VM in AWS"
+    path: 03-aws-vm.md
+  - content_id: 77eae9f9-c8dd-45b5-9801-6337603d082a
+    title: "Reading Parquet Data"
+    path: 04-read-parquet.md
+  - content_id: 7b986601-772a-4a78-bb1a-9bea0157e1c7
+    title: "Training a Ride Duration Prediction Model"
+    path: 05-train-duration-model.md
+  - content_id: a56ced7b-f921-454e-84f5-fb9e861e6f25
+    title: "Course Overview"
+    path: 06-course-overview.md
+  - content_id: 228b197e-1e39-42d1-90c1-9619a7362eca
+    title: "MLOps Maturity Model"
+    path: 07-maturity-model.md
