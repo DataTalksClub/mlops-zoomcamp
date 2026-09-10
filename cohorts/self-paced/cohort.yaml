@@ -1,0 +1,10 @@
+schema_version: 2
+content_id: 7bc45919-74b1-4184-98c4-d847e1e70e2f
+identifier: "self-paced"
+course: mlops-zoomcamp
+delivery: self_paced
+published: true
+start_date: null
+end_date: null
+curriculum: current
+homework: []
