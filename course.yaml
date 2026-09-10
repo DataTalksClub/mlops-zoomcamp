@@ -1,11 +1,31 @@
-schema_version: 1
-content_id: mlops-zoomcamp
+schema_version: 2
+content_id: eaa43317-fa85-4954-b46b-8bbefcc446e7
 slug: mlops-zoomcamp
 title: MLOps Zoomcamp
-description_path: SITE.md
+current_cohort: "self-paced"
+cohorts:
+  - identifier: "self-paced"
+    content: root
+  - identifier: "2025"
+    content: cohorts/2025
+    legacy: true
+  - identifier: "2024"
+    content: cohorts/2024
+    legacy: true
+  - identifier: "2023"
+    content: cohorts/2023
+    legacy: true
+  - identifier: "2022"
+    content: cohorts/2022
+    legacy: true
+description: |
+  MLOps Zoomcamp is a completely free, hands-on course on productionizing machine learning services, from training and experimentation through to deployment and monitoring.
+
+  Six modules cover experiment tracking and model management with MLflow, workflow orchestration and ML pipelines, online and batch model deployment, model monitoring, and engineering best practices such as testing, CI/CD, and infrastructure as code. A final project ties them together into an end-to-end system. All materials are available for self-paced study.
 outcome: Learn practical aspects of productionizing ML services, from training and experimentation to deployment and monitoring.
-repository_url: https://github.com/DataTalksClub/mlops-zoomcamp
-docs_url: https://datatalks.club/docs/courses/mlops-zoomcamp/
-faq_url: https://datatalks.club/faq/mlops-zoomcamp.html
+urls:
+  repository: https://github.com/DataTalksClub/mlops-zoomcamp
+  docs: https://datatalks.club/docs/courses/mlops-zoomcamp/
+  faq: https://datatalks.club/faq/mlops-zoomcamp.html
 hashtag: mlopszoomcamp
 published: true
