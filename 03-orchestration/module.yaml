@@ -1,0 +1,13 @@
+schema_version: 2
+content_id: 2f8e0d93-7e0c-4f7a-b8c6-1a9d4e5f6b70
+title: "Module 3: Orchestration and ML Pipelines"
+units:
+  - content_id: 4a7e2c10-9f35-4b8d-a6c1-5e0f2d3b7a91
+    title: "Introduction to ML Pipelines"
+    path: 01-ml-pipelines.md
+  - content_id: 9c1d6e42-5b78-4fa0-8e23-7d0a4c6b9f15
+    title: "Turning the Notebook into a Python Script"
+    path: 02-notebook-to-script.md
+  - content_id: b5f8a2d4-6c19-43e7-9a50-1d3b8e7c2f64
+    title: "Using an Orchestrator"
+    path: 03-orchestrator.md
