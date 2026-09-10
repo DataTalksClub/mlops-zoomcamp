@@ -1,0 +1,22 @@
+schema_version: 2
+content_id: 6b1e4f90-2d7a-4c53-9f86-a0e5b3d1c742
+title: "Module 4: Model Deployment"
+units:
+  - content_id: 8d2f6a14-3b70-4c95-ae81-5f0d2b7c9a63
+    title: "Three Ways of Deploying a Model"
+    path: 01-deployment-modes.md
+  - content_id: 1a5c8e32-7f49-4d06-bb23-9e1f6a0c5d78
+    title: "Web Services: Deploying Models with Flask and Docker"
+    path: 02-flask-docker.md
+  - content_id: 3e7b0d56-1c92-4fa8-86d4-2b5e9a70c318
+    title: "Web Services: Getting Models from the Model Registry"
+    path: 03-model-registry-serving.md
+  - content_id: 5f9a2c74-6e31-4b08-a7d5-0c82e4f196ba
+    title: "Streaming: Deploying Models with Kinesis and Lambda"
+    path: 04-streaming-kinesis-lambda.md
+  - content_id: 7c4e1a98-5b62-4d30-9f07-e286c1a5b743
+    title: "Batch: Preparing a Scoring Script"
+    path: 05-batch-scoring.md
+  - content_id: 9e6b3d20-8a54-4c17-bf92-1d75e0a6c839
+    title: "Batch Scoring with Mage"
+    path: 06-mage-batch-scoring.md

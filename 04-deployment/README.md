@@ -1,111 +1,57 @@
-# 4. Model Deployment
+# Module 4: Model Deployment
 
-## 4.1 Three ways of deploying a model
+We package the duration model as a web service and connect serving to the model registry. We also compare online, streaming, and batch deployment modes.
 
-[Watch the deployment modes video](https://www.youtube.com/watch?v=JMGe4yIoBRA&list=PL3MmuxUbc_hIUISrluw_A7wDSmfOhErJK)
+## 4.1 [Three Ways of Deploying a Model](01-deployment-modes.md)
 
-<figure>
-  <img src="images/illustrations/04-01-three-deployment-modes.png" alt="Three parallel deployment lanes for offline batches, online requests, and event-driven streams">
-  <figcaption>Models can serve scheduled batches, direct online requests, or continuous event streams.</figcaption>
-</figure>
+Compare batch, online, and event-driven streaming deployment and choose the boundary that fits the prediction requirement.
 
+## 4.2 [Web Services: Deploying Models with Flask and Docker](02-flask-docker.md)
 
+Build a Flask prediction endpoint, test it, and package it with its model artifacts in Docker.
 
-## 4.2 Web-services: Deploying models with Flask and Docker
+## 4.3 [Web Services: Getting Models from the Model Registry](03-model-registry-serving.md)
 
-[Watch the Flask service video](https://www.youtube.com/watch?v=D7wfMAdgdF8&list=PL3MmuxUbc_hIUISrluw_A7wDSmfOhErJK)
+Load a selected MLflow model version at serving time instead of bundling a fixed artifact into the image.
 
-<figure>
-  <img src="images/illustrations/04-02-flask-docker-service.png" alt="A client request entering a containerized API, passing through a model, and returning a prediction">
-  <figcaption>A Flask service packages the model inside a container and exposes a repeatable request/response boundary.</figcaption>
-</figure>
+## 4.4 [Streaming: Deploying Models with Kinesis and Lambda](04-streaming-kinesis-lambda.md)
 
+Optionally consume Kinesis events with a containerized Lambda function and produce predictions.
 
-[See code here](web-service/)
+## 4.5 [Batch: Preparing a Scoring Script](05-batch-scoring.md)
 
-**Dockerizing tips**
+Turn a scoring notebook into a parameterized script that can run scheduled batches and backfills.
 
-- Make sure you derive from the correct base image for your stack.
-- Copy the data into the image with `COPY` to a relative path — absolute paths inside the image are troublesome.
-- Use paths starting from `/app`, and do `WORKDIR /app` before executing any code.
-- Build and run: `docker build -t mlops-learn .` then `docker run -it --rm mlops-learn` (the tag name is arbitrary and carries no significance).
+## 4.6 [Batch Scoring with Mage](06-mage-batch-scoring.md)
 
-
-## 4.3 Web-services: Getting the models from the model registry (MLflow)
-
-[Watch the model serving video](https://www.youtube.com/watch?v=aewOpHSCkqI&list=PL3MmuxUbc_hIUISrluw_A7wDSmfOhErJK)
-
-<figure>
-  <img src="images/illustrations/04-03-registry-model-serving.png" alt="A serving endpoint loading a selected model package from a registry and artifact store before answering a request">
-  <figcaption>A deployed service can load a governed model version from the registry instead of bundling it permanently.</figcaption>
-</figure>
-
-
-[See code here](web-service-mlflow/)
-
-
-## 4.4 (Optional) Streaming: Deploying models with Kinesis and Lambda 
-
-[Watch the streaming deployment video](https://www.youtube.com/watch?v=TCqr9HNcrsI&list=PL3MmuxUbc_hIUISrluw_A7wDSmfOhErJK)
-
-<figure>
-  <img src="images/illustrations/04-04-streaming-kinesis-lambda.png" alt="Ride events flowing through a trigger into a serverless model function and out as prediction events">
-  <figcaption>Streaming deployment reacts to incoming events, scores them in a serverless function, and publishes predictions.</figcaption>
-</figure>
-
-Note: Since some of the steps in this video requires the use of AWS services which incur some cost on the user, it is optional to code along to this video. However, as material in Module 6 is based on the content of this video, we still highly recommended that you watch it.
-
-[See code here](streaming/)
-
-
-## 4.5 Batch: Preparing a scoring script
-
-[Watch the batch scoring video](https://www.youtube.com/watch?v=18Lbaaeigek&list=PL3MmuxUbc_hIUISrluw_A7wDSmfOhErJK)
-
-<figure>
-  <img src="images/illustrations/04-05-batch-scoring-script.png" alt="A scheduled data batch and model artifact entering a scoring script and producing an output table">
-  <figcaption>Batch scoring processes a complete data partition with a model and writes the resulting predictions for later use.</figcaption>
-</figure>
-
-
-[See code here](batch/)
-
-
-## 4.6 MLOps Zoomcamp 4.6 - Batch scoring with Mage
-
-No video - you already know how to do it:
-
-* Connect to MLFlow
-* Create a transformation block
-* Get the model from the registry, apply it
-
-<figure>
-  <img src="images/illustrations/04-06-mage-batch-workflow.png" alt="A scheduled block workflow combining data, a model, transformation, scoring, and a prediction dataset">
-  <figcaption>A block-based batch workflow can schedule transformation and model application as repeatable steps.</figcaption>
-</figure>
-
+Use a Mage transformation block to retrieve a model from MLflow and apply it to a batch.
 
 ## Homework
 
-More information [here](../cohorts/2025/04-deployment/homework.md).
+More information is available in the [Module 4 homework](https://github.com/DataTalksClub/mlops-zoomcamp/blob/main/cohorts/2025/04-deployment/homework.md).
 
-<figure>
-  <img src="../images/homework-checklist.png" alt="A practical assignment checklist connecting code practice to a completed project package">
-  <figcaption>Homework turns deployment concepts into a small, reviewable practice deliverable.</figcaption>
-</figure>
+## Code and resources
 
+The main code examples are:
 
-## Notes
+- [Flask web service](web-service)
+- [MLflow-backed web service](web-service-mlflow)
+- [Kinesis and Lambda example](streaming)
+- [Batch scoring code](batch)
 
-Did you take notes? Add them here:
+The streaming exercise can create AWS charges. Treat it as optional and remove test resources when finished. Use the local tests in Module 6 when you don't want to deploy cloud resources.
 
-* [Notes on model deployment (+ creating a modeling package) by Ron M.](https://particle1331.github.io/inefficient-networks/notebooks/mlops/04-deployment/notes.html)
-* [Notes on Model Deployment using Google Cloud Platform, by M. Ayoub C.](https://gist.github.com/Qfl3x/de2a9b98a370749a4b17a4c94ef46185)
-* [Week4: Notes on Model Deployment by Bhagabat](https://github.com/BPrasad123/MLOps_Zoomcamp/tree/main/Week4)
-* [Week 4: Deployment notes by Ayoub.B](https://github.com/ayoub-berdeddouch/mlops-journey/blob/main/deployment-04.md)
-* [Week 4: Deployment notes by Waleed](https://github.com/waleedayoub/mlops-zoomcamp/blob/main/cohorts/2023/04-deployment/module4notes.waleed.md)
-* [Week4: Deployment: Offline (Batch), Online (Web service /w MLflow, Streaming) by Hongfan (Amber)](https://github.com/Muhongfan/MLops/blob/main/04-deployment/README.md)
-* [Week 4: Deployment Notes - Marcus](https://github.com/mleiwe/mlops-zoomcamp/blob/NotesBranch/cohorts/2024/04-deployment/Ch4_Notes_ML.md)
-* [Cohort 2025| ML model deployment notes by Nitin Gupta](https://github.com/niting9881/course-mlops-zoomcamp/blob/main/04-deployment/README.md)
-* [week-4: Detailed notes on deployment,streaming module,notes,codes and homework by Muhammad Shifa](https://github.com/MuhammadShifa/mlops-zoomcamp2025/blob/main/04-deployment/README.md)
+## Community Notes
+
+Share community notes and resources below.
+
+* [Notes on model deployment and creating a modeling package by Ron M.](https://particle1331.github.io/inefficient-networks/notebooks/mlops/04-deployment/notes.html)
+* [Model deployment on Google Cloud Platform by M. Ayoub C.](https://gist.github.com/Qfl3x/de2a9b98a370749a4b17a4c94ef46185)
+* [Week 4 deployment notes by Bhagabat](https://github.com/BPrasad123/MLOps_Zoomcamp/tree/main/Week4)
+* [Week 4 deployment notes by Ayoub B.](https://github.com/ayoub-berdeddouch/mlops-journey/blob/main/deployment-04.md)
+* [Week 4 deployment notes by Waleed](https://github.com/waleedayoub/mlops-zoomcamp/blob/main/cohorts/2023/04-deployment/module4notes.waleed.md)
+* [Offline, online, and streaming deployment notes by Hongfan](https://github.com/Muhongfan/MLops/blob/main/04-deployment/README.md)
+* [Week 4 notes by Marcus](https://github.com/mleiwe/mlops-zoomcamp/blob/NotesBranch/cohorts/2024/04-deployment/Ch4_Notes_ML.md)
+* [2025 model deployment notes by Nitin Gupta](https://github.com/niting9881/course-mlops-zoomcamp/blob/main/04-deployment/README.md)
+* [Week 4 detailed notes by Muhammad Shifa](https://github.com/MuhammadShifa/mlops-zoomcamp2025/blob/main/04-deployment/README.md)
 * Send a PR, add your notes above this line
