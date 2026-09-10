@@ -1,0 +1,12 @@
+schema_version: 2
+content_id: fb5d710e-c804-4f5e-b8b0-332e80a163a7
+identifier: "2022"
+course: mlops-zoomcamp
+delivery: live
+published: true
+start_date: "2022-05-14"
+end_date: "2022-09-19"
+curriculum: github_archive
+archive:
+  notice_path: cohorts/2022/leaderboard.md
+homework: []
