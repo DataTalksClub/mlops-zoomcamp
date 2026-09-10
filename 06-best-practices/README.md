@@ -1,148 +1,81 @@
-# 6. Best Practices
+# Module 6: Best Practices
 
-## Part A
+We make the deployed model easier to test, review, provision, and deliver. We move from Python tests through Terraform and GitHub Actions.
 
-(Part B below)
+## 6.1 [Testing Python Code with pytest](01-pytest.md)
 
-### 6.1 Testing Python code with pytest
+Separate model logic from cloud clients and cover the service with fast unit tests.
 
-[Watch the pytest video](https://www.youtube.com/watch?v=CJp1eFQP5nk&list=PL3MmuxUbc_hIUISrluw_A7wDSmfOhErJK)
+## 6.2 [Integration Tests with docker-compose](02-docker-compose-tests.md)
 
+Start the service in Docker and verify its HTTP API with a deterministic test event.
 
-### 6.2 Integration tests with docker-compose
+## 6.3 [Testing Cloud Services with LocalStack](03-localstack.md)
 
-[Watch the docker-compose integration tests video](https://www.youtube.com/watch?v=lBX0Gl7Z1ck&list=PL3MmuxUbc_hIUISrluw_A7wDSmfOhErJK)
+Exercise Kinesis-compatible behavior locally without creating real AWS resources.
 
+## 6.4 [Code Quality: Linting and Formatting](04-linting-formatting.md)
 
-### 6.3 Testing cloud services with LocalStack
+Use isort, Black, and Pylint to keep code consistent and catch common problems.
 
-[Watch the LocalStack video](https://www.youtube.com/watch?v=9yMO86SYvuI&list=PL3MmuxUbc_hIUISrluw_A7wDSmfOhErJK)
+## 6.5 [Git Pre-commit Hooks](05-pre-commit.md)
 
+Run project checks automatically before creating a commit.
 
-### 6.4 Code quality: linting and formatting
+## 6.6 [Makefiles and make](06-makefiles.md)
 
-[Watch the linting and formatting video](https://www.youtube.com/watch?v=uImvWE-iSDQ&list=PL3MmuxUbc_hIUISrluw_A7wDSmfOhErJK)
+Give tests, quality checks, builds, and deployment steps stable command names.
 
+## 6.7 [Terraform: Introduction](07-terraform-introduction.md)
 
-### 6.5 Git pre-commit hooks
+Describe the AWS stream-based prediction infrastructure as version-controlled code.
 
-[Watch the pre-commit hooks video](https://www.youtube.com/watch?v=lmMZ7Axk2T8&list=PL3MmuxUbc_hIUISrluw_A7wDSmfOhErJK)
+## 6.8 [Terraform: Modules and Output Variables](08-terraform-modules.md)
 
+Extract reusable infrastructure and pass resource identifiers between modules.
 
-### 6.6 Makefiles and make
+## 6.9 [Build an End-to-end Ride Prediction Workflow](09-terraform-pipeline.md)
 
-[Watch the Makefiles video](https://www.youtube.com/watch?v=F6DZdvbRZQQ&list=PL3MmuxUbc_hIUISrluw_A7wDSmfOhErJK)
+Connect Kinesis, Lambda, S3, and ECR into a deployable prediction workflow.
 
+## 6.10 [Test the Pipeline End to End](10-terraform-testing.md)
 
-### 6.7 Homework
+Send a ride event through the deployed pipeline and review the prediction output.
 
-More information [here](../cohorts/2025/06-best-practices/homework.md).
+## 6.11 [CI/CD: Introduction](11-cicd-introduction.md)
 
-<br>
+Map pull-request checks and delivery jobs onto the ride-prediction architecture.
 
-## Part B
+## 6.12 [Continuous Integration](12-continuous-integration.md)
 
-### Infrastructure-as-Code
-with Terraform 
+Run tests and Terraform plan automatically for proposed changes.
 
-![AWS stream-based ride-prediction pipeline on AWS](AWS-stream-pipeline-redrawn.png)
+## 6.13 [Continuous Delivery](13-continuous-delivery.md)
 
-#### Summary
-* Setting up a stream-based pipeline infrastructure in AWS, using Terraform
-* Project infrastructure modules (AWS): Kinesis Streams (Producer & Consumer), Lambda (Serving API), S3 Bucket (Model artifacts), ECR (Image Registry)
+Build, publish, and deploy the service after an approved change.
 
-Further info here:
-* [Concepts of IaC and Terraform](docs.md#concepts-of-iac-and-terraform)
-* [Setup and Execution](https://github.com/DataTalksClub/mlops-zoomcamp/tree/main/06-best-practices/code#iac)
+## Homework
 
-#### 6B.1: Terraform - Introduction
+More information is available in the [Module 6 homework](https://github.com/DataTalksClub/mlops-zoomcamp/blob/main/cohorts/2025/06-best-practices/homework.md).
 
-https://www.youtube.com/watch?v=zRcLgT7Qnio&list=PL3MmuxUbc_hIUISrluw_A7wDSmfOhErJK&index=48
+## Code and resources
 
-* Introduction
-* Setup & Pre-Reqs
-* Concepts of Terraform and IaC (reference material from previous courses)
+Resources:
 
-#### 6B.2: Terraform - Modules and Outputs variables
+- [Best-practices code](code)
+- [Terraform concepts and references](docs/extra-material.md)
+- [AWS stream-pipeline source diagram](AWS-stream-pipeline.png)
+- [CI/CD source diagram](ci_cd_zoomcamp.png)
 
-https://www.youtube.com/watch?v=-6scXrFcPNk&list=PL3MmuxUbc_hIUISrluw_A7wDSmfOhErJK&index=49
+Cloud resources can incur charges. Destroy temporary infrastructure after testing and keep credentials out of the repository.
 
-* What are they?
-* Creating a Kinesis module
+## Community Notes
 
-#### 6B.3: Build an e2e workflow for Ride Predictions
+Share community notes and resources below.
 
-https://www.youtube.com/watch?v=JVydd1K6R7M&list=PL3MmuxUbc_hIUISrluw_A7wDSmfOhErJK&index=50
-
-* TF resources for ECR, Lambda, S3
-
-#### 6B.4: Test the pipeline e2e
-
-https://www.youtube.com/watch?v=YWao0rnqVoI&list=PL3MmuxUbc_hIUISrluw_A7wDSmfOhErJK&index=51
-
-* Demo: apply TF to our use-case, manually deploy data dependencies & test
-* Recap: IaC, Terraform, next steps
-
-Additional material on understanding Terraform concepts here: [Reference Material](docs.md#concepts-of-iac-and-terraform)
-
-<br>
-
-### CI/CD
-with GitHub Actions
-
-![CI/CD workflow from commit through testing, infrastructure, and deployment](ci_cd_zoomcamp-redrawn.png)
-
-#### Summary
-
-* Automate a complete CI/CD pipeline using GitHub Actions to automatically trigger jobs 
-to build, test, and deploy our service to Lambda for every new commit/code change to our repository.
-* The goal of our CI/CD pipeline is to execute tests, build and push container image to a registry,
-and update our lambda service for every commit to the GitHub repository.
-
-Further info here: [Concepts of CI/CD and GitHub Actions](docs.md#concepts-of-ci-cd-and-github-actions)
-
-
-#### 6B.5: CI/CD - Introduction
-
-https://www.youtube.com/watch?v=OMwwZ0Z_cdk&list=PL3MmuxUbc_hIUISrluw_A7wDSmfOhErJK&index=52
-
-* Architecture (Ride Predictions)
-* What are GitHub Workflows?
-
-#### 6B.6: Continuous Integration
-
-https://www.youtube.com/watch?v=xkTWF9c33mU&list=PL3MmuxUbc_hIUISrluw_A7wDSmfOhErJK&index=53
-
-* `ci-tests.yml`
-    * Automate sections from tests: Env setup, Unit test, Integration test, Terraform plan
-    * Create a CI workflow to trigger on `pull-request` to `develop` branch
-    * Execute demo
-
-#### 6B.7: Continuous Delivery
-
-https://www.youtube.com/watch?v=jCNxqXCKh2s&list=PL3MmuxUbc_hIUISrluw_A7wDSmfOhErJK&index=54
-
-* `cd-deploy.yml`
-    * Automate sections from tests: Terraform plan, Terraform apply, Docker build & ECR push, Update Lambda config
-    * Create a CD workflow to trigger on `push` to `develop` branch
-    * Execute demo
-
-#### Alternative CICD Solutions
-
-* Using args and env variables in docker image, and leveraging makefile commands in cicd
-    * Check the repo [README](https://github.com/Nakulbajaj101/mlops-zoomcamp/blob/main/06-best-practices/code-practice/README.md)
-    * Using the args [Dockerfile](https://github.com/Nakulbajaj101/mlops-zoomcamp/blob/main/06-best-practices/code-practice/Dockerfile)
-    * Using build args [ECR terraform](https://github.com/Nakulbajaj101/mlops-zoomcamp/blob/main/06-best-practices/code-practice/deploy/modules/ecr/main.tf)
-    * Updating lambda env variables [Post deploy](https://github.com/Nakulbajaj101/mlops-zoomcamp/blob/main/06-best-practices/code-practice/deploy/run_apply_local.sh)
-    * Making use of make file commands in CICD [CICD](https://github.com/Nakulbajaj101/mlops-zoomcamp/tree/main/.github/workflows)
-
-
-### Notes
-
-Did you take notes? Add them here:
-* [Week 6a Notes by M. Ayoub C.](https://gist.github.com/Qfl3x/267d4cff36b58de67b4e33ca3fc9983f)
-* [Week 6: Unit test/Integration test/Test Automation/Could service test with LocalStack/Code quality/Git pre-commit/Makefile by Hongfan (Amber)](https://github.com/Muhongfan/MLops/blob/main/06-best-practice/README.md)
-* [Week 6 Best Practices: 2023](https://github.com/dimzachar/mlops-zoomcamp/tree/master/notes/Week_6)
-* [Cohort 2025| Best Practices notes and FAQ by Nitin Gupta](https://github.com/niting9881/course-mlops-zoomcamp/blob/main/06-best-practices/README.md)
-* [Week-6: Detailed notes about unit-testing/integration-testing/make/makefile/pre-commit/localstack/terraform/ci/cd, codes/scripts and homwork by Muhammad Shifa](https://github.com/MuhammadShifa/mlops-zoomcamp2025/blob/main/06-best-practices/code/README.md)
+* [Week 6a notes by M. Ayoub C.](https://gist.github.com/Qfl3x/267d4cff36b58de67b4e33ca3fc9983f)
+* [Unit tests, integration tests, LocalStack, code quality, pre-commit, and Makefile notes by Hongfan](https://github.com/Muhongfan/MLops/blob/main/06-best-practice/README.md)
+* [Week 6 notes from 2023](https://github.com/dimzachar/mlops-zoomcamp/tree/master/notes/Week_6)
+* [2025 best-practices notes and FAQ by Nitin Gupta](https://github.com/niting9881/course-mlops-zoomcamp/blob/main/06-best-practices/README.md)
+* [Week 6 detailed notes by Muhammad Shifa](https://github.com/MuhammadShifa/mlops-zoomcamp2025/blob/main/06-best-practices/code/README.md)
 * Send a PR, add your notes above this line

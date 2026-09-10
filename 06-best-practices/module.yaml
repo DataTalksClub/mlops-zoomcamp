@@ -1,0 +1,43 @@
+schema_version: 2
+content_id: 9d3f6a20-7b14-4e85-a0c9-2f6d1b8e5374
+title: "Module 6: Best Practices"
+units:
+  - content_id: 1f7c4a92-6d30-4e58-b0a1-9c5f2d7e8436
+    title: "Testing Python Code with pytest"
+    path: 01-pytest.md
+  - content_id: 3a9e5d17-8c42-4f06-bb73-1d6a0e5c9284
+    title: "Integration Tests with docker-compose"
+    path: 02-docker-compose-tests.md
+  - content_id: 5c1b7f63-0a94-4e28-9d56-2f8c6a1e7035
+    title: "Testing Cloud Services with LocalStack"
+    path: 03-localstack.md
+  - content_id: 7e4d2a80-1f36-4b95-a8c7-0d5e9f2b6143
+    title: "Code Quality: Linting and Formatting"
+    path: 04-linting-formatting.md
+  - content_id: 9a6f3c12-5d78-4e04-b2c1-8f0a7d3e9654
+    title: "Git Pre-commit Hooks"
+    path: 05-pre-commit.md
+  - content_id: 2b8e5a47-0c61-4f93-a7d2-1e6c9b305874
+    title: "Makefiles and make"
+    path: 06-makefiles.md
+  - content_id: 4d0a7c95-2e83-4f16-b9b5-6c1d8a3e7042
+    title: "Terraform: Introduction"
+    path: 07-terraform-introduction.md
+  - content_id: 6f2c9e10-4a75-4d83-a0b6-1e5f7c2d9384
+    title: "Terraform: Modules and Output Variables"
+    path: 08-terraform-modules.md
+  - content_id: 8c5e1a73-9d20-4f64-b8a1-0e6c3d7f5294
+    title: "Build an End-to-end Ride Prediction Workflow"
+    path: 09-terraform-pipeline.md
+  - content_id: 1a7d4f86-3c52-4e90-b6f1-8d0a5c2e7934
+    title: "Test the Pipeline End to End"
+    path: 10-terraform-testing.md
+  - content_id: 3e9b6d14-0f27-4a85-a1c6-5d8e2b7f9304
+    title: "CI/CD: Introduction"
+    path: 11-cicd-introduction.md
+  - content_id: 5a2f8c70-6e13-4d94-b0b7-1c3e9f5d8246
+    title: "Continuous Integration"
+    path: 12-continuous-integration.md
+  - content_id: 7c4e0a92-1d65-4f38-b8a7-2e9c5d0f6134
+    title: "Continuous Delivery"
+    path: 13-continuous-delivery.md
