@@ -1,0 +1,12 @@
+schema_version: 2
+content_id: a1bf4fce-bac8-465d-9c56-a6d1bbabc360
+identifier: "2024"
+course: mlops-zoomcamp
+delivery: live
+published: true
+start_date: "2024-05-13"
+end_date: "2024-08-26"
+curriculum: github_archive
+archive:
+  notice_path: cohorts/2024/README.md
+homework: []
