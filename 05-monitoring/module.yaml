@@ -1,0 +1,34 @@
+schema_version: 2
+content_id: 7c2e5a91-4d68-4f03-a9b7-1e6c8d0f2354
+title: "Module 5: Model Monitoring"
+units:
+  - content_id: 8a4d1f63-9b72-4c05-be38-6e0a2d7f9154
+    title: "Intro to ML Monitoring"
+    path: 01-ml-monitoring.md
+  - content_id: 1e7b3c95-6a40-4d82-9f16-b5c8a0e27364
+    title: "Environment Setup"
+    path: 02-monitoring-environment.md
+  - content_id: 3f9a6d21-8c54-4b07-ae63-0d1f5b8c9274
+    title: "Prepare Reference and Model"
+    path: 03-reference-model.md
+  - content_id: 5b2e8f40-7d16-4c93-a058-9f3a6b1d8247
+    title: "Evidently Metrics Calculation"
+    path: 04-evidently-metrics.md
+  - content_id: 7d0c4a82-1f35-4e96-b728-5a9d3c6e1047
+    title: "Evidently Monitoring Dashboard"
+    path: 05-evidently-dashboard.md
+  - content_id: 9f6b2d14-3a80-4c57-be21-8d0e5a7f9362
+    title: "Dummy Monitoring"
+    path: 06-dummy-monitoring.md
+  - content_id: 2c8e5a70-6d13-4f94-a0b7-1e3c9d5f8246
+    title: "Data Quality Monitoring"
+    path: 07-data-quality.md
+  - content_id: 4e1a7c93-5b60-4d28-9f07-3c8d2e6a1549
+    title: "Save Grafana Dashboard"
+    path: 08-save-grafana-dashboard.md
+  - content_id: 6a3d9f15-8e72-4c06-bb58-0d1f7a2e9346
+    title: "Debugging with Test Suites and Reports"
+    path: 09-debugging-tests-reports.md
+  - content_id: 8f5b2d61-0c47-4e93-a7d8-1b6c9a3f2054
+    title: "Monitoring Example"
+    path: 10-monitoring-example.md
