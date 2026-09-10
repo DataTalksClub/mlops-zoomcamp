@@ -1,0 +1,12 @@
+schema_version: 2
+content_id: 127c4c2e-177f-4bf7-832c-5e035dd5b8f7
+identifier: "2023"
+course: mlops-zoomcamp
+delivery: live
+published: true
+start_date: "2023-05-13"
+end_date: "2023-08-29"
+curriculum: github_archive
+archive:
+  notice_path: cohorts/2023/README.md
+homework: []
