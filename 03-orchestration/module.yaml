@@ -1,6 +1,7 @@
 schema_version: 2
 content_id: 2f8e0d93-7e0c-4f7a-b8c6-1a9d4e5f6b70
 title: "Module 3: Orchestration and ML Pipelines"
+summary: "Turn notebook code into an orchestrated, repeatable ML pipeline."
 units:
   - content_id: 4a7e2c10-9f35-4b8d-a6c1-5e0f2d3b7a91
     title: "Introduction to ML Pipelines"

@@ -1,6 +1,7 @@
 schema_version: 2
 content_id: 4c9f2ebf-9a32-4f21-8c31-23d4f5fd6b9d
 title: "Module 1: Introduction"
+summary: "Train a ride-duration model while learning the lifecycle and maturity levels of production ML systems."
 units:
   - content_id: 4310f368-0ef2-48ca-85e5-59eb4767214b
     title: "Introduction"

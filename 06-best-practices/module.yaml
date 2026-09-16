@@ -1,6 +1,7 @@
 schema_version: 2
 content_id: 9d3f6a20-7b14-4e85-a0c9-2f6d1b8e5374
 title: "Module 6: Best Practices"
+summary: "Test and automate an ML service with pytest, integration checks, quality tools, and infrastructure as code."
 units:
   - content_id: 1f7c4a92-6d30-4e58-b0a1-9c5f2d7e8436
     title: "Testing Python Code with pytest"

@@ -25,6 +25,13 @@ description: |
 outcome: Learn practical aspects of productionizing ML services, from training and experimentation to deployment and monitoring.
 starting_point: You have trained a model and want to learn how to productionize and operate it.
 prerequisites: You know Python, Docker basics, and the machine learning workflow, with about a year of programming experience.
+progression:
+  - heading: I trained a model; production is another problem
+    description: I want a dependable way to track, deploy, and maintain machine learning work after training ends.
+  - heading: I build repeatable machine learning operations
+    description: I practice experiment tracking, orchestration, deployment, monitoring, testing, and infrastructure automation.
+  - heading: I operate an end-to-end machine learning service
+    description: I connect the production workflow in a final project that can be run, observed, and improved.
 urls:
   repository: https://github.com/DataTalksClub/mlops-zoomcamp
   docs: https://datatalks.club/docs/courses/mlops-zoomcamp/

@@ -1,6 +1,7 @@
 schema_version: 2
 content_id: 7c2e5a91-4d68-4f03-a9b7-1e6c8d0f2354
 title: "Module 5: Model Monitoring"
+summary: "Monitor model and data quality with Evidently, PostgreSQL, and Grafana dashboards."
 units:
   - content_id: 8a4d1f63-9b72-4c05-be38-6e0a2d7f9154
     title: "Intro to ML Monitoring"

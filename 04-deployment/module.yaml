@@ -1,6 +1,7 @@
 schema_version: 2
 content_id: 6b1e4f90-2d7a-4c53-9f86-a0e5b3d1c742
 title: "Module 4: Model Deployment"
+summary: "Deploy models for web, streaming, and batch inference with containers and cloud services."
 units:
   - content_id: 8d2f6a14-3b70-4c95-ae81-5f0d2b7c9a63
     title: "Three Ways of Deploying a Model"

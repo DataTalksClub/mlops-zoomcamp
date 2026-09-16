@@ -1,6 +1,7 @@
 schema_version: 2
 content_id: 8cbccac5-2860-40ac-8e2b-5cb34bd7ae45
 title: "Module 2: Experiment Tracking and Model Management"
+summary: "Track experiments and manage model artifacts and registry stages with MLflow."
 units:
   - content_id: 297c62fd-34e3-436e-8751-48c4c26dfc29
     title: "Experiment Tracking Intro"
