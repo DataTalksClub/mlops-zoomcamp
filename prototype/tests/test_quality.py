@@ -100,3 +100,44 @@ def test_publish_logs_and_publishes():
     publish_quality_result(e, bus, log)
     assert bus.events[0].type == EventType.DRIFT_DETECTED
     assert log.records[0]["action"] == "drift_detected"
+
+import numpy as np
+from agents.quality.drift import calculate_drift
+
+
+class FakeModel:
+    def predict(self, feats):
+        return [f["trip_distance"] * 5 for f in feats]
+
+
+def ride_df(n, dist, pu, do):
+    return pd.DataFrame({
+        "PULocationID": [str(x) for x in pu],
+        "DOLocationID": [str(x) for x in do],
+        "trip_distance": dist,
+    })
+
+def test_no_drift_on_same_distribution():
+    rng = np.random.default_rng(0)
+    n = 3000
+    a = ride_df(n, rng.uniform(1, 5, n), rng.choice([43, 74], n), rng.choice([151, 166], n))
+    b = ride_df(n, rng.uniform(1, 5, n), rng.choice([43, 74], n), rng.choice([151, 166], n))
+    r = calculate_drift(a, b, FakeModel())
+    assert r["num_drifted_columns"] == 0
+    assert r["prediction_drift"] < config.COLUMN_DRIFT_THRESHOLD
+
+
+def test_drift_on_shifted_distribution():
+    rng = np.random.default_rng(1)
+    n = 3000
+    a = ride_df(n, rng.uniform(1, 5, n), rng.choice([43, 74], n), rng.choice([151, 166], n))
+    b = ride_df(n, rng.uniform(15, 30, n), rng.choice([10, 20], n), rng.choice([30, 40], n))
+    r = calculate_drift(a, b, FakeModel())
+    assert r["prediction_drift"] >= config.COLUMN_DRIFT_THRESHOLD
+    assert r["drift_score"] >= config.DRIFT_THRESHOLD
+
+
+def test_prediction_drift_alone_triggers_event():
+    e = build_event(validate_current_data(make_df()), 0.25, 1, prediction_drift=0.56)
+    assert e.type == EventType.DRIFT_DETECTED
+    assert e.payload["reason"] == "distribution_drift"

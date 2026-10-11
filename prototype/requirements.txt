@@ -12,3 +12,4 @@ PyYAML==6.0.3
 requests==2.34.2
 pytest==9.1.1
 fakeredis==2.39.0
+evidently==0.7.23
