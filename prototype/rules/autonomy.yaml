@@ -1,0 +1,7 @@
+# auto = seul | approval = validation humaine | forbidden = jamais
+retrain: auto
+promote_better_model: auto
+promote_worse_model: forbidden
+restart_api: auto
+rollback_model: auto
+retrain_over_budget: approval
