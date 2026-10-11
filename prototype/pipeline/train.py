@@ -7,8 +7,9 @@ Le tout premier modèle est mis en production automatiquement."""
 from __future__ import annotations
 
 import argparse
-
+import time
 import mlflow
+import pandas as pd
 import xgboost as xgb
 from mlflow import MlflowClient
 from mlflow.exceptions import MlflowException
@@ -46,21 +47,22 @@ def has_production_model(client: MlflowClient) -> bool:
         return False
 
 
-def train(year: int, month: int, promote: bool = False) -> dict:
+def fit_and_register(df_train: pd.DataFrame, df_test: pd.DataFrame, tags: dict | None = None) -> dict:
+    """Entraîne le pipeline, mesure le RMSE sur df_test et enregistre le modèle dans MLflow.
+
+    Ne touche pas à l'alias production : c'est à l'appelant de décider.
+    """
     mlflow.set_tracking_uri(config.MLFLOW_TRACKING_URI)
     mlflow.set_experiment(config.EXPERIMENT_NAME)
-    client = MlflowClient()
-
-    df_train = read_dataframe(year, month)
-    df_val = read_dataframe(*next_month(year, month))
-
     pipeline = make_pipeline(DictVectorizer(), xgb.XGBRegressor(**PARAMS))
 
-    with mlflow.start_run() as run:
-        mlflow.log_params({**PARAMS, "train_year": year, "train_month": month})
+    with mlflow.start_run(tags=tags) as run:
+        mlflow.log_params(PARAMS)
+        start = time.perf_counter()
         pipeline.fit(to_features(df_train), df_train[TARGET].values)
-        rmse = root_mean_squared_error(df_val[TARGET].values, pipeline.predict(to_features(df_val)))
-        mlflow.log_metric("rmse", rmse)
+        training_seconds = time.perf_counter() - start
+        rmse = root_mean_squared_error(df_test[TARGET].values, pipeline.predict(to_features(df_test)))
+        mlflow.log_metrics({"rmse": rmse, "training_seconds": training_seconds})
         info = mlflow.sklearn.log_model(
             pipeline,
             name="model",
@@ -68,16 +70,27 @@ def train(year: int, month: int, promote: bool = False) -> dict:
             skops_trusted_types=XGBOOST_TYPES,
         )
 
-    version = info.registered_model_version
+    return {
+        "run_id": run.info.run_id,
+        "version": info.registered_model_version,
+        "rmse": rmse,
+        "training_seconds": training_seconds,
+    }
+
+
+def train(year: int, month: int, promote: bool = False) -> dict:
+    df_train = read_dataframe(year, month)
+    df_test = read_dataframe(*next_month(year, month))
+    result = fit_and_register(df_train, df_test, tags={"train_period": f"{year}-{month:02d}"})
+
+    client = MlflowClient()
     should_promote = promote or not has_production_model(client)
     if should_promote:
-        client.set_registered_model_alias(config.MODEL_NAME, config.PRODUCTION_ALIAS, version)
+        client.set_registered_model_alias(config.MODEL_NAME, config.PRODUCTION_ALIAS, result["version"])
 
-    result = {"run_id": run.info.run_id, "version": version, "rmse": rmse, "promoted": should_promote}
+    result["promoted"] = should_promote
     print(result)
     return result
-
-
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Entraîne le modèle de durée des trajets de taxi.")
     parser.add_argument("--year", type=int, required=True)

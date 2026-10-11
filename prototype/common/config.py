@@ -11,6 +11,7 @@ API_URL = os.getenv("API_URL", "http://localhost:9696")
 # Modèle
 MODEL_NAME = os.getenv("MODEL_NAME", "taxi-duration")
 PRODUCTION_ALIAS = "production"
+PREVIOUS_ALIAS = "previous"  # version remplacée, pour un rollback
 EXPERIMENT_NAME = os.getenv("EXPERIMENT_NAME", "nyc-taxi-experiment")
 
 # Bus d'événements

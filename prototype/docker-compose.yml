@@ -44,7 +44,23 @@ services:
     depends_on:
       - mlflow
     restart: unless-stopped
-
+  retrain:
+    build: .
+    command: python -m agents.retrain
+    environment:
+      MLFLOW_TRACKING_URI: http://mlflow:5000
+      REDIS_URL: redis://redis:6379/0
+      DATABASE_URL: postgresql+psycopg://mlops:mlops@postgres:5432/mlops
+      API_URL: http://api:9696
+      PYTHONUNBUFFERED: "1"
+    volumes:
+      - ./data:/app/data
+    depends_on:
+      - mlflow
+      - redis
+      - postgres
+      - api
+    restart: unless-stopped
 volumes:
   mlflow_data:
   postgres_data:
