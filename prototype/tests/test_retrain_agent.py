@@ -2,7 +2,7 @@ import numpy as np
 import pytest
 from mlflow import MlflowClient
 
-from agents.retrain.agent import RetrainAgent, parse_period
+from agents.retrain.agent import RetrainAgent, default_months, parse_period
 from common import config
 from common.action_log import ActionLog
 from common.events import Event, EventType
@@ -29,15 +29,16 @@ def reader(corrupted=()):
     return read
 
 
-def request(period):
-    return Event(type=EventType.RETRAIN_REQUESTED, source="orchestrateur", payload={"period": period})
+def request(period=None, **extra):
+    return Event(type=EventType.RETRAIN_REQUESTED, source="orchestrateur", payload={"period": period, **extra})
 
 
 @pytest.fixture
 def make_agent(local_mlflow, tmp_path):
-    def make(corrupted=()):
+    def make(corrupted=(), cooldown=0):
         return RetrainAgent(bus=FakeBus(), log=ActionLog(url=f"sqlite:///{tmp_path / 'log.db'}"),
-                            read_data=reader(corrupted), reload=lambda: True)
+                            read_data=reader(corrupted), reload=lambda: True,
+                            list_months=lambda: [(2023, 1), (2023, 2), (2023, 3)], cooldown_minutes=cooldown)
     return make
 
 
@@ -76,3 +77,28 @@ def test_worse_challenger_is_blocked_and_production_unchanged(make_agent):
     blocked = agent.bus.events[-1]
     assert blocked.type == EventType.PROMOTION_BLOCKED
     assert {"challenger_rmse", "production_rmse"} <= blocked.payload.keys()
+
+
+def test_default_months():
+    available = [(2023, 1), (2023, 2), (2023, 3)]
+    assert default_months(available, 1) == [(2023, 2)]  # mars sert de test
+    assert default_months(available, 2) == [(2023, 1), (2023, 2)]
+
+
+def test_without_period_uses_latest_months(make_agent):
+    agent = make_agent()
+    agent.handle(request())
+    registered = next(e for e in agent.bus.events if e.type == EventType.MODEL_REGISTERED)
+    assert registered.payload["period"] == ["2023-02"]
+
+
+def test_duplicates_and_cooldown_are_skipped(make_agent):
+    agent = make_agent(cooldown=60)
+    assert agent.handle(request("2023-01"))["decision"] == "promoted"
+
+    assert agent.handle(request("2023-01"))["decision"] == "skipped"  # même période
+    assert agent.handle(request("2023-02"))["decision"] == "skipped"  # moins de 60 min
+    assert agent.log.latest()[0]["action"] == "retrain_skipped"
+
+    validated = agent.handle(request("2023-02", approved_by="responsable"))  # validé par un humain
+    assert validated["decision"] != "skipped"

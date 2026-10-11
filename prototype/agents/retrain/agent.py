@@ -1,13 +1,19 @@
 """Agent Retrain : entraîne un challenger, le compare à la production, puis le promeut ou le bloque.
 
-Écoute : retrain_requested  (payload : period, requested_by, approved_by)
+Écoute : retrain_requested  (payload : period, requested_by, approved_by, force)
 Publie : model_registered, puis model_promoted ou promotion_blocked
          (incident_opened si l'entraînement échoue)
 Les versions ne sont jamais supprimées : l'ancienne production garde l'alias
 "previous" pour permettre un rollback.
+
+Sans "period", l'agent prend les derniers mois présents dans data/.
+Une demande est ignorée si la même période a déjà été entraînée, ou si le
+dernier entraînement date de moins de RETRAIN_COOLDOWN_MINUTES (sauf demande
+validée par un humain). "force": true passe outre ces deux règles.
 """
 from __future__ import annotations
 
+from datetime import datetime, timezone
 from typing import Any, Callable
 
 import mlflow
@@ -21,7 +27,7 @@ from common import config
 from common.action_log import ActionLog
 from common.events import Event, EventBus, EventType, Severity
 from pipeline import train as training
-from pipeline.data import TARGET, read_dataframe, to_features
+from pipeline.data import DATA_DIR, TARGET, read_dataframe, to_features
 
 AGENT = "agent_retrain"
 
@@ -42,6 +48,22 @@ def parse_period(period: str | dict) -> list[tuple[int, int]]:
     return months
 
 
+def available_months() -> list[tuple[int, int]]:
+    """Mois déjà présents dans prototype/data/, du plus ancien au plus récent."""
+    months = []
+    for path in DATA_DIR.glob("green_tripdata_*.parquet"):
+        year, month = path.stem.split("_")[-1].split("-")
+        months.append((int(year), int(month)))
+    return sorted(months)
+
+
+def default_months(available: list[tuple[int, int]], n: int) -> list[tuple[int, int]]:
+    """Le dernier mois disponible sert de test : on entraîne sur les n mois d'avant."""
+    if len(available) < 2:
+        raise ValueError("pas assez de mois dans data/ pour choisir une période")
+    return available[max(0, len(available) - 1 - n):-1]
+
+
 def reload_api() -> bool:
     """Demande à l'API de charger le nouveau modèle en production."""
     try:
@@ -57,11 +79,15 @@ class RetrainAgent:
         log: ActionLog | None = None,
         read_data: Callable[[int, int], pd.DataFrame] = read_dataframe,
         reload: Callable[[], bool] = reload_api,
+        list_months: Callable[[], list[tuple[int, int]]] = available_months,
+        cooldown_minutes: float | None = None,
     ):
         self.bus = bus or EventBus()
         self.log = log or ActionLog()
         self.read_data = read_data
         self.reload = reload
+        self.list_months = list_months
+        self.cooldown_minutes = config.RETRAIN_COOLDOWN_MINUTES if cooldown_minutes is None else cooldown_minutes
 
     def run(self) -> None:
         print("Agent Retrain : en écoute de retrain_requested…")
@@ -73,8 +99,19 @@ class RetrainAgent:
             "approved_by": event.payload.get("approved_by"),
         }
         try:
-            months = parse_period(event.payload["period"])
+            if event.payload.get("period"):
+                months = parse_period(event.payload["period"])
+            else:
+                months = default_months(self.list_months(), config.DEFAULT_TRAIN_MONTHS)
             period = [f"{y}-{m:02d}" for y, m in months]
+
+            reason = self.skip_reason(f"{period[0]}..{period[-1]}", event.payload)
+            if reason:
+                skipped = {"action": "retrain_skipped", "reason": reason, "period": period, **who}
+                self.log.record(AGENT, "retrain_skipped", event.model, skipped)
+                self.publish(EventType.ACTION_LOGGED, Severity.INFO, skipped)
+                return {"decision": "skipped", "reason": reason}
+
             self.log.record(AGENT, "retrain_started", event.model, {**who, "period": period})
 
             df_train = pd.concat([self.read_data(y, m) for y, m in months], ignore_index=True)
@@ -135,6 +172,34 @@ class RetrainAgent:
         self.log.record(AGENT, "promotion_blocked", config.MODEL_NAME, result)
         self.publish(EventType.PROMOTION_BLOCKED, Severity.WARNING, result)
         return {"decision": "blocked", **result}
+
+    def skip_reason(self, train_period: str, payload: dict) -> str | None:
+        """Raison d'ignorer la demande (doublon ou pause), ou None pour entraîner."""
+        if payload.get("force"):
+            return None
+        runs = self.previous_challengers()
+        if runs.empty:
+            return None
+        if (runs["tags.train_period"] == train_period).any():
+            return f"un challenger a déjà été entraîné sur {train_period}"
+        if not payload.get("approved_by"):
+            minutes = (datetime.now(timezone.utc) - runs["start_time"].iloc[0]).total_seconds() / 60
+            if minutes < self.cooldown_minutes:
+                return f"dernier entraînement il y a {minutes:.0f} min, pause de {self.cooldown_minutes:.0f} min"
+        return None
+
+    @staticmethod
+    def previous_challengers() -> pd.DataFrame:
+        """Entraînements déjà faits par l'agent, du plus récent au plus ancien (lus dans MLflow)."""
+        mlflow.set_tracking_uri(config.MLFLOW_TRACKING_URI)
+        try:
+            return mlflow.search_runs(
+                experiment_names=[config.EXPERIMENT_NAME],
+                filter_string="tags.role = 'challenger'",
+                order_by=["start_time DESC"],
+            )
+        except MlflowException:
+            return pd.DataFrame()
 
     @staticmethod
     def production_version(client: MlflowClient) -> str | None:

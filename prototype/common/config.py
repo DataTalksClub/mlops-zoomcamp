@@ -20,6 +20,8 @@ EVENTS_CHANNEL = os.getenv("EVENTS_CHANNEL", "mlops.events")
 # Seuils (à ajuster par l'équipe)
 DRIFT_THRESHOLD = float(os.getenv("DRIFT_THRESHOLD", "0.5"))
 MIN_IMPROVEMENT = float(os.getenv("MIN_IMPROVEMENT", "0.02"))  # 2 % d'erreur en moins
+RETRAIN_COOLDOWN_MINUTES = float(os.getenv("RETRAIN_COOLDOWN_MINUTES", "60"))  # pause entre deux entraînements
+DEFAULT_TRAIN_MONTHS = int(os.getenv("DEFAULT_TRAIN_MONTHS", "1"))  # mois d'entraînement si aucune période
 MAX_ERROR_RATE = float(os.getenv("MAX_ERROR_RATE", "0.05"))
 MAX_LATENCY_SECONDS = float(os.getenv("MAX_LATENCY_SECONDS", "1.0"))
 
