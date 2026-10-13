@@ -5,6 +5,7 @@ from agents.orchestrator.notifier import Notifier
 from agents.orchestrator.rules import APPROVAL, AUTO, FORBIDDEN, Rules
 from common.action_log import ActionLog
 from common.events import Event, EventType, Severity
+from agents.orchestrator.web import create_app 
 
 
 # ---------- règles ----------
@@ -152,3 +153,19 @@ def test_une_seule_demande_a_la_fois(orch):
 def test_estimation_inconnue_ignoree(orch):
     orch.handle(cost_answer("pas-a-nous"))
     assert orch.bus.events == []
+
+
+# ---------- page web ----------
+def test_page_web_valider_publie_approval_given(tmp_path, notifier):
+    bus = FakeBus()
+    log = ActionLog(url=f"sqlite:///{tmp_path / 'log.db'}")
+    client = create_app(notifier, bus, log).test_client()
+    notifier.ask("On réentraîne malgré le budget ?", "req-1")
+
+    assert "On réentraîne malgré le budget ?" in client.get("/").get_data(as_text=True)
+
+    client.post("/answer", data={"request_id": "req-1", "choice": "yes", "who": "ismail"})
+    client.post("/answer", data={"request_id": "req-1", "choice": "no", "who": "omar"})  # trop tard
+
+    assert bus.types() == [EventType.APPROVAL_GIVEN]
+    assert bus.events[0].payload == {"request_id": "req-1", "approved": True, "approved_by": "ismail"}

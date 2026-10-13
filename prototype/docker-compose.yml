@@ -68,6 +68,32 @@ services:
       - postgres
       - api
     restart: unless-stopped
+  cost:
+    build: .
+    command: python -m agents.cost
+    environment:
+      REDIS_URL: redis://redis:6379/0
+      DATABASE_URL: postgresql+psycopg://mlops:mlops@postgres:5432/mlops
+      MONTHLY_BUDGET: "20"   # mettre "0.1" pour la démo du scénario 3 (budget dépassé)
+      PYTHONUNBUFFERED: "1"
+    depends_on:
+      - redis
+      - postgres
+    restart: unless-stopped
+
+  orchestrator:
+    build: .
+    command: python -m agents.orchestrator
+    ports:
+      - "8080:8080"
+    environment:
+      REDIS_URL: redis://redis:6379/0
+      DATABASE_URL: postgresql+psycopg://mlops:mlops@postgres:5432/mlops
+      PYTHONUNBUFFERED: "1"
+    depends_on:
+      - redis
+      - postgres
+    restart: unless-stopped    
 volumes:
   mlflow_data:
   postgres_data:

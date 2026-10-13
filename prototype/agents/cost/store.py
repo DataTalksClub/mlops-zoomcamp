@@ -59,11 +59,11 @@ class PostgresCostStore:
 
     def __init__(self, conn) -> None:
         self._conn = conn
-        with self._conn, self._conn.cursor() as cur:
+        with self._conn.transaction(), self._conn.cursor() as cur:
             cur.execute(CREATE_TABLE_SQL)
 
     def add(self, model, month, kind, cpu_seconds, cost, months=None):
-        with self._conn, self._conn.cursor() as cur:
+        with self._conn.transaction(), self._conn.cursor() as cur:
             cur.execute(
                 "INSERT INTO model_costs (model, month, kind, cpu_seconds, months, cost) "
                 "VALUES (%s, %s, %s, %s, %s, %s)",
@@ -71,19 +71,19 @@ class PostgresCostStore:
             )
 
     def month_total(self, month):
-        with self._conn, self._conn.cursor() as cur:
+        with self._conn.transaction(), self._conn.cursor() as cur:
             cur.execute("SELECT COALESCE(SUM(cost), 0) FROM model_costs WHERE month = %s",
                         (month,))
             return float(cur.fetchone()[0])
 
     def by_model(self, month):
-        with self._conn, self._conn.cursor() as cur:
+        with self._conn.transaction(), self._conn.cursor() as cur:
             cur.execute("SELECT model, SUM(cost) FROM model_costs "
                         "WHERE month = %s GROUP BY model", (month,))
             return {m: float(c) for m, c in cur.fetchall()}
 
     def training_history(self, model):
-        with self._conn, self._conn.cursor() as cur:
+        with self._conn.transaction(), self._conn.cursor() as cur:
             cur.execute("SELECT cpu_seconds, months FROM model_costs "
                         "WHERE model = %s AND kind = 'training' AND months > 0", (model,))
             return [(float(c), int(m)) for c, m in cur.fetchall()]
