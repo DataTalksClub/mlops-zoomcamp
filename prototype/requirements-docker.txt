@@ -11,3 +11,4 @@ psycopg[binary]==3.3.6
 PyYAML==6.0.3
 requests==2.34.2
 prometheus_client==0.26.0
+docker==7.2.0

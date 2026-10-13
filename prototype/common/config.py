@@ -42,3 +42,10 @@ CRASH_LOOP_RESTARTS = int(os.getenv("CRASH_LOOP_RESTARTS", "3"))  # redémarrage
 RESOURCE_MEMORY_PERCENT = float(os.getenv("RESOURCE_MEMORY_PERCENT", "90"))
 RESOURCE_CPU_PERCENT = float(os.getenv("RESOURCE_CPU_PERCENT", "95"))
 BAD_MODEL_WINDOW_MINUTES = float(os.getenv("BAD_MODEL_WINDOW_MINUTES", "30"))  # modèle promu récemment = suspect
+API_CONTAINER_NAME = os.getenv("API_CONTAINER_NAME", "mlops-api")
+API_SERVICE_NAME = os.getenv("API_SERVICE_NAME", "api")  # nom du service dans docker-compose.yml
+REDIS_CONTAINER_NAME = os.getenv("REDIS_CONTAINER_NAME", "mlops-redis")
+MLFLOW_CONTAINER_NAME = os.getenv("MLFLOW_CONTAINER_NAME", "mlops-mlflow")
+# Seuls conteneurs que l'agent a le droit de toucher (jamais Postgres)
+ALLOWED_CONTAINERS = (API_CONTAINER_NAME, REDIS_CONTAINER_NAME, MLFLOW_CONTAINER_NAME)
+ACTION_HTTP_TIMEOUT_SECONDS = float(os.getenv("ACTION_HTTP_TIMEOUT_SECONDS", "30"))  # /reload peut prendre plusieurs secondes

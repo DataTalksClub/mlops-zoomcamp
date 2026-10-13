@@ -5,6 +5,7 @@ services:
       - "5000:5000"
     volumes:
       - mlflow_data:/mlflow
+    container_name: mlops-mlflow
 
   postgres:
     image: postgres:16-alpine
@@ -16,12 +17,12 @@ services:
       - "5432:5432"
     volumes:
       - postgres_data:/var/lib/postgresql/data
-
+    container_name: mlops-postgres
   redis:
     image: redis:7.4-alpine
     ports:
       - "6379:6379"
-
+    container_name: mlops-redis
   grafana:
     image: grafana/grafana-oss:11.6.0
     ports:
@@ -33,7 +34,7 @@ services:
       - ./grafana/provisioning:/etc/grafana/provisioning:ro
     depends_on:
       - postgres
-
+    container_name: mlops-grafana
   api:
     build: .
     command: python -m pipeline.api.app
@@ -44,6 +45,7 @@ services:
     depends_on:
       - mlflow
     restart: unless-stopped
+    container_name: mlops-api
 
 volumes:
   mlflow_data:
