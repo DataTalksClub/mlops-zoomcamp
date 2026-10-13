@@ -8,6 +8,7 @@ from agents.cost.agent import CostAgent
 from agents.cost.collector import FakeCollector
 from agents.cost.settings import CostConfig
 from agents.cost.store import InMemoryCostStore
+from common.events import Event, EventType
 
 NOW = datetime(2026, 10, 12, 14, 0)
 
@@ -16,18 +17,18 @@ class FakeBus:
     def __init__(self):
         self.events = []
 
-    def publish(self, event_type, payload):
-        self.events.append((event_type, payload))
+    def publish(self, event):
+        self.events.append(event)
 
     def types(self):
-        return [t for t, _ in self.events]
+        return [event.type.value for event in self.events]
 
 
 class FakeLog:
     def __init__(self):
         self.rows = []
 
-    def write(self, agent, action, details):
+    def record(self, agent, action, model=None, details=None):
         self.rows.append((agent, action, details))
 
 
@@ -38,6 +39,16 @@ def make_agent(budget=10.0, collector=None):
     bus, log, store = FakeBus(), FakeLog(), InMemoryCostStore()
     agent = CostAgent(store, bus, log, cfg, collector=collector, clock=lambda: NOW)
     return agent, store, bus, log, cfg
+
+
+def send(agent, event_type, payload):
+    model = payload.get("model", "taxi")
+    agent.on_event(Event(
+        type=EventType(event_type),
+        source="test",
+        model=model,
+        payload={key: value for key, value in payload.items() if key != "model"},
+    ))
 
 
 # ---------- calculator ----------
@@ -133,9 +144,9 @@ def test_month_total_accumulates_per_model():
 # ---------- agent ----------
 def test_cost_estimate_under_budget_does_not_publish_budget_exceeded():
     agent, store, bus, log, cfg = make_agent(budget=10.0)
-    agent.on_event("cost_estimate", {"model": "taxi", "months": 3, "requested_by": "ds"})
+    send(agent, "cost_estimate", {"model": "taxi", "months": 3, "requested_by": "ds"})
     assert bus.types() == ["cost_estimated"]
-    answer = bus.events[0][1]
+    answer = bus.events[0].payload
     assert answer["exceeds_budget"] is False
     assert answer["options"]["spot"]["cost"] < answer["options"]["standard"]["cost"]
 
@@ -143,10 +154,10 @@ def test_cost_estimate_under_budget_does_not_publish_budget_exceeded():
 def test_budget_exceeded_event_published():
     agent, store, bus, log, cfg = make_agent(budget=10.0)
     store.add("taxi", "2026-10", "training", 900, 9.0, 3)  # déjà 9 dépensés
-    agent.on_event("cost_estimate", {"model": "taxi", "months": 3, "request_id": "r1"})
+    send(agent, "cost_estimate", {"model": "taxi", "months": 3, "request_id": "r1"})
     # historique 900 s / 3 mois = 300 s/mois -> 3 mois = 900 s -> 9.0 d'estimation
     assert bus.types() == ["cost_estimated", "budget_exceeded"]
-    exceeded = bus.events[1][1]
+    exceeded = bus.events[1].payload
     assert exceeded["request_id"] == "r1"
     assert exceeded["over_by"] == pytest.approx(8.0)
     assert ("cost", "budget_exceeded") in [(a, b) for a, b, _ in log.rows]
@@ -156,21 +167,20 @@ def test_estimate_at_exact_budget_is_not_exceeded():
     agent, store, bus, log, cfg = make_agent(budget=10.0)
     store.add("taxi", "2026-10", "training", 0, 9.0)  # total 9.0
     # défaut 100 s/mois x 1 mois x 0.01 = 1.0 -> total 10.0 = budget
-    agent.on_event("cost_estimate", {"model": "taxi", "months": 1})
+    send(agent, "cost_estimate", {"model": "taxi", "months": 1})
     assert "budget_exceeded" not in bus.types()
 
 
 def test_other_months_do_not_count_toward_budget():
     agent, store, bus, log, cfg = make_agent(budget=10.0)
     store.add("taxi", "2026-09", "serving", 5000, 50.0)  # mois précédent
-    agent.on_event("cost_estimate", {"model": "taxi", "months": 1})
+    send(agent, "cost_estimate", {"model": "taxi", "months": 1})
     assert "budget_exceeded" not in bus.types()
 
 
 def test_training_completed_is_recorded_with_cost():
     agent, store, bus, log, cfg = make_agent()
-    value = agent.handle_training_completed({"model": "taxi", "cpu_seconds": 200, "months": 3})
-    assert value == pytest.approx(2.0)
+    send(agent, "training_completed", {"model": "taxi", "cpu_seconds": 200, "months": 3})
     assert store.month_total("2026-10") == pytest.approx(2.0)
     assert log.rows[-1][1] == "cost_recorded"
 
@@ -211,5 +221,5 @@ def test_idle_check_publishes_only_when_idle():
 
 def test_unknown_events_are_ignored():
     agent, store, bus, log, cfg = make_agent()
-    agent.on_event("drift_detected", {"model": "taxi"})
+    send(agent, "drift_detected", {"model": "taxi"})
     assert bus.events == [] and log.rows == []
