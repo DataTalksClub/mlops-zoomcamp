@@ -49,3 +49,6 @@ MLFLOW_CONTAINER_NAME = os.getenv("MLFLOW_CONTAINER_NAME", "mlops-mlflow")
 # Seuls conteneurs que l'agent a le droit de toucher (jamais Postgres)
 ALLOWED_CONTAINERS = (API_CONTAINER_NAME, REDIS_CONTAINER_NAME, MLFLOW_CONTAINER_NAME)
 ACTION_HTTP_TIMEOUT_SECONDS = float(os.getenv("ACTION_HTTP_TIMEOUT_SECONDS", "30"))  # /reload peut prendre plusieurs secondes
+# Modèle de secours du mode dégradé : durée = base + minutes_par_mile x distance
+FALLBACK_BASE_MINUTES = float(os.getenv("FALLBACK_BASE_MINUTES", "4.0"))
+FALLBACK_MINUTES_PER_MILE = float(os.getenv("FALLBACK_MINUTES_PER_MILE", "3.5"))

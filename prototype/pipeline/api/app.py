@@ -4,7 +4,8 @@ Routes :
     POST /predict  {"PULocationID": 43, "DOLocationID": 151, "trip_distance": 1.8}
     GET  /health   état de l'API et version du modèle chargé
     POST /reload   recharge le modèle en production (après une promotion ou un rollback)
-    GET  /metrics  métriques Prometheus (lues par l'agent Fiabilité)"""
+    GET  /metrics  métriques Prometheus (lues par l'agent Fiabilité)
+    POST /degraded  active/désactive le mode dégradé (agent Fiabilité)"""
 
 from __future__ import annotations
 
@@ -19,8 +20,8 @@ from common import config
 from pipeline.data import prepare_features
 
 app = Flask("duration-prediction")
-state = {"model": None, "version": None, "error": None}
-
+state = {"model": None, "version": None, "error": None, "degraded": False}
+BYPASS_HEADER = "X-Bypass-Degraded"  # les sondes de l'agent testent le vrai modèle même en mode dégradé
 
 # --- Métriques (agent Fiabilité) ---
 REQUESTS = Counter("api_requests_total", "Requêtes HTTP traitées", ["endpoint", "status"])
@@ -30,7 +31,8 @@ LATENCY = Histogram(
 )
 MODEL_LOADED = Gauge("api_model_loaded", "1 si un modèle est chargé, 0 sinon")
 MODEL_VERSION = Gauge("api_model_version", "Version MLflow du modèle servi (0 si aucun)")
-
+DEGRADED_MODE = Gauge("api_degraded_mode", "1 si l'API sert le modèle de secours")
+FALLBACK_PREDICTIONS = Counter("api_fallback_predictions_total", "Prédictions servies par le modèle de secours")
 
 @app.before_request
 def _start_timer() -> None:
@@ -62,16 +64,22 @@ def load_model() -> None:
             MODEL_LOADED.set(0)
             MODEL_VERSION.set(0)
 
+def fallback_duration(ride: dict) -> float:
+    """Modèle de secours : estimation simple, toujours disponible, sans MLflow."""
+    return config.FALLBACK_BASE_MINUTES + config.FALLBACK_MINUTES_PER_MILE * float(ride["trip_distance"])
 
 @app.post("/predict")
 def predict():
+    ride = request.get_json()
+    if state["degraded"] and request.headers.get(BYPASS_HEADER) != "1":
+        FALLBACK_PREDICTIONS.inc()
+        return jsonify({"duration": fallback_duration(ride), "model_version": "fallback", "degraded": True})
     if state["model"] is None:
         load_model()
     if state["model"] is None:
         return jsonify({"error": "aucun modèle en production", "detail": state["error"]}), 503
-    features = prepare_features(request.get_json())
-    duration = float(state["model"].predict([features])[0])
-    return jsonify({"duration": duration, "model_version": state["version"]})
+    duration = float(state["model"].predict([prepare_features(ride)])[0])
+    return jsonify({"duration": duration, "model_version": state["version"], "degraded": False})
 
 
 @app.get("/health")
@@ -79,13 +87,22 @@ def health():
     if state["model"] is None:
         load_model()
     ok = state["model"] is not None
-    return jsonify({"status": "ok" if ok else "no_model", "model_version": state["version"]}), 200 if ok else 503
-
+    return jsonify({"status": "ok" if ok else "no_model", "model_version": state["version"],
+                    "degraded": state["degraded"]}), 200 if ok else 503
 
 @app.post("/reload")
 def reload_model():
     load_model()
     return health()
+
+@app.post("/degraded")
+def set_degraded():
+    body = request.get_json(silent=True) or {}
+    if not isinstance(body.get("enabled"), bool):
+        return jsonify({"error": 'corps attendu : {"enabled": true} ou {"enabled": false}'}), 400
+    state["degraded"] = body["enabled"]
+    DEGRADED_MODE.set(1 if state["degraded"] else 0)
+    return jsonify({"degraded": state["degraded"]})
 
 @app.get("/metrics")
 def metrics():
