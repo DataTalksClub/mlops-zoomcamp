@@ -52,3 +52,11 @@ ACTION_HTTP_TIMEOUT_SECONDS = float(os.getenv("ACTION_HTTP_TIMEOUT_SECONDS", "30
 # Modèle de secours du mode dégradé : durée = base + minutes_par_mile x distance
 FALLBACK_BASE_MINUTES = float(os.getenv("FALLBACK_BASE_MINUTES", "4.0"))
 FALLBACK_MINUTES_PER_MILE = float(os.getenv("FALLBACK_MINUTES_PER_MILE", "3.5"))
+# Boucle de l'agent
+RELIABILITY_POLL_SECONDS = float(os.getenv("RELIABILITY_POLL_SECONDS", "15"))
+PROBE_COUNT = int(os.getenv("PROBE_COUNT", "10"))  # sondes par cycle (>= MIN_REQUESTS : mesure fiable sans trafic)
+CONSECUTIVE_BREACHES = int(os.getenv("CONSECUTIVE_BREACHES", "2"))  # dépassements de suite avant d'ouvrir un incident
+CONSECUTIVE_OK_TO_RESOLVE = int(os.getenv("CONSECUTIVE_OK_TO_RESOLVE", "2"))  # cycles OK de suite avant de clore
+VERIFY_WAIT_SECONDS = float(os.getenv("VERIFY_WAIT_SECONDS", "20"))  # délai laissé à une action avant de la juger
+MAX_RESTARTS_PER_HOUR = int(os.getenv("MAX_RESTARTS_PER_HOUR", "3"))  # anti-boucle
+ESCALATION_REMINDER_MINUTES = float(os.getenv("ESCALATION_REMINDER_MINUTES", "15"))
