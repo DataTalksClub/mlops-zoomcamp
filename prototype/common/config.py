@@ -25,3 +25,8 @@ MAX_LATENCY_SECONDS = float(os.getenv("MAX_LATENCY_SECONDS", "1.0"))
 # Coûts (tarif fictif pour le prototype)
 CPU_HOUR_PRICE = float(os.getenv("CPU_HOUR_PRICE", "0.05"))
 MONTHLY_BUDGET = float(os.getenv("MONTHLY_BUDGET", "20.0"))
+
+
+# --- Fiabilité ---
+MONITORED_ENDPOINT = os.getenv("MONITORED_ENDPOINT", "/predict")  # route dont on surveille le SLO
+HTTP_TIMEOUT_SECONDS = float(os.getenv("HTTP_TIMEOUT_SECONDS", "3"))  # au-delà, l'API est jugée injoignable
