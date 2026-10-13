@@ -70,6 +70,13 @@ class SignalCollector:
         self._restart_history: deque[tuple[float, int]] = deque()
         self.model_age = ModelAgeTracker()
 
+    def observe(self, window: WindowStats, now: float) -> None:
+        """Observation légère à CHAQUE cycle (même sans incident) : sans elle, l'agent ne
+        verrait pas une promotion survenue juste avant une panne et ne pourrait pas
+        soupçonner le nouveau modèle."""
+        if window.reachable:
+            self.model_age.update(window.model_version, now)
+
     def collect(self, window: WindowStats, now: float | None = None) -> Signals:
         now = time.time() if now is None else now
         status, restarts, mem, cpu = self._container(now)

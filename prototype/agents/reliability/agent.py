@@ -129,6 +129,7 @@ class ReliabilityAgent:
         window = compute_window(self.prev, snap)
         self.prev = snap
         self.budget.add(window, now)
+        self.collector.observe(window, now)   # suivi continu (ex. changement de version du modèle)
         unhealthy = is_breach(window) or not probes.ok
 
         if self.incident is None:

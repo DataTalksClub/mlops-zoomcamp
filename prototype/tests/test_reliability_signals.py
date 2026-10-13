@@ -110,3 +110,9 @@ def test_model_age_is_unknown_until_a_version_change_is_observed():
     assert t.update(4, now=100) is None
     assert t.update(5, now=200) == 0         # changement observé
     assert t.update(5, now=500) == 300
+
+def test_observe_tracks_versions_between_incidents():
+    c = collector()
+    c.observe(win(version=4), now=0)        # observé à chaque cycle, sans incident
+    c.observe(win(version=5), now=100)      # promotion vue
+    assert c.collect(win(version=5), now=160).model_age_seconds == 60

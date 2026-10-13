@@ -22,6 +22,7 @@ class Api:
     def __init__(self):
         self.requests = self.errors = 0.0
         self.reachable = True
+        self.model_version = 4
 
     def traffic(self, ok=0, errors=0):
         self.requests += ok + errors
@@ -32,7 +33,7 @@ class Api:
             return Snapshot(timestamp=0, reachable=False, error="connection refused")
         return Snapshot(timestamp=0, reachable=True, requests=self.requests, errors=self.errors,
                         buckets={0.05: self.requests, float("inf"): self.requests},
-                        model_loaded=True, model_version=4, health_ok=True)
+                        model_loaded=True, model_version=self.model_version, health_ok=True)
 
 
 class FakeActions:
@@ -54,6 +55,9 @@ class FakeActions:
 class FakeCollector:
     def __init__(self, signals=None):
         self.signals = signals or Signals()
+
+    def observe(self, window, now):
+        pass
 
     def collect(self, window, now=None):
         return self.signals
@@ -290,3 +294,42 @@ def test_no_degraded_mode_while_the_restarted_api_is_warming_up():
     h.good(2)
     assert h.agent.incident is None
     assert h.actions.executed == [Action.RESTART_API]
+
+
+def test_promotion_seen_before_the_incident_points_to_the_model():
+    """Non-régression (scénario réel bad-model) : la version change pendant que tout va bien,
+    puis les erreurs arrivent. Le diagnostic doit être bad_model et la 1re action un rollback."""
+    from agents.reliability.signals import SignalCollector
+
+    class Container:
+        status, attrs = "running", {"RestartCount": 0}
+
+        def stats(self, stream=False):
+            return {}
+
+    class Docker:
+        containers = None
+
+        def get(self, name):
+            return Container()
+
+    class Http:
+        def get(self, url, timeout=None):
+            return type("R", (), {"status_code": 200})()
+
+    class Redis:
+        def ping(self):
+            return True
+
+    docker = Docker()
+    docker.containers = docker
+    collector = SignalCollector(docker_client=docker, http=Http(), redis_client=Redis(),
+                                postgres_check=lambda: None)
+    h = Harness()
+    h.agent.collector = collector
+    h.good(2)                      # version 4 observée
+    h.api.model_version = 5        # promotion d'une nouvelle version...
+    h.good(1)                      # ...vue par l'agent alors que tout va bien
+    h.bad(2)                       # puis les erreurs arrivent
+    assert h.agent.incident.diagnosis.cause.value == "bad_model"
+    assert h.actions.executed[0] == Action.ROLLBACK_MODEL
