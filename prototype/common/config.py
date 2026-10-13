@@ -84,4 +84,5 @@ DEFAULT_CPU_SECONDS_PER_MONTH_OF_DATA = float(
 COST_IDLE_MINUTES = float(os.getenv("COST_IDLE_MINUTES", "30.0"))
 COST_SIZE_HEADROOM = float(os.getenv("COST_SIZE_HEADROOM", "0.3"))
 COST_HOURS_PER_MONTH = float(os.getenv("COST_HOURS_PER_MONTH", "730.0"))
-ORCHESTRATOR_WEB_PORT = int(os.getenv("ORCHESTRATOR_WEB_PORT", "8080"))  # page web des notifications
+ORCHESTRATOR_WEB_PORT = int(os.getenv("ORCHESTRATOR_WEB_PORT", "8080"))# page web des notifications
+RETRAIN_TIMEOUT_MINUTES = float(os.getenv("RETRAIN_TIMEOUT_MINUTES", "30"))  # sans réponse de Retrain, on considère qu'il a échoué
