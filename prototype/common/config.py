@@ -30,3 +30,11 @@ MONTHLY_BUDGET = float(os.getenv("MONTHLY_BUDGET", "20.0"))
 # --- Fiabilité ---
 MONITORED_ENDPOINT = os.getenv("MONITORED_ENDPOINT", "/predict")  # route dont on surveille le SLO
 HTTP_TIMEOUT_SECONDS = float(os.getenv("HTTP_TIMEOUT_SECONDS", "3"))  # au-delà, l'API est jugée injoignable
+MIN_REQUESTS = int(os.getenv("MIN_REQUESTS", "10"))  # en dessous, le taux d'erreurs n'est pas significatif
+HIGH_ERROR_RATE = float(os.getenv("HIGH_ERROR_RATE", "0.20"))
+CRITICAL_ERROR_RATE = float(os.getenv("CRITICAL_ERROR_RATE", "0.50"))  # au-delà : critique d'office
+HIGH_LATENCY_SECONDS = float(os.getenv("HIGH_LATENCY_SECONDS", "3.0"))
+SLO_TARGET = float(os.getenv("SLO_TARGET", "0.99"))  # 99 % de requêtes réussies
+SLO_WINDOW_MINUTES = float(os.getenv("SLO_WINDOW_MINUTES", "60"))
+SEVERITY_MEDIUM_SCORE = int(os.getenv("SEVERITY_MEDIUM_SCORE", "4"))
+SEVERITY_HIGH_SCORE = int(os.getenv("SEVERITY_HIGH_SCORE", "7"))
