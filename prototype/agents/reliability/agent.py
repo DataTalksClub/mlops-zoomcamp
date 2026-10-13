@@ -84,15 +84,20 @@ class ReliabilityAgent:
                  fetch: Callable[[], Snapshot] = fetch_snapshot,
                  probe: Callable[[], ProbeResult] = run_probes,
                  autonomy: dict[str, str] | None = None,
-                 remediator: Remediator | None = None):
+                 remediator: Remediator | None = None,
+                 metrics_store=None):
         if bus is None:
             from common.events import EventBus
             bus = EventBus()
         if action_log is None:
             from common.action_log import ActionLog
             action_log = ActionLog()
+        if metrics_store is None:
+            from agents.reliability.store import MetricsStore
+            metrics_store = MetricsStore()
         self.bus = bus
         self.action_log = action_log
+        self.metrics_store = metrics_store
         self.actions = actions or ReliabilityActions()
         self.collector = collector or SignalCollector()
         self.fetch = fetch
@@ -137,7 +142,26 @@ class ReliabilityAgent:
             self._watch(window, probes, unhealthy, now)
         else:
             self._handle(window, probes, unhealthy, now)
+        self._store_metrics(window, probes, now)
         return window
+
+    def _store_metrics(self, window: WindowStats, probes: ProbeResult, now: float) -> None:
+        """Une ligne par cycle pour les courbes Grafana (ce que l'agent a vu)."""
+        inc = self.incident
+        try:
+            self.metrics_store.record(
+                now,
+                reachable=window.reachable,
+                requests=window.requests,
+                error_rate=window.error_rate,
+                p95_latency=window.p95_latency,
+                probe_failure_rate=probes.failure_rate,
+                budget_consumed=self.budget.consumed(),
+                degraded=bool(inc and inc.degraded),
+                incident_level=inc.level.value if inc else None,
+            )
+        except Exception as exc:  # Postgres en panne : l'agent continue
+            log.error("Écriture des mesures impossible : %s", exc)
 
     # --------------------------------------------------------- sans incident
     def _watch(self, window: WindowStats, probes: ProbeResult, unhealthy: bool, now: float) -> None:

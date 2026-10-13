@@ -87,6 +87,14 @@ class FakeLog:
         self.records.append((action, details))
 
 
+class FakeStore:
+    def __init__(self):
+        self.rows = []
+
+    def record(self, now, **values):
+        self.rows.append({"now": now, **values})
+
+
 class Harness:
     """Pilote l'agent cycle par cycle."""
 
@@ -96,7 +104,9 @@ class Harness:
         self.actions = FakeActions(fail)
         self.bus = bus or FakeBus()
         self.log = FakeLog()
+        self.store = FakeStore()
         self.agent = ReliabilityAgent(bus=self.bus, action_log=self.log, actions=self.actions,
+                                      metrics_store=self.store,
                                       collector=FakeCollector(signals), fetch=self.api.snapshot,
                                       probe=lambda: self.probes, autonomy=autonomy or AUTONOMY)
         self.agent.run_once(now=self.t)  # premier cycle : référence
@@ -360,3 +370,13 @@ def test_restart_does_not_escalate_to_critical_while_the_api_restarts():
     h.api.reachable = True
     h.good(2)
     assert h.agent.incident is None
+
+
+def test_each_cycle_is_stored_for_grafana():
+    h = Harness()
+    h.good(2)
+    h.bad(2)
+    assert len(h.store.rows) == 4                       # 1re lecture = référence, puis 1 ligne par cycle
+    assert h.store.rows[0]["incident_level"] is None
+    assert h.store.rows[-1]["incident_level"] == "warning"
+    assert h.store.rows[-1]["error_rate"] == 0.3
