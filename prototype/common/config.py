@@ -62,3 +62,4 @@ MAX_RESTARTS_PER_HOUR = int(os.getenv("MAX_RESTARTS_PER_HOUR", "3"))  # anti-bou
 ESCALATION_REMINDER_MINUTES = float(os.getenv("ESCALATION_REMINDER_MINUTES", "15"))
 VERIFY_MAX_WAIT_SECONDS = float(os.getenv("VERIFY_MAX_WAIT_SECONDS", "60"))  # attente max qu'une API redémarrée réponde
 PROBE_MAX_CONSECUTIVE_FAILURES = int(os.getenv("PROBE_MAX_CONSECUTIVE_FAILURES", "2"))  # au-delà, API jugée HS : on arrête les sondes
+FAULT_INJECTION = os.getenv("FAULT_INJECTION", "0") == "1"  # route /fault de démo, désactivée par défaut

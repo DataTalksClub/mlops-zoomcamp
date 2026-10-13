@@ -1,14 +1,15 @@
 """API de prédiction : charge le modèle "taxi-duration" qui porte l'alias production.
 
 Routes :
-    POST /predict  {"PULocationID": 43, "DOLocationID": 151, "trip_distance": 1.8}
-    GET  /health   état de l'API et version du modèle chargé
-    POST /reload   recharge le modèle en production (après une promotion ou un rollback)
-    GET  /metrics  métriques Prometheus (lues par l'agent Fiabilité)
-    POST /degraded  active/désactive le mode dégradé (agent Fiabilité)"""
-
+    POST /predict   {"PULocationID": 43, "DOLocationID": 151, "trip_distance": 1.8}
+    GET  /health    état de l'API et version du modèle chargé
+    POST /reload    recharge le modèle en production (après une promotion ou un rollback)
+    POST /degraded  active/désactive le mode dégradé (agent Fiabilité)
+    POST /fault     injecte une panne pour la démo (seulement si FAULT_INJECTION=1)
+    GET  /metrics   métriques Prometheus (lues par l'agent Fiabilité)"""
 from __future__ import annotations
 
+import random
 import time
 
 import mlflow
@@ -20,8 +21,12 @@ from common import config
 from pipeline.data import prepare_features
 
 app = Flask("duration-prediction")
-state = {"model": None, "version": None, "error": None, "degraded": False}
+state = {
+    "model": None, "version": None, "error": None, "degraded": False,
+    "fault": {"mode": "none", "rate": 0.0, "seconds": 0.0},
+}
 BYPASS_HEADER = "X-Bypass-Degraded"  # les sondes de l'agent testent le vrai modèle même en mode dégradé
+FAULT_MODES = ("none", "errors", "latency")
 
 # --- Métriques (agent Fiabilité) ---
 REQUESTS = Counter("api_requests_total", "Requêtes HTTP traitées", ["endpoint", "status"])
@@ -33,6 +38,7 @@ MODEL_LOADED = Gauge("api_model_loaded", "1 si un modèle est chargé, 0 sinon")
 MODEL_VERSION = Gauge("api_model_version", "Version MLflow du modèle servi (0 si aucun)")
 DEGRADED_MODE = Gauge("api_degraded_mode", "1 si l'API sert le modèle de secours")
 FALLBACK_PREDICTIONS = Counter("api_fallback_predictions_total", "Prédictions servies par le modèle de secours")
+
 
 @app.before_request
 def _start_timer() -> None:
@@ -49,6 +55,7 @@ def _record_metrics(response: Response) -> Response:
         REQUESTS.labels(endpoint, str(response.status_code)).inc()
     return response
 
+
 def load_model() -> None:
     mlflow.set_tracking_uri(config.MLFLOW_TRACKING_URI)
     try:
@@ -64,9 +71,11 @@ def load_model() -> None:
             MODEL_LOADED.set(0)
             MODEL_VERSION.set(0)
 
+
 def fallback_duration(ride: dict) -> float:
     """Modèle de secours : estimation simple, toujours disponible, sans MLflow."""
     return config.FALLBACK_BASE_MINUTES + config.FALLBACK_MINUTES_PER_MILE * float(ride["trip_distance"])
+
 
 @app.post("/predict")
 def predict():
@@ -74,6 +83,13 @@ def predict():
     if state["degraded"] and request.headers.get(BYPASS_HEADER) != "1":
         FALLBACK_PREDICTIONS.inc()
         return jsonify({"duration": fallback_duration(ride), "model_version": "fallback", "degraded": True})
+
+    fault = state["fault"]  # panne injectée (démo) : touche le vrai modèle, pas le modèle de secours
+    if fault["mode"] == "latency":
+        time.sleep(fault["seconds"])
+    elif fault["mode"] == "errors" and random.random() < fault["rate"]:
+        return jsonify({"error": "panne injectée (démo)"}), 500
+
     if state["model"] is None:
         load_model()
     if state["model"] is None:
@@ -90,10 +106,12 @@ def health():
     return jsonify({"status": "ok" if ok else "no_model", "model_version": state["version"],
                     "degraded": state["degraded"]}), 200 if ok else 503
 
+
 @app.post("/reload")
 def reload_model():
     load_model()
     return health()
+
 
 @app.post("/degraded")
 def set_degraded():
@@ -104,9 +122,23 @@ def set_degraded():
     DEGRADED_MODE.set(1 if state["degraded"] else 0)
     return jsonify({"degraded": state["degraded"]})
 
+
+@app.post("/fault")
+def set_fault():
+    if not config.FAULT_INJECTION:
+        return jsonify({"error": "injection de pannes désactivée (FAULT_INJECTION=1 pour l'activer)"}), 404
+    body = request.get_json(silent=True) or {}
+    if body.get("mode") not in FAULT_MODES:
+        return jsonify({"error": f"mode attendu parmi {FAULT_MODES}"}), 400
+    state["fault"] = {"mode": body["mode"], "rate": float(body.get("rate", 0.3)),
+                      "seconds": float(body.get("seconds", 2.0))}
+    return jsonify(state["fault"])
+
+
 @app.get("/metrics")
 def metrics():
     return Response(generate_latest(), content_type=CONTENT_TYPE_LATEST)
+
 
 if __name__ == "__main__":
     load_model()  # modèle chargé avant d'ouvrir le port : une API qui répond est une API prête

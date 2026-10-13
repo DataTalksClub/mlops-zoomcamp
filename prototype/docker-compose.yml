@@ -42,6 +42,9 @@ services:
       - "9696:9696"
     environment:
       MLFLOW_TRACKING_URI: http://mlflow:5000
+      FAULT_INJECTION: "1"                 # démo uniquement
+      MLFLOW_HTTP_REQUEST_MAX_RETRIES: "0"  # si MLflow tombe, échouer vite au lieu de bloquer l'API
+      MLFLOW_HTTP_REQUEST_TIMEOUT: "5"
     depends_on:
       - mlflow
     restart: unless-stopped
