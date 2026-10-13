@@ -76,3 +76,11 @@ VERIFY_MAX_WAIT_SECONDS = float(os.getenv("VERIFY_MAX_WAIT_SECONDS", "60"))  # a
 PROBE_MAX_CONSECUTIVE_FAILURES = int(os.getenv("PROBE_MAX_CONSECUTIVE_FAILURES", "2"))  # au-delà, API jugée HS : on arrête les sondes
 FAULT_INJECTION = os.getenv("FAULT_INJECTION", "0") == "1"  # route /fault de démo, désactivée par défaut
 
+COST_PER_CPU_SECOND = float(os.getenv("COST_PER_CPU_SECOND", "0.0005"))
+COST_SPOT_DISCOUNT = float(os.getenv("COST_SPOT_DISCOUNT", "0.6"))
+DEFAULT_CPU_SECONDS_PER_MONTH_OF_DATA = float(
+    os.getenv("DEFAULT_CPU_SECONDS_PER_MONTH_OF_DATA", "600.0")
+)
+COST_IDLE_MINUTES = float(os.getenv("COST_IDLE_MINUTES", "30.0"))
+COST_SIZE_HEADROOM = float(os.getenv("COST_SIZE_HEADROOM", "0.3"))
+COST_HOURS_PER_MONTH = float(os.getenv("COST_HOURS_PER_MONTH", "730.0"))

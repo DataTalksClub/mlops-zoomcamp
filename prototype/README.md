@@ -75,10 +75,16 @@ prototype/
     data.py        # chargement des données taxi + préparation des variables
     train.py       # entraînement + enregistrement dans MLflow
     api/app.py     # API de prédiction
-  agents/          # un dossier par agent (à développer)
+  agents/
+    cost/          # estimation, suivi des coûts et recommandations de budget
   rules/autonomy.yaml  # ce que les agents font seuls / avec validation
   tests/
 ```
+
+L'agent coûts écoute `cost_estimate` et `training_completed`, publie des
+événements typés définis dans `common/events.py` et journalise ses décisions
+dans `common/action_log.py`. Ses tarifs, seuils et budget sont configurables
+dans `common/config.py`.
 
 ## Règles de travail
 
