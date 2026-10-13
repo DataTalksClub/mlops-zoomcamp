@@ -45,15 +45,22 @@ def run_probes(api_url: str | None = None, count: int | None = None, session=Non
     api_url = api_url or config.API_URL
     count = config.PROBE_COUNT if count is None else count
     http = session or requests
-    failed, latencies = 0, []
-    for _ in range(count):
+    failed, latencies, unreachable_streak = 0, [], 0
+    for i in range(count):
         start = time.perf_counter()
         try:
             resp = http.post(f"{api_url}/predict", json=PROBE_PAYLOAD, headers=BYPASS_HEADERS,
                              timeout=config.HTTP_TIMEOUT_SECONDS)
+            unreachable_streak = 0
             if resp.status_code >= 500:
                 failed += 1
         except Exception:  # timeout, connexion refusée : la sonde échoue
             failed += 1
+            unreachable_streak += 1
         latencies.append(time.perf_counter() - start)
+        if unreachable_streak >= config.PROBE_MAX_CONSECUTIVE_FAILURES:
+            # API injoignable : inutile d'attendre les timeouts des sondes restantes,
+            # le cycle de l'agent doit rester court (sinon les vérifications dérivent).
+            failed += count - (i + 1)
+            break
     return ProbeResult(sent=count, failed=failed, p95_latency=percentile(latencies, 0.95))

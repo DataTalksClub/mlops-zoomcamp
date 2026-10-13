@@ -239,3 +239,40 @@ def test_agent_survives_a_broken_bus():
     h = Harness(bus=FakeBus(broken=True))
     h.bad(2)                                   # ne doit lever aucune exception
     assert h.agent.incident is not None
+
+
+# --- Non-régression : scénario observé en réel (docker stop mlops-api) ---
+
+def test_restart_is_not_repeated_while_the_api_is_still_starting():
+    h = Harness(signals=Signals(container_status="exited"))
+    h.api.reachable = False
+    h.cycle(probes=PROBES_KO)
+    h.cycle(probes=PROBES_KO)                                   # incident api_down -> redémarrage
+    assert h.actions.executed == [Action.RESTART_API]
+
+    h.agent.collector.signals = Signals(container_status="running")   # conteneur relancé...
+    h.cycle(probes=PROBES_KO)                                   # ...mais l'API charge encore le modèle
+    h.cycle(probes=PROBES_KO)
+    h.cycle(probes=PROBES_KO)                                   # 45 s : /health KO, on attend encore
+    assert h.actions.executed == [Action.RESTART_API]           # pas de 2e redémarrage
+
+    h.api.reachable = True                                      # l'API répond enfin
+    h.good(2)
+    assert h.agent.incident is None
+    assert h.actions.executed == [Action.RESTART_API]           # ni 2e redémarrage, ni mode dégradé inutile
+
+
+def test_after_max_wait_the_next_different_action_is_tried():
+    h = Harness(signals=Signals(container_status="exited"))
+    h.api.reachable = False
+    for _ in range(2 + 5):                                      # ouverture puis 75 s sans réponse (> 60 s)
+        h.cycle(probes=PROBES_KO)
+    assert h.actions.executed == [Action.RESTART_API, Action.RECREATE_API]
+
+
+def test_human_notification_is_written_to_the_action_log():
+    h = Harness()
+    h.api.reachable = False
+    h.cycle(probes=PROBES_KO)
+    h.cycle(probes=PROBES_KO)
+    assert any(action == "human_notified" for action, _ in h.log.records)

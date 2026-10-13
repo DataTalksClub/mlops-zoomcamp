@@ -41,3 +41,10 @@ def test_percentile_nearest_rank():
     assert percentile([0.1, 0.2, 0.3, 0.4], 0.95) == 0.4
     assert percentile([], 0.95) is None
     assert percentile([0.5], 0.95) == pytest.approx(0.5)
+
+
+def test_probes_stop_early_when_the_api_is_unreachable():
+    session = FakeSession([None, None, 200, 200, 200])   # 2 échecs de connexion de suite
+    result = run_probes("http://api", count=5, session=session)
+    assert len(session.headers_seen) == 2                  # on n'attend pas les 3 autres timeouts
+    assert result.failed == 5

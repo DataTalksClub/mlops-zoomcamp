@@ -68,10 +68,10 @@ class Incident:
     failed_repairs: int = 0
     pending: tuple[Action, float] | None = None     # action en attente de vérification
     degraded: bool = False
-    degraded_tried: bool = False                    # mode dégradé déjà tenté (évite de réessayer à chaque cycle)
     reapply_degraded: bool = False                  # un redémarrage a effacé le mode dégradé de l'API
     human_notified_at: float | None = None
     exhausted: bool = False                         # plus aucune action automatique à tenter
+    tried: set = field(default_factory=set)         # actions déjà tentées (jamais deux fois par incident)
     actions: list[dict] = field(default_factory=list)
     timeline: list[dict] = field(default_factory=list)
 
@@ -174,9 +174,13 @@ class ReliabilityAgent:
 
         signals = self.collector.collect(window, now)
         diag = diagnose(window, signals)
-        if diag.cause != inc.diagnosis.cause:
+        # Pendant la vérification d'une action, le système est en transition (ex. API qui
+        # redémarre) : un nouveau diagnostic serait trompeur, on garde l'actuel.
+        if diag.cause != inc.diagnosis.cause and inc.pending is None:
             inc.note(now, "diagnosis_changed", old=inc.diagnosis.cause.value, new=diag.cause.value)
             inc.diagnosis, inc.next_step = diag, 0
+        else:
+            diag = inc.diagnosis
 
         sev = compute_severity(window, self.budget.consumed(), self._context(diag, inc, now))
         level = escalate(inc.level, sev.level)
@@ -192,7 +196,7 @@ class ReliabilityAgent:
         # Niveau élevé : l'humain est prévenu tout de suite et le service passe en mode dégradé.
         if inc.level == Severity.CRITICAL and inc.human_notified_at is None:
             self._notify_human(now, "niveau critique")
-        if inc.level == Severity.CRITICAL and not inc.degraded_tried and window.reachable:
+        if inc.level == Severity.CRITICAL and Action.DEGRADED_MODE not in inc.tried and window.reachable:
             self._execute(Action.DEGRADED_MODE, now)
 
         # Un redémarrage a effacé le mode dégradé (état en mémoire de l'API) : on le remet.
@@ -203,7 +207,11 @@ class ReliabilityAgent:
         # Action en cours : on lui laisse le temps d'agir avant de la juger.
         if inc.pending:
             action, started = inc.pending
-            if now - started < config.VERIFY_WAIT_SECONDS:
+            elapsed = now - started
+            # Délai minimal, prolongé tant que l'API n'a pas fini de redémarrer (/health KO),
+            # dans la limite de VERIFY_MAX_WAIT_SECONDS.
+            if elapsed < config.VERIFY_WAIT_SECONDS or (
+                    not window.health_ok and elapsed < config.VERIFY_MAX_WAIT_SECONDS):
                 return
             inc.pending = None
             inc.failed_repairs += 1
@@ -232,8 +240,8 @@ class ReliabilityAgent:
         while inc.next_step < len(playbook):
             action = playbook[inc.next_step]
             inc.next_step += 1
-            if action == Action.DEGRADED_MODE and inc.degraded_tried:
-                continue  # déjà activé (ou déjà tenté) par la règle du niveau critique
+            if action in inc.tried:
+                continue  # une action déjà tentée dans cet incident n'est pas répétée
             return action
         return None
 
@@ -254,8 +262,7 @@ class ReliabilityAgent:
                 return None
             self.restarts.append(now)
 
-        if action == Action.DEGRADED_MODE:
-            inc.degraded_tried = True
+        inc.tried.add(action)
         result = self.actions.execute(action)
         entry = {"action": result.action, "success": result.success, "detail": result.detail,
                  "t": round(now - inc.opened_at, 1)}
@@ -295,6 +302,7 @@ class ReliabilityAgent:
         inc.human_notified_at = now
         inc.note(now, "human_notified", reason=reason)
         log.warning("Incident %s : humain prévenu (%s)", inc.id, reason)
+        self._record("human_notified", {"incident_id": inc.id, "level": inc.level.value, "reason": reason})
         self._publish(EventType.APPROVAL_REQUESTED, Severity.CRITICAL,
                       {**self._report(inc, now), "reason": reason})
 
