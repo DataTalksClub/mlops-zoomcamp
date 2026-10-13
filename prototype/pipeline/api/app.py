@@ -3,12 +3,17 @@
 Routes :
     POST /predict  {"PULocationID": 43, "DOLocationID": 151, "trip_distance": 1.8}
     GET  /health   état de l'API et version du modèle chargé
-    POST /reload   recharge le modèle en production (après une promotion ou un rollback)"""
+    POST /reload   recharge le modèle en production (après une promotion ou un rollback)
+    GET  /metrics  métriques Prometheus (lues par l'agent Fiabilité)"""
+
 from __future__ import annotations
 
+import time
+
 import mlflow
-from flask import Flask, jsonify, request
+from flask import Flask, Response, g, jsonify, request
 from mlflow import MlflowClient
+from prometheus_client import CONTENT_TYPE_LATEST, Counter, Gauge, Histogram, generate_latest
 
 from common import config
 from pipeline.data import prepare_features
@@ -17,6 +22,31 @@ app = Flask("duration-prediction")
 state = {"model": None, "version": None, "error": None}
 
 
+# --- Métriques (agent Fiabilité) ---
+REQUESTS = Counter("api_requests_total", "Requêtes HTTP traitées", ["endpoint", "status"])
+LATENCY = Histogram(
+    "api_request_latency_seconds", "Temps de traitement des requêtes", ["endpoint"],
+    buckets=(0.01, 0.025, 0.05, 0.1, 0.25, 0.5, 1.0, 2.5, 5.0, 10.0),
+)
+MODEL_LOADED = Gauge("api_model_loaded", "1 si un modèle est chargé, 0 sinon")
+MODEL_VERSION = Gauge("api_model_version", "Version MLflow du modèle servi (0 si aucun)")
+
+
+@app.before_request
+def _start_timer() -> None:
+    g.start = time.perf_counter()
+
+
+@app.after_request
+def _record_metrics(response: Response) -> Response:
+    # url_rule.rule = route déclarée ("/predict"), pas l'URL brute : évite une
+    # explosion du nombre de séries si on reçoit des URL arbitraires (404).
+    endpoint = request.url_rule.rule if request.url_rule else "unmatched"
+    if endpoint != "/metrics":  # on ne mesure pas le scraping lui-même
+        LATENCY.labels(endpoint).observe(time.perf_counter() - g.get("start", time.perf_counter()))
+        REQUESTS.labels(endpoint, str(response.status_code)).inc()
+    return response
+
 def load_model() -> None:
     mlflow.set_tracking_uri(config.MLFLOW_TRACKING_URI)
     try:
@@ -24,8 +54,13 @@ def load_model() -> None:
         state["model"] = mlflow.sklearn.load_model(f"models:/{config.MODEL_NAME}@{config.PRODUCTION_ALIAS}")
         state["version"] = mv.version
         state["error"] = None
+        MODEL_LOADED.set(1)
+        MODEL_VERSION.set(int(mv.version))
     except Exception as exc:  # pas encore de modèle, ou MLflow indisponible
         state["error"] = str(exc)
+        if state["model"] is None:
+            MODEL_LOADED.set(0)
+            MODEL_VERSION.set(0)
 
 
 @app.post("/predict")
@@ -52,6 +87,9 @@ def reload_model():
     load_model()
     return health()
 
+@app.get("/metrics")
+def metrics():
+    return Response(generate_latest(), content_type=CONTENT_TYPE_LATEST)
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=9696)
