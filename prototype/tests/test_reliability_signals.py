@@ -116,3 +116,19 @@ def test_observe_tracks_versions_between_incidents():
     c.observe(win(version=4), now=0)        # observé à chaque cycle, sans incident
     c.observe(win(version=5), now=100)      # promotion vue
     assert c.collect(win(version=5), now=160).model_age_seconds == 60
+
+
+def test_version_restored_by_the_agent_is_not_suspected():
+    t = ModelAgeTracker()
+    t.update(1, now=0)
+    t.update(3, now=100)                    # promotion (suspecte)
+    assert t.update(3, now=160) == 60
+    t.trust_next_change()                   # l'agent fait un rollback vers la v1
+    assert t.update(1, now=200) is None     # la v1 restaurée n'est pas une "nouvelle" version
+
+
+def test_api_without_model_does_not_count_as_a_version_change():
+    t = ModelAgeTracker()
+    t.update(1, now=0)
+    t.update(0, now=50)                     # API redémarrée sans modèle (version 0)
+    assert t.update(1, now=100) is None     # retour de la v1 : pas un changement

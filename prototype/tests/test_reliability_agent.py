@@ -59,6 +59,9 @@ class FakeCollector:
     def observe(self, window, now):
         pass
 
+    def trust_next_model_change(self):
+        self.trusted = True
+
     def collect(self, window, now=None):
         return self.signals
 
@@ -333,3 +336,12 @@ def test_promotion_seen_before_the_incident_points_to_the_model():
     h.bad(2)                       # puis les erreurs arrivent
     assert h.agent.incident.diagnosis.cause.value == "bad_model"
     assert h.actions.executed[0] == Action.ROLLBACK_MODEL
+
+
+def test_rollback_marks_the_restored_version_as_trusted():
+    h = Harness()
+    h.api.model_version = 5
+    h.agent.collector.signals = Signals(model_age_seconds=60)   # promotion récente -> bad_model
+    h.bad(2)
+    assert h.actions.executed[0] == Action.ROLLBACK_MODEL
+    assert getattr(h.agent.collector, "trusted", False)

@@ -279,6 +279,8 @@ class ReliabilityAgent:
             return result
         if action == Action.DEGRADED_MODE:
             inc.degraded = True
+        if action == Action.ROLLBACK_MODEL:
+            self.collector.trust_next_model_change()  # la version restaurée n'est pas une promotion suspecte
         if action in RESTART_ACTIONS and inc.degraded:
             inc.reapply_degraded = True
         if verify:

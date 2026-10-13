@@ -51,12 +51,19 @@ class ModelAgeTracker:
     def __init__(self):
         self.version: int | None = None
         self.since: float | None = None
+        self._trust_next_change = False
+
+    def trust_next_change(self) -> None:
+        """Le prochain changement de version vient de l'agent lui-même (rollback) : la
+        version restaurée est connue, elle ne doit pas être soupçonnée comme une promotion."""
+        self._trust_next_change = True
 
     def update(self, version: int, now: float) -> float | None:
-        if version != self.version:
+        if version and version != self.version:   # version 0 = aucun modèle chargé : ignorée
             first_observation = self.version is None
             self.version = version
-            self.since = None if first_observation else now
+            self.since = None if (first_observation or self._trust_next_change) else now
+            self._trust_next_change = False
         return None if self.since is None else now - self.since
 
 
@@ -69,6 +76,9 @@ class SignalCollector:
         self._postgres_check = postgres_check
         self._restart_history: deque[tuple[float, int]] = deque()
         self.model_age = ModelAgeTracker()
+
+    def trust_next_model_change(self) -> None:
+        self.model_age.trust_next_change()
 
     def observe(self, window: WindowStats, now: float) -> None:
         """Observation légère à CHAQUE cycle (même sans incident) : sans elle, l'agent ne
