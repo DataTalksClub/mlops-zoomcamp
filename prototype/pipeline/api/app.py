@@ -109,4 +109,5 @@ def metrics():
     return Response(generate_latest(), content_type=CONTENT_TYPE_LATEST)
 
 if __name__ == "__main__":
+    load_model()  # modèle chargé avant d'ouvrir le port : une API qui répond est une API prête
     app.run(host="0.0.0.0", port=9696)

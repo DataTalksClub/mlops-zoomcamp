@@ -276,3 +276,17 @@ def test_human_notification_is_written_to_the_action_log():
     h.cycle(probes=PROBES_KO)
     h.cycle(probes=PROBES_KO)
     assert any(action == "human_notified" for action, _ in h.log.records)
+
+
+def test_no_degraded_mode_while_the_restarted_api_is_warming_up():
+    h = Harness(signals=Signals(container_status="exited"))
+    h.api.reachable = False
+    h.cycle(probes=PROBES_KO)
+    h.cycle(probes=PROBES_KO)                                   # incident critique -> redémarrage
+    h.agent.collector.signals = Signals(container_status="running")
+    h.api.reachable = True                                      # l'API répond...
+    h.cycle(ok=0, probes=PROBES_KO)                             # ...mais charge encore le modèle
+    assert Action.DEGRADED_MODE not in h.actions.executed
+    h.good(2)
+    assert h.agent.incident is None
+    assert h.actions.executed == [Action.RESTART_API]

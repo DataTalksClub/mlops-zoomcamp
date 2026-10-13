@@ -193,10 +193,12 @@ class ReliabilityAgent:
     def _act(self, window: WindowStats, signals: Signals, now: float) -> None:
         inc = self.incident
 
-        # Niveau élevé : l'humain est prévenu tout de suite et le service passe en mode dégradé.
+        # Niveau élevé : l'humain est prévenu tout de suite et le service passe en mode dégradé
+        # (sauf pendant la vérification d'une action : le système est en transition).
         if inc.level == Severity.CRITICAL and inc.human_notified_at is None:
             self._notify_human(now, "niveau critique")
-        if inc.level == Severity.CRITICAL and Action.DEGRADED_MODE not in inc.tried and window.reachable:
+        if (inc.level == Severity.CRITICAL and Action.DEGRADED_MODE not in inc.tried
+                and window.reachable and inc.pending is None):
             self._execute(Action.DEGRADED_MODE, now)
 
         # Un redémarrage a effacé le mode dégradé (état en mémoire de l'API) : on le remet.
