@@ -127,7 +127,8 @@ class ReliabilityAgent:
             self.prev = snap
             return None
         window = compute_window(self.prev, snap)
-        self.prev = snap
+        if snap.reachable:  # la base de comparaison reste la dernière lecture réussie
+            self.prev = snap
         self.budget.add(window, now)
         self.collector.observe(window, now)   # suivi continu (ex. changement de version du modèle)
         unhealthy = is_breach(window) or not probes.ok
@@ -183,12 +184,15 @@ class ReliabilityAgent:
         else:
             diag = inc.diagnosis
 
-        sev = compute_severity(window, self.budget.consumed(), self._context(diag, inc, now))
-        level = escalate(inc.level, sev.level)
-        if level != inc.level:
-            inc.note(now, "level_up", old=inc.level.value, new=level.value, score=sev.score)
-            log.warning("Incident %s : niveau %s -> %s", inc.id, inc.level.value, level.value)
-        inc.level, inc.severity = level, sev
+        # Gravité figée elle aussi pendant la vérification d'une action : une API qui redémarre
+        # est injoignable quelques secondes, ce qui ne doit pas déclencher le niveau critique.
+        if inc.pending is None:
+            sev = compute_severity(window, self.budget.consumed(), self._context(diag, inc, now))
+            level = escalate(inc.level, sev.level)
+            if level != inc.level:
+                inc.note(now, "level_up", old=inc.level.value, new=level.value, score=sev.score)
+                log.warning("Incident %s : niveau %s -> %s", inc.id, inc.level.value, level.value)
+            inc.level, inc.severity = level, sev
         self._act(window, signals, now)
 
     def _act(self, window: WindowStats, signals: Signals, now: float) -> None:
