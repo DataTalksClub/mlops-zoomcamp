@@ -5,3 +5,9 @@ promote_worse_model: forbidden
 restart_api: auto
 rollback_model: auto
 retrain_over_budget: approval
+# Agent Fiabilité (une action absente de ce fichier demande une validation humaine)
+recreate_api: auto
+reload_model: auto
+degraded_mode: auto
+restart_redis: auto
+restart_mlflow: approval
