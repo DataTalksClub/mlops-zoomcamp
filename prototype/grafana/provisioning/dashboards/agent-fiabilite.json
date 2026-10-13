@@ -7,7 +7,7 @@
   ],
   "timezone": "browser",
   "schemaVersion": 39,
-  "version": 1,
+  "version": 2,
   "editable": true,
   "refresh": "10s",
   "time": {
@@ -159,7 +159,7 @@
     {
       "id": 3,
       "type": "stat",
-      "title": "Résolus sans intervention humaine",
+      "title": "Résolus automatiquement",
       "datasource": {
         "type": "grafana-postgresql-datasource",
         "uid": "postgres-mlops"
@@ -180,7 +180,7 @@
           "editorMode": "code",
           "rawQuery": true,
           "format": "table",
-          "rawSql": "SELECT 100.0 * count(*) FILTER (WHERE NOT EXISTS (SELECT 1 FROM action_log h WHERE h.action='human_notified' AND h.details->>'incident_id' = r.details->>'incident_id')) / NULLIF(count(*), 0) AS \"Autonomie\" FROM action_log r WHERE r.agent='agent_fiabilite' AND r.action='incident_resolved' AND $__timeFilter(r.timestamp)"
+          "rawSql": "SELECT 100.0 * count(*) FILTER (WHERE NOT EXISTS (SELECT 1 FROM action_log h WHERE h.action='human_notified' AND h.details->>'incident_id' = r.details->>'incident_id' AND h.details->>'reason' LIKE 'toutes les actions%')) / NULLIF(count(*), 0) AS \"Autonomie\" FROM action_log r WHERE r.agent='agent_fiabilite' AND r.action='incident_resolved' AND $__timeFilter(r.timestamp)"
         }
       ],
       "fieldConfig": {
@@ -224,7 +224,8 @@
         "graphMode": "none",
         "textMode": "value",
         "justifyMode": "center"
-      }
+      },
+      "description": "Part des incidents réparés par l'agent seul. Un incident critique prévient toujours l'humain (information), mais ne compte comme intervention humaine que si l'agent a épuisé ses actions."
     },
     {
       "id": 4,
