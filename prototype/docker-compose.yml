@@ -49,6 +49,7 @@ services:
       - mlflow
     restart: unless-stopped
     container_name: mlops-api
+    init: true
 
 volumes:
   mlflow_data:

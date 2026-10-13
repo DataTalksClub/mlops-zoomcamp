@@ -345,3 +345,18 @@ def test_rollback_marks_the_restored_version_as_trusted():
     h.bad(2)
     assert h.actions.executed[0] == Action.ROLLBACK_MODEL
     assert getattr(h.agent.collector, "trusted", False)
+
+
+def test_restart_does_not_escalate_to_critical_while_the_api_restarts():
+    """Non-régression (scénario réel errors) : pendant le redémarrage, l'API est
+    injoignable quelques secondes ; le niveau ne doit pas passer critique pour autant."""
+    h = Harness()
+    h.bad(2)                                   # 30 % d'erreurs -> niveau moyen -> redémarrage
+    assert h.agent.incident.level == Severity.WARNING
+    h.api.reachable = False                    # l'API redémarre
+    h.cycle(probes=PROBES_KO)
+    assert h.agent.incident.level == Severity.WARNING
+    assert EventType.APPROVAL_REQUESTED not in h.bus.types()
+    h.api.reachable = True
+    h.good(2)
+    assert h.agent.incident is None
