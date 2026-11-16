@@ -46,3 +46,7 @@ We want a runnable, reproducible, parameterized process. For example, a training
 ## A useful boundary
 
 Keep data preparation, feature engineering, model selection, and final training as separate functions. Each stage needs a clear API, which lets you test the stages independently. In the next unit, we apply this boundary while converting the existing notebook into a command-line script.
+
+<!-- nav:start -->
+[← Previous: MLflow: Benefits, Limitations and Alternatives](../02-experiment-tracking/07-mlflow-alternatives.md) · [Next: Turning the Notebook into a Python Script →](02-notebook-to-script.md)
+<!-- nav:end -->

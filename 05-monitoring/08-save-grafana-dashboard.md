@@ -30,3 +30,7 @@ Stop and start the Compose stack, then check that Grafana discovers the dashboar
 The saved view should preserve the prediction-drift trend, missing-value share, and number of drifted columns. Treat the JSON as code: review changes and keep it with the monitoring configuration.
 
 ![The saved dashboard panels](images/08-save-dashboard-03-panels.jpg)
+
+<!-- nav:start -->
+[← Previous: Data Quality Monitoring](07-data-quality.md) · [Next: Debugging with Test Suites and Reports →](09-debugging-tests-reports.md)
+<!-- nav:end -->

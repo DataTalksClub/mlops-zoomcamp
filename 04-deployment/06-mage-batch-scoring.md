@@ -27,3 +27,7 @@ Use this checklist before scheduling the block.
 - Test a backfill before enabling a recurring schedule.
 
 Mage is one possible orchestrator and batch runner, and its design matches the standalone script. The block receives data, applies a known model, and returns a traceable prediction dataset.
+
+<!-- nav:start -->
+[← Previous: Batch: Preparing a Scoring Script](05-batch-scoring.md) · [Next: Intro to ML Monitoring →](../05-monitoring/01-ml-monitoring.md)
+<!-- nav:end -->

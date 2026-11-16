@@ -39,3 +39,7 @@ Open `debugging_nyc_taxi_data.ipynb` to run Evidently reports and test suites ag
 ## Stop the services
 
 Run `docker-compose down` when finished, then review the Compose file before choosing whether to remove the local database volume.
+
+<!-- nav:start -->
+[← Previous: Debugging with Test Suites and Reports](09-debugging-tests-reports.md) · [Next: Testing Python Code with pytest →](../06-best-practices/01-pytest.md)
+<!-- nav:end -->

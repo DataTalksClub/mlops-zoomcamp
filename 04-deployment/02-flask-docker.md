@@ -55,3 +55,7 @@ docker run --rm -p 9696:9696 ride-duration-model
 ```
 
 ![The containerized service and its runtime dependencies](images/02-flask-docker-03-container.jpg)
+
+<!-- nav:start -->
+[← Previous: Three Ways of Deploying a Model](01-deployment-modes.md) · [Next: Web Services: Getting Models from the Model Registry →](03-model-registry-serving.md)
+<!-- nav:end -->

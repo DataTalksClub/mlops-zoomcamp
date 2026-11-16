@@ -23,3 +23,7 @@ Separate the CI and CD responsibilities. CI answers whether the change is safe t
 ![The deployment job commands](images/13-continuous-delivery-02-deploy.jpg)
 
 After deployment, run the end-to-end test from the previous unit and check CloudWatch logs. Keep a rollback plan for both the Lambda image and the Terraform state.
+
+<!-- nav:start -->
+[← Previous: Continuous Integration](12-continuous-integration.md)
+<!-- nav:end -->

@@ -36,3 +36,7 @@ Deployment is optional for this unit. If the orchestrator will run in the cloud,
 ## Optional MLflow service
 
 For a shared local MLflow service, the original module includes a Docker example in [the MLflow resource section](README.md#mlflow). Use the same MLflow version in the image and in the training environment. Mount the backend database directory so the tracking state survives container restarts.
+
+<!-- nav:start -->
+[← Previous: Turning the Notebook into a Python Script](02-notebook-to-script.md) · [Next: Three Ways of Deploying a Model →](../04-deployment/01-deployment-modes.md)
+<!-- nav:end -->

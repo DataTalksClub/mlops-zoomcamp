@@ -27,3 +27,7 @@ Terraform uses a provider to talk to AWS, resources to describe objects, variabl
 ![The Terraform project and its AWS resources](images/07-terraform-introduction-01-architecture.jpg)
 
 Initialize the project with `terraform init`, review `terraform plan`, and apply only after checking the proposed changes. Destroy temporary infrastructure when the exercise is complete because the AWS resources can incur charges.
+
+<!-- nav:start -->
+[← Previous: Makefiles and make](06-makefiles.md) · [Next: Terraform: Modules and Output Variables →](08-terraform-modules.md)
+<!-- nav:end -->

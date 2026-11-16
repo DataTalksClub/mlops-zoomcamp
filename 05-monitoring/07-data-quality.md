@@ -36,3 +36,7 @@ The example uses Prefect to run the metric calculation repeatedly. Prefect is ju
 ![Current data prepared for a quality check](images/07-data-quality-03-current-data.jpg)
 
 Choose thresholds with the people who own the model. A warning should trigger investigation, while a hard failure should block a downstream process only when the business risk justifies it.
+
+<!-- nav:start -->
+[← Previous: Dummy Monitoring](06-dummy-monitoring.md) · [Next: Save Grafana Dashboard →](08-save-grafana-dashboard.md)
+<!-- nav:end -->

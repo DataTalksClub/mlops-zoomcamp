@@ -49,3 +49,7 @@ Record the data period, feature choices, model parameters, and evaluation metric
 ![A parameterized script run with its MLflow output](images/02-notebook-to-script-04-run.jpg)
 
 This script is now a pipeline entry point. An orchestrator can call it with different periods, schedule it, retry it, or backfill historical periods without opening a notebook.
+
+<!-- nav:start -->
+[← Previous: Introduction to ML Pipelines](01-ml-pipelines.md) · [Next: Using an Orchestrator →](03-orchestrator.md)
+<!-- nav:end -->

@@ -20,3 +20,7 @@ The course pipeline runs unit tests, integration tests, and a Terraform plan dur
 The workflow files live under `.github/workflows/`. Pull requests should run the checks that protect the shared branch. A controlled push or merge can start delivery after CI passes.
 
 ![The CI/CD architecture in the project](images/11-cicd-introduction-02-repository.jpg)
+
+<!-- nav:start -->
+[← Previous: Test the Pipeline End to End](10-terraform-testing.md) · [Next: Continuous Integration →](12-continuous-integration.md)
+<!-- nav:end -->

@@ -32,3 +32,7 @@ The run link lets you recover the parameters, metrics, artifacts, and environmen
 ![The registry and run information used to reproduce a model](images/05-model-registry-03-reproduce.jpg)
 
 MLflow 2.9 deprecated model registry stages. For new integrations, use model version tags and aliases, such as `set_registered_model_alias`, instead of building new code around stage transitions.
+
+<!-- nav:start -->
+[← Previous: Model Management](04-model-management.md) · [Next: MLflow in Practice →](06-mlflow-in-practice.md)
+<!-- nav:end -->

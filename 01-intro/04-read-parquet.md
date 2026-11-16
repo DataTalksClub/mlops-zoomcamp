@@ -49,3 +49,7 @@ df = pd.read_parquet('data/green_tripdata_2021-01.parquet')
 Parquet already stores the pickup and drop-off timestamps with datetime information. The later training notebook doesn't need the same string-parsing step used by the older CSV version.
 
 ![The notebook reading Parquet data and calculating ride duration](images/04-read-parquet-03-read-data.jpg)
+
+<!-- nav:start -->
+[← Previous: VM in AWS](03-aws-vm.md) · [Next: Training a Ride Duration Prediction Model →](05-train-duration-model.md)
+<!-- nav:end -->

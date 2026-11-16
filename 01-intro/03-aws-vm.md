@@ -54,3 +54,7 @@ docker run hello-world
 ![The Docker smoke test running successfully in the VM terminal](images/03-aws-vm-03-docker.jpg)
 
 If the Docker daemon isn't running, start it with `sudo dockerd` or restart the instance. You can use the same commands on a local Linux machine, so the cloud VM is an option rather than a requirement.
+
+<!-- nav:start -->
+[← Previous: GitHub Codespaces](02-codespaces.md) · [Next: Reading Parquet Data →](04-read-parquet.md)
+<!-- nav:end -->

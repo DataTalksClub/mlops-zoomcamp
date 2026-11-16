@@ -40,3 +40,7 @@ The report evaluates the reference and current batch together. Save the HTML rep
 The example inserts prediction drift, the number of drifted columns, and the share of missing values into PostgreSQL. A monitoring job can then repeat the calculation for each daily batch and append one timestamped row.
 
 ![Monitoring metrics ready for a Grafana view](images/04-evidently-metrics-03-grafana.jpg)
+
+<!-- nav:start -->
+[← Previous: Prepare Reference and Model](03-reference-model.md) · [Next: Evidently Monitoring Dashboard →](05-evidently-dashboard.md)
+<!-- nav:end -->

@@ -30,3 +30,7 @@ The Compose file defines the database, Adminer, and Grafana. Use volumes for dat
 Run `docker-compose up` to start the stack, then open Grafana at `http://localhost:3000`. The example uses `admin` and `admin` as default credentials, while Adminer provides a separate browser interface for checking the PostgreSQL tables.
 
 ![The local monitoring dashboard](images/02-monitoring-environment-03-dashboard.jpg)
+
+<!-- nav:start -->
+[← Previous: Intro to ML Monitoring](01-ml-monitoring.md) · [Next: Prepare Reference and Model →](03-reference-model.md)
+<!-- nav:end -->

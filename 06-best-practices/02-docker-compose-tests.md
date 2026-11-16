@@ -24,3 +24,7 @@ Keep the test data deterministic. A small checked-in event fixture makes failure
 ![A Docker-based integration test run](images/02-docker-compose-tests-02-integration.jpg)
 
 Use the same image that will run in the target environment. A passing unit test doesn't prove that the image starts, its dependencies are installed, or its HTTP API works.
+
+<!-- nav:start -->
+[← Previous: Testing Python Code with pytest](01-pytest.md) · [Next: Testing Cloud Services with LocalStack →](03-localstack.md)
+<!-- nav:end -->

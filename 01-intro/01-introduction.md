@@ -28,3 +28,7 @@ The course describes the work in three broad stages.
 ![The three stages of an ML project](images/01-introduction-03-design-train-operate.jpg)
 
 MLOps connects these stages through experiment tracking, deployment, and monitoring. Tracking helps us reproduce a result, deployment makes the model available to other systems, and monitoring tells us when the data or model needs attention.
+
+<!-- nav:start -->
+[Next: GitHub Codespaces →](02-codespaces.md)
+<!-- nav:end -->

@@ -53,3 +53,7 @@ MLflow creates the experiment when it doesn't exist and adds later runs to it. B
 ![The notebook creating an MLflow experiment](images/02-mlflow-getting-started-03-experiment.jpg)
 
 We still change model parameters manually in the initial notebook, so the next unit wraps those changes in tracked runs.
+
+<!-- nav:start -->
+[← Previous: Experiment Tracking Intro](01-experiment-tracking-intro.md) · [Next: Experiment Tracking with MLflow →](03-experiment-tracking.md)
+<!-- nav:end -->

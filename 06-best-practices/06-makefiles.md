@@ -28,3 +28,7 @@ Run `make test` or `make quality_checks` while developing, and use `make build` 
 ![Running a Makefile target](images/06-makefiles-02-targets.jpg)
 
 Keep target names and environment variables documented. A short command should still make it clear which external services, credentials, or Docker resources it needs.
+
+<!-- nav:start -->
+[← Previous: Git Pre-commit Hooks](05-pre-commit.md) · [Next: Terraform: Introduction →](07-terraform-introduction.md)
+<!-- nav:end -->

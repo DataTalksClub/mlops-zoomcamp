@@ -33,3 +33,7 @@ MLflow is an open-source Python package for the machine learning lifecycle. Its 
 ![The MLflow tracking interface for experiments and runs](images/01-experiment-tracking-intro-03-mlflow-ui.jpg)
 
 You can start with a local MLflow setup. A remote tracking server becomes useful when several people need to share runs and artifacts, but it isn't required for the first experiment.
+
+<!-- nav:start -->
+[← Previous: MLOps Maturity Model](../01-intro/07-maturity-model.md) · [Next: Getting Started with MLflow →](02-mlflow-getting-started.md)
+<!-- nav:end -->

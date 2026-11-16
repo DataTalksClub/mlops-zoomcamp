@@ -30,3 +30,7 @@ Many model checks compare a current batch with a reference dataset. We use a ref
 ![A monitoring scheme connecting data, predictions, and dashboards](images/01-ml-monitoring-03-scheme.jpg)
 
 Good monitoring turns a vague concern into an actionable result. Define thresholds, store the measurements, and decide who investigates when a check fails.
+
+<!-- nav:start -->
+[← Previous: Batch Scoring with Mage](../04-deployment/06-mage-batch-scoring.md) · [Next: Environment Setup →](02-monitoring-environment.md)
+<!-- nav:end -->

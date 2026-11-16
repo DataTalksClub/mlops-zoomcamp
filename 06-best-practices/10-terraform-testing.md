@@ -22,3 +22,7 @@ Set the run ID and stream names, insert a known event, and look at the Lambda an
 ![Invoking the deployed pipeline](images/10-terraform-testing-02-invoke.jpg)
 
 Terraform, the application image, model artifact, and test event are separate dependencies. Record their versions so a failed end-to-end run can be reproduced.
+
+<!-- nav:start -->
+[← Previous: Build an End-to-end Ride Prediction Workflow](09-terraform-pipeline.md) · [Next: CI/CD: Introduction →](11-cicd-introduction.md)
+<!-- nav:end -->

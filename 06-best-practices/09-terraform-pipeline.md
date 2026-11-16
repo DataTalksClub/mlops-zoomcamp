@@ -24,3 +24,7 @@ Run `terraform init` and `terraform apply` for a staging variable file. After th
 ![Terraform initializing the infrastructure](images/09-terraform-pipeline-02-init.jpg)
 
 Keep these stages separate because Terraform owns infrastructure state, while the application deployment owns image tags, model run IDs, and test event data.
+
+<!-- nav:start -->
+[← Previous: Terraform: Modules and Output Variables](08-terraform-modules.md) · [Next: Test the Pipeline End to End →](10-terraform-testing.md)
+<!-- nav:end -->

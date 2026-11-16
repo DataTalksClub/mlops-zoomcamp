@@ -24,3 +24,7 @@ Treat a module as a black box with a documented interface. Variables define what
 ![The Kinesis module resources](images/08-terraform-modules-02-kinesis.jpg)
 
 Run `terraform plan` after changing a module and check which resources Terraform will create, update, or destroy. Separate modules make it easier to reuse a component across staging and production without copying its implementation.
+
+<!-- nav:start -->
+[← Previous: Terraform: Introduction](07-terraform-introduction.md) · [Next: Build an End-to-end Ride Prediction Workflow →](09-terraform-pipeline.md)
+<!-- nav:end -->

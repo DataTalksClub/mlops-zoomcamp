@@ -28,3 +28,7 @@ Install the hooks with `pre-commit install`, then run all hooks once with `pre-c
 ![A pre-commit configuration in the project](images/05-pre-commit-02-config.jpg)
 
 Hooks are a local safety net, not a replacement for CI. Run the same checks in the CI workflow so a contributor who skipped local hooks can't bypass the project's quality gate.
+
+<!-- nav:start -->
+[← Previous: Code Quality: Linting and Formatting](04-linting-formatting.md) · [Next: Makefiles and make →](06-makefiles.md)
+<!-- nav:end -->

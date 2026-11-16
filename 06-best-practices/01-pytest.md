@@ -24,3 +24,7 @@ The example tests the feature-preparation function and the model-service behavio
 ![The model service and its pytest test result](images/01-pytest-02-model-service.jpg)
 
 Run `pytest tests/` locally so unit tests can run on every change without AWS credentials or a network connection.
+
+<!-- nav:start -->
+[← Previous: Monitoring Example](../05-monitoring/10-monitoring-example.md) · [Next: Integration Tests with docker-compose →](02-docker-compose-tests.md)
+<!-- nav:end -->

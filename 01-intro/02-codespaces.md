@@ -33,3 +33,7 @@ Codespaces saves the setup work from the longer VM instructions. You don't need 
 The browser editor is enough for many commands, but notebooks and MLflow need a way to expose their ports. Open the codespace in the desktop version of Visual Studio Code when you need to connect to Jupyter or another service from your computer.
 
 ![Jupyter running inside the course workspace](images/02-codespaces-03-jupyter.jpg)
+
+<!-- nav:start -->
+[← Previous: Introduction](01-introduction.md) · [Next: VM in AWS →](03-aws-vm.md)
+<!-- nav:end -->

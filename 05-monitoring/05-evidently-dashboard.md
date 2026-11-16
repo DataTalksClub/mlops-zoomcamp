@@ -34,3 +34,7 @@ Use these panel types to answer an operational question:
 ![Data-quality information in the Evidently dashboard](images/05-evidently-dashboard-03-data-quality.jpg)
 
 The dashboard complements Grafana rather than replacing it. Evidently keeps the comparison details, while Grafana is a convenient place to combine monitoring metrics with database-backed alerting.
+
+<!-- nav:start -->
+[← Previous: Evidently Metrics Calculation](04-evidently-metrics.md) · [Next: Dummy Monitoring →](06-dummy-monitoring.md)
+<!-- nav:end -->

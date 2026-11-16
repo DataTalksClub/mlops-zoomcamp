@@ -22,3 +22,7 @@ Tests check behavior, while formatting and linting make the code easier to read 
 Run the tools on the repository and fix their output instead of hiding warnings. A clean check is more useful when the configuration explains which warnings are intentional.
 
 ![Linting errors that still need attention](images/04-linting-formatting-02-errors.jpg)
+
+<!-- nav:start -->
+[← Previous: Testing Cloud Services with LocalStack](03-localstack.md) · [Next: Git Pre-commit Hooks →](05-pre-commit.md)
+<!-- nav:end -->

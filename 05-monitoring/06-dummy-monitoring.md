@@ -30,3 +30,7 @@ Run the script at a fixed interval and look at the rows in the database. Configu
 ![The repeated metric-generation loop](images/06-dummy-monitoring-03-loop.jpg)
 
 Once this path works, replace the synthetic values with Evidently results while keeping the database and dashboard connection stable.
+
+<!-- nav:start -->
+[← Previous: Evidently Monitoring Dashboard](05-evidently-dashboard.md) · [Next: Data Quality Monitoring →](07-data-quality.md)
+<!-- nav:end -->

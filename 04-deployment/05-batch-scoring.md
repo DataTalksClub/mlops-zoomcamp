@@ -43,3 +43,7 @@ python score.py \
 ```
 
 ![The scoring script's output fields](images/05-batch-scoring-03-output.jpg)
+
+<!-- nav:start -->
+[← Previous: Streaming: Deploying Models with Kinesis and Lambda](04-streaming-kinesis-lambda.md) · [Next: Batch Scoring with Mage →](06-mage-batch-scoring.md)
+<!-- nav:end -->

@@ -30,3 +30,7 @@ Autologging is useful when the library integration records the values you need. 
 The run should lead to the exact model artifact used later. Store the training and validation data references in one run. Add the model parameters, evaluation metric, and model file there as well. This gives deployment enough information to understand what it's serving.
 
 ![A model artifact and its recorded run information](images/04-model-management-03-artifact.jpg)
+
+<!-- nav:start -->
+[← Previous: Experiment Tracking with MLflow](03-experiment-tracking.md) · [Next: Model Registry →](05-model-registry.md)
+<!-- nav:end -->

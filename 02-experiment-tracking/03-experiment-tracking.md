@@ -40,3 +40,7 @@ The UI can compare parameters and metrics across all runs. It also records run m
 After Hyperopt finds the best parameters, train one final model with those values. Log the final parameters, RMSE, and model artifact so the selected model has the same lineage as the search runs.
 
 ![The selected model parameters and logged run in MLflow](images/03-experiment-tracking-03-best-params.jpg)
+
+<!-- nav:start -->
+[← Previous: Getting Started with MLflow](02-mlflow-getting-started.md) · [Next: Model Management →](04-model-management.md)
+<!-- nav:end -->

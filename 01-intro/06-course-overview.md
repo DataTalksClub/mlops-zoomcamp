@@ -32,3 +32,7 @@ We make the steps explicit so we can run them again for another month of data. W
 Once we package the model, another service can call it instead of opening the notebook. Later modules add tracking, deployment, monitoring, and engineering practices. These practices make the service maintainable.
 
 ![A web service receiving a request and using a model to return a prediction](images/06-course-overview-03-service.jpg)
+
+<!-- nav:start -->
+[← Previous: Training a Ride Duration Prediction Model](05-train-duration-model.md) · [Next: MLOps Maturity Model →](07-maturity-model.md)
+<!-- nav:end -->

@@ -33,3 +33,7 @@ At level 4, monitoring can trigger the rest of the process. The system detects m
 Not every project needs level 4. A proof of concept can stay at level 0, while a model moving into production needs reliable engineering practices. A team with several production models may benefit from tracking and automated training. Highly important or risky models may still need a human to approve the final deployment even when the surrounding steps are automated.
 
 For this course, we target level 2 and parts of level 3. That means tracked experiments, repeatable training, several deployment modes, and monitoring that exposes problems before they remain hidden.
+
+<!-- nav:start -->
+[← Previous: Course Overview](06-course-overview.md) · [Next: Experiment Tracking Intro →](../02-experiment-tracking/01-experiment-tracking-intro.md)
+<!-- nav:end -->

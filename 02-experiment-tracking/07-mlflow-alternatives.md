@@ -33,3 +33,7 @@ Consider another platform when you need a managed service, a different deploymen
 ![MLflow alternatives for tracking and model management](images/07-mlflow-alternatives-03-alternatives.jpg)
 
 Start by defining the information the team must preserve. Then choose the smallest tool that records it reliably and fits the way the team trains and serves models.
+
+<!-- nav:start -->
+[← Previous: MLflow in Practice](06-mlflow-in-practice.md) · [Next: Introduction to ML Pipelines →](../03-orchestration/01-ml-pipelines.md)
+<!-- nav:end -->

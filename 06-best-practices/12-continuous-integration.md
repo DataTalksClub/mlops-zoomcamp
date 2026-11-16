@@ -24,3 +24,7 @@ Use the Makefile targets or equivalent commands in the workflow. Keep secrets ou
 ![The CI test steps in the repository](images/12-continuous-integration-02-tests.jpg)
 
 A failed check should leave enough logs to identify whether the problem came from Python dependencies, tests, Docker, or Terraform configuration.
+
+<!-- nav:start -->
+[← Previous: CI/CD: Introduction](11-cicd-introduction.md) · [Next: Continuous Delivery →](13-continuous-delivery.md)
+<!-- nav:end -->

@@ -28,3 +28,7 @@ We use the reference period as the comparison point for later batches. It provid
 ![Preparing current data for a monitoring comparison](images/03-reference-model-03-current-data.jpg)
 
 Don't treat the reference as permanent truth. If the data-generating process changes and the team deliberately retrains the model, create a new reference version and record why it replaced the old one.
+
+<!-- nav:start -->
+[← Previous: Environment Setup](02-monitoring-environment.md) · [Next: Evidently Metrics Calculation →](04-evidently-metrics.md)
+<!-- nav:end -->

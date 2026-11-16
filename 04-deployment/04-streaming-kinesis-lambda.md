@@ -30,3 +30,7 @@ Watch the logs while sending a test event. Logs should show the request identifi
 ![CloudWatch events and prediction-service logs](images/04-kinesis-lambda-03-events.jpg)
 
 Kinesis, Lambda, and ECR can incur AWS charges, so this deployment is optional. Delete test resources when you finish. Use the `streaming/` code in the Module 6 testing exercises.
+
+<!-- nav:start -->
+[← Previous: Web Services: Getting Models from the Model Registry](03-model-registry-serving.md) · [Next: Batch: Preparing a Scoring Script →](05-batch-scoring.md)
+<!-- nav:end -->

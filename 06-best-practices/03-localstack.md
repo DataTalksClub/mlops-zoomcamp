@@ -24,3 +24,7 @@ The test should create the stream, publish a known event, invoke or observe the 
 ![A LocalStack command and its test result](images/03-localstack-02-results.jpg)
 
 LocalStack is a substitute for the cloud API, not proof that every AWS permission or managed-service behavior is correct. Keep a small real-cloud smoke test for the deployment environment when that risk matters.
+
+<!-- nav:start -->
+[← Previous: Integration Tests with docker-compose](02-docker-compose-tests.md) · [Next: Code Quality: Linting and Formatting →](04-linting-formatting.md)
+<!-- nav:end -->

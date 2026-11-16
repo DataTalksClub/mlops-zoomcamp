@@ -28,3 +28,7 @@ The report gives more detail than a single time-series point. Use it to identify
 ![A debugging report with test results](images/09-debugging-03-report.jpg)
 
 Keep the test thresholds versioned. A threshold change is a monitoring-policy change and should be reviewable alongside model or data-pipeline changes.
+
+<!-- nav:start -->
+[← Previous: Save Grafana Dashboard](08-save-grafana-dashboard.md) · [Next: Monitoring Example →](10-monitoring-example.md)
+<!-- nav:end -->

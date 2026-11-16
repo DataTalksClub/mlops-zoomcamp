@@ -37,3 +37,7 @@ prediction = model.predict(features)
 ![The model URI and its artifact location in MLflow documentation](images/03-registry-serving-03-model-uri.jpg)
 
 Keep the tracking URI, registry name, and selected model version in configuration. The service should fail clearly if it can't reach the tracking server or download the artifact. Pin the deployed version when reproducibility matters, and move the alias only after the new version has passed its checks.
+
+<!-- nav:start -->
+[← Previous: Web Services: Deploying Models with Flask and Docker](02-flask-docker.md) · [Next: Streaming: Deploying Models with Kinesis and Lambda →](04-streaming-kinesis-lambda.md)
+<!-- nav:end -->

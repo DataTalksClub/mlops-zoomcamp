@@ -33,3 +33,7 @@ They differ in how they receive data and how long they can wait before producing
 Start with the simplest mode that meets the product requirement. Batch is usually easiest to operate. Online services add request handling and availability concerns. Streaming adds event ordering, retries, duplicates, and cloud-resource costs.
 
 ![An online request and response flow](images/01-deployment-modes-03-request-flow.jpg)
+
+<!-- nav:start -->
+[← Previous: Using an Orchestrator](../03-orchestration/03-orchestrator.md) · [Next: Web Services: Deploying Models with Flask and Docker →](02-flask-docker.md)
+<!-- nav:end -->

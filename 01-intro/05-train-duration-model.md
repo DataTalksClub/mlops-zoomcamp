@@ -59,3 +59,7 @@ rmse = mean_squared_error(y_val, y_pred, squared=False)
 ![The notebook fitting linear regression and calculating the baseline error](images/05-train-duration-model-03-linear-regression.jpg)
 
 We also try Lasso regression and vary its `alpha` value to compare models. Without recording the run history, it's hard to remember which model produced each result. Module 2 adds that history with MLflow.
+
+<!-- nav:start -->
+[← Previous: Reading Parquet Data](04-read-parquet.md) · [Next: Course Overview →](06-course-overview.md)
+<!-- nav:end -->
