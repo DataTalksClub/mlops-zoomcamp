@@ -1,0 +1,101 @@
+services:
+  mlflow:
+    build: ./docker/mlflow
+    ports:
+      - "5000:5000"
+    volumes:
+      - mlflow_data:/mlflow
+    container_name: mlops-mlflow
+
+  postgres:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_USER: mlops
+      POSTGRES_PASSWORD: mlops
+      POSTGRES_DB: mlops
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    container_name: mlops-postgres
+  redis:
+    image: redis:7.4-alpine
+    ports:
+      - "6379:6379"
+    container_name: mlops-redis
+  grafana:
+    image: grafana/grafana-oss:11.6.0
+    ports:
+      - "3000:3000"
+    environment:
+      GF_AUTH_ANONYMOUS_ENABLED: "true"
+      GF_AUTH_ANONYMOUS_ORG_ROLE: Admin
+    volumes:
+      - ./grafana/provisioning:/etc/grafana/provisioning:ro
+    depends_on:
+      - postgres
+    container_name: mlops-grafana
+  api:
+    build: .
+    command: python -m pipeline.api.app
+    ports:
+      - "9696:9696"
+    environment:
+      MLFLOW_TRACKING_URI: http://mlflow:5000
+      FAULT_INJECTION: "1"                 # démo uniquement
+      MLFLOW_HTTP_REQUEST_MAX_RETRIES: "0"  # si MLflow tombe, échouer vite au lieu de bloquer l'API
+      MLFLOW_HTTP_REQUEST_TIMEOUT: "5"
+    depends_on:
+      - mlflow
+    restart: unless-stopped
+    container_name: mlops-api
+    init: true
+
+  retrain:
+    build: .
+    command: python -m agents.retrain
+    environment:
+      MLFLOW_TRACKING_URI: http://mlflow:5000
+      REDIS_URL: redis://redis:6379/0
+      DATABASE_URL: postgresql+psycopg://mlops:mlops@postgres:5432/mlops
+      API_URL: http://api:9696
+      PYTHONUNBUFFERED: "1"
+      RETRAIN_COOLDOWN_MINUTES: "0"   # démo : pas de pause entre deux entraînements
+      MIN_IMPROVEMENT: "0.02"       
+    volumes:
+      - ./data:/app/data
+    depends_on:
+      - mlflow
+      - redis
+      - postgres
+      - api
+    restart: unless-stopped
+  cost:
+    build: .
+    command: python -m agents.cost
+    environment:
+      REDIS_URL: redis://redis:6379/0
+      DATABASE_URL: postgresql+psycopg://mlops:mlops@postgres:5432/mlops
+      MONTHLY_BUDGET: "0.01"   # mettre "0.1" pour la démo du scénario 3 (budget dépassé)
+      PYTHONUNBUFFERED: "1"
+    depends_on:
+      - redis
+      - postgres
+    restart: unless-stopped
+
+  orchestrator:
+    build: .
+    command: python -m agents.orchestrator
+    ports:
+      - "8080:8080"
+    environment:
+      REDIS_URL: redis://redis:6379/0
+      DATABASE_URL: postgresql+psycopg://mlops:mlops@postgres:5432/mlops
+      PYTHONUNBUFFERED: "1"
+    depends_on:
+      - redis
+      - postgres
+    restart: unless-stopped    
+volumes:
+  mlflow_data:
+  postgres_data:

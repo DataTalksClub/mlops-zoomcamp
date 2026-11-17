@@ -1,0 +1,13 @@
+apiVersion: 1
+datasources:
+  - name: Postgres
+    uid: postgres-mlops
+    type: grafana-postgresql-datasource
+    url: postgres:5432
+    user: mlops
+    secureJsonData:
+      password: mlops
+    jsonData:
+      database: mlops
+      sslmode: disable
+    isDefault: true

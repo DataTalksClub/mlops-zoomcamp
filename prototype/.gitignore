@@ -1,0 +1,9 @@
+﻿.env
+.venv/
+__pycache__/
+.pytest_cache/
+data/
+mlruns/
+mlartifacts/
+mlflow.db
+run_id.txt

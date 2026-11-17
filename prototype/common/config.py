@@ -1,0 +1,88 @@
+"""Configuration partagée par tous les agents.
+Chaque valeur peut être changée par une variable d'environnement (voir .env.example)."""
+import os
+
+# Services
+MLFLOW_TRACKING_URI = os.getenv("MLFLOW_TRACKING_URI", "http://localhost:5000")
+REDIS_URL = os.getenv("REDIS_URL", "redis://localhost:6379/0")
+DATABASE_URL = os.getenv("DATABASE_URL", "postgresql+psycopg://mlops:mlops@localhost:5432/mlops")
+API_URL = os.getenv("API_URL", "http://localhost:9696")
+
+# Modèle
+MODEL_NAME = os.getenv("MODEL_NAME", "taxi-duration")
+PRODUCTION_ALIAS = "production"
+PREVIOUS_ALIAS = "previous"  # version remplacée, pour un rollback
+EXPERIMENT_NAME = os.getenv("EXPERIMENT_NAME", "nyc-taxi-experiment")
+
+# Bus d'événements
+EVENTS_CHANNEL = os.getenv("EVENTS_CHANNEL", "mlops.events")
+
+# Seuils (à ajuster par l'équipe)
+DRIFT_THRESHOLD = float(os.getenv("DRIFT_THRESHOLD", "0.5"))
+MIN_IMPROVEMENT = float(os.getenv("MIN_IMPROVEMENT", "0.02"))  # 2 % d'erreur en moins
+RETRAIN_COOLDOWN_MINUTES = float(os.getenv("RETRAIN_COOLDOWN_MINUTES", "60"))  # pause entre deux entraînements
+DEFAULT_TRAIN_MONTHS = int(os.getenv("DEFAULT_TRAIN_MONTHS", "1"))  # mois d'entraînement si aucune période
+MAX_ERROR_RATE = float(os.getenv("MAX_ERROR_RATE", "0.05"))
+MAX_LATENCY_SECONDS = float(os.getenv("MAX_LATENCY_SECONDS", "1.0"))
+
+# Coûts (tarif fictif pour le prototype)
+CPU_HOUR_PRICE = float(os.getenv("CPU_HOUR_PRICE", "0.05"))
+MONTHLY_BUDGET = float(os.getenv("MONTHLY_BUDGET", "20.0"))
+
+
+# Qualité des données (agent qualité)
+MAX_TRIP_MINUTES = float(os.getenv("MAX_TRIP_MINUTES", "60"))
+MAX_PASSENGERS = int(os.getenv("MAX_PASSENGERS", "8"))
+MAX_TRIP_DISTANCE = float(os.getenv("MAX_TRIP_DISTANCE", "100"))
+CRITICAL_INVALID_SHARE = float(os.getenv("CRITICAL_INVALID_SHARE", "0.05"))
+
+COLUMN_DRIFT_THRESHOLD = float(os.getenv("COLUMN_DRIFT_THRESHOLD", "0.1"))
+
+
+# --- Fiabilité ---
+MONITORED_ENDPOINT = os.getenv("MONITORED_ENDPOINT", "/predict")  # route dont on surveille le SLO
+HTTP_TIMEOUT_SECONDS = float(os.getenv("HTTP_TIMEOUT_SECONDS", "3"))  # au-delà, l'API est jugée injoignable
+MIN_REQUESTS = int(os.getenv("MIN_REQUESTS", "10"))  # en dessous, le taux d'erreurs n'est pas significatif
+HIGH_ERROR_RATE = float(os.getenv("HIGH_ERROR_RATE", "0.20"))
+CRITICAL_ERROR_RATE = float(os.getenv("CRITICAL_ERROR_RATE", "0.50"))  # au-delà : critique d'office
+HIGH_LATENCY_SECONDS = float(os.getenv("HIGH_LATENCY_SECONDS", "3.0"))
+SLO_TARGET = float(os.getenv("SLO_TARGET", "0.99"))  # 99 % de requêtes réussies
+SLO_WINDOW_MINUTES = float(os.getenv("SLO_WINDOW_MINUTES", "60"))
+SEVERITY_MEDIUM_SCORE = int(os.getenv("SEVERITY_MEDIUM_SCORE", "4"))
+SEVERITY_HIGH_SCORE = int(os.getenv("SEVERITY_HIGH_SCORE", "7"))
+CRASH_LOOP_RESTARTS = int(os.getenv("CRASH_LOOP_RESTARTS", "3"))  # redémarrages en 10 min = boucle de crash
+RESOURCE_MEMORY_PERCENT = float(os.getenv("RESOURCE_MEMORY_PERCENT", "90"))
+RESOURCE_CPU_PERCENT = float(os.getenv("RESOURCE_CPU_PERCENT", "95"))
+BAD_MODEL_WINDOW_MINUTES = float(os.getenv("BAD_MODEL_WINDOW_MINUTES", "30"))  # modèle promu récemment = suspect
+API_CONTAINER_NAME = os.getenv("API_CONTAINER_NAME", "mlops-api")
+API_SERVICE_NAME = os.getenv("API_SERVICE_NAME", "api")  # nom du service dans docker-compose.yml
+REDIS_CONTAINER_NAME = os.getenv("REDIS_CONTAINER_NAME", "mlops-redis")
+MLFLOW_CONTAINER_NAME = os.getenv("MLFLOW_CONTAINER_NAME", "mlops-mlflow")
+# Seuls conteneurs que l'agent a le droit de toucher (jamais Postgres)
+ALLOWED_CONTAINERS = (API_CONTAINER_NAME, REDIS_CONTAINER_NAME, MLFLOW_CONTAINER_NAME)
+ACTION_HTTP_TIMEOUT_SECONDS = float(os.getenv("ACTION_HTTP_TIMEOUT_SECONDS", "30"))  # /reload peut prendre plusieurs secondes
+# Modèle de secours du mode dégradé : durée = base + minutes_par_mile x distance
+FALLBACK_BASE_MINUTES = float(os.getenv("FALLBACK_BASE_MINUTES", "4.0"))
+FALLBACK_MINUTES_PER_MILE = float(os.getenv("FALLBACK_MINUTES_PER_MILE", "3.5"))
+# Boucle de l'agent
+RELIABILITY_POLL_SECONDS = float(os.getenv("RELIABILITY_POLL_SECONDS", "15"))
+PROBE_COUNT = int(os.getenv("PROBE_COUNT", "10"))  # sondes par cycle (>= MIN_REQUESTS : mesure fiable sans trafic)
+CONSECUTIVE_BREACHES = int(os.getenv("CONSECUTIVE_BREACHES", "2"))  # dépassements de suite avant d'ouvrir un incident
+CONSECUTIVE_OK_TO_RESOLVE = int(os.getenv("CONSECUTIVE_OK_TO_RESOLVE", "2"))  # cycles OK de suite avant de clore
+VERIFY_WAIT_SECONDS = float(os.getenv("VERIFY_WAIT_SECONDS", "20"))  # délai laissé à une action avant de la juger
+MAX_RESTARTS_PER_HOUR = int(os.getenv("MAX_RESTARTS_PER_HOUR", "3"))  # anti-boucle
+ESCALATION_REMINDER_MINUTES = float(os.getenv("ESCALATION_REMINDER_MINUTES", "15"))
+VERIFY_MAX_WAIT_SECONDS = float(os.getenv("VERIFY_MAX_WAIT_SECONDS", "60"))  # attente max qu'une API redémarrée réponde
+PROBE_MAX_CONSECUTIVE_FAILURES = int(os.getenv("PROBE_MAX_CONSECUTIVE_FAILURES", "2"))  # au-delà, API jugée HS : on arrête les sondes
+FAULT_INJECTION = os.getenv("FAULT_INJECTION", "0") == "1"  # route /fault de démo, désactivée par défaut
+
+COST_PER_CPU_SECOND = float(os.getenv("COST_PER_CPU_SECOND", "0.0005"))
+COST_SPOT_DISCOUNT = float(os.getenv("COST_SPOT_DISCOUNT", "0.6"))
+DEFAULT_CPU_SECONDS_PER_MONTH_OF_DATA = float(
+    os.getenv("DEFAULT_CPU_SECONDS_PER_MONTH_OF_DATA", "600.0")
+)
+COST_IDLE_MINUTES = float(os.getenv("COST_IDLE_MINUTES", "30.0"))
+COST_SIZE_HEADROOM = float(os.getenv("COST_SIZE_HEADROOM", "0.3"))
+COST_HOURS_PER_MONTH = float(os.getenv("COST_HOURS_PER_MONTH", "730.0"))
+ORCHESTRATOR_WEB_PORT = int(os.getenv("ORCHESTRATOR_WEB_PORT", "8080"))# page web des notifications
+RETRAIN_TIMEOUT_MINUTES = float(os.getenv("RETRAIN_TIMEOUT_MINUTES", "30"))  # sans réponse de Retrain, on considère qu'il a échoué
