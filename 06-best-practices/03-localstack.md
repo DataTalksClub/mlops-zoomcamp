@@ -1,5 +1,6 @@
 ---
 video_url: "https://www.youtube.com/watch?v=9yMO86SYvuI&list=PL3MmuxUbc_hIUISrluw_A7wDSmfOhErJK"
+video_duration_seconds: 1075
 code:
   - label: "Kinesis integration test"
     path: code/integration-test/test_kinesis.py

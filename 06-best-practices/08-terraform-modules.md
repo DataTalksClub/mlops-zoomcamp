@@ -1,5 +1,6 @@
 ---
 video_url: "https://www.youtube.com/watch?v=-6scXrFcPNk&list=PL3MmuxUbc_hIUISrluw_A7wDSmfOhErJK&index=49"
+video_duration_seconds: 2067
 code:
   - label: "Kinesis Terraform module"
     path: code/infrastructure/modules/kinesis/main.tf

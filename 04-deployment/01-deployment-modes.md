@@ -1,5 +1,6 @@
 ---
 video_url: "https://www.youtube.com/watch?v=JMGe4yIoBRA&list=PL3MmuxUbc_hIUISrluw_A7wDSmfOhErJK"
+video_duration_seconds: 801
 prev_url: ../03-orchestration/03-orchestrator.md
 next_url: 02-flask-docker.md
 ---

@@ -1,5 +1,6 @@
 ---
 video_url: "https://www.youtube.com/watch?v=cESCQE9J3ZE&list=PL3MmuxUbc_hIUISrluw_A7wDSmfOhErJK"
+video_duration_seconds: 704
 code:
   - label: "MLflow requirements"
     path: requirements.txt

@@ -1,5 +1,6 @@
 ---
 video_url: "https://www.youtube.com/watch?v=IjNrkqMYQeQ&list=PL3MmuxUbc_hIUISrluw_A7wDSmfOhErJK"
+video_duration_seconds: 1250
 code:
   - label: "Baseline model notebook"
     path: baseline_model_nyc_taxi_data.ipynb

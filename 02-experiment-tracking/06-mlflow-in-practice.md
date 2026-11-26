@@ -1,5 +1,6 @@
 ---
 video_url: "https://www.youtube.com/watch?v=1ykg4YmbFVA&list=PL3MmuxUbc_hIUISrluw_A7wDSmfOhErJK"
+video_duration_seconds: 2539
 code:
   - label: "Scenario 1"
     path: running-mlflow-examples/scenario-1.ipynb

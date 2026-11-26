@@ -1,5 +1,6 @@
 ---
 video_url: "https://www.youtube.com/watch?v=iaJz-T7VWec&list=PL3MmuxUbc_hIUISrluw_A7wDSmfOhErJK"
+video_duration_seconds: 1445
 code:
   - label: "Duration prediction notebook"
     path: duration-prediction.ipynb

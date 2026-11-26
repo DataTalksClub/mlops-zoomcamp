@@ -1,5 +1,6 @@
 ---
 video_url: "https://www.youtube.com/watch?v=xkTWF9c33mU&list=PL3MmuxUbc_hIUISrluw_A7wDSmfOhErJK&index=53"
+video_duration_seconds: 1393
 code:
   - label: "Project quality commands"
     path: code/Makefile

@@ -1,5 +1,6 @@
 ---
 video_url: "https://www.youtube.com/watch?v=yixA3C1xSxc&list=PL3MmuxUbc_hIUISrluw_A7wDSmfOhErJK"
+video_duration_seconds: 560
 code:
   - label: "Monitoring Compose stack"
     path: docker-compose.yml

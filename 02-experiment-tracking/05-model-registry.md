@@ -1,5 +1,6 @@
 ---
 video_url: "https://www.youtube.com/watch?v=TKHU7HAvGH8&list=PL3MmuxUbc_hIUISrluw_A7wDSmfOhErJK"
+video_duration_seconds: 2120
 code:
   - label: "Model registry notebook"
     path: model-registry.ipynb

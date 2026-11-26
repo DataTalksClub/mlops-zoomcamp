@@ -1,5 +1,6 @@
 ---
 video_url: "https://www.youtube.com/watch?v=s0uaFZSzwfI&list=PL3MmuxUbc_hIUISrluw_A7wDSmfOhErJK"
+video_duration_seconds: 214
 next_url: 02-codespaces.md
 ---
 

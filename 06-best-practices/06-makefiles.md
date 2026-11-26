@@ -1,5 +1,6 @@
 ---
 video_url: "https://www.youtube.com/watch?v=F6DZdvbRZQQ&list=PL3MmuxUbc_hIUISrluw_A7wDSmfOhErJK"
+video_duration_seconds: 936
 code:
   - label: "Project Makefile"
     path: code/Makefile

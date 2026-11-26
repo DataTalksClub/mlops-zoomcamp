@@ -1,5 +1,6 @@
 ---
 video_url: "https://www.youtube.com/watch?v=lmMZ7Axk2T8&list=PL3MmuxUbc_hIUISrluw_A7wDSmfOhErJK"
+video_duration_seconds: 1072
 code:
   - label: "Pre-commit hooks"
     path: code/.pre-commit-config.yaml

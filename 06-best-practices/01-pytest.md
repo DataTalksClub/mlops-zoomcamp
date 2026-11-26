@@ -1,5 +1,6 @@
 ---
 video_url: "https://www.youtube.com/watch?v=CJp1eFQP5nk&list=PL3MmuxUbc_hIUISrluw_A7wDSmfOhErJK"
+video_duration_seconds: 1898
 code:
   - label: "Python model service"
     path: code/model.py

@@ -1,5 +1,6 @@
 ---
 video_url: "https://www.youtube.com/watch?v=XwTH8BDGzYk&list=PL3MmuxUbc_hIUISrluw_A7wDSmfOhErJK"
+video_duration_seconds: 864
 prev_url: 06-course-overview.md
 next_url: ../02-experiment-tracking/01-experiment-tracking-intro.md
 ---

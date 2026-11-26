@@ -1,5 +1,6 @@
 ---
 video_url: "https://www.youtube.com/watch?v=D7wfMAdgdF8&list=PL3MmuxUbc_hIUISrluw_A7wDSmfOhErJK"
+video_duration_seconds: 1722
 code:
   - label: "Flask web service"
     path: web-service/predict.py

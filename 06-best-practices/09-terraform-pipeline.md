@@ -1,5 +1,6 @@
 ---
 video_url: "https://www.youtube.com/watch?v=JVydd1K6R7M&list=PL3MmuxUbc_hIUISrluw_A7wDSmfOhErJK&index=50"
+video_duration_seconds: 4354
 code:
   - label: "Terraform root configuration"
     path: code/infrastructure/main.tf

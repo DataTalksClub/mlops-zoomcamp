@@ -1,5 +1,6 @@
 ---
 video_url: "https://www.youtube.com/watch?v=-c4iumyZMyw&list=PL3MmuxUbc_hIUISrluw_A7wDSmfOhErJK"
+video_duration_seconds: 272
 code:
   - label: "Grafana dashboard configuration"
     path: dashboards/data_drift.json

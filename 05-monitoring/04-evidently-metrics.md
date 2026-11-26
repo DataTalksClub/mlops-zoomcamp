@@ -1,5 +1,6 @@
 ---
 video_url: "https://www.youtube.com/watch?v=kP3lzh_HfWY&list=PL3MmuxUbc_hIUISrluw_A7wDSmfOhErJK"
+video_duration_seconds: 641
 code:
   - label: "Evidently metric calculation"
     path: evidently_metrics_calculation.py

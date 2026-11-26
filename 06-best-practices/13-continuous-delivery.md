@@ -1,5 +1,6 @@
 ---
 video_url: "https://www.youtube.com/watch?v=jCNxqXCKh2s&list=PL3MmuxUbc_hIUISrluw_A7wDSmfOhErJK&index=54"
+video_duration_seconds: 1395
 code:
   - label: "Manual deployment steps"
     path: code/scripts/deploy_manual.sh

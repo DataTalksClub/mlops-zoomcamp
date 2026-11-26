@@ -1,5 +1,6 @@
 ---
 video_url: "https://www.youtube.com/watch?v=YWao0rnqVoI&list=PL3MmuxUbc_hIUISrluw_A7wDSmfOhErJK&index=51"
+video_duration_seconds: 690
 code:
   - label: "Cloud end-to-end test"
     path: code/scripts/test_cloud_e2e.sh

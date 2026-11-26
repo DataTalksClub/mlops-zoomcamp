@@ -1,5 +1,6 @@
 ---
 video_url: "https://www.youtube.com/watch?v=lBX0Gl7Z1ck&list=PL3MmuxUbc_hIUISrluw_A7wDSmfOhErJK"
+video_duration_seconds: 2005
 code:
   - label: "Docker integration test"
     path: code/integration-test/test_docker.py

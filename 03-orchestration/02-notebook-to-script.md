@@ -1,5 +1,6 @@
 ---
 video_url: "https://www.youtube.com/watch?v=3_Uu0rInxWI&list=PL3MmuxUbc_hIUISrluw_A7wDSmfOhErJK"
+video_duration_seconds: 1700
 code:
   - label: "Duration prediction script"
     path: code/duration-prediction.py

@@ -1,5 +1,6 @@
 ---
 video_url: "https://www.youtube.com/watch?v=Lugy1JPsBRY&list=PL3MmuxUbc_hIUISrluw_A7wDSmfOhErJK"
+video_duration_seconds: 702
 prev_url: 06-mlflow-in-practice.md
 next_url: ../03-orchestration/01-ml-pipelines.md
 ---

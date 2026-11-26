@@ -1,5 +1,6 @@
 ---
 video_url: "https://www.youtube.com/watch?v=18Lbaaeigek&list=PL3MmuxUbc_hIUISrluw_A7wDSmfOhErJK"
+video_duration_seconds: 1538
 code:
   - label: "Batch scoring code"
     path: batch/score.py

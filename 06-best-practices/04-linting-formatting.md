@@ -1,5 +1,6 @@
 ---
 video_url: "https://www.youtube.com/watch?v=uImvWE-iSDQ&list=PL3MmuxUbc_hIUISrluw_A7wDSmfOhErJK"
+video_duration_seconds: 1938
 code:
   - label: "Python project configuration"
     path: code/pyproject.toml

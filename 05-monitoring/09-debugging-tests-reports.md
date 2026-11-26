@@ -1,5 +1,6 @@
 ---
 video_url: "https://www.youtube.com/watch?v=sNSk3ojISh8&list=PL3MmuxUbc_hIUISrluw_A7wDSmfOhErJK"
+video_duration_seconds: 1018
 code:
   - label: "Debugging notebook"
     path: debugging_nyc_taxi_data.ipynb

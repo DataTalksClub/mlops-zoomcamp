@@ -1,5 +1,6 @@
 ---
 video_url: "https://www.youtube.com/watch?v=aewOpHSCkqI&list=PL3MmuxUbc_hIUISrluw_A7wDSmfOhErJK"
+video_duration_seconds: 1156
 code:
   - label: "MLflow-backed web service"
     path: web-service-mlflow/predict.py

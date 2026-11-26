@@ -1,5 +1,6 @@
 ---
 video_url: "https://www.youtube.com/watch?v=TCqr9HNcrsI&list=PL3MmuxUbc_hIUISrluw_A7wDSmfOhErJK"
+video_duration_seconds: 3980
 code:
   - label: "Kinesis and Lambda example"
     path: streaming/lambda_function.py

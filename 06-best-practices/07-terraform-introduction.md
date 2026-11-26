@@ -1,5 +1,6 @@
 ---
 video_url: "https://www.youtube.com/watch?v=zRcLgT7Qnio&list=PL3MmuxUbc_hIUISrluw_A7wDSmfOhErJK&index=48"
+video_duration_seconds: 420
 code:
   - label: "Terraform infrastructure"
     path: code/infrastructure/main.tf
