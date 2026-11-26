@@ -38,3 +38,10 @@ urls:
   faq: https://datatalks.club/faq/mlops-zoomcamp.html
 hashtag: mlopszoomcamp
 published: true
+instructors:
+  - name: Cristian Martinez
+    url: https://www.linkedin.com/in/cristian-javier-martinez-09bb7031/
+  - name: Alexey Grigorev
+    url: https://www.linkedin.com/in/agrigorev/
+  - name: Emeli Dral
+    url: https://www.linkedin.com/in/emelidral/
